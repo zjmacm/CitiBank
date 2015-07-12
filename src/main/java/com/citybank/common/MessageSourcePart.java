@@ -8,10 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
-
+     
 /**
- * 在使用Spring的messageSource国际化的时�?�，
- * 方便�?启多项目同时配置各自的国际化消息文件�?
+ * 在使用Spring的messageSource国际化的时候，
+ * 方便开启多项目同时配置各自的国际化消息文件；
  * <code><pre>
  * &lt;bean class="cn.com.higinet.cmc.common.MessageSourcePart"&gt;
  *    &lt;property name="messageSource" ref="messageSource" /&gt;
@@ -43,7 +43,7 @@ public class MessageSourcePart {
 		}
 	}
 	
-	//不知道谁先注入，稳妥�?
+	//不知道谁先注入，稳妥点
 	public synchronized void setBasenames(String[] basenames){
 		if (basenames != null) {
 			this.basenames = new String[basenames.length];

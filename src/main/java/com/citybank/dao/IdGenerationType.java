@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 /**
@@ -9,7 +14,7 @@ package com.citybank.dao;
 public enum IdGenerationType {
 
 	/**
-	 * 使用数据库内置机制自动生成主�?
+	 * 使用数据库内置机制自动生成主键
 	 */
 	AUTO,
 	
@@ -19,12 +24,12 @@ public enum IdGenerationType {
 	ASSIGN,
 	
 	/**
-	 *  使用32�?16进制字符串，无中划线分隔�? 的UUID作为主键
+	 *  使用32位16进制字符串，无中划线分隔符 的UUID作为主键
 	 */
 	UUID,
 	
 	/**
-	 *  数据库序列，各数据库不一�?
+	 *  数据库序列，各数据库不一致
 	 */
 	SEQUENCE
 }

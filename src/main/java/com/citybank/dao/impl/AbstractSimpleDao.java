@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao.impl;
 
 import com.citybank.common.BaseConstant;
@@ -11,8 +16,9 @@ import java.util.List;
 import java.util.Map;
 
 
+
 /**
- * �?单数据库访问对象默认部分实现�?
+ * 简单数据库访问对象默认部分实现；
  * 分页接口方法未实现；
  * @author chenr
  * @version 2.0.0, 2011-6-22
@@ -73,10 +79,10 @@ public abstract class AbstractSimpleDao extends BaseDaoImpl implements SimpleDao
 	}
 	
 	/**
-	 * 从Map中取得指定键的整数类型�??
+	 * 从Map中取得指定键的整数类型值
 	 * @param params Map
-	 * @param keyName 键名�?
-	 * @param defaultValue 默认�?
+	 * @param keyName 键名称
+	 * @param defaultValue 默认值
 	 * @return 整数
 	 */
 	protected int getInteger(Map<String, ?> params, String keyName, int defaultValue){

@@ -1,5 +1,16 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao.impl;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 import com.citybank.dao.BaseDao;
 import com.citybank.dao.InnerSql;
@@ -12,37 +23,31 @@ import org.springframework.jdbc.core.StatementCreatorUtils;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.util.Assert;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-
 
 
 
 /**
- * 基础数据库访问操作接口的默认实现�?
+ * 基础数据库访问操作接口的默认实现；
  * 使用标准SQL拼装实现单表、批量等操作
  * 
  * @author chenr
  * @version 2.0.0, 2011-6-22
+ * @see com.citybank.dao.BaseDao
  */
 public class BaseDaoImpl implements BaseDao {
 	
 	/**
-	 * 查询指定SQL返回的记录�?�数
+	 * 查询指定SQL返回的记录总数
 	 */
 	private final static String COUNT_SQL = "SELECT COUNT(0) FROM (${SQL}) TEMP_C";
 	
 	/**
-	 * Spring的JDBC操作模板类实�?
+	 * Spring的JDBC操作模板类实例
 	 * @see org.springframework.jdbc.core.JdbcTemplate
 	 */
 	private JdbcTemplate jdbcTemplate;
 	/**
-	 * Spring的JDBC 命名参数操作模板类实�?
+	 * Spring的JDBC 命名参数操作模板类实例
 	 * @see org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 	 */
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;

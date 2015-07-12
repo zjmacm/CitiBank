@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 import java.io.IOException;
@@ -12,7 +17,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 /**
- * 统一管理SQL语句到外部文�?
+ * 统一管理SQL语句到外部文件
  * @author chenr
  * @version 2.0.0, 2011-6-22
  * @see org.springframework.context.ResourceLoaderAware
@@ -90,7 +95,7 @@ public class SqlMap implements ResourceLoaderAware {
 	}
 	
 	/**
-	 * 从缓存或新加载属性文�?
+	 * 从缓存或新加载属性文件
 	 * @param filename
 	 * @return
 	 */
@@ -105,7 +110,7 @@ public class SqlMap implements ResourceLoaderAware {
 	}
 	
 	/**
-	 * 重新加载属�?�文件并缓存
+	 * 重新加载属性文件并缓存
 	 * @param filename
 	 * @return
 	 */

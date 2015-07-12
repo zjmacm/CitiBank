@@ -23,8 +23,7 @@ public class SessionContext {
 	}
 
 	public static String getUserId(HttpServletRequest request) {
-		return (String) request.getSession().getAttribute("user_id");
-
+		return  request.getSession().getAttribute("user_id").toString();
 	}
 	
 }

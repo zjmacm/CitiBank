@@ -63,7 +63,7 @@ public class Mem {
 	}
 
 	/*
-	 * 用作java本地数据类型的转�?
+	 * 用作java本地数据类型的转换
 	 * */
 	public final static void int2byte(byte[]dst,int pos,int src)
 	{
@@ -90,7 +90,7 @@ public class Mem {
 		return dst;
 	}
 	/*
-	 * 用作java本地数据类型的转�?
+	 * 用作java本地数据类型的转换
 	 * */
 	final static void long2byte(byte[]dst,int pos,long src)
 	{
@@ -186,7 +186,7 @@ public class Mem {
 	
 	final static int[] ba2ia(int[] dst,byte[] src,int slen,boolean big_endian)
 	{
-		if(slen%4!=0)//byte数组长度只能�?4的整数�??
+		if(slen%4!=0)//byte数组长度只能是4的整数倍
 			return null;
 		
 		for(int i=0;i<slen;i+=4)
@@ -246,12 +246,12 @@ public class Mem {
 			int2byte(b,0,x,true);
 			printf("byte2int bigorder:0x%x-->[0x%x,0x%x,0x%x,0x%x]\n",x,b[0],b[1],b[2],b[3]);
 			if(!Arrays.toString(new byte[]{0x12, 0x34, 0x56, 0x78}).equals(Arrays.toString(b)))
-				printf("int2byte 测试错误�?");
+				printf("int2byte 测试错误！");
 				
 			int2byte(b,0,x,false);
 			printf("byte2int litorder:0x%x-->[0x%x,0x%x,0x%x,0x%x]\n",x,b[0],b[1],b[2],b[3]);
 			if(!Arrays.toString(new byte[]{0x78, 0x56, 0x34, 0x12}).equals(Arrays.toString(b)))
-				printf("int2byte 测试错误�?");
+				printf("int2byte 测试错误！");
 		}
 	}
 }

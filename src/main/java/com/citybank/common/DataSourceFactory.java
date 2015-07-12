@@ -22,14 +22,14 @@ public class DataSourceFactory {
 	//可以加载不同的数据源
 	//dbcp/c3p0/jndi ...
 	//统一加载
-	//加密连接字符�?
+	//加密连接字符串
 //	<bean id="dataSource" class="DataSourceFactory"	 factory-method="getInstance" />
 	private DataSourceFactory() {
 		
 	}
 	public static Object getInstance(String basenames)
 	{
-		System.out.println("加载文件�?"+basenames);
+		System.out.println("加载文件："+basenames);
 		if (dataSourceFactory !=null) {
 			return dataSourceFactory;
 		}
@@ -40,18 +40,18 @@ public class DataSourceFactory {
 			String rootKey = properties.getProperty(ROOT_KEY);
 			PropertyPlaceholderHelper prHelper = new PropertyPlaceholderHelper(properties,rootKey);
 			properties = prHelper.resolveProperties();
-			//加载的数据源�?
+			//加载的数据源类
 			String className = properties.getProperty(DB_DATABASECLASSNAME);
-			//数据源类�?
+			//数据源类型
 			String type = properties.getProperty(DB_TYPE);
-			//�?要解密的字段			
+			//需要解密的字段			
 //			String[] decipherfield = properties.getProperty(DB_DECIPHERFIELD).split(",");
 			Class<?> c =  Class.forName(className);
 			Object dataSource = c.newInstance();
 //			System.out.println("b:"+dataSource);
 //			Method[] ms=c.getDeclaredMethods(); 
 			Method[] ms=c.getMethods();
-			//判断是否是单例方�?
+			//判断是否是单例方法
 			boolean isObj =false;
 			for(Method m:ms){
 				if (m.getName().equals(DB_CLASS_ISSINGLETON)) {
@@ -91,7 +91,7 @@ public class DataSourceFactory {
 					propertesMap.put("set"+k, value);
 				}
 			}
-			//循环自身的方�?
+			//循环自身的方法
 //			System.out.println(ms.length);
 			for(Method m:ms){ 
 //				System.out.println(m.getName());
@@ -104,7 +104,7 @@ public class DataSourceFactory {
 						propertesMap.remove(m.getName());
 					}
 			}
-			//判断propertesMap里面还有没有�?要设置的方法，如果有则在其父类中查找
+			//判断propertesMap里面还有没有需要设置的方法，如果有则在其父类中查找
 //			System.out.println(propertesMap.size());
 			if (propertesMap.size()>0) {
 				for (Method m:c.getMethods()) {
@@ -130,12 +130,12 @@ public class DataSourceFactory {
 		}
 	}
 		/**
-	     * 反射获得方法，若本类不存在该方法则�?�归调用父类查找，若方法始终不存在返回空
+	     * 反射获得方法，若本类不存在该方法则递归调用父类查找，若方法始终不存在返回空
 	     * @author lzxz
-	     * @param clazz           类对�?
-	     * @param methodName      方法�?
+	     * @param clazz           类对象
+	     * @param methodName      方法名
 	     * @param parameterTypes  方法参数列表
-	     * @return 此方法获得Method对象总是可用�?
+	     * @return 此方法获得Method对象总是可用的
 	     */
 		public static Method getMethod(Class<?> clazz, String methodName, Class<?>... parameterTypes) {
 	

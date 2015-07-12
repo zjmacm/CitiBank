@@ -1,11 +1,17 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.common;
+
 import java.util.HashMap;
 
 /**
  * 不区分大小写key的Map
  *
  * @param <K> 键名类型
- * @param <V> 键�?�类�?
+ * @param <V> 键值类型
  * 
  * @author chenr
  * @version 2.0.0, 2011-6-22

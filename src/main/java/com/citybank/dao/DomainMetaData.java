@@ -1,39 +1,45 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
+
 package com.citybank.dao;
 
 import java.lang.reflect.Field;
 import java.util.*;
 
 /**
- * 域对象的元数据（注解映射的表名�?�字段名、主键）
+ * 域对象的（元）数据（注解映射的表名、字段名、主键）
  * @author chenr
  * @version 2.0.0, 2011-6-22
  * 
- * @see cn.com.higinet.rapid.base.dao.Table
- * @see cn.com.higinet.rapid.base.dao.Column
- * @see cn.com.higinet.rapid.base.dao.Pk
+ * @see com.citybank.dao.Table
+ * @see com.citybank.dao.Column
+ * @see com.citybank.dao.Pk
  */
 public class DomainMetaData {
 
 	/**
-	 * 表名�?
+	 * 表名称
 	 */
 	private String tableName;
 	/**
-	 * 主键定义�?<字段名称�? 主键生成类型>
+	 * 主键定义，<字段名称， 主键生成类型>
 	 */
 	private Map<String, IdGenerationType> pks;
 	/**
-	 * 字段定义�?<字段名称�? 字段在类中的反射引用>
+	 * 字段定义，<字段名称， 字段在类中的反射引用>
 	 */
 	private Map<String, Field> columns;
 	/**
-	 * 普�?�字段，即不包括主键的字段集�?
+	 * 普通字段，即不包括主键的字段集合
 	 */
 	private Set<String> columnsWithoutPk;
 	
 	/**
 	 * 获取表名
-	 * @return 字符�?
+	 * @return 字符串
 	 */
 	public String getTableName() {
 		return tableName;
@@ -41,29 +47,31 @@ public class DomainMetaData {
 	
 	/**
 	 * 获取主键定义主键定义
-	 * @return Map<字段名称�? 主键生成类型>
+	 * @return Map<字段名称， 主键生成类型>
 	 */
+	
 	public Map<String, IdGenerationType> getPks() {
 		return pks;
 	}
-
+	
 	/**
 	 * 获取字段定义
-	 * @return Map<字段名称�? 字段在类中的反射引用>
+	 * @return Map<字段名称， 字段在类中的反射引用>
 	 */
+	
 	public Map<String, Field> getColumns() {
 		return columns;
 	} 
 	/**
-	 * 获取普�?�字段，即不包括主键的字段集�?
-	 * @return 字符串集�?
+	 * 获取普通字段，即不包括主键的字段集合
+	 * @return 字符串集合
 	 */
 	public Set<String>getolumnsWithoutPk(){
 		return columnsWithoutPk;
 	}
 
 	/**
-	 * 实例化一个域对象元数据对�?
+	 * 实例化一个域对象元数据对象
 	 * @param c 域类型定义类
 	 */
 	public DomainMetaData(Class<?> c){
@@ -77,7 +85,7 @@ public class DomainMetaData {
 					+ c.getName());
 		}
 		
-		//获取表名�?
+		//获取表名称
 		String tname = table.value();
 		
 		//如果注解使用了空值，就尝试使用类名称
@@ -101,12 +109,12 @@ public class DomainMetaData {
 				columnName = f.getName();
 			}
 			
-			//�?查是否主�?
+			//检查是否主键
 			Pk pk = f.getAnnotation(Pk.class);
 			if(null != pk){
 				IdGenerationType idType = pk.value();
 				pks0.put(columnName, idType);
-				//未使用idGeneration属�??
+				//未使用idGeneration属性
 			}else{
 				columnsWithoutPk0.add(columnName);
 			}
@@ -121,8 +129,8 @@ public class DomainMetaData {
 	
 	/**
 	 * 是否空串
-	 * @param s 字符�?
-	 * @return boolean�?
+	 * @param s 字符串
+	 * @return boolean值
 	 */
 	private static boolean isEmpty(String s) {
 		return "".equals(s);

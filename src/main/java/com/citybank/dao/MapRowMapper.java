@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.ColumnMapRowMapper;
 
 
 /**
- * 对数据库数据记录的包�?
+ * 对数据库数据记录的包装
  * 不区分键值大小写(转为大写)
  * @author chenr
  * @version 2.0.0, 2011-10-28

@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao.impl;
 
 import java.util.HashMap;
@@ -13,13 +18,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 
-public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
+/**
+ * 数据库的简单访问对象Oracle实现
+ * @author chenr
+ * @version 2.0.0, 2011-6-22
+ * 
+ */
+public class OracleSimpleDaoImpl extends AbstractSimpleDao {
+
 	/**
 	 * 分页SQL语句模板
 	 */
+	private static final String SPLIT_PAGE_SQL = 
+			"select * from ( select split_rows.*, rownum as split_rows_num from " +
+			" (${SQL}) split_rows where rownum <= :__end ) where split_rows_num >= :__start";
 
-	private static final String SPLIT_PAGE_SQL = "select * from (${SQL}) as TEMP_PGS limit :__offset , :__limit";
-	
 	/**
 	 * 组合查询条件
 	 * @param params 参数Map
@@ -29,19 +42,20 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 	 */
 	private Map<String, Object> makeConditions(Map<String, ?> params, int pageindex, int pagesize){
 		
-		if(params.containsKey("__limit") || params.containsKey("__offset")){
-			throw new IllegalArgumentException("common defined param name can not be cover![__limit or __offset].");
+		if(params.containsKey("__start") || params.containsKey("__end")){
+			throw new IllegalArgumentException("common defined param name can not be cover![__start or __end].");
 		}
 		if(pageindex <= 0 || pagesize <= 0){
 			throw new IllegalArgumentException("pageindex and pagesize must be positive integer.");
 		}
 		Map<String, Object> p = new HashMap<String, Object>();
 		p.putAll(params);
-		int offset = (pageindex - 1) * pagesize;
-		p.put("__limit", pagesize);
-		p.put("__offset", offset);
-		
+		int start = (pageindex - 1) * pagesize + 1;
+		int end = start + pagesize - 1;
+		p.put("__start", start);
+		p.put("__end", end);
 		return p;
+		
 	}
 
 	public <T> Page<T> pageQuery(String sql, Map<String, ?> params,
@@ -75,14 +89,21 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 		sql += order.toSqlString();
 		String execSql = SPLIT_PAGE_SQL.replaceAll("\\$\\{SQL\\}", sql);
 		List<Map<String, Object>> pageList = queryForList(execSql, p);
-	
+		System.out.println("------------------------------------------------------------------------------------");
+		System.out.println(execSql);
+		System.out.println("start: " + p.get("__start"));
+		System.out.println("end: " + p.get("__end"));
 	
 		Page<Map<String, Object>> page = new Page<Map<String, Object>>();
 		page.setSize(pagesize);
 		page.setIndex(pageindex);
 		page.setTotal(totalCount);
 		page.setList(pageList);
-		
+		System.out.println("pagesize: " + pagesize);
+		System.out.println("pageindex: " + pageindex);
+		System.out.println("totalCount: " + totalCount);
+		System.out.println(pageList.size());
+		System.out.println("------------------------------------------------------------------------------------");
 		
 		return page;
 	}
@@ -91,23 +112,23 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 		try {
 			
 	
-		
+			//ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:/*.xml");
+			//ApplicationContext ac2 = new ClassPathXmlApplicationContext(new String[]{"applicationContext.xml","dao.xml"});
 			ApplicationContext ac = new ClassPathXmlApplicationContext("classpath*:/resources/spring/*applicationContext.xml");
 			
-			SimpleDao joaSimpleDao = (SimpleDao) ac.getBean("joaSimpleDao");
+			SimpleDao cmcSimpleDao = (SimpleDao) ac.getBean("cmcSimpleDao");
 			
-			long l = joaSimpleDao.count("select * from test");
+			long l = cmcSimpleDao.count("cmc_func");
 			System.out.println(l);
 			
-			l = joaSimpleDao.count("select name from test where name like '%c%'");
+			l = cmcSimpleDao.count("select func_name from cmc_func where func_name like '操%'");
 			System.out.println(l);
-			Map<String,String> map = new HashMap<String,String>();
-			map.put("name", "%c%");
-			Page<Map<String,Object>> results = joaSimpleDao.pageQuery("select * from test where name like :name", map, 2,2, new Order().desc("NAME"));
-			System.out.println(results.getSize());
-			System.out.println(results.getTotal());
-			System.out.println(results.getList().get(0).get("NAME"));
 			
+			
+			l = cmcSimpleDao.count("select func_name from cmc_func where func_name like ?",   "操%");
+			System.out.println(l);
+			
+		
 			// 用文件系统的路径,默认指项目的根路径
 		    // ApplicationContext factory = new FileSystemXmlApplicationContext("src/appcontext.xml");
 		    // ApplicationContext factory = new FileSystemXmlApplicationContext("webRoot/WEB-INF/appcontext.xml");
@@ -133,7 +154,7 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 		}
 		
 		catch(Exception ex) {
-			ex.printStackTrace();
+			
 		}
 	}
 

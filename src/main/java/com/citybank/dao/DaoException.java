@@ -1,3 +1,9 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
+
 package com.citybank.dao;
 
 

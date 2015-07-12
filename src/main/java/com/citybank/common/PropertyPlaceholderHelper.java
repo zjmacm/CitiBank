@@ -1,4 +1,5 @@
 package com.citybank.common;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Properties;
@@ -14,7 +15,7 @@ public class PropertyPlaceholderHelper {
 	private final boolean ignoreUnresolvablePlaceholders = false;
 	private final boolean searchSystemEnvironment = true;
 	private Properties props = null;
-	private int systemPropertiesMode = 1; //1:默认先查找Properties�?2：先查找系统参数
+	private int systemPropertiesMode = 1; //1:默认先查找Properties，2：先查找系统参数
 	private static String rootKey ; 
 //	private static String encryptionKey ; 
 	
@@ -51,7 +52,7 @@ public class PropertyPlaceholderHelper {
 		return -1;
 	}
 	/**
-	 * 解析字符�?
+	 * 解析字符串
 	 * @param strVal
 	 * @param placeholderResolver
 	 * @param visitedPlaceholders
@@ -156,13 +157,13 @@ public class PropertyPlaceholderHelper {
 //	}
 	protected String resolvePlaceholder(String placeholder) {
 		String propVal = null;
-		if (systemPropertiesMode == 2) { //直接�?查系统参�?
+		if (systemPropertiesMode == 2) { //直接检查系统参数
 			propVal = resolveSystemProperty(placeholder);
 		}
 		if (propVal == null) {
 			propVal = props.getProperty(placeholder);
 		}
-		if (propVal == null && systemPropertiesMode == 1) {//�?查系统参�?
+		if (propVal == null && systemPropertiesMode == 1) {//检查系统参数
 			propVal = resolveSystemProperty(placeholder);
 		}
 		return propVal;
@@ -193,7 +194,7 @@ public class PropertyPlaceholderHelper {
 		}
 	}
 	/**
-	 * 根据解析字符串获取其值替换占位符，当Properties中没有，可以�?查系统参�?
+	 * 根据解析字符串获取其值替换占位符，当Properties中没有，可以检查系统参数
 	 * @param strVal
 	 * @return
 	 */
@@ -230,7 +231,7 @@ public class PropertyPlaceholderHelper {
 		return true;
 	}
 	/**
-	 * 根据key获取占位符转化后的数�?
+	 * 根据key获取占位符转化后的数据
 	 * @param key
 	 * @return
 	 */
@@ -239,7 +240,7 @@ public class PropertyPlaceholderHelper {
 		return resolveStringValue(props.getProperty(key));
 	}
 	/**
-	 * 遍历Properties里面的数据，�?次转�?
+	 * 遍历Properties里面的数据，一次转化
 	 * @param strVal
 	 * @return
 	 */

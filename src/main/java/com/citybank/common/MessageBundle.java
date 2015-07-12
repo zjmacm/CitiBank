@@ -12,14 +12,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 
+
 /**
- * 资源包工具类�? 实现了资源包缓存�?
- * 依赖于spring的资源加载器�?
+ * 资源包工具类， 实现了资源包缓存；
+ * 依赖于spring的资源加载器；
  * 使用方法为：
  * <code><pre>
  * &lt;bean id="messageBundle" class="cn.com.higinet.common.MessageBundle" /&gt;
  * </pre></code>
- * 参�?�Spring 的消息包实现�?
+ * 参考Spring 的消息包实现；
  * @author zmy
  * @version 2014-07-06
  * 
@@ -45,8 +46,8 @@ public class MessageBundle implements ResourceLoaderAware {
 	}
 	
 	/**
-	 * 取得指定国家语言的消息包�?
-	 * 若缓存中有就从缓存中�?
+	 * 取得指定国家语言的消息包；
+	 * 若缓存中有就从缓存中取
 	 * @param locale
 	 * @return
 	 */
@@ -76,7 +77,7 @@ public class MessageBundle implements ResourceLoaderAware {
 	}
 	
 	/**
-	 * 从缓存或新加载属性文�?
+	 * 从缓存或新加载属性文件
 	 * @param filename
 	 * @return
 	 */
@@ -91,9 +92,9 @@ public class MessageBundle implements ResourceLoaderAware {
 	}
 	
 	/**
-	 * 重新加载属�?�文件并缓存
+	 * 重新加载属性文件并缓存
 	 * @param filename
-	 * @return 属�?�对�?
+	 * @return 属性对象
 	 */
 	protected Properties loadProperties(String filename){
 		Properties props = new Properties();

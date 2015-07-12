@@ -1,4 +1,5 @@
 package com.citybank.common;
+
 import java.util.UUID;
 
 /**
@@ -10,11 +11,12 @@ import java.util.UUID;
 public class IdUtil {
 
 	/**
-	 * 产生�?个不含分隔符�?32位长度字符串
-	 * @return 字符�?
+	 * 产生一个不含分隔符的32位长度字符串
+	 * @return 字符串
 	 */
 	public static String uuid(){
 		return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
 	}
+	
 
 }

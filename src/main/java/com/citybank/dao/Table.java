@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 import java.lang.annotation.ElementType;
@@ -6,8 +11,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * POJO映射到数据库表的表标�?;
- * 与{@link Column}, {@link Pk} 标记用作ORM�?单映射使�?
+ * POJO映射到数据库表的表标记;
+ * 与{@link Column}, {@link Pk} 标记用作ORM简单映射使用
  * <pre><code>
  *  &#064;Table("td_user")
  *  public class TestBO {
@@ -36,8 +41,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Table {
 	/**
-	 * 表名�?
-	 * @return 字符�?
+	 * 表名称
+	 * @return 字符串
 	 */
 	String value();
 }

@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.common;
 
 import com.citybank.dao.SimpleDao;
@@ -7,9 +12,8 @@ import java.util.*;
 
 
 
-
 /**
- * 带缓存的代码字典实现�?
+ * 带缓存的代码字典实现类
  * @author chenr
  * @version 2.0.0, 2011-6-30
  */
@@ -28,10 +32,10 @@ public class CodeDictCacheImpl implements CodeDict, Reloadable {
 
 	
 	/**
-	 * 获取�?个代码类别下代码键的�?
+	 * 获取一个代码类别下代码键的值
 	 * @param category 代码类别
-	 * @param code 代码�?
-	 * @return 键�??
+	 * @param code 代码键
+	 * @return 键值
 	 */
 	public String getCode(String category, String code){
 		if(lastmodify < 0) reload();
@@ -46,7 +50,7 @@ public class CodeDictCacheImpl implements CodeDict, Reloadable {
 		return null;
 	}
 	/**
-	 * 获取�?个代码类别下�?有代�?
+	 * 获取一个代码类别下所有代码
 	 * @param category 代码类别
 	 * @return 存放代码的键值对的Map对象
 	 */
@@ -64,7 +68,7 @@ public class CodeDictCacheImpl implements CodeDict, Reloadable {
 		return null;
 	}
 	/**
-	 * 获取�?有代码定�?
+	 * 获取所有代码定义
 	 * @return 存放代码的键值对的Map对象
 	 */
 	public Map<String, Map<String, String>> getAllCodes(){
@@ -77,8 +81,8 @@ public class CodeDictCacheImpl implements CodeDict, Reloadable {
 		return Collections.unmodifiableMap(codes0);
 	}
 	/**
-	 * �?后重载时�?
-	 * @return long型毫秒时�?
+	 * 最后重载时间
+	 * @return long型毫秒时间
 	 */
 	public long lastModify() {
 		return this.lastmodify;

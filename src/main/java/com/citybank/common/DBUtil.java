@@ -13,8 +13,8 @@ import javax.crypto.spec.SecretKeySpec;
 public class DBUtil {
 
 	private static final String desKeyHexString="0xec52d683d32afb192608b9ecc7294380914510a4e3b68ce0";
-	private static byte[] 	m_comm_root_key=null;	//服务�?
-	private static byte[] 	m_client_key=null;//客户�?
+	private static byte[] 	m_comm_root_key=null;	//服务器
+	private static byte[] 	m_client_key=null;//客户端
 	private static Map 		g_client_key=new TreeMap();
 	public static void set_root_key(String comm_root_key)
 	{
@@ -134,10 +134,10 @@ public class DBUtil {
 		KeyGenerator kg = KeyGenerator.getInstance("DESede");
     	
         //初始化密码生成器
-    	//省略该步骤，会根据算法自动生成使用的默认的密钥长�?
-    	//DES算法，密钥必须是56�?
-    	//若是AES，可以是128,192,256�?
-    	//若是Blowfish，则可以�?32~448之间可以�?8整除的数
+    	//省略该步骤，会根据算法自动生成使用的默认的密钥长度
+    	//DES算法，密钥必须是56位
+    	//若是AES，可以是128,192,256位
+    	//若是Blowfish，则可以是32~448之间可以被8整除的数
     	//HmacMD5和HmacSHA1默认的长度是64字节
     	kg.init(168);
     	//生成密钥
@@ -149,7 +149,7 @@ public class DBUtil {
 	}
 	/**
 	 * 使用对称密钥进行加密
-	 * String str �?要加密的加密�?
+	 * String str 需要加密的加密串
 	 * @throws Exception
 	 */
 	public static String encoder(String str) throws Exception{
@@ -166,7 +166,7 @@ public class DBUtil {
 		Cipher cp = Cipher.getInstance("DESede");
 		cp.init(Cipher.ENCRYPT_MODE, k);
 		
-		//获取等待加密的明�?
+		//获取等待加密的明文
 		byte ptext[] = str.getBytes("UTF-8");
 		
 		//执行加密
@@ -176,7 +176,7 @@ public class DBUtil {
 	}
 	/**
 	 * 使用对称密码解密
-	 * String str �?要解密的解密�?
+	 * String str 需要解密的解密串
 	 * @throws Exception
 	 */
 	public static String decoder(String str) throws Exception{

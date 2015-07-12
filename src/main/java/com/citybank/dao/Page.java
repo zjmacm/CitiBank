@@ -1,10 +1,15 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 import java.util.List;
 
 /**
  * 页对象（分页查询后结果）
- * @param <T> 页中记录列表的记录（可以是域对象或�?�Map�?
+ * @param <T> 页中记录列表的记录（可以是域对象或者Map）
  * 
  * @author chenr
  * @version 2.0.0, 2011-6-22
@@ -17,11 +22,11 @@ public class Page<T> {
 	 */
 	private int size = 25;
 	/**
-	 * 页码，默�?1
+	 * 页码，默认1
 	 */
 	private int index = 1;
 	/**
-	 * 总记录数，默�?0
+	 * 总记录数，默认0
 	 */
 	private long total = 0L;
 	/**
@@ -31,7 +36,7 @@ public class Page<T> {
 	
 	
 	/**
-	 * 获取页大�?
+	 * 获取页大小
 	 * @return 整数
 	 */
 	public int getSize() {
@@ -39,7 +44,7 @@ public class Page<T> {
 	}
 
 	/**
-	 * 设置页大�?
+	 * 设置页大小
 	 * @param size 整数
 	 */
 	public void setSize(int size) {
@@ -64,7 +69,7 @@ public class Page<T> {
 
 	/**
 	 * 获取总记录数
-	 * @return 长整型数�?
+	 * @return 长整型数值
 	 */
 	public long getTotal() {
 		return total;
@@ -72,7 +77,7 @@ public class Page<T> {
 
 	/**
 	 * 设置总记录数
-	 * @param total 长整型数�?
+	 * @param total 长整型数值
 	 */
 	public void setTotal(long total) {
 		this.total = total;
@@ -80,7 +85,7 @@ public class Page<T> {
 
 	/**
 	 * 获取记录列表
-	 * @return List<域对象（可以是POJO或�?�Map�?>
+	 * @return List<域对象（可以是POJO或者Map）>
 	 */
 	public List<T> getList() {
 		return list;
@@ -88,7 +93,7 @@ public class Page<T> {
 
 	/**
 	 * 设置记录列表
-	 * @param list List<域对象（可以是POJO或�?�Map�?>
+	 * @param list List<域对象（可以是POJO或者Map）>
 	 */
 	public void setList(List<T> list) {
 		this.list = list;

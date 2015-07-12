@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 import java.util.ArrayList;
@@ -5,7 +10,7 @@ import java.util.List;
 
 /**
  * 排序辅助类；
- * 构建�?个order by 之后的排序部分语句；
+ * 构建一个order by 之后的排序部分语句；
  * <code><pre>
  *  Order order = new Order();
  *  order.asc("field1").desc("field2")...
@@ -27,8 +32,8 @@ public class Order {
 	private List<OrderFragment> orderList = null;
 	
 	/**
-	 * 字段排序（内部类�?
-	 * 包装�?个字段的顺序
+	 * 字段排序（内部类）
+	 * 包装一个字段的顺序
 	 * 
 	 */
 	private class OrderFragment{
@@ -41,8 +46,8 @@ public class Order {
 		 */
 		boolean ascending;
 		/**
-		 * 实例化字段排序对象（内部使用�?;
-		 * 请勿直接使用此构造函�?
+		 * 实例化字段排序对象（内部使用）;
+		 * 请勿直接使用此构造函数
 		 * @param colName 列名
 		 * @param asc 是否升序
 		 */
@@ -52,8 +57,8 @@ public class Order {
 		}
 		
 		/**
-		 * 获取SQL字符�?
-		 * @return 字符�?
+		 * 获取SQL字符串
+		 * @return 字符串
 		 */
 		String toSqlString(){
 			return new StringBuffer(this.columnName)
@@ -81,7 +86,7 @@ public class Order {
 	}
 	
 	/**
-	 * 增加�?个字段降�?
+	 * 增加一个字段降序
 	 * @param columnName
 	 * @return 对象本身
 	 */
@@ -92,7 +97,7 @@ public class Order {
 	}
 	
 	/**
-	 * 增加�?个字段升�?
+	 * 增加一个字段升序
 	 * @param columnName
 	 * @return 对象本身
 	 */
@@ -103,7 +108,7 @@ public class Order {
 	
 	/**
 	 * 转化为可使用的SQL语句order by部分
-	 * @return SQL字符�?
+	 * @return SQL字符串
 	 */
 	public String toSqlString(){
 		if(orderList.size() == 0){
@@ -120,7 +125,7 @@ public class Order {
 	
 	
 	/**
-	 * 重载了Object的toString方法，方便打印调�?
+	 * 重载了Object的toString方法，方便打印调试
 	 * @see #toSqlString()
 	 * @see Object#toString()
 	 */

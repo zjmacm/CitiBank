@@ -1,3 +1,8 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.dao;
 
 import java.lang.reflect.Field;
@@ -13,10 +18,10 @@ import org.springframework.jdbc.core.RowMapper;
 
 
 /**
- * 域对象的包装�?;
- * �?个映射到数据库的POJO类即为域对象（全称模型域对象�?
+ * 域对象的包装类;
+ * 一个映射到数据库的POJO类即为域对象（全称模型域对象）
  * 
- * @param <T> 域对象类�?
+ * @param <T> 域对象类型
  * 
  * @author chenr
  * @version 2.0.0, 2011-6-22
@@ -24,24 +29,24 @@ import org.springframework.jdbc.core.RowMapper;
  */
 public class DomainWrap<T> implements RowMapper<T>{
 
-	//应�?�虑将类的注解缓存起�?
+	//应考虑将类的注解缓存起来
 	
 	
 	/**
-	 * 域对�?
+	 * 域对象
 	 */
 	private T domain;
 	/**
-	 * 域对象的�?
+	 * 域对象的类
 	 */
 	private Class<T> domainClass;
 	/**
-	 * 域对象的元数据对�?
+	 * 域对象的元数据对象
 	 */
 	private DomainMetaData dmd;
 	
 	/**
-	 * 域对象的元数据对象缓存Map<域对象的�?, 域对象的元数据对�?>
+	 * 域对象的元数据对象缓存Map<域对象的类, 域对象的元数据对象>
 	 */
 	private static Map<Class<?>, DomainMetaData> domains;
 	
@@ -52,9 +57,9 @@ public class DomainWrap<T> implements RowMapper<T>{
 	
 	
 	/**
-	 * 获取指定域类型的域对象的元数据对�?
+	 * 获取指定域类型的域对象的元数据对象
 	 * @param c 域类
-	 * @return 域对象的元数据对�?
+	 * @return 域对象的元数据对象
 	 */
 	public static DomainMetaData getDomainMetaData(Class<?> c){
 		
@@ -69,8 +74,8 @@ public class DomainWrap<T> implements RowMapper<T>{
 	}
 	
 	/**
-	 * 获取域对�?
-	 * @return 域对�?
+	 * 获取域对象
+	 * @return 域对象
 	 */
 	private T getDomain(){
 		if(domain == null){
@@ -88,7 +93,7 @@ public class DomainWrap<T> implements RowMapper<T>{
 	
 	/**
 	 * 实例化域对象的包装类
-	 * @param o 域对�?
+	 * @param o 域对象
 	 */
 	@SuppressWarnings("unchecked")
 	public DomainWrap(T o) {
@@ -109,15 +114,15 @@ public class DomainWrap<T> implements RowMapper<T>{
 	
 	/**
 	 * 获取表名
-	 * @return 字符�?
+	 * @return 字符串
 	 */
 	public String getTableName(){
 		return dmd.getTableName();
 	}
 
 	/**
-	 * 获取行记录�?�Map（不包含主键�?
-	 * @return Map<字段�?, 字段�?>
+	 * 获取行记录值Map（不包含主键）
+	 * @return Map<字段名, 字段值>
 	 */
 	public Map<String, Object> getRowMap(){
 		T t = getDomain();
@@ -138,8 +143,8 @@ public class DomainWrap<T> implements RowMapper<T>{
 	}
 	
 	/**
-	 * 获取行非空记录�?�Map（不包含主键�?
-	 * @return Map<字段�?, 字段�?>
+	 * 获取行非空记录值Map（不包含主键）
+	 * @return Map<字段名, 字段值>
 	 */
 	public Map<String, Object> getRowMapIgnoreNull(){
 		T t = getDomain();
@@ -162,8 +167,8 @@ public class DomainWrap<T> implements RowMapper<T>{
 	}
 	
 	/**
-	 * 获取行主键记录�?�Map
-	 * @return Map<字段�?, 字段�?>
+	 * 获取行主键记录值Map
+	 * @return Map<字段名, 字段值>
 	 */
 	public Map<String, Object> getIdMap(){
 		T t = getDomain();
@@ -184,8 +189,8 @@ public class DomainWrap<T> implements RowMapper<T>{
 	}
 	
 	/**
-	 * 获取行记录�?�Map（包含主键，创建表记录时使用�?
-	 * @return Map<字段�?, 字段�?>
+	 * 获取行记录值Map（包含主键，创建表记录时使用）
+	 * @return Map<字段名, 字段值>
 	 */
 	public Map<String, Object> getRowMapForCreate(){
 		T t = getDomain();
@@ -229,7 +234,7 @@ public class DomainWrap<T> implements RowMapper<T>{
 
 
 	/**
-	 * 记录ResultSet到域对象的转�?
+	 * 记录ResultSet到域对象的转化
 	 * @see org.springframework.jdbc.core.RowMapper#mapRow(java.sql.ResultSet, int)
 	 */
 	public T mapRow(ResultSet rs, int index) throws SQLException {

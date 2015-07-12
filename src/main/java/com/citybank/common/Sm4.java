@@ -1,5 +1,7 @@
 package com.citybank.common;
 
+import java.util.Arrays;
+
 public class Sm4 extends Mem{
 
 	static final int SMS4CROL(int uval, int bits) {

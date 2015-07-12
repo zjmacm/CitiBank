@@ -1,7 +1,12 @@
+/*
+ * Copyright © 2011 Beijing HiGiNet Technology Co.,Ltd.
+ * All right reserved.
+ *
+ */
 package com.citybank.common;
 
 /**
- * 常量�?
+ * 常量类
  *
  * 公用包中的使用的常量类；
  * 其他项目可以继承此类，扩展自己的常量类；
