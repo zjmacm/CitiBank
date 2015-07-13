@@ -87,12 +87,12 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 		return page;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			
 	
 		
-			ApplicationContext ac = new ClassPathXmlApplicationContext("classpath*:/resources/spring/*applicationContext.xml");
+			ApplicationContext ac = new ClassPathXmlApplicationContext("classpath*:/resources/spring*//*applicationContext.xml");
 			
 			SimpleDao joaSimpleDao = (SimpleDao) ac.getBean("joaSimpleDao");
 			
@@ -108,33 +108,33 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 			System.out.println(results.getTotal());
 			System.out.println(results.getList().get(0).get("NAME"));
 			
-			// 用文件系统的路径,默认指项目的根路径
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("src/appcontext.xml");
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("webRoot/WEB-INF/appcontext.xml");
-			// 用classpath路径
-		    // ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:appcontext.xml");
-		    // ApplicationContext factory = new ClassPathXmlApplicationContext("appcontext.xml");
+			 用文件系统的路径,默认指项目的根路径
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("src/appcontext.xml");
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("webRoot/WEB-INF/appcontext.xml");
+			 用classpath路径
+		     ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:appcontext.xml");
+		     ApplicationContext factory = new ClassPathXmlApplicationContext("appcontext.xml");
 
-		    // ClassPathXmlApplicationContext使用了file前缀是可以使用绝对路径的
-		    // ApplicationContext factory = new ClassPathXmlApplicationContext("file:F:/workspace/example/src/appcontext.xml");
+		     ClassPathXmlApplicationContext使用了file前缀是可以使用绝对路径的
+		     ApplicationContext factory = new ClassPathXmlApplicationContext("file:F:/workspace/example/src/appcontext.xml");
 
-		    // 用文件系统的路径,默认指项目的根路径
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("src/appcontext.xml");
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("webRoot/WEB-INF/appcontext.xml");
+		     用文件系统的路径,默认指项目的根路径
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("src/appcontext.xml");
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("webRoot/WEB-INF/appcontext.xml");
 
 
 
-		    // 使用了classpath:前缀,这样,FileSystemXmlApplicationContext也能够读取classpath下的相对路径
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("classpath:appcontext.xml");
-		    // ApplicationContext factory = new FileSystemXmlApplicationContext("file:F:/workspace/example/src/appcontext.xml");
+		     使用了classpath:前缀,这样,FileSystemXmlApplicationContext也能够读取classpath下的相对路径
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("classpath:appcontext.xml");
+		     ApplicationContext factory = new FileSystemXmlApplicationContext("file:F:/workspace/example/src/appcontext.xml");
 
-		    // 不加file前缀
-		    //ApplicationContext factory = new FileSystemXmlApplicationContext("F:/workspace/example/src/appcontext.xml");
+		     不加file前缀
+		    ApplicationContext factory = new FileSystemXmlApplicationContext("F:/workspace/example/src/appcontext.xml");
 		}
 		
 		catch(Exception ex) {
 			ex.printStackTrace();
 		}
-	}
+	}*/
 
 }

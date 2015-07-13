@@ -21,7 +21,7 @@
             </mvc:default-views>
         </mvc:content-negotiation>
         <mvc:bean-name/>
-        <mvc:jsp prefix="/" suffix=".jsp"/>
+        <mvc:jsp prefix="/views/" suffix=".jsp"/>
     </mvc:view-resolvers>
 
     <mvc:resources location="/res/js"
