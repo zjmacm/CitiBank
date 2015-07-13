@@ -48,6 +48,9 @@
 
         <!--ehcache缓存依赖版本-->
         <ehcache.version>2.6.11</ehcache.version>
+
+        <!--java mail依赖版本-->
+        <java-mail.version>1.4.7</java-mail.version>
     </properties>
 
     <dependencies>
@@ -176,7 +179,7 @@
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4.7</version>
+            <version>${java-mail.version}</version>
         </dependency>
     </dependencies>
     <build>

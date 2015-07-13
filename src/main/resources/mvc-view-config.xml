@@ -26,10 +26,6 @@
 
     <mvc:resources location="/res/js"
                    mapping="/js/**" />
-    <mvc:resources location="/res/css"
-                   mapping="/css/**" />
-    <mvc:resources location="/res/images"
-                   mapping="/images/**" />
 
     <mvc:annotation-driven/>
 

@@ -23,9 +23,6 @@ import org.springframework.jdbc.core.StatementCreatorUtils;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.util.Assert;
 
-
-
-
 /**
  * 基础数据库访问操作接口的默认实现；
  * 使用标准SQL拼装实现单表、批量等操作
@@ -205,7 +202,6 @@ public class BaseDaoImpl implements BaseDao {
 	@SuppressWarnings("unchecked")
 	public long count(String sql){
 		//System.out.println(COUNT_SQL.replaceFirst("\\$\\{SQL\\}", sql));
-		
 		return this.jdbcTemplate.queryForLong(COUNT_SQL.replaceFirst("\\$\\{SQL\\}", sql));
 	}
 	
