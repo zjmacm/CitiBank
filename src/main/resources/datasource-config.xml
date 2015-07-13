@@ -13,8 +13,8 @@
        http://www.springframework.org/schema/cache
        http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-    <context:component-scan base-package="com.citybank.dao"/>
-    <context:component-scan base-package="com.citybank.service"/>
+    <context:component-scan base-package="com.citibank.dao"/>
+    <context:component-scan base-package="com.citibank.service"/>
 
     <context:property-placeholder location="classpath:data-access.properties"/>
 
@@ -34,7 +34,7 @@
         <!--<constructor-arg ref="dataSource"/>-->
     <!--</bean>-->
 
-    <bean id="mySQLSimpleDao" class="com.citybank.dao.impl.MySQLSimpleDaoImpl">
+    <bean id="mySQLSimpleDao" class="com.citibank.dao.impl.MySQLSimpleDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 

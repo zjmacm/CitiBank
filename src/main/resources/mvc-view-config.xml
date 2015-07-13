@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.citybank.controller"/>
+    <context:component-scan base-package="com.citibank.controller"/>
 
     <mvc:view-resolvers>
         <mvc:content-negotiation use-not-acceptable="true">
