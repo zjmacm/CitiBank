@@ -177,7 +177,6 @@ public class PropertyPlaceholderHelper {
 	 * system environment variable if no matching system property has been found.
 	 * @param key the placeholder to resolve as system property key
 	 * @return the system property value, or <code>null</code> if not found
-	 * @see #setSearchSystemEnvironment
 	 * @see System#getProperty(String)
 	 * @see System#getenv(String)
 	 */
@@ -195,7 +194,7 @@ public class PropertyPlaceholderHelper {
 	}
 	/**
 	 * 根据解析字符串获取其值替换占位符，当Properties中没有，可以检查系统参数
-	 * @param strVal
+
 	 * @return
 	 */
 	public  String resolveStringValue(String value){
