@@ -1,6 +1,6 @@
-package com.citibank.controller;
+package com.citibank.controller.company;
 
-import com.citibank.service.UserService;
+import com.citibank.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,18 +15,18 @@ import java.util.Map;
 /**
  * Created by Administrator on 2015/7/13.
  */
-@Controller("UserController")
-public class UserController {
+@Controller("CompanyController")
+public class CompanyController {
 
     @Autowired
-    private UserService userService;
+    private CompanyService companyService;
 
-    public UserService getUserService() {
-        return userService;
+    public CompanyService getCompanyService() {
+        return companyService;
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    public void setCompanyService(CompanyService companyService) {
+        this.companyService = companyService;
     }
 
     @RequestMapping(value= "/companyLogin.htm",method = RequestMethod.GET)
@@ -43,7 +43,7 @@ public class UserController {
     public ModelAndView userRegister(@RequestParam Map<String,Object> reqs){
         //new一个模型
         ModelAndView model = new ModelAndView();
-        String result = userService.userRegister(reqs);
+        String result = companyService.userRegister(reqs);
         model.addObject("result",result);
         return model;
     }
@@ -56,7 +56,7 @@ public class UserController {
         }
         else{
             Map<String,Object> user = new HashMap<String, Object>();
-            user = userService.userLogin(reqs);
+            user = companyService.userLogin(reqs);
             if(user.get("result").toString().equals("success")){
                 model.addObject("result","success");
                 session.setAttribute("companyId",user.get("companyId"));

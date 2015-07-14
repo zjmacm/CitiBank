@@ -1,7 +1,7 @@
-package com.citibank.service.impl;
+package com.citibank.service.company.impl;
 
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
-import com.citibank.service.UserService;
+import com.citibank.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.*;
  * Created by Administrator on 2015/7/13.
  */
 @Service("UserService")
-public class UserServiceImpl implements UserService {
+public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
