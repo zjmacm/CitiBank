@@ -58,7 +58,7 @@ public class MapWrap<K, V> {
 	 * @param value 键值
 	 * @return Map包装对象
 	 * 
-	 * @see com.citibank.common.CaseInsensitiveHashMap
+	 * @see cn.com.higinet.rapid.base.util.CaseInsensitiveHashMap
 	 */
 	public static <K,V> MapWrap<K, V> map(K key, V value){
 		MapWrap<K, V> m = new MapWrap<K, V>(new CaseInsensitiveHashMap<K,V>());
