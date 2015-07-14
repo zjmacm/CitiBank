@@ -45,6 +45,10 @@
     <title></title>
 </head>
 <body>
-<button id="login_submit"></button>
+<input type="text" id="username"><br/>
+<input type="password" id="password"><br/>
+<input type="button" value="提交申请" id="login_submit">
+
+
 </body>
 </html>
