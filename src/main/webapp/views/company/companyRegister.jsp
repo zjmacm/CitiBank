@@ -41,8 +41,8 @@
       }
 
       $.ajax({
-        url:companyRegister,
-        data:{'username':username,'password':password},
+        url: "companyRegister",
+        data: {'username':username,'password':password},
         dataType: 'json',
         type: 'post',
         success:function(data){

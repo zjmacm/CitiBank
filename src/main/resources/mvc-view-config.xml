@@ -32,7 +32,7 @@
         <!--<property name="suffix" value=".jsp" />-->
     <!--</bean>-->
 
-    <mvc:resources location="/res/js/"
-                   mapping="/js/**" />
+    <mvc:resources location="/res/js/common/"
+                   mapping="/res/js/common/*" />
     <mvc:annotation-driven/>
 </beans>

@@ -5,7 +5,10 @@ import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2015/7/13.
@@ -30,6 +33,8 @@ public class CompanyServiceImpl implements CompanyService {
         String sql = "select *from db_user where userName = '"+userName+"'";
         if(mySQLSimpleDao.queryForList(sql,new HashMap<String,Object>()).size()>0){
             result = "repeat";
+
+
         }
         else{
             try{
@@ -66,7 +71,4 @@ public class CompanyServiceImpl implements CompanyService {
     public Integer getUserType(String user_id) {
         return null;
     }
-
-
-
 }

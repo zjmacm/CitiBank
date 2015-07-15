@@ -16,7 +16,7 @@
       var username = $('#username').val();
       var password = $('#password').val();
       $.ajax({
-        url: companyLogin,
+        url: "companyLogin",
         data:{'username':username,'password':password},
         type: 'post',
         dataType: 'json',
@@ -45,6 +45,10 @@
     <title></title>
 </head>
 <body>
-<button id="login_submit"></button>
+<input type="text" id="username"><br/>
+<input type="password" id="password"><br/>
+<input type="button" value="提交申请" id="login_submit">
+
+
 </body>
 </html>
