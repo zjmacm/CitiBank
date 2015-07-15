@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
+  User: zjm
   Date: 2015/7/13
   Time: 22:20
   To change this template use File | Settings | File Templates.
@@ -11,7 +11,7 @@
 <script type="text/javascript" src="/res/js/common/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="/res/js/common/jcl.js"></script>
 <script type="text/javascript">
-  $(document).ready(function(){
+  (document).ready(function(){
     $('#login_submit').click(function(){
       var username = $('#username').val();
       var password = $('#password').val();

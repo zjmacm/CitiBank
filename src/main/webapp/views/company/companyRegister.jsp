@@ -20,10 +20,10 @@
     var companyName = $('#companyName').val();
     var companyType = $('#companyType').val();
     var registerCapital = $('#registerCapital').val();
-    var businessLicense = $('#businessLicense').val();
+    var bussinessLicense = $('#bussinessLicense').val();
     var legalPresentative = $('#legalPresentative').val();
     var formedTime = $('#formedTime').val();
-    var officialWeb = $('#officialWeb').val();
+
     var baseAddress = $('#baseAddress').val();
     var registerAddress = $('#registerAddress').val();
     var consultPhone = $('#consultPhone').val();
@@ -36,7 +36,7 @@
 
 
     $('#register_submit').click(function(){
-      if(password==repassword){
+      if(password!=repassword){
         return false;
       }
 
@@ -45,6 +45,8 @@
         data: {'username':username,'password':password},
         dataType: 'json',
         type: 'post',
+
+
         success:function(data){
           if(data.result=="success") {
             alert('注册成功');
@@ -69,6 +71,6 @@
 
 <input type="text" id="username">
 <input type="password" id="password">
-<button id="register_submit">注册</button>
+<input type="button" id="register_submit" value="submit register">
 </body>
 </html>

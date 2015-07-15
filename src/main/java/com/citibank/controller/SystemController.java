@@ -15,7 +15,6 @@ import java.util.Map;
 
 @Controller("SystemController")
 public class SystemController {
-
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public @ResponseBody Map<String, String> index(){
         Map map = new HashMap<String, String>();
