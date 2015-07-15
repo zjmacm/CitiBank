@@ -24,9 +24,15 @@
         <mvc:jsp prefix="/views/" suffix=".jsp"/>
     </mvc:view-resolvers>
 
-    <mvc:resources location="/res/js"
-                   mapping="/js/**" />
+    <!--<bean id="jspViewResolver"-->
+          <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="viewClass"-->
+                  <!--value="org.springframework.web.servlet.view.JstlView" />-->
+        <!--<property name="prefix" value="/webapp/views/" />-->
+        <!--<property name="suffix" value=".jsp" />-->
+    <!--</bean>-->
 
+    <mvc:resources location="/res/js/common/"
+                   mapping="/res/js/common/*" />
     <mvc:annotation-driven/>
-
 </beans>
