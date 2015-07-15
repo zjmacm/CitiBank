@@ -1,17 +1,15 @@
 package com.citibank.service.impl;
 
+import com.citibank.common.IdUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
- * Created by Administrator on 2015/7/13.
+ * Created by zjm on 2015/7/13.
  */
 @Service("UserService")
 public class CompanyServiceImpl implements CompanyService {
@@ -29,25 +27,20 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public String userRegister(Map<String, Object> reqs) {
         String result = "success";
-        String userName = reqs.get("username").toString();
-        String sql = "select *from db_user where userName = '"+userName+"'";
-        if(mySQLSimpleDao.queryForList(sql,new HashMap<String,Object>()).size()>0){
-            result = "repeat";
+        try{
+            /*Date date = new Date();
+            reqs.put("formedTime","date");*/
+            String id = IdUtil.uuid();
+            reqs.put("company",id);
+            mySQLSimpleDao.create("companyInfo",reqs);
 
-
+        }catch (Exception e){
+            e.printStackTrace();
+            result = "failed";
         }
-        else{
-            try{
-                Date date = new Date();
-                reqs.put("formedTime","date");
-                mySQLSimpleDao.create("companyInfo",reqs);
 
 
-            }catch (Exception e){
-                e.printStackTrace();
-                result = "failed";
-            }
-        }
+
         return result;
     }
 
@@ -68,7 +61,44 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Integer getUserType(String user_id) {
-        return null;
+    public String confirmEmail(Map<String, Object> reqs) {
+
+        String result = "success";
+        String sql = "select *from company where username=:username";
+        if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
+            result = "failed";
+        }
+        return result;
     }
+
+    @Override
+    public String confirmCompanyCode(Map<String, Object> reqs) {
+        String result = "success";
+        String sql = "select *from company where companyCode=:companyCode";
+        if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
+            result = "failed";
+        }
+        return result;
+    }
+
+    @Override
+    public String confirmCompanyName(Map<String, Object> reqs) {
+        String result = "success";
+        String sql = "select *from company where companyName=:companyName";
+        if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
+            result = "failed";
+        }
+        return result;
+    }
+
+    @Override
+    public String confirmBussinessLisence(Map<String, Object> reqs) {
+        String result = "success";
+        String sql = "select *from company where bussinessLisence=:bussinessLisence";
+        if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
+            result = "failed";
+        }
+        return result;
+    }
+
 }

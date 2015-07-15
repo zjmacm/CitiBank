@@ -38,7 +38,8 @@ public class ConditionUtil {
 		}
 		return "";
 	}
-	
+
+
 	/**
 	 * 拼装like的模糊查询的通配符(%?%)
 	 * @param s 字符串
@@ -54,6 +55,7 @@ public class ConditionUtil {
 	 * @param pattern 模板字符串，其中?将被传入字符串替换
 	 * @return 字符串
 	 */
+
 	public static String like(String s, String pattern){
 		if(isEmpty(s)) return s;
 		return pattern.replaceAll("\\?", s);
