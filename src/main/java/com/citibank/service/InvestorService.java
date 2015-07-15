@@ -7,4 +7,5 @@ import java.util.Map;
  */
 public interface InvestorService {
     public String registerInvestor(Map<String, Object> reqs);
+    public Map<String,Object> loginInvestor(Map<String,Object> reqs);
 }

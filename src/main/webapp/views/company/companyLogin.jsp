@@ -16,7 +16,7 @@
       var username = $('#username').val();
       var password = $('#password').val();
       $.ajax({
-        url: companyLogin,
+        url: "companyLogin",
         data:{'username':username,'password':password},
         type: 'post',
         dataType: 'json',

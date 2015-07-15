@@ -71,7 +71,4 @@ public class CompanyServiceImpl implements CompanyService {
     public Integer getUserType(String user_id) {
         return null;
     }
-
-
-
 }
