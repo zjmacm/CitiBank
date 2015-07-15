@@ -16,7 +16,7 @@ public class SyetemController {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public String index(){
         return "main/index";
     }

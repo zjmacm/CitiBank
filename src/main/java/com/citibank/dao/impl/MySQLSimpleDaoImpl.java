@@ -1,15 +1,12 @@
-package com.citybank.dao.impl;
+package com.citibank.dao.impl;
+
+import com.citibank.dao.DomainWrap;
+import com.citibank.dao.Order;
+import com.citibank.dao.Page;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.citybank.dao.DomainWrap;
-import com.citybank.dao.Order;
-import com.citybank.dao.Page;
-import com.citybank.dao.SimpleDao;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 
