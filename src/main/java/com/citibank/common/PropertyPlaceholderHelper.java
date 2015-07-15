@@ -54,7 +54,6 @@ public class PropertyPlaceholderHelper {
 	/**
 	 * 解析字符串
 	 * @param strVal
-	 * @param placeholderResolver
 	 * @param visitedPlaceholders
 	 * @return
 	 */
@@ -194,7 +193,6 @@ public class PropertyPlaceholderHelper {
 	}
 	/**
 	 * 根据解析字符串获取其值替换占位符，当Properties中没有，可以检查系统参数
-
 	 * @return
 	 */
 	public  String resolveStringValue(String value){
