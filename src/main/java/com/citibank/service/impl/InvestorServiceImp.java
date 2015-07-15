@@ -43,7 +43,6 @@ public class InvestorServiceImp implements InvestorService {
             }
         }
         return result;
-
     }
 
     public Map<String, Object> loginInvestor(Map<String, Object> reqs) {
