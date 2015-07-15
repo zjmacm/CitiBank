@@ -16,14 +16,14 @@ public class Investor {
     private String legalRepresentative;//法定代表人信息
     private String legalRepresentativeMandator;//法定代表人委托人信息
     private String companyScale;//公司规模
-    private String totalMoney;//拥有资金额
+    private int totalMoney;//拥有资金额
     private String contactWay;//联系方式
     private String investArea;//投资地区
     private String investField;//投资领域
     private String investStage;//投资阶段
     private String investPeriod;//投资周期
     private String investIndustry;//投资行业
-    private String investMoney;//投资意向金额
+    private int investMoney;//投资意向金额
     private String investType;//投资类型
     private String material;//所需材料
     private String investHistory;//投资历史
