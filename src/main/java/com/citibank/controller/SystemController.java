@@ -24,11 +24,9 @@ public class SystemController {
         return map;
     }
 
-
     @RequestMapping(value="/test.htm", method = RequestMethod.POST)
     public void Test(@RequestParam Map<String,Object> reqs){
         System.out.println(reqs.get("name")+" "+reqs.get("password"));
     }
-
 
 }
