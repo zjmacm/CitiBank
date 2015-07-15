@@ -1,8 +1,9 @@
-package com.citibank.service.register.imp;
+package com.citibank.service.impl;
 
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
-import com.citibank.service.register.InvestorService;
+import com.citibank.service.InvestorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Map;
 /**
  * Created by liuhao on 15-7-14.
  */
+@Service
 public class InvestorServiceImp implements InvestorService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
@@ -22,8 +24,6 @@ public class InvestorServiceImp implements InvestorService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-
-    @Override
     public String registerInvestor(Map<String, Object> reqs) {
         String result="";
         String username=(String)reqs.get("username");
@@ -46,7 +46,6 @@ public class InvestorServiceImp implements InvestorService {
 
     }
 
-    @Override
     public Map<String, Object> loginInvestor(Map<String, Object> reqs) {
         Map<String,Object> result=new HashMap<String,Object>();
         if(!reqs.containsKey("username")||!reqs.containsKey("password"))

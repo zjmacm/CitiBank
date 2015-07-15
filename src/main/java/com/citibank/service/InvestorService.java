@@ -1,4 +1,4 @@
-package com.citibank.service.register;
+package com.citibank.service;
 
 import java.util.Map;
 

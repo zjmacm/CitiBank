@@ -1,7 +1,7 @@
-package com.citibank.service.company.impl;
+package com.citibank.service.impl;
 
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
-import com.citibank.service.company.CompanyService;
+import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

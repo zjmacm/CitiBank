@@ -51,6 +51,10 @@
 
         <!--java mail依赖版本-->
         <java-mail.version>1.4.7</java-mail.version>
+
+        <!--json依赖版本-->
+        <jackson-core.version>2.1.2</jackson-core.version>
+        <jackson-asl.version>1.9.13</jackson-asl.version>
     </properties>
 
     <dependencies>
@@ -187,6 +191,22 @@
             <artifactId>json-lib</artifactId>
             <version>2.4</version>
             <classifier>jdk15</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson-asl.version}</version>
         </dependency>
 
     </dependencies>
