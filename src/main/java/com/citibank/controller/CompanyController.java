@@ -96,15 +96,14 @@ public class CompanyController {
             if(user.get("result").toString().equals("success")){
                 model.addObject("result","success");
                 //登陆成功后将companyId加入session中
-                session.setAttribute("companyId",user.get("companyId"));
-                session.setAttribute("username",reqs.get("username"));
+                session.setAttribute("userId",user.get("companyId"));
+                session.setAttribute("userType",0);
             }else{
                 model.addObject("result","failed");
             }
         }
         return model;
     }
-
 
 
 }

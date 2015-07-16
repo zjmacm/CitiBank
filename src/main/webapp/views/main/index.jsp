@@ -16,27 +16,28 @@
   <script type="text/javascript" src="/res/js/common/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="/res/js/common/jcl.js"></script>
 
+
+
   <script type="text/javascript">
     $(document).ready(function(){
       $('#btn').click(function(){
         $.ajax({
-          url: "test.htm",
-          type: "post",
-          dataType: "json",
-          data:{"name":"bob","password":"hello"},
-          success:function(data){
-            alert(data);
-          }
-
-
-        });
+              url  : "test1",
+              type : "post",
+              dataType: "json",
+              data:{},
+              success:function(data){
+                  alert(data.result);
+              }
+            });
       });
     });
   </script>
 
 </head>
 <body>
-
+<input type="text" id="username">
+<input type="password" id="password">
 <input id="btn" type="button" value="测试">
 
 </body>

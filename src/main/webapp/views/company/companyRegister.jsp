@@ -22,7 +22,6 @@
     var registerCapital = $('#registerCapital').val();
     var bussinessLicense = $('#bussinessLicense').val();
     var legalPresentative = $('#legalPresentative').val();
-    var formedTime = $('#formedTime').val();
 
     var baseAddress = $('#baseAddress').val();
     var registerAddress = $('#registerAddress').val();
@@ -42,7 +41,11 @@
 
       $.ajax({
         url: "companyRegister",
-        data: {'username':username,'password':password},
+        data: {'username':username,'password':password,'companyName':companyName,'companyType':companyType,
+        'registerCapital':registerCapital,'bussinessLicense':bussinessLicense,'legalPresentative':legalPresentative,
+        'baseAddress':baseAddress,'registerAddress':registerAddress,'consultPhone':consultPhone,'workingFiled':workingFiled,
+          'majorAffair':majorAffair,'revenueModels':revenueModels
+        },
         dataType: 'json',
         type: 'post',
 
@@ -69,8 +72,21 @@
 </head>
 <body>
 
-<input type="text" id="username">
-<input type="password" id="password">
+<input type="text"  id="username"><br/>
+<input type="password" id="password"><br/>
+<input type="password" id="repassword"><br/>
+<input type="text" id="companyName"><br/>
+<input type="text" id="companyType"><br/>
+<input type="text" id="registerCapital"><br/>
+<input type="text" id="bussinessLicense"><br/>
+<input type="text" id="legalPresentative"><br/>
+<input type="text" id="baseAddress"><br/>
+<input type="text" id="registerAddress"><br/>
+<input type="text" id="consultPhone"><br/>
+<input type="text" id="workingFiled"><br/>
+<input type="text" id="majorAffair"><br/>
+<input type="text" id="revenueModels"><br/>
 <input type="button" id="register_submit" value="submit register">
+
 </body>
 </html>

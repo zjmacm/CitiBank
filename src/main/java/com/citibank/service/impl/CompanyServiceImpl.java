@@ -5,16 +5,17 @@ import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.*;
 
 /**
  * Created by zjm on 2015/7/13.
  */
-@Service("UserService")
+@Service("CompanyService")
 public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
+
+
 
     public MySQLSimpleDaoImpl getMySQLSimpleDao() {
         return mySQLSimpleDao;
@@ -28,11 +29,11 @@ public class CompanyServiceImpl implements CompanyService {
     public String userRegister(Map<String, Object> reqs) {
         String result = "success";
         try{
-            /*Date date = new Date();
-            reqs.put("formedTime","date");*/
+            Date date = new Date();
+            reqs.put("formedTime","date");
             String id = IdUtil.uuid();
-            reqs.put("company",id);
-            mySQLSimpleDao.create("companyInfo",reqs);
+            reqs.put("companyId",id);
+            mySQLSimpleDao.create("company",reqs);
 
         }catch (Exception e){
             e.printStackTrace();
@@ -100,5 +101,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return result;
     }
+
+
 
 }
