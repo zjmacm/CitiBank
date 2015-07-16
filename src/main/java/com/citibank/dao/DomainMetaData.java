@@ -66,7 +66,7 @@ public class DomainMetaData {
 	 * 获取普通字段，即不包括主键的字段集合
 	 * @return 字符串集合
 	 */
-	public Set<String>getolumnsWithoutPk(){
+	public Set<String>getcolumnsWithoutPk(){
 		return columnsWithoutPk;
 	}
 

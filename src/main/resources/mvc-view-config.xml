@@ -25,6 +25,8 @@
         <mvc:jsp prefix="/views/" suffix=".jsp"/>
     </mvc:view-resolvers>
 
+
+
     <!--<bean id="jspViewResolver"-->
           <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
         <!--<property name="viewClass"-->

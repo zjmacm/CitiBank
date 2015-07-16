@@ -128,7 +128,7 @@ public class DomainWrap<T> implements RowMapper<T>{
 		T t = getDomain();
 		Map<String, Object> row = new HashMap<String, Object>();
 		Map<String, Field> columns = dmd.getColumns();
-		Set<String> columnsWithoutPk = dmd.getolumnsWithoutPk();
+		Set<String> columnsWithoutPk = dmd.getcolumnsWithoutPk();
 		try {
 			for(String columnName : columnsWithoutPk){
 				Field f = columns.get(columnName);
@@ -150,7 +150,7 @@ public class DomainWrap<T> implements RowMapper<T>{
 		T t = getDomain();
 		Map<String, Object> row = new HashMap<String, Object>();
 		Map<String, Field> columns = dmd.getColumns();
-		Set<String> columnsWithoutPk = dmd.getolumnsWithoutPk();
+		Set<String> columnsWithoutPk = dmd.getcolumnsWithoutPk();
 		try {
 			for(String columnName : columnsWithoutPk){
 				Field f = columns.get(columnName);
@@ -196,7 +196,7 @@ public class DomainWrap<T> implements RowMapper<T>{
 		T t = getDomain();
 		Map<String, Object> row = new HashMap<String, Object>();
 		Map<String, Field> columns = dmd.getColumns();
-		Set<String> columnsWithoutPk = dmd.getolumnsWithoutPk();
+		Set<String> columnsWithoutPk = dmd.getcolumnsWithoutPk();
 		Map<String, IdGenerationType> pks = dmd.getPks();
 		try {
 			for(String columnName : columnsWithoutPk){

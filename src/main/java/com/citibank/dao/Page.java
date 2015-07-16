@@ -33,6 +33,11 @@ public class Page<T> {
 	 * 记录列表
 	 */
 	private List<T> list;
+
+	/**
+	 * 页数
+	 */
+	private int pageCount;
 	
 	
 	/**
@@ -79,8 +84,12 @@ public class Page<T> {
 	 * 设置总记录数
 	 * @param total 长整型数值
 	 */
-	public void setTotal(long total) {
+	public void setTotal(long total,int pageSize) {
 		this.total = total;
+		this.pageCount= (int) (total/10);
+		if(total%10!=0){
+			this.pageCount++;
+		}
 	}
 
 	/**
@@ -97,6 +106,10 @@ public class Page<T> {
 	 */
 	public void setList(List<T> list) {
 		this.list = list;
+	}
+
+	public int getpageCount() {
+		return pageCount;
 	}
 
 }

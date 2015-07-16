@@ -9,12 +9,14 @@ import java.util.Date;
  */
 @Repository
 public class Company {
+
     private String username;//用户名
     private String password;//密码
     private String companyName;//公司名
     private String companyType;//公司类型
     private double registerCapital;//注册资本
     private String bussinessLisence;//营业执照注册号
+    private String companyCode;
     private String legalPresentative;//法定代表人
     private Date formedTime;//成立时间
     private String officialWeb;//官网地址

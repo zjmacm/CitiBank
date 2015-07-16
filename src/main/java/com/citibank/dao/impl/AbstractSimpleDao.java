@@ -24,6 +24,8 @@ import java.util.Map;
  * @version 2.0.0, 2011-6-22
  *
  */
+
+
 public abstract class AbstractSimpleDao extends BaseDaoImpl implements SimpleDao {
 	
 	public <T> void create(T o) {

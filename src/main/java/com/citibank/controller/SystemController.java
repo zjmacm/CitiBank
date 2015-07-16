@@ -1,12 +1,19 @@
 package com.citibank.controller;
 
+import com.citibank.dao.Order;
+import com.citibank.dao.Page;
+import com.citibank.dao.impl.MySQLSimpleDaoImpl;
+
 
 import com.citibank.dao.SimpleDao;
 import com.citibank.service.SystemMessageService;
 import com.citibank.service.impl.SystemMessageServiceImpl;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,8 +26,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.*;
+
 /**
- * Created by Administrator on 2015/7/12.
+ * Created by zjm on 2015/7/12.
  */
 
 @Controller("SystemController")
@@ -36,7 +45,11 @@ public class SystemController {
         this.systemMessageService = systemMessageService;
     }
 
-    @RequestMapping(value = "/index", method = RequestMethod.POST)
+
+    @Autowired
+    private MySQLSimpleDaoImpl mySQLSimpleDao;
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public @ResponseBody Map<String, String> index(){
         Map map = new HashMap<String, String>();
         map.put("name", "ssss");
@@ -45,19 +58,40 @@ public class SystemController {
     }
 
 
+
     @RequestMapping(value="/test", method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> Test(@RequestParam Map<String,Object> reqs){
+    public @ResponseBody Map<String,Object> Test(@RequestParam Map<String,Object> reqs) {
         System.out.println(reqs.get("username") + " " + reqs.get("password"));
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("result", "success");
 
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("username","qwer");
-        List<Map<String,Object>> list;
+        Map<String, Object> map0 = new HashMap<String, Object>();
+        map0.put("username", "qwer");
+        List<Map<String, Object>> list;
         list = systemMessageService.getAllMessage();
         System.out.println(list);
         return map;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @RequestMapping(value = "/index.htm",method = RequestMethod.GET)
     public String getIndexPage()

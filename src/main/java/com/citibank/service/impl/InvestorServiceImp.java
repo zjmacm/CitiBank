@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by liuhao on 15-7-14.
@@ -16,6 +17,7 @@ import java.util.Map;
 public class InvestorServiceImp implements InvestorService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
+
     public MySQLSimpleDaoImpl getMySQLSimpleDao() {
         return mySQLSimpleDao;
     }
@@ -25,47 +27,57 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public String registerInvestor(Map<String, Object> reqs) {
-        String result="";
-        String username=(String)reqs.get("username");
-        String sql="select * from investor where username='"+username+"'";
-        if(mySQLSimpleDao.queryForList(sql,new HashMap<String,Object>()).size()>0){
+        String result = "";
+        String username = (String) reqs.get("username");
+        String sql = "select * from investor where username='" + username + "'";
+        if (mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>()).size() > 0) {
             result = "repeat";
-        }
-        else
-        {
+        } else {
             try {
                 mySQLSimpleDao.create("investor", reqs);
                 result = "success";
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 result = "failed";
             }
         }
         return result;
-
     }
 
     public Map<String, Object> loginInvestor(Map<String, Object> reqs) {
-        Map<String,Object> result=new HashMap<String,Object>();
-        if(!reqs.containsKey("username")||!reqs.containsKey("password"))
-        {
-            result.put("result","failed");
-        }
-        else
-        {
-            String sql="select * from investor where investorName:investorName and" +
-                    " password:password";
-            List<Map<String,Object>> list=mySQLSimpleDao.queryForList(sql,reqs);
-            if(list.size()==1){
-                result.put("result","success");
-                result.put("id",list.get(0).get("id"));
-            }
-            else{
-                result.put("result","failed");
+        Map<String, Object> result = new HashMap<String, Object>();
+        if (!reqs.containsKey("username") || !reqs.containsKey("password")) {
+            result.put("result", "failed");
+        } else {
+            String sql = "select * from investor where investorName = :investorName and" +
+                    " password = :password";
+            List<Map<String, Object>> list = mySQLSimpleDao.queryForList(sql, reqs);
+            if (list.size() == 1) {
+                result.put("result", "success");
+                result.put("id", list.get(0).get("id"));
+            } else {
+                result.put("result", "failed");
             }
         }
-
         return result;
+    }
+
+    public String completeInfo(Map<String, Objects> infos, String userId) {
+        Map<String, Object> cons = new HashMap<String, Object>();
+        cons.put("id", userId);
+        try {
+            mySQLSimpleDao.update("investor", infos, cons);
+        } catch (Exception ex) {
+            return "failed";
+        }
+        return "success";
+    }
+
+    public boolean hasEmail(String email) {
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where username = :username", email);
+        if(result.size()>0){
+            return false;
+        }
+        return true;
     }
 }

@@ -8,6 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2c7a9d5e19f94750c6c17e49015b921569c992d7
 
 public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 	/**
@@ -51,13 +55,13 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 		sql += order.toSqlString();
 		String execSql = SPLIT_PAGE_SQL.replaceAll("\\$\\{SQL\\}", sql);
 		List<T> pageList = getNamedParameterJdbcTemplate().query(execSql, p, dw);
-		
+
 		Page<T> page = new Page<T>();
 		page.setSize(pagesize);
 		page.setIndex(pageindex);
-		page.setTotal(totalCount);
+		page.setTotal(totalCount,pagesize);
 		page.setList(pageList);
-		
+//
 		return page;
 	}
 
@@ -65,21 +69,17 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 			Map<String, ?> params, int pageindex, int pagesize, Order order) {
 		
 		Map<String, Object> p = makeConditions(params, pageindex, pagesize);
-
 		long totalCount = count(sql, params);
 		
 		sql += order.toSqlString();
 		String execSql = SPLIT_PAGE_SQL.replaceAll("\\$\\{SQL\\}", sql);
 		List<Map<String, Object>> pageList = queryForList(execSql, p);
-	
-	
 		Page<Map<String, Object>> page = new Page<Map<String, Object>>();
 		page.setSize(pagesize);
 		page.setIndex(pageindex);
-		page.setTotal(totalCount);
+		page.setTotal(totalCount,pagesize);
 		page.setList(pageList);
-		
-		
+
 		return page;
 	}
 	
