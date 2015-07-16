@@ -26,7 +26,6 @@ public class CompanyServiceImpl implements CompanyService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    @Override
     public String userRegister(Map<String, Object> reqs) {
         String result = "success";
         String userName = reqs.get("username").toString();
@@ -51,7 +50,6 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
-    @Override
     public Map<String,Object> userLogin(Map<String, Object> reqs) {
         Map<String,Object> result = new HashMap<String, Object>();
         String sql = "select *from companyInfo where username=:username and password=:password";
@@ -67,7 +65,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     }
 
-    @Override
     public Integer getUserType(String user_id) {
         return null;
     }

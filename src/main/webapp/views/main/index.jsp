@@ -27,8 +27,6 @@
           success:function(data){
             alert(data);
           }
-
-
         });
       });
     });

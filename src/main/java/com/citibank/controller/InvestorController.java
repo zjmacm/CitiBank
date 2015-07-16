@@ -28,22 +28,5 @@ public class InvestorController {
     {
         return "/investor/investorLogin";
     }
-    @RequestMapping(value = "investorLogin",method = RequestMethod.POST)
-    public ModelAndView login(@RequestParam Map<String ,Object> reqs,
-                              HttpSession session)
-    {
-        Map<String ,Object> mapResult=new HashMap<String,Object>();
-        mapResult=investorService.loginInvestor(reqs);
-        JSONObject jsonObject=JSONObject.fromObject(mapResult);
-        if(mapResult.get("result")=="success")
-        {
-            session.setAttribute("id",mapResult.get("id"));
-            return new ModelAndView("/investor/investorMain",
-                    "mapResult",jsonObject.toString());
-        }
-        else
-        {
-            return new ModelAndView("/investor/investorLogin");
-        }
-    }
+
 }
