@@ -38,7 +38,7 @@ public class InvestorController {
                           HttpSession session) {
         Map<String, Object> result = investorService.loginInvestor(reqs);
         if(result.get("result").equals("success")) {
-            session.setAttribute("investorId", result.get("id"));
+            session.setAttribute("userId", result.get("id"));
             return "investor/index";
         }else{
             return "investor/login";

@@ -20,15 +20,16 @@
     $(document).ready(function(){
       $('#btn').click(function(){
         $.ajax({
-          url: "test.htm",
+          url: "index",
           type: "post",
           dataType: "json",
           data:{"name":"bob","password":"hello"},
           success:function(data){
-            alert(data);
+              if(data.result=="ssss")
+              {
+                  alert(data.result);
+              }
           }
-
-
         });
       });
     });

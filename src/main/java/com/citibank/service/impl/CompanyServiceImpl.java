@@ -24,7 +24,6 @@ public class CompanyServiceImpl implements CompanyService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    @Override
     public String userRegister(Map<String, Object> reqs) {
         String result = "success";
         try{
@@ -44,7 +43,6 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
-    @Override
     public Map<String,Object> userLogin(Map<String, Object> reqs) {
         Map<String,Object> result = new HashMap<String, Object>();
         String sql = "select *from companyInfo where username=:username and password=:password";
@@ -60,7 +58,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     }
 
-    @Override
     public String confirmEmail(Map<String, Object> reqs) {
 
         String result = "success";
@@ -71,7 +68,6 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
-    @Override
     public String confirmCompanyCode(Map<String, Object> reqs) {
         String result = "success";
         String sql = "select *from company where companyCode=:companyCode";
@@ -81,7 +77,6 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
-    @Override
     public String confirmCompanyName(Map<String, Object> reqs) {
         String result = "success";
         String sql = "select *from company where companyName=:companyName";
@@ -91,7 +86,6 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
-    @Override
     public String confirmBussinessLisence(Map<String, Object> reqs) {
         String result = "success";
         String sql = "select *from company where bussinessLisence=:bussinessLisence";

@@ -73,7 +73,7 @@ public class OracleSimpleDaoImpl extends AbstractSimpleDao {
 		Page<T> page = new Page<T>();
 		page.setSize(pagesize);
 		page.setIndex(pageindex);
-		page.setTotal(totalCount);
+		page.setTotal(totalCount,pagesize);
 		page.setList(pageList);
 		
 		return page;
@@ -97,7 +97,7 @@ public class OracleSimpleDaoImpl extends AbstractSimpleDao {
 		Page<Map<String, Object>> page = new Page<Map<String, Object>>();
 		page.setSize(pagesize);
 		page.setIndex(pageindex);
-		page.setTotal(totalCount);
+		page.setTotal(totalCount,pagesize);
 		page.setList(pageList);
 		System.out.println("pagesize: " + pagesize);
 		System.out.println("pageindex: " + pageindex);
