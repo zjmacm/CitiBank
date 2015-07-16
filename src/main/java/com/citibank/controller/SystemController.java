@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by zjm on 2015/7/12.
@@ -23,6 +22,7 @@ import java.util.Map;
 
 @Controller("SystemController")
 public class SystemController {
+
 
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
@@ -67,6 +67,19 @@ public class SystemController {
 
 
 
+
+
+
+
+
+
+
+
+    @RequestMapping(value="/test.htm", method = RequestMethod.GET)
+    public void Test(@RequestParam Map<String,Object> reqs){
+        Map<String, Object> map=new HashMap<String, Object>();
+        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery("select * from card", map, 1, 10, new Order());
+    }
 
 
 }

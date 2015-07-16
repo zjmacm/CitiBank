@@ -19,18 +19,23 @@
 
 
   <script type="text/javascript">
-    $(document).ready(function(){
-      $('#btn').click(function(){
-        $.ajax({
-              url  : "test1",
-              type : "post",
-              dataType: "json",
-              data:{},
-              success:function(data){
-                  alert(data.result);
-              }
+    $(document).ready(function() {
+        $('#btn').click(function () {
+            $.ajax({
+
+
+                url: "index",
+                type: "post",
+                dataType: "json",
+                data: {"name": "bob", "password": "hello"},
+                success: function (data) {
+                    if (data.result == "ssss") {
+                        alert(data.result);
+                    }
+                }
+
             });
-      });
+        });
     });
   </script>
 
