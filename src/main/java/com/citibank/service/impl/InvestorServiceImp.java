@@ -2,6 +2,7 @@ package com.citibank.service.impl;
 
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.InvestorService;
+import net.sf.ehcache.search.aggregator.Average;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -79,5 +80,21 @@ public class InvestorServiceImp implements InvestorService {
             return false;
         }
         return true;
+    }
+
+    public Map<String, Object> getInvestorInfo(String userId) {
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor");
+        if(result.size()==0){
+            Map<String ,Object> map=new HashMap<String, Object>();
+            map.put("error","true");
+            return map;
+        }
+        return result.get(0);
+    }
+
+    public int saveInvestorInfo(Map<String, Object> map, String userId) {
+        Map<String,Object> cons=new HashMap<String, Object>();
+        cons.put("investorId", userId);
+        return mySQLSimpleDao.update("investor", map, cons);
     }
 }
