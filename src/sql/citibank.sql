@@ -121,9 +121,7 @@ CREATE TABLE `contract` (
   KEY `secondId` (`secondId`),
   KEY `conStockCreditorId` (`stockCreditorId`),
   KEY `firstId` (`firstId`),
-  CONSTRAINT `conStockCreditorId` FOREIGN KEY (`stockCreditorId`) REFERENCES `stockcreditor` (`id`),
-  CONSTRAINT `firstId` FOREIGN KEY (`firstId`) REFERENCES `investor` (`investorId`),
-  CONSTRAINT `secondId` FOREIGN KEY (`secondId`) REFERENCES `company` (`companyId`)
+  CONSTRAINT `conStockCreditorId` FOREIGN KEY (`stockCreditorId`) REFERENCES `stockcreditor` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------

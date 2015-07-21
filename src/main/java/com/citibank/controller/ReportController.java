@@ -19,80 +19,35 @@ import java.util.Map;
 @Controller
 @RequestMapping("/report")
 public class ReportController {
-    
+
     @Autowired
     private ReportService reportService;
-    
-    @RequestMapping(value = "/center.htm", method = RequestMethod.GET)
-    public String getCenterReport(Map<String, Object> map){
-        List<Map<String, Object>> result = reportService.getCenterReport();
-        map.put("data",result);
-        return "";
-    }
 
-    @RequestMapping(value = "/credit.htm", method = RequestMethod.GET)
-    public String getCreditReport(@RequestParam("pageIndex")int pageIndex, Map<String, Object> map){
-        Page<Map<String, Object>> result=reportService.getCreditReport(pageIndex);
-        map.put("pageIndex",pageIndex);
-        map.put("totalPage",result.getpageCount());
+    @RequestMapping(value = "/getReport.htm", method = RequestMethod.GET)
+    public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
+                            @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                            @RequestParam(value = "type", required = false, defaultValue = "0") int type,
+                            Map<String, Object> map) {
+        Page<Map<String, Object>> result = reportService.getReport(pageIndex, queryContent, type);
+        map.put("pageIndex", pageIndex);
+        map.put("totalPage", result.getpageCount());
         map.put("data", result.getList());
         return "";
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
-    public String getPolicyReport(Map<String,Object> map){
-        List<Map<String, Object>> result = reportService.getPolicyReport();
-        map.put("data", result);
-        return "";
-    }
-
-    @RequestMapping(value = "/market.htm", method = RequestMethod.GET)
-    public String getMarketReport(Map<String, Object> map){
-        List<Map<String, Object>> result = reportService.getMarketReport();
+    public String getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
+                                  Map<String, Object> map) {
+        List<Map<String, Object>> result = reportService.getImformation(type);
         map.put("data", result);
         return "";
     }
 
     @RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-    public String getReportDetail(@RequestParam("reportId") String reportId, Map<String,Object> map){
+    public String getReportDetail(@RequestParam("reportId") String reportId, Map<String, Object> map) {
         String fileUrl = reportService.getReportFile(reportId);
         map.put("url", fileUrl);
         return "";
     }
 
-    @RequestMapping(value = "/backup.htm",method = RequestMethod.GET)
-    public String getBackupReport(@RequestParam("pageIndex")int pageIndex, Map<String,Object> map){
-        Page<Map<String, Object>> result = reportService.getBackupReport(pageIndex);
-        map.put("pageIndex",pageIndex);
-        map.put("totalPage",result.getpageCount());
-        map.put("data", result.getList());
-        return "";
-    }
-
-    @RequestMapping(value = "/transfer.htm",method = RequestMethod.GET)
-    public String getTransferReport(@RequestParam("pageIndex")int pageIndex,Map<String,Object> map){
-        Page<Map<String, Object>> result = reportService.getTransferReport(pageIndex);
-        map.put("pageIndex",pageIndex);
-        map.put("totalPage",result.getpageCount());
-        map.put("data", result.getList());
-        return "";
-    }
-
-    @RequestMapping(value = "/ontime.htm",method = RequestMethod.GET)
-    public String  getOntimeReport(@RequestParam("pageIndex")int pageIndex,Map<String,Object> map){
-        Page<Map<String, Object>> result = reportService.getOntimeReport(pageIndex);
-        map.put("pageIndex",pageIndex);
-        map.put("totalPage",result.getpageCount());
-        map.put("data", result.getList());
-        return "";
-    }
-
-    @RequestMapping(value = "/temporary.htm",method = RequestMethod.GET)
-    public String getTemporaryReport(@RequestParam("pageIndex") int pageIndex, Map<String,Object> map){
-        Page<Map<String, Object>> result = reportService.getTemporaryReport(pageIndex);
-        map.put("pageIndex",pageIndex);
-        map.put("totalPage",result.getpageCount());
-        map.put("data", result.getList());
-        return "";
-    }
 }
