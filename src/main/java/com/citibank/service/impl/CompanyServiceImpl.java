@@ -94,8 +94,12 @@ public class CompanyServiceImpl implements CompanyService {
         return result;
     }
 
+    //获取公司信息
     public Map<String, Object> getCompanyInfo(String userId) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from company");
+        String sql = "select *from company where id=:userId";
+        Map<String,Object> param = new HashMap<String, Object>();
+        param.put("id","userId");
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql,param);
         if(result.size()==0){
             Map<String ,Object> map=new HashMap<String, Object>();
             map.put("error","true");
@@ -104,9 +108,18 @@ public class CompanyServiceImpl implements CompanyService {
         return result.get(0);
     }
 
-    public int saveCompanyInfo(Map<String, Object> map,String userId) {
+    public String saveCompanyInfo(Map<String, Object> map,String userId) {
+        String result = "success";
         Map<String,Object> cons=new HashMap<String, Object>();
         cons.put("companyId", userId);
-        return mySQLSimpleDao.update("company", map, cons);
+        try {
+            mySQLSimpleDao.update("company", map, cons);
+        }catch (Exception e){
+            result = "failed";
+            e.printStackTrace();
+        }
+        return result;
     }
+
+
 }

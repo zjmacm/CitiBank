@@ -19,8 +19,8 @@ public interface MessageService {
     //查看消息
     public Map<String,Object> checkMessage(Map<String,Object> reqs,HttpSession session);
 
-
-
+    //定向披露
+    public String DirectionalDisclosure(Map<String,Object> reqs);
 
 
 }

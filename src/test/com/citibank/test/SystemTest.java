@@ -3,10 +3,13 @@ package com.citibank.test;
 import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
+import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.lang.StringBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +17,9 @@ import java.util.Map;
  * Created by Nikolas on 2015/7/16.
  */
 public class SystemTest {
+
+
+
 
     public void getAppoint(String userId, boolean isComplete, String columnName, String queryContent, int pageIndex,int pageSize) {
         StringBuffer sb=new StringBuffer();
@@ -31,4 +37,7 @@ public class SystemTest {
     public void pageTest(){
         getAppoint("123", false, "name",null, 1, 10);
     }
+
+
+
 }

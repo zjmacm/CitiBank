@@ -3,16 +3,17 @@ package com.citibank.controller;
 import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
+
 
 /**
  * Created by zjm on 2015/7/13.
@@ -104,6 +105,23 @@ public class CompanyController {
         }
         return model;
     }
+    @RequestMapping(value="showCompanyInfo",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> getCompanyInfo(@RequestParam Map<String,Object> reqs,HttpSession session){
+        Map<String,Object> map = new HashMap<String, Object>();
+        map = companyService.getCompanyInfo(session.getAttribute("userId").toString());
+        return map;
+    }
+
+    @RequestMapping(value="saveCompanyInfo",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> saveCompanyInfo(@RequestParam Map<String,Object> reqs,HttpSession session){
+        Map<String,Object> map = new HashMap<String, Object>();
+        String userId = session.getAttribute("userId").toString();
+        String result = companyService.saveCompanyInfo(reqs,userId);
+        map.put("result",result);
+        return map;
+    }
+
+
 
 
 }
