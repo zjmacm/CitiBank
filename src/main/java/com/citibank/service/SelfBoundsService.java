@@ -8,5 +8,5 @@ import java.util.Map;
  * Created by Nikolas on 2015/7/16.
  */
 public interface SelfBoundsService {
-    public Page<Map<String, Object>> getSelfBounds(String userId, int pageIndex, String queryContent);
+    public Page<Map<String, Object>> getSelfBounds(String userId, int pageIndex, String queryContent, int userType);
 }

@@ -8,11 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2c7a9d5e19f94750c6c17e49015b921569c992d7
-
 public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 	/**
 	 * 分页SQL语句模板
