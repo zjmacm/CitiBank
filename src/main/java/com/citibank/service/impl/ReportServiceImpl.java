@@ -46,4 +46,5 @@ public class ReportServiceImpl implements ReportService {
         List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
         return (String) result.get(0).get("path");
     }
+
 }

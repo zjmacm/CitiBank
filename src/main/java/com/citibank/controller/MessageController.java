@@ -30,6 +30,17 @@ public class MessageController {
     private MessageService messageService;
 
 
+    @RequestMapping(value="/privateLetter.htm",method = RequestMethod.GET)
+    public String getPrivateLetterPage(){
+        return "";
+    }
+
+    @RequestMapping(value="/DirectionalDisclosure.htm",method = RequestMethod.GET)
+    public String getDirectionalDisclosurePage(){
+        return "";
+    }
+
+
     @RequestMapping(value="/sendMessage",method = RequestMethod.POST)
 
     public @ResponseBody Map<String,Object> sendMessage(@RequestParam Map<String,Object> reqs,HttpSession session){
@@ -46,6 +57,7 @@ public class MessageController {
 
     public List<Map<String,Object>> showMessage(@RequestParam Map<String,Object> reqs,HttpSession session){
 
+
         List<Map<String,Object>> list = messageService.showMessage(reqs,session);
 
         return list;
@@ -58,7 +70,22 @@ public class MessageController {
         return map;
     }
 
+    //定向披露
+    @RequestMapping(value="/DirectionalDisclosure",method=RequestMethod.POST)
+    public @ResponseBody  Map<String,Object> DirectionalDisclosure
+        (@RequestParam Map<String,Object> reqs,HttpSession session){
+        Map<String,Object> map = new HashMap<String, Object>();
 
+        if(Integer.parseInt(session.getAttribute("userType").toString())==1){
+            String result = messageService.DirectionalDisclosure(reqs);
+
+            map.put("result",result);
+        }
+        else{
+            map.put("result","error");
+        }
+        return map;
+    }
 
 
 

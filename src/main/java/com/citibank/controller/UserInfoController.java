@@ -50,9 +50,9 @@ public class UserInfoController {
         }
         Map<String, String> status=new HashMap<String, String>();
         if(result==0){
-            status.put("error","failed");
+            status.put("result","failed");
         }else{
-            status.put("error","success");
+            status.put("result","success");
         }
         return status;
     }
