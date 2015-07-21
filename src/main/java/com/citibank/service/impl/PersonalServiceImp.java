@@ -18,24 +18,16 @@ import java.util.Map;
  */
 public class PersonalServiceImp implements PersonalService {
     @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-
-
+    private MySQLSimpleDaoImpl personalDao;
     public Page<Map<String, Object>> orderByDefault(@RequestParam Map<String, Object> reqs) {
-        MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
         int start=Integer.parseInt((String) reqs.get("pageIndex"));
-        personalDao.setJdbcTemplate(jdbcTemplate);
         String sql="select * from attentionState";
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,new Order());
-
-
     }
 
     public Page<Map<String, Object>> orderByCompanyName(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from attentionState left join company on attentioState.companyId=company.companyId";
         Order order=new Order().asc("companyName");
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,order);
@@ -43,8 +35,7 @@ public class PersonalServiceImp implements PersonalService {
 
     public Page<Map<String, Object>> orderByProductName(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from attentionState left join stockcreditor on attentionState.stockCreditorId=stockcreditor.id";
         Order order=new Order().asc("productName");
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,order);
@@ -52,8 +43,7 @@ public class PersonalServiceImp implements PersonalService {
 
     public Page<Map<String, Object>> orderByAttentionState(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from attentionState";
         Order order=new Order().asc("attentionState");
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,order);
@@ -61,8 +51,7 @@ public class PersonalServiceImp implements PersonalService {
 
     public Page<Map<String, Object>> orderByAttentionTime(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from attentionTime";
         Order order=new Order().asc("attentionStateTime");
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,order);
@@ -70,8 +59,7 @@ public class PersonalServiceImp implements PersonalService {
 
     public Page<Map<String, Object>> orderByProductType(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from productType";
         Order order=new Order().asc("productType");
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,order);
@@ -79,8 +67,7 @@ public class PersonalServiceImp implements PersonalService {
 
     public Page<Map<String, Object>> orderByKeyValue(@RequestParam Map<String, Object> reqs) {
         MySQLSimpleDaoImpl personalDao=new MySQLSimpleDaoImpl();
-        int start=Integer.parseInt((String) reqs.get("pageIndex"))+1;
-        personalDao.setJdbcTemplate(jdbcTemplate);
+        int start=Integer.parseInt((String) reqs.get("pageIndex"));
         String sql="select * from attentionState group by " +
                 "companyName()";
         return personalDao.pageQuery(sql,new HashMap<String, Object>(),start,10,new Order());
