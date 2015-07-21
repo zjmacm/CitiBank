@@ -21,6 +21,8 @@ import java.util.Map;
 @Controller("CompanyController")
 public class CompanyController {
 
+
+
     @Autowired
     private CompanyService companyService;
 
@@ -105,21 +107,7 @@ public class CompanyController {
         }
         return model;
     }
-    @RequestMapping(value="showCompanyInfo",method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> getCompanyInfo(@RequestParam Map<String,Object> reqs,HttpSession session){
-        Map<String,Object> map = new HashMap<String, Object>();
-        map = companyService.getCompanyInfo(session.getAttribute("userId").toString());
-        return map;
-    }
 
-    @RequestMapping(value="saveCompanyInfo",method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> saveCompanyInfo(@RequestParam Map<String,Object> reqs,HttpSession session){
-        Map<String,Object> map = new HashMap<String, Object>();
-        String userId = session.getAttribute("userId").toString();
-        String result = companyService.saveCompanyInfo(reqs,userId);
-        map.put("result",result);
-        return map;
-    }
 
 
 

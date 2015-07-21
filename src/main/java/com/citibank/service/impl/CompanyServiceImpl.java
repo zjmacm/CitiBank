@@ -108,17 +108,17 @@ public class CompanyServiceImpl implements CompanyService {
         return result.get(0);
     }
 
-    public String saveCompanyInfo(Map<String, Object> map,String userId) {
-        String result = "success";
+    public int saveCompanyInfo(Map<String, Object> map,String userId) {
+
         Map<String,Object> cons=new HashMap<String, Object>();
         cons.put("companyId", userId);
         try {
-            mySQLSimpleDao.update("company", map, cons);
+
         }catch (Exception e){
-            result = "failed";
+
             e.printStackTrace();
         }
-        return result;
+        return  mySQLSimpleDao.update("company", map, cons);
     }
 
 
