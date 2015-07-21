@@ -23,4 +23,5 @@ public interface CompanyService {
     //更新公司信息
     public int saveCompanyInfo(Map<String,Object> map,String userId);
 
+
 }

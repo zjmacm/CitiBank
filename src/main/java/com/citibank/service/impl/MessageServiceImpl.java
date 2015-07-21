@@ -1,6 +1,7 @@
 package com.citibank.service.impl;
 
 import com.citibank.common.IdUtil;
+import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.MessageService;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -24,6 +26,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public String sendMessage(Map<String, Object> reqs,HttpSession session) {
 
+
         reqs.put("id", IdUtil.uuid());
         String result = "success";
         Date date = new Date();
@@ -32,6 +35,7 @@ public class MessageServiceImpl implements MessageService {
         if(Integer.parseInt(session.getAttribute("userType").toString())==0){
 
             reqs.put("flag",0);
+
         }
         else{
             reqs.put("flag",1);
@@ -56,12 +60,14 @@ public class MessageServiceImpl implements MessageService {
 
 
 
+        //userType 公司类型是0，投资者类型是1，
         if(userType == 0){
             String sql = "select *from message where flag=:1";
             Map<String,Object> map = new HashMap<String, Object>();
             map.put("flag",1);
             return mySQLSimpleDao.queryForList(sql,map);
         }
+
         else{
             String sql = "select *from message where flag=:0";
             Map<String,Object> map = new HashMap<String, Object>();
@@ -83,4 +89,19 @@ public class MessageServiceImpl implements MessageService {
         return mySQLSimpleDao.retrieve("message",map2);
     }
 
+
+    @Override
+    public String DirectionalDisclosure(Map<String, Object> reqs) {
+
+        String result = "success";
+
+        String sql = "insert into file where id=:id and uploadId=:uploadId and filePath=:filePath";
+        try {
+            mySQLSimpleDao.executeUpdate(sql, reqs);
+        }catch(Exception e){
+            result = "failed";
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
