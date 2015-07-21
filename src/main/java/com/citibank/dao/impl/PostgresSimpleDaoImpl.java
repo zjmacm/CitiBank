@@ -76,8 +76,8 @@ public class PostgresSimpleDaoImpl extends AbstractSimpleDao {
 		return page;
 	}
 
-	public Page<Map<String, Object>> pageQuery(String sql,
-			Map<String, ?> params, int pageindex, int pagesize, Order order) {
+	public Page pageQuery(String sql,
+						  Map<String, ?> params, int pageindex, int pagesize, Order order) {
 		
 		Map<String, Object> p = makeConditions(params, pageindex, pagesize);
 		

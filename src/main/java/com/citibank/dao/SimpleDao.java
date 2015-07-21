@@ -138,7 +138,7 @@ public interface SimpleDao extends BaseDao{
 	 * @param order 排序对象
 	 * @return 页对象<域对象>
 	 */
-	public Page<Map<String, Object>> pageQuery(String sql, Map<String, ?> params, int pageindex, int pagesize, Order order);
+	public Page pageQuery(String sql, Map<String, ?> params, int pageindex, int pagesize, Order order);
 	
 	/**
 	 * 分页查询指定SQL的记录，按指定顺序排列;

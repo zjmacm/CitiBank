@@ -73,26 +73,6 @@ public class SystemController {
         return map;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @RequestMapping(value = "/index.htm",method = RequestMethod.GET)
     public String getIndexPage()
     {
