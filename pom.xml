@@ -221,10 +221,7 @@
                 <configuration>
                     <webAppSourceDirectory>src/main/webapp/</webAppSourceDirectory>
                     <scanIntervalSeconds>3</scanIntervalSeconds>
-                    <contextPath>/</contextPath> <!--上下文路径-->
-                    <httpConnector>
-                        <port>8088</port>
-                    </httpConnector>
+                    <contextPath>/CitiBankBg</contextPath> <!--上下文路径-->
                 </configuration>
             </plugin>
         </plugins>

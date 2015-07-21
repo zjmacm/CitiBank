@@ -25,4 +25,17 @@ public interface ReportService {
     //获取公告文件
     public String getReportFile(String id);
 
+    //获取备案发行公告
+    public Page<Map<String,Object>> getBackupReport(int pageIndex);
+
+    //获取转让交易公告
+    public Page<Map<String, Object>> getTransferReport(int pageIndex);
+
+    //获取定时报告
+    public Page<Map<String,Object>> getOntimeReport(int pageIndex);
+
+    //获取临时报告
+    public Page<Map<String,Object>> getTemporaryReport(int pageIndex);
+
+
 }
