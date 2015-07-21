@@ -2,8 +2,8 @@ package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
 import com.citibank.service.InvestorService;
-
-
+import com.sun.prism.shader.Mask_TextureSuper_AlphaTest_Loader;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,10 +37,10 @@ public class InvestorController {
     public String doLogin(@RequestParam Map<String, Object> reqs,
                           HttpSession session) {
         Map<String, Object> result = investorService.loginInvestor(reqs);
-        if(result.get("result").equals("success")) {
+        if (result.get("result").equals("success")) {
             session.setAttribute("userId", result.get("id"));
             return "investor/index";
-        }else{
+        } else {
             return "investor/login";
         }
     }
@@ -73,14 +73,38 @@ public class InvestorController {
         }
     }
 
-    @RequestMapping(value = "/completeInfo.htm",method = RequestMethod.GET)
-    public String getCompleteInfoPage(){
+    @RequestMapping(value = "/completeInfo.htm", method = RequestMethod.GET)
+    public String getCompleteInfoPage() {
         return "investor/completeInfo";
     }
 
     @RequestMapping(value = "/hasEmail", method = RequestMethod.GET)
-    public @ResponseBody boolean hasEmail(@RequestParam("email") String email){
+    public
+    @ResponseBody
+    boolean hasEmail(@RequestParam("email") String email) {
         return investorService.hasEmail(email);
+    }
+
+    @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
+    public String getUserInfo(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        map.putAll(investorService.getInvestorInfo(userId));
+        return "common/userInfo";
+    }
+
+    @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        int result = investorService.saveInvestorInfo(parms, userId);
+        Map<String, String> status = new HashMap<String, String>();
+        if (result == 0) {
+            status.put("result", "failed");
+        } else {
+            status.put("result", "success");
+        }
+        return status;
     }
 
 }

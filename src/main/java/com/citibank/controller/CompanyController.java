@@ -2,6 +2,7 @@ package com.citibank.controller;
 
 import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -108,8 +109,26 @@ public class CompanyController {
         return model;
     }
 
+    @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
+    public String getUserInfo(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        map.putAll(companyService.getCompanyInfo(userId));
+        return "common/userInfo";
+    }
 
-
-
+    @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session) {
+        String userId = (String) session.getAttribute("userId");
+        int result = companyService.saveCompanyInfo(parms, userId);
+        Map<String, String> status = new HashMap<String, String>();
+        if (result == 0) {
+            status.put("result", "failed");
+        } else {
+            status.put("result", "success");
+        }
+        return status;
+    }
 
 }
