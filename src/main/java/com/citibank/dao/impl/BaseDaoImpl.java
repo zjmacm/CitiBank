@@ -217,6 +217,8 @@ public class BaseDaoImpl implements BaseDao {
 	}
 	
 	public List<Map<String, Object>> queryForList(String sql, Map<String, ?> params){
+        //打印sql语句
+		System.out.println(sql);
 		return this.namedParameterJdbcTemplate.query(sql, params, new MapRowMapper());
 	}
 	
