@@ -10,6 +10,7 @@ import java.util.*;
 /**
  * Created by zjm on 2015/7/13.
  */
+
 @Service("CompanyService")
 public class CompanyServiceImpl implements CompanyService {
     @Autowired
@@ -120,6 +121,4 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return  mySQLSimpleDao.update("company", map, cons);
     }
-
-
 }

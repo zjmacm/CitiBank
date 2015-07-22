@@ -51,7 +51,7 @@ public class FinancingServiceImpl implements FinancingService {
                 sb.append(" and fundBody=:fundBody");
             }
             if (lowMoney != -1 && highMoney != -1) {
-                sb.append(" and investMoney between lowMoney and highMoney");
+                sb.append(" and investMoney between :lowMoney and :highMoney");
             }
             sb.append(";");
 
