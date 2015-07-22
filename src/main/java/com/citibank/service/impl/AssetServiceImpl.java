@@ -42,8 +42,6 @@ public class AssetServiceImpl implements AssetService {
         return Integer.valueOf(results.get(0).get("totalMoney").toString());
     }
 
-
-
     private Date getAimDate(String duration){
         Calendar calendar=Calendar.getInstance();
         if(duration.equals("1_month")){

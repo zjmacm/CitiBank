@@ -117,13 +117,8 @@ CREATE TABLE `contract` (
   `path` varchar(50) NOT NULL COMMENT '合同路径',
   `stockCreditorId` varchar(32) NOT NULL,
   `state` int(11) NOT NULL COMMENT '状态，标记是否完成',
-  PRIMARY KEY (`id`),
-  KEY `secondId` (`secondId`),
-  KEY `conStockCreditorId` (`stockCreditorId`),
-  KEY `firstId` (`firstId`),
-  CONSTRAINT `conStockCreditorId` FOREIGN KEY (`stockCreditorId`) REFERENCES `stockcreditor` (`id`),
-  CONSTRAINT `firstId` FOREIGN KEY (`firstId`) REFERENCES `investor` (`investorId`),
-  CONSTRAINT `secondId` FOREIGN KEY (`secondId`) REFERENCES `company` (`companyId`)
+  `conStockCreditorId` VARCHAR(32) NOT NULL COMMENT '指向股债权的外键',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -139,6 +134,7 @@ CREATE TABLE `information` (
   `flag` int(1) NOT NULL COMMENT '标记文件类型0是政策资讯，1是市场资讯，2是中心公告，3是信用监管报告，4是备案发信公告，5是转让交易报告，6是定期报告，7是临时报告，8是信用报告',
   `name` varchar(60) NOT NULL COMMENT '公告名称',
   `path` varchar(255) NOT NULL COMMENT '文件路径',
+  "investorId" VARCHAR(32) DEFAULT NULL COMMENT '指向投资者的外键',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

@@ -2,7 +2,6 @@ package com.citibank.service.impl;
 
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
-import com.citibank.dao.SimpleDao;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
