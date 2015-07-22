@@ -17,20 +17,19 @@ public class IntentionServiceImpl implements IntentionService{
     MySQLSimpleDaoImpl mySQLSimpleDao;
     public boolean publishIntention(Map<String, Object> map)
     {
-    try {
-        mySQLSimpleDao.create("stockcreditor", map);
-        return true;
-    }
-    catch (Exception e)
-    {
-        return false;
-    }
+        try {
+            mySQLSimpleDao.create("stockcreditor", map);
+            return true;
+            }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public Map<String, Object> getInvestorinfoById(String id) {
         String sql=String.format("select * from investor where investorid=%s",id);
         return mySQLSimpleDao.queryForList(sql,new HashMap<String, Object>()).get(0);
     }
-
 
 }
