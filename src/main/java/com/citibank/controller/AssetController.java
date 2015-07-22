@@ -48,4 +48,18 @@ public class AssetController {
         return "";
     }
 
+    @RequestMapping("/investor")
+    public String getInvestorStock(@RequestParam(value = "pageIndex", required = false, defaultValue = "1")int pageIndex,
+                                   @RequestParam(value = "queryContent", required = false, defaultValue = "")String queryContent,
+                                   @RequestParam(value = "duration", required = false, defaultValue = "1_month")String duration,
+                                   @RequestParam(value = "type",required = false, defaultValue = "3")int type,
+                                   HttpSession session, Map<String, Object> map){
+        String userId= (String) session.getAttribute("userId");
+        Page<Map<String, Object>> stockPage = assetService.getInvestorStock(userId, pageIndex, queryContent, duration, type);
+        map.put("totalPage", stockPage.getpageCount());
+        map.put("pageIndex",pageIndex);
+        map.put("data", stockPage.getList());
+        return "";
+    }
+
 }

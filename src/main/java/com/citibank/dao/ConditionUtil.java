@@ -80,6 +80,7 @@ public class ConditionUtil {
 	 * @param condArr 条件表达式的拼装参数数组
 	 * @return AND连接的条件表达式
 	 */
+
 	public static String and(Map<String, String> map, String[][] condArr){
 		if(condArr == null || map == null || map.size() == 0) return "";
 		//AND为分隔符

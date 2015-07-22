@@ -18,59 +18,39 @@ import java.util.Objects;
 @Service
 public class ReportServiceImpl implements ReportService {
 
-    private static StringBuffer templateSql = new StringBuffer("select i.id, i.name from information where id = ");
-
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    public List<Map<String, Object>> getCenterReport() {
-        String sql=templateSql.append(2).toString();
-        return mySQLSimpleDao.queryForList(sql,new HashMap<String, Object>());
+    public Page<Map<String,Object>> getReport(int pageIndex, String queryContent,int type) {
+        StringBuffer templateSql = new StringBuffer("select i.id, i.name from information i where i.flag = :type");
+        if(!queryContent.equals("")){
+            templateSql.append(" and i.name like %:query_content%");
+        }
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("type",type);
+        map.put("query_content", queryContent);
+        return mySQLSimpleDao.pageQuery(templateSql.toString(), map, pageIndex, 10, new Order().asc("id"));
     }
 
-    public Page<Map<String,Object>> getCreditReport(int pageIndex) {
-        String sql=templateSql.append(3).toString();
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, 10, new Order().asc("id"));
-        return result;
+    public List<Map<String, Object>> getInformation(int type) {
+        String sql  = "select i.id, i.name from information i where i.flag = :type";
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("type", type);
+        return mySQLSimpleDao.queryForList(sql, map);
     }
 
-    public List<Map<String, Object>> getPolicyReport() {
-        String sql=templateSql.append(0).toString();
-        return mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
-    }
-
-    public List<Map<String, Object>> getMarketReport() {
-        String sql=templateSql.append(1).toString();
-        return mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
+    public List<Map<String,Object>> getReportById(int type, String userId){
+        String sql = "select i.id,i.name from information i where i.flag = :type and i.investorId = :investor_id";
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("type", type);
+        map.put("investor_id", userId);
+        return mySQLSimpleDao.queryForList(sql,map);
     }
 
     public String getReportFile(String id) {
-        String sql="select i.path from information i where id = "+id;
+        String sql="select i.path from information i where i.id = "+id;
         List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
         return (String) result.get(0).get("path");
     }
 
-    public Page<Map<String, Object>> getBackupReport(int pageIndex) {
-        String sql=templateSql.append(4).toString();
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, 10, new Order().asc("id"));
-        return result;
-    }
-
-    public Page<Map<String, Object>> getTransferReport(int pageIndex) {
-        String sql=templateSql.append(5).toString();
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, 10, new Order().asc("id"));
-        return result;
-    }
-
-    public Page<Map<String, Object>> getOntimeReport(int pageIndex) {
-        String sql=templateSql.append(6).toString();
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, 10, new Order().asc("id"));
-        return result;
-    }
-
-    public Page<Map<String, Object>> getTemporaryReport(int pageIndex) {
-        String sql=templateSql.append(7).toString();
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, 10, new Order().asc("id"));
-        return result;
-    }
 }
