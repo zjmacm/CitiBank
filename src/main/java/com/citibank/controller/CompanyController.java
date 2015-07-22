@@ -1,5 +1,6 @@
 package com.citibank.controller;
 
+import com.citibank.mail.MailSender;
 import com.citibank.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -83,6 +84,9 @@ public class CompanyController {
         //new一个模型
         ModelAndView model = new ModelAndView();
         String result = companyService.userRegister(reqs);
+        if(result.equals( "success")){
+            MailSender.sendMail(reqs.get("username").toString(),"恭喜您注册成功");
+        }
         model.addObject("result",result);
         return model;
     }
@@ -99,6 +103,7 @@ public class CompanyController {
             user = companyService.userLogin(reqs);
             if(user.get("result").toString().equals("success")){
                 model.addObject("result","success");
+
                 //登陆成功后将companyId加入session中
                 session.setAttribute("userId",user.get("companyId"));
                 session.setAttribute("userType",0);

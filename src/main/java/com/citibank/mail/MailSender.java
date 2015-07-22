@@ -11,7 +11,7 @@ public class MailSender {
 	      mailInfo.setPassword("060019zjm");//您的邮箱密码    
 	      mailInfo.setFromAddress("269284999@qq.com");    
 	      mailInfo.setToAddress(to);    
-	      mailInfo.setSubject("创新中心官网提示信息");    
+	      mailInfo.setSubject("citibank");
 	      mailInfo.setContent(content);
 	         //这个类主要来发送邮件   
 	      SimpleMailSender sms = new SimpleMailSender();   

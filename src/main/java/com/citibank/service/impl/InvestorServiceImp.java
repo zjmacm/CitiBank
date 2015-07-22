@@ -45,7 +45,7 @@ public class InvestorServiceImp implements InvestorService {
             }
         }
         Map<String,Object> map=new HashMap<String, Object>();
-        map.put("resutl",result);
+        map.put("result",result);
         return map;
     }
 
