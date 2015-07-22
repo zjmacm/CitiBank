@@ -14,9 +14,11 @@ public interface ReportService {
     public Page<Map<String,Object>> getReport(int pageIndex, String queryContent,int type);
 
     //获取政策资讯
-    public List<Map<String, Object>> getImformation(int type);
+    public List<Map<String, Object>> getInformation(int type);
 
     //获取公告文件
     public String getReportFile(String id);
+
+    public List<Map<String,Object>> getReportById(int type, String userId);
 
 }

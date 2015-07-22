@@ -28,7 +28,7 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public String registerInvestor(Map<String, Object> reqs) {
-        String result = "";
+        String result;
         String username = (String) reqs.get("username");
         String sql = "select * from investor where username='" + username + "'";
         if (mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>()).size() > 0) {
@@ -50,7 +50,7 @@ public class InvestorServiceImp implements InvestorService {
         if (!reqs.containsKey("username") || !reqs.containsKey("password")) {
             result.put("result", "failed");
         } else {
-            String sql = "select * from investor where investorName = :investorName and" +
+            String sql = "select * from investor where username = :username and" +
                     " password = :password";
             List<Map<String, Object>> list = mySQLSimpleDao.queryForList(sql, reqs);
             if (list.size() == 1) {
@@ -75,7 +75,7 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public boolean hasEmail(String email) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where username = :username", email);
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select username from investor where username = :username", email);
         if(result.size()>0){
             return false;
         }
@@ -83,7 +83,7 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public Map<String, Object> getInvestorInfo(String userId) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor");
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where investorId = "+userId);
         if(result.size()==0){
             Map<String ,Object> map=new HashMap<String, Object>();
             map.put("error","true");

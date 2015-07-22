@@ -1,43 +1,33 @@
 package com.citibank.test;
 
-import com.citibank.dao.ConditionUtil;
-import com.citibank.dao.Order;
-import com.citibank.dao.Page;
-import com.citibank.dao.impl.MySQLSimpleDaoImpl;
+import com.citibank.entity.Investor;
+import com.citibank.service.AppointService;
+import com.citibank.service.AssetService;
+import com.citibank.service.InvestorService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.lang.StringBuffer;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Nikolas on 2015/7/16.
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("/datasource-config.xml")
 public class SystemTest {
 
+    @Autowired
+    private AppointService appointService;
 
-
-
-    public void getAppoint(String userId, boolean isComplete, String columnName, String queryContent, int pageIndex,int pageSize) {
-        StringBuffer sb=new StringBuffer();
-        sb.append(isComplete?" where flag = 1 ":"");
-        if(sb.length()!=0) {
-            sb.append(queryContent == null ? "" : " and appointmentName like " + ConditionUtil.like(queryContent));
-        }else{
-            sb.append(queryContent == null ? "" : " where appointmentName like " + ConditionUtil.like(queryContent));
-        }
-        String sql="select appointmentName, contractWay, appointmentTime, submitTime from appointment"+sb.toString();
-        System.out.println(sql);
-    }
+    @Autowired
+    private InvestorService investorService;
 
     @Test
-    public void pageTest(){
-        getAppoint("123", false, "name",null, 1, 10);
+    public void testSql(){
+//        assetService.getTotalMoney("123","1_month");
+//        appointService.getAppoint("123", true, "name", "", 1, 10);
+        investorService.getInvestorInfo("123");
     }
-
-
 
 }

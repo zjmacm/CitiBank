@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class ReportController {
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
     public String getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
                                   Map<String, Object> map) {
-        List<Map<String, Object>> result = reportService.getImformation(type);
+        List<Map<String, Object>> result = reportService.getInformation(type);
         map.put("data", result);
         return "";
     }
@@ -47,6 +48,15 @@ public class ReportController {
     public String getReportDetail(@RequestParam("reportId") String reportId, Map<String, Object> map) {
         String fileUrl = reportService.getReportFile(reportId);
         map.put("url", fileUrl);
+        return "";
+    }
+
+    @RequestMapping("/companyInfo.htm")
+    public String getCompanyInfo(@RequestParam("companyId")String companyId, Map<String,Object> map){
+        List<Map<String, Object>> onTime = reportService.getReportById(6, companyId);
+        List<Map<String, Object>> temporary = reportService.getReportById(7, companyId);
+        map.put("onTime",onTime);
+        map.put("temporary",temporary);
         return "";
     }
 

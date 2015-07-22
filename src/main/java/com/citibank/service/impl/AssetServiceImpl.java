@@ -21,7 +21,7 @@ public class AssetServiceImpl implements AssetService {
     public Page<Map<String, Object>> getCompanyStock(String userId, int pageIndex, String queryContent,
                                                      String duration,int type) {
         StringBuffer sb = new StringBuffer("select s.createTime, s.investTime, s.investMoney" +
-                " from stockcreditor s where userId = :user_id and createTime > :create_time and productType = :product_type");
+                " from stockcreditor s where s.userId = :user_id and s.createTime > :create_time and s.productType = :product_type");
         Map<String, Object> parms = new HashMap<String, Object>();
         parms.put("user_id", userId);
         parms.put("create_time", getAimDate(duration));
@@ -34,10 +34,9 @@ public class AssetServiceImpl implements AssetService {
     }
 
     public int getTotalMoney(String userId, String duration) {
-        String sql = "select sum(investMoney) totalMoney from stockcreditor where userId = :user_id and createTime > :create_time";
+        String sql = "select sum(investMoney) totalMoney from stockcreditor where userId = :user_id";
         Map<String, Object> parms = new HashMap<String, Object>();
         parms.put("user_id", userId);
-        parms.put("create_time", getAimDate(duration));
         List<Map<String, Object>> results = mySQLSimpleDao.queryForList(sql, parms);
         return Integer.valueOf(results.get(0).get("totalMoney").toString());
     }
@@ -47,7 +46,7 @@ public class AssetServiceImpl implements AssetService {
                 "on c.secondId = p.companyId right join stockcreditor s on c.stockCreditorId = s.id " +
                 "where c.firstId = :first_id and c.signTime < : sign_time");
         Map<String, Object> parms = new HashMap<String, Object>();
-        parms.put("user_id", userId);
+        parms.put("first_id", userId);
         parms.put("create_time", getAimDate(duration));
         if(type==1||type==0){
             sb.append(" and s.productType = :product_type");
