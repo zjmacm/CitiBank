@@ -74,7 +74,7 @@ public class ElectronicalContractServiceImpl implements ElectronicalContractServ
     }
 
     public Page<Map<String, Object>> selectByKeyValue(String key) {
-        String mySql=String.format("select * from contract where secondName=%s",key);
+        String mySql=String.format("select * from contract where secondName like %s or content like %s","%"+key+"%","%"+key+"%");
         Order order=new Order().asc("secondName");
 
         return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,order);
