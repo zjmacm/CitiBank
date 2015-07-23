@@ -4,6 +4,7 @@ import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.VisitorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -17,10 +18,9 @@ import java.util.Map;
 @Service("VisitorService")
 public class VisitorServiceImpl implements VisitorService{
 
-
+    @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    @Override
     public Page<Map<String, Object>> getMarketList(int pageIndex) {
         Order order = new Order();
         order.asc("id");
@@ -28,7 +28,6 @@ public class VisitorServiceImpl implements VisitorService{
         return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),pageIndex,10,order);
     }
 
-    @Override
     public Page<Map<String, Object>> getPolicyList(int pageIndex) {
         Order order = new Order();
         order.asc("id");
@@ -36,9 +35,6 @@ public class VisitorServiceImpl implements VisitorService{
         return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),pageIndex,10,order);
     }
 
-
-
-    @Override
     public Map<String, Object> getPolicyInfoDetail(String id) {
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("id",id);
@@ -65,7 +61,6 @@ public class VisitorServiceImpl implements VisitorService{
         return map;
     }
 
-    @Override
     public Map<String, Object> getMarketInfoDetail(String id) {
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("id",id);
@@ -92,18 +87,15 @@ public class VisitorServiceImpl implements VisitorService{
         return map;
     }
 
-    @Override
     public Page<Map<String, Object>> getFinancingCom(int pageIndex) {
         Order order = new Order().asc("id");
         return mySQLSimpleDao.pageQuery("select *from information",new HashMap<String, Object>(),pageIndex,10,order);
     }
 
-    @Override
     public Map<String, Object> investCenter() {
         return null;
     }
 
-    @Override
     public Map<String, Object> companyService() {
         return null;
     }

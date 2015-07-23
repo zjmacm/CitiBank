@@ -54,7 +54,7 @@ public class InvestorServiceImp implements InvestorService {
         if (!reqs.containsKey("username") || !reqs.containsKey("password")) {
             result.put("result", "failed");
         } else {
-            String sql = "select * from investor where investorName = :investorName and" +
+            String sql = "select * from investor where username = :username and" +
                     " password = :password";
             List<Map<String, Object>> list = mySQLSimpleDao.queryForList(sql, reqs);
             if (list.size() == 1) {
