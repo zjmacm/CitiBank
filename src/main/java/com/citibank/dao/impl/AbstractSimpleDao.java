@@ -26,7 +26,7 @@ import java.util.Map;
  */
 
 
-public abstract class AbstractSimpleDao extends BaseDaoImpl implements SimpleDao {
+public abstract class  AbstractSimpleDao extends BaseDaoImpl implements SimpleDao {
 	
 	public <T> void create(T o) {
 		DomainWrap<T> dw = new DomainWrap<T>(o);

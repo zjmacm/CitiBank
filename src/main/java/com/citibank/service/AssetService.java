@@ -12,4 +12,7 @@ public interface AssetService {
                                                      String duration, int type);
 
     public int getTotalMoney(String userId, String duration);
+
+    public Page<Map<String,Object>> getInvestorStock(String userId, int pageIndex, String queryContent,
+                                                     String duration, int type);
 }

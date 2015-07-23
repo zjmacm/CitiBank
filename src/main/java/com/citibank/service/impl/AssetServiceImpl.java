@@ -42,6 +42,11 @@ public class AssetServiceImpl implements AssetService {
         return Integer.valueOf(results.get(0).get("totalMoney").toString());
     }
 
+    @Override
+    public Page<Map<String, Object>> getInvestorStock(String userId, int pageIndex, String queryContent, String duration, int type) {
+        return null;
+    }
+
     private Date getAimDate(String duration){
         Calendar calendar=Calendar.getInstance();
         if(duration.equals("1_month")){
@@ -57,4 +62,6 @@ public class AssetServiceImpl implements AssetService {
         }
         return calendar.getTime();
     }
+
+
 }

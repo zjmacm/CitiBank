@@ -22,7 +22,7 @@ public class ReportServiceImpl implements ReportService {
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     public Page<Map<String,Object>> getReport(int pageIndex, String queryContent,int type) {
-        StringBuffer templateSql = new StringBuffer("select i.id, i.name from information i where flag = :type");
+        StringBuffer templateSql = new StringBuffer("select i.id, i.name from information i where i.flag = :type");
         if(!queryContent.equals("")){
             templateSql.append(" and i.name like %:query_content%");
         }
@@ -32,15 +32,23 @@ public class ReportServiceImpl implements ReportService {
         return mySQLSimpleDao.pageQuery(templateSql.toString(), map, pageIndex, 10, new Order().asc("id"));
     }
 
-    public List<Map<String, Object>> getImformation(int type) {
-        String sql  = "select i.id, i.name from information i where flag = :type";
+    public List<Map<String, Object>> getInformation(int type) {
+        String sql  = "select i.id, i.name from information i where i.flag = :type";
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("type", type);
         return mySQLSimpleDao.queryForList(sql, map);
     }
 
+    public List<Map<String,Object>> getReportById(int type, String userId){
+        String sql = "select i.id,i.name from information i where i.flag = :type and i.investorId = :investor_id";
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("type", type);
+        map.put("investor_id", userId);
+        return mySQLSimpleDao.queryForList(sql,map);
+    }
+
     public String getReportFile(String id) {
-        String sql="select i.path from information i where id = "+id;
+        String sql="select i.path from information i where i.id = "+id;
         List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
         return (String) result.get(0).get("path");
     }

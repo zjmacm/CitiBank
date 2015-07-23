@@ -1,8 +1,8 @@
 package com.citibank.service.impl;
 
+import com.citibank.common.IdUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.InvestorService;
-import net.sf.ehcache.search.aggregator.Average;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,14 +27,16 @@ public class InvestorServiceImp implements InvestorService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    public String registerInvestor(Map<String, Object> reqs) {
+    public Map<String, Object> registerInvestor(Map<String, Object> reqs) {
         String result = "";
         String username = (String) reqs.get("username");
-        String sql = "select * from investor where username='" + username + "'";
+        String sql = String.format("select * from investor where username=%",username);
         if (mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>()).size() > 0) {
             result = "repeat";
         } else {
             try {
+                String investorId= IdUtil.uuid();
+                reqs.put("investorId",investorId);
                 mySQLSimpleDao.create("investor", reqs);
                 result = "success";
             } catch (Exception e) {
@@ -42,7 +44,9 @@ public class InvestorServiceImp implements InvestorService {
                 result = "failed";
             }
         }
-        return result;
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("result",result);
+        return map;
     }
 
     public Map<String, Object> loginInvestor(Map<String, Object> reqs) {
