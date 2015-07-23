@@ -27,7 +27,6 @@ public class FinancingServiceImpl implements FinancingService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    @Override
     public Page<Map<String, Object>> getMatching(String userId, int userType, int pageIndex, String investArea, String investIndustry,
                                                  int fundBody, int lowMoney, int highMoney) {
         Order order = new Order().asc("id");

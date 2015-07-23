@@ -21,19 +21,18 @@
 
     $(document).ready(function() {
         $('#btn').click(function () {
+            var username = $('#username').val();
+            var passwrod = $('#password').val();
             $.ajax({
-
-
                 url: "index",
                 type: "post",
                 dataType: "json",
-                data: {"name": "bob", "password": "hello"},
+                data: {"name": username, "password": passwrod},
                 success: function (data) {
                     if (data.result == "ssss") {
                         alert(data.result);
                     }
                 }
-
             });
 
         });

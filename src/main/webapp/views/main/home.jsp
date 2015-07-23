@@ -13,7 +13,7 @@
 				var username = $('#username').val();
 				var passwrod = $('#password').val();
 				$.ajax({
-					url: "test",
+					url: "index",
 					type: "post",
 					dataType: "json",
 					data :{'username':username,'password':passwrod},
