@@ -1,8 +1,6 @@
 package com.citibank.test;
 
-import com.citibank.entity.Investor;
 import com.citibank.service.AppointService;
-import com.citibank.service.AssetService;
 import com.citibank.service.InvestorService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

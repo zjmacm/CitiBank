@@ -16,6 +16,7 @@ import java.util.Map;
  */
 @Service
 public class SystemMessageServiceImpl implements SystemMessageService{
+
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 

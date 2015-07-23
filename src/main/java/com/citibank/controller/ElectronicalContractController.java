@@ -16,8 +16,10 @@ import java.util.Map;
 @Controller("ElectronicalContractController")
 
 public class ElectronicalContractController {
+
     @Autowired
     private ElectronicalContractServiceImpl electronicalContractService;
+
     //跳转到签合同页面
     @RequestMapping("/signContract")
     public ModelAndView getSignContractPage()
@@ -26,6 +28,7 @@ public class ElectronicalContractController {
         result.put("oppositors",electronicalContractService.getOppositorList());
         return new ModelAndView("signContractPage","oppositors",result);
     }
+
     //单选公司然后出现合同内容
     @RequestMapping("/getContractContent")
     public Map<String,Object> getContractContent(@RequestParam Map<String,Object> reqs)
@@ -33,6 +36,7 @@ public class ElectronicalContractController {
         String id= (String) reqs.get("id");
         return electronicalContractService.getStateZeroOppositor(id);
     }
+
     //点击协议查询返回默认按时间排序
     @RequestMapping("/checkContract")
     public ModelAndView checkContract()
