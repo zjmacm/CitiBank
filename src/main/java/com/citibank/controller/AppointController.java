@@ -18,6 +18,8 @@ import java.util.Map;
 @RequestMapping("/appoint")
 public class AppointController {
 
+
+
     @Autowired
     private AppointService appointService;
 
@@ -33,6 +35,5 @@ public class AppointController {
         model.put("data", result.getList());
         return "common/appoint";
     }
-
 
 }

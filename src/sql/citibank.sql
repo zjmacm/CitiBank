@@ -96,8 +96,7 @@ CREATE TABLE `company` (
   `marketAdvantage` varchar(100) DEFAULT NULL COMMENT '市场优势',
   `industryOverview` varchar(100) DEFAULT NULL COMMENT '行业概况',
   `developmentStrategy` varchar(100) DEFAULT NULL COMMENT '发展战略',
-  'financingDemand' varchar(100) DEFAULT NULL COMMENT'融资需求',
-  'companyIntroduction'varchar(100) DEFAULT  NULL COMMENT '公司简介',
+
   PRIMARY KEY (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

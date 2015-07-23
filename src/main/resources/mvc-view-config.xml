@@ -34,7 +34,17 @@
         <!--<property name="suffix" value=".jsp" />-->
     <!--</bean>-->
 
-    <mvc:resources location="/res/js/common/"
-                   mapping="/res/js/common/*" />
+    <mvc:resources location="/public/javascripts/"
+                   mapping="/public/javascripts/*" />
     <mvc:annotation-driven/>
+
+    <mvc:resources location="/public/images/"
+                   mapping="/public/images/*" />
+
+    <mvc:resources location="/public/stylesheets/"
+                   mapping="/public/stylesheets/*" />
+
+
+
+
 </beans>

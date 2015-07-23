@@ -101,4 +101,5 @@ public class InvestorServiceImp implements InvestorService {
         cons.put("investorId", userId);
         return mySQLSimpleDao.update("investor", map, cons);
     }
+
 }

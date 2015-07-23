@@ -25,8 +25,8 @@ public class SystemTest {
 
     @Test
     public void testSql(){
-//        assetService.getTotalMoney("123","1_month");
-//        appointService.getAppoint("123", true, "name", "", 1, 10);
+       // assetService.getTotalMoney("123","1_month");
+        //appointService.getAppoint("123", true, "name", "", 1, 10);
         investorService.getInvestorInfo("123");
     }
 

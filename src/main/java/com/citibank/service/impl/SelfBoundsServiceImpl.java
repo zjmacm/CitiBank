@@ -33,4 +33,6 @@ public class SelfBoundsServiceImpl implements SelfBoundsService {
         map.put("user_id", userId);
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
     }
+
+
 }

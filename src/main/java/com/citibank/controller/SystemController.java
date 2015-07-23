@@ -28,6 +28,12 @@ public class SystemController {
         modelAndView.addObject("sss","123");
         return modelAndView;
     }
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    public String test1(){
+        return "visitor/customer-index";
+    }
+
+
 
 
 }
