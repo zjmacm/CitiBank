@@ -101,6 +101,33 @@ public class VisitorController {
     public String getSinaturePage(){
         return "visitor/customer-service-signature";
     }
+    @RequestMapping(value = "/consulting.htm",method = RequestMethod.GET)
+    public String getDetailsPage()
+    {
+        return "visitor/customer-consulting";
+    }
+    @RequestMapping(value = "/infoPolicy.htm",method = RequestMethod.GET)
+    public String getInfoPolicyPage()
+    {
+        return "visitor/customer-information-policy";
+    }
+    @RequestMapping(value = "/invesStock.htm",method = RequestMethod.GET)
+    public String getInvesStock()
+    {
+        return "visitor/customer-investment-stock";
+    }
+    @RequestMapping(value = "/marketNews.htm",method = RequestMethod.GET)
+    public String getMarketNewsPage()
+    {
+        return "visitor/customer-market-news";
+    }
+    @RequestMapping(value = "/serviceAsset.htm",method = RequestMethod.GET)
+    public String getserviceAssetPage()
+    {
+        return "visitor/customer-service-asset";
+    }
+
+
 
 
 
