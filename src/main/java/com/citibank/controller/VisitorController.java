@@ -19,7 +19,10 @@ import java.util.Map;
  * Created by zjm on 2015/7/22.
  */
 
+
+
 @Controller("InformationController")
+@RequestMapping("/customer")
 public class VisitorController {
 
     @Autowired
@@ -86,6 +89,20 @@ public class VisitorController {
         map.put("data",page.getList());
         return map;
     }
+
+    //主界面
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String getIndexPage(){
+        return "visitor/customer-index";
+    }
+
+    //
+    @RequestMapping(value = "/sign.htm",method = RequestMethod.GET)
+    public String getSinaturePage(){
+        return "visitor/customer-service-signature";
+    }
+
+
 
 
 

@@ -7,13 +7,13 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
     <title>首页</title>
-    <link rel="stylesheet" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-index.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
-    <script type="text/javascript" src="../public/javascripts/d3.min.js"></script>
-    <script type="text/javascript" src="../public/javascripts/citi.js"></script>
-    <script src="../public/javascripts/unslider.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-index.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/d3.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/citi.js"></script>
+    <script src="/public/javascripts/unslider.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
         var unslider = $('.banner').unslider({
@@ -187,11 +187,11 @@
                     <img src="../public/images/btn-next.png" alt="" />
                 </a>
                 <ul>
-                    <li style="background-image:url(../public/images/banner1.jpg)">
+                    <li style="background-image:url(/public/images/banner1.jpg)">
                     </li>
-                    <li style="background-image:url(../public/images/banner2.png)">
+                    <li style="background-image:url(/public/images/banner2.png)">
                     </li>
-                    <li style="background-image:url(../public/images/banner3.png)">
+                    <li style="background-image:url(/public/images/banner3.png)">
                     </li>
                 </ul>
             </div>
