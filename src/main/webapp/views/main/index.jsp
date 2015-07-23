@@ -27,9 +27,9 @@
                 url: "index",
                 type: "post",
                 dataType: "json",
-                data: {"name": "bob", "password": "hello"},
+                data: {},
                 success: function (data) {
-                    if (data.result == "ssss") {
+                    if (data.result == "123") {
                         alert(data.result);
                     }
                 }

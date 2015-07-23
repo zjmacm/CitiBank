@@ -1,6 +1,8 @@
 package com.citibank.controller;
 
 import com.citibank.dao.Page;
+import com.citibank.entity.Investor;
+import com.citibank.service.InvestorService;
 import com.citibank.service.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,13 +32,13 @@ public class VisitorController {
     }
 
     @RequestMapping(value="/getPolicyList",method = RequestMethod.POST)
-    public String getPolicyList(@RequestParam(value="pageIndex",required = false,defaultValue = "1")int pageIndex,
+    public @ResponseBody Map<String,Object> getPolicyList(@RequestParam(value="pageIndex",required = false,defaultValue = "1")int pageIndex,
             Map<String,Object> map){
         Page<Map<String,Object>> list = visitorService.getPolicyList(pageIndex);
         map.put("pageIndex",list.getIndex());
         map.put("pageSize",list.getpageCount());
         map.put("data",list.getList());
-        return "";
+        return map;
     }
 
 
@@ -56,13 +58,13 @@ public class VisitorController {
     }
 
     @RequestMapping(value="/getMarketList",method = RequestMethod.POST)
-    public String getMarketList(@RequestParam(value = "pageIndex",required=false,defaultValue = "1")int pageIndex,
+    public @ResponseBody Map<String,Object> getMarketList(@RequestParam(value = "pageIndex",required=false,defaultValue = "1")int pageIndex,
                                 Map<String,Object> map){
         Page<Map<String,Object>> list = visitorService.getMarketList(pageIndex);
         map.put("pageIndex",list.getIndex());
         map.put("pageSize",list.getpageCount());
         map.put("data",list.getList());
-        return "";
+        return map;
     }
 
 
@@ -74,7 +76,16 @@ public class VisitorController {
         return map;
     }
 
-
+    @RequestMapping(value = "/getFinancingCompany",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> getFinancingCom(
+            @RequestParam(value = "pageIndex",required = false,defaultValue = "1")int pageIndex,
+            Map<String,Object> map) {
+        Page<Map<String,Object>> page = visitorService.getFinancingCom(pageIndex);
+        map.put("pageIndex",page.getIndex());
+        map.put("pageSize",page.getpageCount());
+        map.put("data",page.getList());
+        return map;
+    }
 
 
 

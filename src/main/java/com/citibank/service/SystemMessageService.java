@@ -10,7 +10,8 @@ import java.util.Map;
  */
 public interface SystemMessageService {
     public List<Map<String,Object>> getAllMessage();
-    public List<Map<String,Object>> getMessageByDate(Map<String, Object> reqs);
+    public List<Map<String,Object>> getMessageById(Map<String, Object> reqs);
+    public List<Map<String,Object>> getMessageByTime(Map<String, Object> reqs);
     public List<Map<String,Object>> getMessageByContent(Map<String, Object> reqs);
 
 }
