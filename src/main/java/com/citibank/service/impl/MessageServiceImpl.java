@@ -19,7 +19,9 @@ import java.util.*;
 public class MessageServiceImpl implements MessageService {
 
     @Autowired
+
     private MySQLSimpleDaoImpl mySQLSimpleDao;
+
 
 
     public String sendMessage(Map<String, Object> reqs,HttpSession session) {
@@ -49,6 +51,8 @@ public class MessageServiceImpl implements MessageService {
     }
 
 
+
+
     public List<Map<String, Object>> showMessage(Map<String, Object> reqs,HttpSession session) {
 
         int userType = Integer.parseInt(session.getAttribute("userType").toString());
@@ -73,6 +77,7 @@ public class MessageServiceImpl implements MessageService {
 
     }
 
+
     public Map<String,Object> checkMessage(Map<String, Object> reqs, HttpSession session) {
 
 
@@ -83,6 +88,8 @@ public class MessageServiceImpl implements MessageService {
         mySQLSimpleDao.update("message",map1,map2);
         return mySQLSimpleDao.retrieve("message",map2);
     }
+
+
 
     public String DirectionalDisclosure(Map<String, Object> reqs) {
 

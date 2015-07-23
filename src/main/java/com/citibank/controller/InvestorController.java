@@ -1,23 +1,21 @@
 package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
-import com.citibank.mail.MailSender;
 import com.citibank.service.InvestorService;
-
-
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
+import java.util.UUID;
 
 /**
  * Created by liuhao on 15-7-14.
@@ -55,13 +53,10 @@ public class InvestorController {
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     public String doRegister(@RequestParam Map<String, Object> regs) {
         regs.put("id", IdUtil.uuid());
-        Map<String,Object> map = new HashMap<String, Object>();
-        map = investorService.registerInvestor(regs);
-        String result = map.get("result").toString();
+        String result = investorService.registerInvestor(regs);
         if (result.equals("failed")) {
             return "investor/investorRegister";
         } else {
-            MailSender.sendMail(regs.get("username").toString(),"恭喜您成功注册!");
             return "investor/completeInfo";
         }
     }

@@ -42,7 +42,22 @@ public class SystemMessageServiceImpl implements SystemMessageService{
             return null;
         }
     }
-    public List<Map<String,Object>> getMessageByDate(Map<String,Object> reqs)
+    public List<Map<String,Object>> getMessageById(Map<String,Object> reqs)
+    {
+        String sql = "select * from message where id=:id";
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        list = mySQLSimpleDao.queryForList(sql,reqs);
+        if(list.size() > 0)
+        {
+            System.out.println("找到list!");
+            return list;
+        }
+        else {
+            System.out.println("没找到list!");
+            return null;
+        }
+    }
+    public List<Map<String,Object>> getMessageByTime(Map<String,Object> reqs)
     {
         String sql = "select * from message where time=:time";
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
