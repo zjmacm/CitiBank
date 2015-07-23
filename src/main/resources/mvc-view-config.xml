@@ -22,9 +22,8 @@
             </mvc:default-views>
         </mvc:content-negotiation>
         <mvc:bean-name/>
-        <mvc:jsp prefix="/views/" suffix=".jsp"/>
+        <mvc:jsp prefix="/views" suffix=".jsp"/>
     </mvc:view-resolvers>
-
 
     <!--<bean id="jspViewResolver"-->
           <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->

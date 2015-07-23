@@ -48,35 +48,35 @@ public class CompanyController {
 
 
     @RequestMapping(value="confirmEmail",method=RequestMethod.POST)
-    public ModelAndView confirmEmail(@RequestParam Map<String,Object> reqs){
-        ModelAndView model = new ModelAndView();
+    public @ResponseBody Map<String,Object> confirmEmail(@RequestParam Map<String,Object> reqs){
+        Map<String,Object> map = new HashMap<String, Object>();
         String result = companyService.confirmEmail(reqs);
-        model.addObject("result", result);
-        return model;
+        map.put("result", result);
+        return map;
     }
 
     @RequestMapping(value="confirmCompanyName",method = RequestMethod.POST)
-    public ModelAndView confirmCompanyName(@RequestParam Map<String,Object> reqs){
-        ModelAndView model = new ModelAndView();
+    public @ResponseBody Map<String,Object> confirmCompanyName(@RequestParam Map<String,Object> reqs){
+        Map<String,Object> map = new HashMap<String, Object>();
         String result = companyService.confirmCompanyName(reqs);
-        model.addObject("result",result);
-        return model;
+        map.put("result", result);
+        return map;
     }
 
     @RequestMapping(value="confirmCompanyCode",method=  RequestMethod.POST)
-    public ModelAndView confrimCompanyCode(@RequestParam Map<String,Object> reqs){
-        ModelAndView model = new ModelAndView();
+    public @ResponseBody Map<String,Object> confrimCompanyCode(@RequestParam Map<String,Object> reqs){
+        Map<String,Object> map = new HashMap<String, Object>();
         String result = companyService.confirmCompanyCode(reqs);
-        model.addObject("result",result);
-        return model;
+        map.put("result", result);
+        return map;
     }
 
     @RequestMapping(value="confirmBussinessLisence",method= RequestMethod.POST)
-    public ModelAndView confirmBussinessLicense(@RequestParam Map<String,Object> reqs){
-        ModelAndView model = new ModelAndView();
+    public @ResponseBody Map<String,Object> confirmBussinessLicense(@RequestParam Map<String,Object> reqs){
+        Map<String,Object> map = new HashMap<String, Object>();
         String result = companyService.confirmBussinessLisence(reqs);
-        model.addObject("result",result);
-        return model;
+        map.put("result",result);
+        return map;
     }
 
     @RequestMapping(value="/companyRegister",method = RequestMethod.POST)
@@ -90,7 +90,6 @@ public class CompanyController {
         model.addObject("result",result);
         return model;
     }
-
 
     @RequestMapping(value="/companyLogin",method = RequestMethod.POST)
     public ModelAndView userLogin(@RequestParam Map<String,Object> reqs,HttpSession session){
@@ -135,5 +134,7 @@ public class CompanyController {
         }
         return status;
     }
+
+
 
 }
