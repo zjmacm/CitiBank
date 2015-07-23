@@ -53,7 +53,9 @@ public class InvestorController {
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     public String doRegister(@RequestParam Map<String, Object> regs) {
         regs.put("id", IdUtil.uuid());
-        String result = investorService.registerInvestor(regs);
+        Map<String,Object> map = new HashMap<String, Object>();
+        map = investorService.registerInvestor(regs);
+        String result = map.get("result").toString();
         if (result.equals("failed")) {
             return "investor/investorRegister";
         } else {
