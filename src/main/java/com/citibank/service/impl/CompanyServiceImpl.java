@@ -30,7 +30,7 @@ public class CompanyServiceImpl implements CompanyService {
         String result = "success";
         try{
             Date date = new Date();
-            reqs.put("formedTime","date");
+            reqs.put("formedTime",date);
             String id = IdUtil.uuid();
             reqs.put("companyId",id);
             mySQLSimpleDao.create("company",reqs);
@@ -108,6 +108,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return result.get(0);
     }
+
 
     public int saveCompanyInfo(Map<String, Object> map,String userId) {
 
