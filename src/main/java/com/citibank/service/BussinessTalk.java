@@ -7,7 +7,9 @@ import java.util.Map;
  * Created by mrtian on 2015/7/23.
  */
 public interface BussinessTalk {
-    public List<Map<String,Object>> getAllTalker(Map<String,Object> req);
-    public boolean uploadingContract(Map<String,Object> req);
-    public boolean changeContract(Map<String,Object> req);
+    public List<Map<String, Object>> getAllTalker(Map<String, Object> req);
+
+    public boolean uploadingContract(Map<String, Object> req);
+
+    public boolean changeContract(Map<String, Object> req);
 }
