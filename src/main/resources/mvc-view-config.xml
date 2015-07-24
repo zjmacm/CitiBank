@@ -43,7 +43,7 @@
     <mvc:resources location="/public/stylesheets/"
                    mapping="/public/stylesheets/*" />
 
-
+    <mvc:resources mapping="/public/fonts/*" location="/public/fonts/"/>
 
 
 </beans>

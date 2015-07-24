@@ -61,7 +61,7 @@
                 <constructor-arg>
                     <props>
                         <prop key="kaptcha.image.width">80</prop>
-                        <prop key="kaptcha.image.height">30</prop>
+                        <prop key="kaptcha.image.height">27</prop>
                         <prop key="kaptcha.textproducer.font.size">25</prop>
                         <prop key="kaptcha.textproducer.font.color">black</prop>
                         <prop key="kaptcha.textproducer.font.names">Arial</prop>
