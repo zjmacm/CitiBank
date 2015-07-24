@@ -22,7 +22,7 @@ public class SystemController {
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView test(HttpServletResponse response) {
         //response.setHeader("Access-Control-Allow-Origin","*");
-        ModelAndView modelAndView = new ModelAndView("/name");
+        ModelAndView modelAndView = new ModelAndView("visitor/reg");
         return modelAndView;
     }
 

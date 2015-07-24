@@ -5,17 +5,17 @@ var reg = (function(citi) {
 
     var flag = [];
     /*var callback = function() {
-        var i = 0;
-        for (i = 0; i < status.length; i++) {
-            if (!status[i]) {
-                break;
-            }
-        }
+     var i = 0;
+     for (i = 0; i < status.length; i++) {
+     if (!status[i]) {
+     break;
+     }
+     }
 
-        if (i == status.length) {
-            $('#btn').removeAttr('disabled');
-        }
-    };*/
+     if (i == status.length) {
+     $('#btn').removeAttr('disabled');
+     }
+     };*/
 
     $('.reg-input').each(function() {
         flag.push(false);
@@ -47,7 +47,7 @@ var reg = (function(citi) {
                     }
 
                     if (e.target.name == 'auth') {
-                        $(id).next().addClass('icon-tips').html('输入验证码');
+                        $('#auth-check').addClass('icon-tips').html('输入验证码');
                     }
                     if (e.target.name == 'name') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips').html('输入企业名称')
@@ -77,7 +77,7 @@ var reg = (function(citi) {
                     }
 
                     if (e.target.name == 'auth') {
-                        $(id).next().addClass('icon-tips').html('输入验证码');
+                    $('#auth-check').addClass('icon-tips').html('输入验证码');
                     }
                     if (e.target.name == 'name') {
                         $(id).next().addClass('icon-tips').html('输入企业名称')
@@ -159,16 +159,16 @@ var reg = (function(citi) {
                         };
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });
-*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });
+                         */
                         return;
                     }
 
@@ -236,15 +236,15 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            return $(id).next().addClass('icon-error').html('验证码不能为空');
+                            return $('#auth-check').addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
                         url = '/auth/' + eval + '/' + now.getTime();
                         success = function() {
                             if (text.check == 'success') {
-                                $(id).next().addClass('icon-success').html('');
+                                $('#auth-check').addClass('icon-success').html('');
                             } else {
-                                $(id).next().addClass('icon-error').html('验证码错误');
+                                $('#auth-check').addClass('icon-error').html('验证码错误');
                             }
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -258,19 +258,19 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            $(id).next().addClass('icon-error').html('网络错误，稍后重试');
+                            $('#auth-check').addClass('icon-error').html('网络错误，稍后重试');
                         }
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                     }
 
@@ -311,15 +311,15 @@ var reg = (function(citi) {
                         };
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                         return;
                     }
@@ -369,15 +369,15 @@ var reg = (function(citi) {
                         }
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                     }
 
@@ -450,16 +450,16 @@ var reg = (function(citi) {
                         };
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });
-*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });
+                         */
                         return;
                     }
 
@@ -527,15 +527,15 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            return $(id).next().addClass('icon-error').html('验证码不能为空');
+                            return $('#auth-check').addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
                         url = '/auth/' + eval + '/' + now.getTime();
                         success = function() {
                             if (text.check == 'success') {
-                                $(id).next().addClass('icon-success').html('');
+                                $('#auth-check').addClass('icon-success').html('');
                             } else {
-                                $(id).next().addClass('icon-error').html('验证码错误');
+                                $('#auth-check').addClass('icon-error').html('验证码错误');
                             }
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -549,19 +549,19 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            $(id).next().addClass('icon-error').html('网络错误，稍后重试');
+                            $('#auth-check').addClass('icon-error').html('网络错误，稍后重试');
                         }
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                     }
 
@@ -602,15 +602,15 @@ var reg = (function(citi) {
                         };
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                         return;
                     }
@@ -660,15 +660,15 @@ var reg = (function(citi) {
                         }
 
                         /*imd.ajax({
-                            type: "GET",
-                            url: url,
-                            data: null,
-                            timeOut: 3000,
-                            receiveType: "json",
-                            async: true,
-                            success: success,
-                            error: error
-                        });*/
+                         type: "GET",
+                         url: url,
+                         data: null,
+                         timeOut: 3000,
+                         receiveType: "json",
+                         async: true,
+                         success: success,
+                         error: error
+                         });*/
 
                     }
                 }

@@ -119,7 +119,7 @@
                             <input type="text" id="auth" class="reg-input" name="auth" />
                             <span id="auth-image"><img src="/getCode" alt="" /></span>
                             <span id="refresh"><img src="../public/images/refresh.png" /></span>
-                            <span class="check"></span>
+                            <span class="check" id="auth-check"></span>
                         </li>
                         <li>
                             <span class="label">用户类型:</span>
