@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -37,11 +38,11 @@ public class ReportController {
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
-    public String getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
+    public @ResponseBody Map<String,Object> getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
                                   Map<String, Object> map) {
         List<Map<String, Object>> result = reportService.getInformation(type);
         map.put("data", result);
-        return "";
+        return map;
     }
 
     @RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
