@@ -28,10 +28,12 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public Map<String, Object> registerInvestor(Map<String, Object> reqs) {
-        String result = "";
+        String result;
         String username = (String) reqs.get("username");
-        String sql = String.format("select * from investor where username=%",username);
-        if (mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>()).size() > 0) {
+        String sql = "select username from investor where username= :user_name";
+        Map<String, Object> map=new HashMap<String, Object>();
+        map.put("user_name", username);
+        if (mySQLSimpleDao.queryForList(sql, map).size() > 0) {
             result = "repeat";
         } else {
             try {
@@ -44,7 +46,7 @@ public class InvestorServiceImp implements InvestorService {
                 result = "failed";
             }
         }
-        Map<String,Object> map=new HashMap<String, Object>();
+        map.clear();
         map.put("result",result);
         return map;
     }

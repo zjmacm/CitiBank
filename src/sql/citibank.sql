@@ -126,7 +126,7 @@ CREATE TABLE `financedata` (
   `flowDebt` int(11) NOT NULL COMMENT '流动负债',
   `currentSaleIncome` int(11) NOT NULL COMMENT '当期销售净收入',
   `currentRevenue` int(11) NOT NULL COMMENT '当期现销收入',
-  `preReceivables` int(11) NOT NULL COMMENT '当期应收账款余额',
+  `preReceivables` int(11) NOT NULL COMMENT '期初应收账款余额',
   `profit` int(11) NOT NULL COMMENT '利润额',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
