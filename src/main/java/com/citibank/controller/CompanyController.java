@@ -88,7 +88,7 @@ public class CompanyController {
     public ModelAndView userRegister(@RequestParam Map<String, Object> reqs) {
         //new一个模型
         ModelAndView model = new ModelAndView();
-        String result = companyService.userRegister(reqs);
+        String result = companyService.userRegister(reqs).get("result").toString();
         if (result.equals("success")) {
             MailSender.sendMail(reqs.get("username").toString(), "恭喜您注册成功");
         }
