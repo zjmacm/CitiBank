@@ -67,7 +67,7 @@ public class InvestorController {
     }
 
     @RequestMapping(value = "/doCompleteInfo", method = RequestMethod.POST)
-    public String completeInfo(@RequestParam Map<String, Objects> infos, HttpSession session) {
+    public String completeInfo(@RequestParam Map<String, Object> infos, HttpSession session) {
         String userId = (String) session.getAttribute("userId");
         String result = investorService.completeInfo(infos, userId);
         if (result.equals("failed")) {

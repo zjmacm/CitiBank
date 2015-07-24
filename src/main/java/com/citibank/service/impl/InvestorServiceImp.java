@@ -30,9 +30,9 @@ public class InvestorServiceImp implements InvestorService {
     public Map<String, Object> registerInvestor(Map<String, Object> reqs) {
         String result;
         String username = (String) reqs.get("username");
-        String sql = "select username from investor where username= :user_name";
+        String sql = "select username from investor where username=:username";
         Map<String, Object> map=new HashMap<String, Object>();
-        map.put("user_name", username);
+        map.put("username", username);
         if (mySQLSimpleDao.queryForList(sql, map).size() > 0) {
             result = "repeat";
         } else {
@@ -69,9 +69,9 @@ public class InvestorServiceImp implements InvestorService {
         return result;
     }
 
-    public String completeInfo(Map<String, Objects> infos, String userId) {
+    public String completeInfo(Map<String, Object> infos, String userId) {
         Map<String, Object> cons = new HashMap<String, Object>();
-        cons.put("id", userId);
+        cons.put("investorId", userId);
         try {
             mySQLSimpleDao.update("investor", infos, cons);
         } catch (Exception ex) {
@@ -81,7 +81,7 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public boolean hasEmail(String email) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where username = :username", email);
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where username = ?", email);
         if(result.size()>0){
             return false;
         }

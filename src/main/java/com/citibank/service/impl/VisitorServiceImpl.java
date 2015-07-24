@@ -92,6 +92,8 @@ public class VisitorServiceImpl implements VisitorService{
         return mySQLSimpleDao.pageQuery("select *from information",new HashMap<String, Object>(),pageIndex,10,order);
     }
 
+
+
     public Map<String, Object> investCenter() {
         return null;
     }

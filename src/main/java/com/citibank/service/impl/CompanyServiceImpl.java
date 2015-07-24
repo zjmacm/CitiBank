@@ -26,7 +26,8 @@ public class CompanyServiceImpl implements CompanyService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    public String userRegister(Map<String, Object> reqs) {
+    public Map<String, Object> userRegister(Map<String, Object> reqs) {
+        Map<String,Object> map=new HashMap<String, Object>();
         String result = "success";
         try{
            // Date date = new Date();
@@ -39,8 +40,9 @@ public class CompanyServiceImpl implements CompanyService {
             e.printStackTrace();
             result = "failed";
         }
+        map.put("result",result);
 
-        return result;
+        return map;
     }
 
     public Map<String,Object> userLogin(Map<String, Object> reqs) {

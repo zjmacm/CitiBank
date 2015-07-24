@@ -1,10 +1,14 @@
 package com.citibank.controller;
 
+import com.citibank.common.IdUtil;
 import com.citibank.dao.Page;
 import com.citibank.entity.Investor;
 import com.citibank.service.InvestorService;
 import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
+import com.citibank.service.impl.CompanyServiceImpl;
+import com.citibank.service.impl.InvestorServiceImp;
+import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +31,10 @@ public class VisitorController {
 
     @Autowired
     private VisitorService visitorService;
-
+    @Autowired
+    private InvestorServiceImp investorServiceImp;
+    @Autowired
+    private CompanyServiceImpl companyServiceImp;
     //游客模式下查看政策咨询和市场咨询
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
     public String getPolicyPage() {
@@ -39,7 +46,34 @@ public class VisitorController {
     public String getMarketPage() {
         return "visitor/market";
     }
+    //进入注册页面
+    @RequestMapping(value = "/register.htm",method = RequestMethod.GET)
+    public String getRegisterPage()
+    {
+        return "/visitor/register";
+    }
+    @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
+    public String  register(@RequestParam Map<String,Object> reqs,HttpSession session)
+    {
+        String flag=(String)reqs.get("userType");
+        String id= IdUtil.uuid();
+        session.setAttribute("userId",id);
+        if(flag=="investor")
+        {
+            reqs.put("investorId",id);
+            reqs.remove("userType");
+            investorServiceImp.registerInvestor(reqs);
+            return "/";
+        }
+        else
+        {
+            reqs.put("companyId",id);
+            reqs.remove("userType");
+            companyServiceImp.userRegister(reqs);
+            return "/";
+        }
 
+   }
     @RequestMapping(value = "/getFinancingCompany", method = RequestMethod.POST)
     public
     @ResponseBody
