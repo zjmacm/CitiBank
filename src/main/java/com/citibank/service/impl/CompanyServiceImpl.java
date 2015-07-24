@@ -61,7 +61,7 @@ public class CompanyServiceImpl implements CompanyService {
     public String confirmEmail(Map<String, Object> reqs) {
 
         String result = "success";
-        String sql = "select *from company where username=:username";
+        String sql = "select *from company where username = :user_name";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
@@ -70,7 +70,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     public String confirmCompanyCode(Map<String, Object> reqs) {
         String result = "success";
-        String sql = "select *from company where companyCode=:companyCode";
+        String sql = "select *from company where company_ode=:company_code";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
@@ -79,7 +79,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     public String confirmCompanyName(Map<String, Object> reqs) {
         String result = "success";
-        String sql = "select *from company where companyName=:companyName";
+        String sql = "select *from company where companyName = :company_name";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }

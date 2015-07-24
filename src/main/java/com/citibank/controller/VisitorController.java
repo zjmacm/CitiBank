@@ -21,7 +21,6 @@ import java.util.Map;
  * Created by zjm on 2015/7/22.
  */
 
-
 @Controller("InformationController")
 @RequestMapping("/customer")
 public class VisitorController {

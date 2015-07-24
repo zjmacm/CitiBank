@@ -1,6 +1,7 @@
 package com.citibank.controller;
 
 import com.citibank.dao.Page;
+import com.citibank.service.FinanceService;
 import com.citibank.service.ReportService;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
@@ -24,6 +25,9 @@ public class ReportController {
 
     @Autowired
     private ReportService reportService;
+
+    @Autowired
+    private FinanceService financeService;
 
     @RequestMapping(value = "/getReport.htm", method = RequestMethod.GET)
     public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
@@ -53,11 +57,15 @@ public class ReportController {
     }
 
     @RequestMapping("/companyInfo.htm")
-    public String getCompanyInfo(@RequestParam("companyId")String companyId, Map<String,Object> map){
+    public String getCompanyInfo(@RequestParam("companyId")String companyId, HttpSession session,
+                                 Map<String,Object> map){
+        String userId= (String) session.getAttribute("userId");
         List<Map<String, Object>> onTime = reportService.getReportById(6, companyId);
         List<Map<String, Object>> temporary = reportService.getReportById(7, companyId);
+        Map<String, Object> finance = financeService.getFinance(userId);
         map.put("onTime",onTime);
         map.put("temporary",temporary);
+        map.put("finance", finance);
         return "";
     }
 
