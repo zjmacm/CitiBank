@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
+
 /**
  * Created by zjm on 2015/7/13.
  */
@@ -123,5 +124,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return  mySQLSimpleDao.update("company", map, cons);
     }
+
+
 
 }

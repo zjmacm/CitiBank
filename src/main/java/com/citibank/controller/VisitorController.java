@@ -47,8 +47,9 @@ public class VisitorController {
     @RequestMapping(value = "/register.htm",method = RequestMethod.GET)
     public String getRegisterPage()
     {
-        return "/visitor/register";
+        return "/visitor/reg";
     }
+
     @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
     public String  register(@RequestParam Map<String,Object> reqs,HttpSession session)
     {
