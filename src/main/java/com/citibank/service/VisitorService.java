@@ -10,13 +10,13 @@ import java.util.Map;
 public interface VisitorService {
 
     //咨询界面
-    public Page<Map<String,Object>> getPolicyList(int pageIndex);
+//    public Page<Map<String,Object>> getPolicyList(int pageIndex);
 
-    public Map<String,Object> getPolicyInfoDetail(String id);
+//    public Map<String,Object> getPolicyInfoDetail(String id);
 
-    public Page<Map<String,Object>> getMarketList(int pageIndex);
+//    public Page<Map<String,Object>> getMarketList(int pageIndex);
 
-    public Map<String,Object> getMarketInfoDetail(String id);
+//    public Map<String,Object> getMarketInfoDetail(String id);
 
     //融资企业
     public Page<Map<String,Object>> getFinancingCom(int pageIndex);

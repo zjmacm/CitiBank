@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,12 +76,11 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/example.jpg">
-                <p style="font-size: 2em">广州市铱泰电子科技有限公司</p><br/>
+                <img class="head" src="../public/images/logo_0005.jpg">
+                <p style="font-size: 2em">宜冠地产</p><br/>
                 <div class="about">
-                    <p>广州市铱泰电子科技有限公司是集研究开发、制造销售、应用服务为一体的高新技术企业</p>
+                    <p>公司按照现代企业制度的管理模式，遵循有限责任公司制度的运作方式</p>
                 </div>
-                <span>地区——&nbsp&nbsp行业——</span>
                 <div class="top-right">
                     <div class="return">
                         <a id="return0" href="">访问官网</a>
@@ -103,23 +103,22 @@
                         <span class="short-line"></span>
                     </div>
                     <div class="center-content">
-                        成立时间：2006.09.28<br/>
-                        注册资本：120万人民币<br/>
-                        咨询电话：020-62199552<br/>
+                        成立时间：2011年12月11日<br/>
+                        注册资本：2000万人民币<br/>
+                        咨询电话：0554-608-6969<br/>
                         企业类型：有限责任公司<br/>
-                        注册地址：广州市白云山山麓<br/>
-                        所有专利：钳形接地电阻 非接触性相序表 漏电流表 接地电阻在线检测<br/><br/>
+                        注册地址：淮南市山南新区<br/><br/>
                     </div>
                     <div class="center-title-line">
                         <span class="title">公司规模：</span>
                         <span class="short-line"></span>
                     </div>
                     <div class="center-content">
-                        分厂：北京分公司<br/>
-                        子公司：无<br/>
+                        分厂：无<br/>
+                        子公司：5个<br/>
                         驻外办事处机构：无<br/>
-                        员工人数：60人<br/>
-                        占地面积：3000平米<br/><br/>
+                        员工人数：50人<br/>
+                        占地面积：22.07万平方米<br/><br/>
                     </div>
                 </div>
                 <div class="center-right">
@@ -144,8 +143,8 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    所属行业：电子行业<br/>
-                    细分行业：高端智能化数字测试仪器<br/>
+                    所属行业：基础建设行业<br/>
+                    细分行业：房地产<br/>
                     <p class="content">
                     </p><br/>
                 </div>
@@ -154,12 +153,7 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    <p class="content">公司致力于向广大客户提供高端智能化数字测试仪器，
-                        以及接地电阻、泄漏电流、相序、功率等非接触式远程在线监测解决方案。
-                        其产品广泛应用于电力、通信、军事、石油、化工、气象、铁路及工矿企业等领域。
-                        公司拥有高水平的技术研发团队，在产品研发与制造上积极遵照国际电工委员会IEC1010标准，
-                        专注于研制安全、耐用、精确的高端数字检测产品，并不断对现有产品升级换代。
-                        公司还拥有卓有成效的管理团队、兢兢业业的优秀员工，确保我们的产品技术领先、品质优良。
+                    <p class="content">房屋租售、公寓租售、商铺租售、写字楼租售，以内外多个露天广场串联各个功能中心，街区广场、花园庭院、下沉庭院等，地上与地下、垂直与水平交通系统使商业空间形成生动、变化的有机整体。在这里，休闲娱乐、运动健身、购物消费、餐饮聚会等业态多元混合，丰富多彩的活动让小镇街区每天都是欢乐的节日。
                     </p><br/>
                 </div>
                 <div class="bottom-title-line">
@@ -167,12 +161,12 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    技术优势：高新技术<br/>
-                    产品优势：产品广泛应用<br/>
-                    市场优势：市场需求量大<br/>
+                    技术优势：先进的技术<br/>
+                    产品优势：投资升值<br/>
+                    市场优势：便捷选房<br/>
                     人才优势：兢兢业业的优秀员工<br/>
-                    品牌优势：卓有成效的管理团队<br/>
-                    管理优势：国内知名品牌<br/><br/>
+                    管理优势：卓有成效的管理团队<br/>
+                    品牌优势：有系统的资深品牌<br/><br/>
                 </div>
                 <div class="bottom-title-line">
                     <span class="title">公司介绍：</span>
@@ -180,15 +174,7 @@
                 </div>
                 <div class="center-content">
                     <p class="content">
-                        广州市铱泰电子科技有限公司是集研究开发、制造销售、应用服务为一体的高新技术企业，
-                        是国家计量检定规程：JJG105410－2009【钳形接地电阻仪】的参与制定单位。
-                        公司参与了国家标准的制定，拥有钳形接地电阻测试仪等十多项国家专利，产品畅销国内外近十年，
-                        赢得了广大客户的信赖与赞赏。 我们的质量方针：以客户需求为宗旨，以科技创新为动力，以严格管理为保证，
-                        以国际水平为目标，为广大客户提供满意的产品和服务。 我们的价值观：团结和睦、志同道合、诚实守信、
-                        尊崇创新、严谨守纪、追求卓越。  我们的企业目标：将铱泰科技打造成一个具有自主知识产权，拥有核心技术，
-                        在规模和技术上领先于国内外同行的高端智能数字测试仪器供应商。 客户的认同，是对我们最好的鼓励。
-                        我们坚信，通过我们的不懈努力，一定会有更多的用户使用我们的产品，有更多的合作伙伴与我们携手同进，
-                        共创美好明天！
+                        公司始终坚持以市场为导向、开发为重点，经营为龙头，质量为根本的开发理念和经营方针，切实转变观念，解放思想，紧紧围绕市场狠抓经营，强化管理，树立责任感、认识危机感；不断留意和观察房地产市场行情，积极寻求探索与市场机制相适应的经营策略和经营方针，走品牌化之路。
                     </p>
                 </div>
             </div>

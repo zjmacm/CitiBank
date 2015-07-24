@@ -26,24 +26,25 @@
     </mvc:view-resolvers>
 
     <!--<bean id="jspViewResolver"-->
-          <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-        <!--<property name="viewClass"-->
-                  <!--value="org.springframework.web.servlet.view.JstlView" />-->
-        <!--<property name="prefix" value="/webapp/views/" />-->
-        <!--<property name="suffix" value=".jsp" />-->
+    <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+    <!--<property name="viewClass"-->
+    <!--value="org.springframework.web.servlet.view.JstlView" />-->
+    <!--<property name="prefix" value="/webapp/views/" />-->
+    <!--<property name="suffix" value=".jsp" />-->
     <!--</bean>-->
 
     <mvc:resources location="/public/javascripts/"
-                   mapping="/public/javascripts/*" />
+                   mapping="/public/javascripts/*"/>
     <mvc:annotation-driven/>
 
     <mvc:resources location="/public/images/"
-                   mapping="/public/images/*" />
+                   mapping="/public/images/*"/>
 
     <mvc:resources location="/public/stylesheets/"
-                   mapping="/public/stylesheets/*" />
+                   mapping="/public/stylesheets/*"/>
 
-
+    <mvc:resources mapping="/public/fonts/*"
+                   location="/public/fonts/"/>
 
 
 </beans>

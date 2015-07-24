@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,11 +76,10 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/logo_0004.jpg">
-                <p style="font-size: 2em">莱客饭店</p><br/>
+                <img class="head" src="../public/images/logo_0007.jpg">
+                <p style="font-size: 2em">唐一酒店</p><br/>
                 <div class="about">
-                    <p>是集餐饮、住宿、会务为一体的综合性旅游饭店。饭店环境幽雅。
-                    </p>
+                    <p>酒店装饰华贵典雅，具有浓郁的欧陆风格。</p>
                 </div>
                 <div class="top-right">
                     <div class="return">
@@ -103,11 +103,11 @@
                         <span class="short-line"></span>
                     </div>
                     <div class="center-content">
-                        成立时间：2007年6月9日<br/>
-                        注册资本：500万人民币<br/>
-                        咨询电话：4007-889-889<br/>
-                        企业类型：民营企业<br/>
-                        注册地址：山东省济南市二环东路<br/><br/>
+                        成立时间：2001<br/>
+                        注册资本：400万人民币<br/>
+                        咨询电话：0532-88614000<br/>
+                        企业类型：有限责任公司<br/>
+                        注册地址：青岛 市南区 香港中路<br/><br/>
                     </div>
                     <div class="center-title-line">
                         <span class="title">公司规模：</span>
@@ -117,7 +117,7 @@
                         分厂：无<br/>
                         子公司：无<br/>
                         驻外办事处机构：无<br/>
-                        员工人数：1000人<br/>
+                        员工人数：2000人<br/>
                         占地面积：10000平米<br/><br/>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                 </div>
                 <div class="center-content">
                     所属行业：服务业<br/>
-                    细分行业：餐饮<br/>
+                    细分行业：住宿<br/>
                     <p class="content">
                     </p><br/>
                 </div>
@@ -153,7 +153,7 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    <p class="content">提供优质化服务，个性化享受：济南蓝海大饭店的所有服务人员能熟练的掌握服务的技巧与流程，同时我们还可以根据客人的特殊要求如婚宴、寿宴、旅游等提供个性化、定制化的服务，让您感受高品味的享受。
+                    <p class="content">可调节温度的中央空调系统、LED液晶电视、宽带上网、浴室、热水壶、吹风机在质量不断提高的同时，努力在设施上不断完善。酒店除拥有各类客房、中西餐厅、宴会厅以及游泳池、香熏疗养园、歌舞厅等场所外，更有大型的商务中心，其会议、办公及通信等设施先进、功能齐全。
                     </p><br/>
                 </div>
                 <div class="bottom-title-line">
@@ -163,10 +163,10 @@
                 <div class="center-content">
                     技术优势：先进的技术<br/>
                     产品优势：产品符合大众口味<br/>
-                    市场优势：市场必需品<br/>
+                    市场优势：市场充足<br/>
                     人才优势：兢兢业业的优秀员工<br/>
                     管理优势：卓有成效的管理团队<br/>
-                    品牌优势：品质安全健康<br/><br/>
+                    品牌优势：独有特色<br/><br/>
                 </div>
                 <div class="bottom-title-line">
                     <span class="title">公司介绍：</span>
@@ -174,7 +174,7 @@
                 </div>
                 <div class="center-content">
                     <p class="content">
-                        饭店餐饮区域共设有600个餐位，以经营“精品鲁菜”为主，汇集燕、鲍、翅、参等高档菜品，配合地道的胶东海鲜和市场流行的地域菜品，均由名厨料理，菜品精良。朋友聚会或是贵宾宴请，20个风格独特的宴会包间均能使宾客在浓郁的文化氛围中品尝各款美食佳肴
+                        致力于为客人打造更加完美的商务之旅，一键式服务让您体验现代商旅的舒适与便捷；训练有素的酒店一线员工能熟练地进行英语和日语沟通，并为客人提供优质、全面、超值地服务，同时酒店还特设了多语种的宾客关系团队，可以随时为外藉客人提供周到、贴心地服务，并帮助客人解决在店期间的一切问题。
                     </p>
                 </div>
             </div>

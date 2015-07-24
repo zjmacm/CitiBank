@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,10 +76,11 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/logo_0003.jpg">
-                <p style="font-size: 2em">书风绿色酒店</p><br/>
+                <img class="head" src="../public/images/logo_0004.jpg">
+                <p style="font-size: 2em">莱客饭店</p><br/>
                 <div class="about">
-                    <p>坐落在大连市金融、商贸、旅游、交通中心的中山广场，是一座欧洲文艺复兴风格的巴洛克式建筑，现为全国重点文物保护单位。</p>
+                    <p>是集餐饮、住宿、会务为一体的综合性旅游饭店。饭店环境幽雅。
+                    </p>
                 </div>
                 <div class="top-right">
                     <div class="return">
@@ -102,11 +104,11 @@
                         <span class="short-line"></span>
                     </div>
                     <div class="center-content">
-                        成立时间：2002<br/>
+                        成立时间：2007年6月9日<br/>
                         注册资本：500万人民币<br/>
-                        咨询电话：411 3988 1234<br/>
+                        咨询电话：4007-889-889<br/>
                         企业类型：民营企业<br/>
-                        注册地址：辽宁大连中山区中山广场<br/><br/>
+                        注册地址：山东省济南市二环东路<br/><br/>
                     </div>
                     <div class="center-title-line">
                         <span class="title">公司规模：</span>
@@ -143,7 +145,7 @@
                 </div>
                 <div class="center-content">
                     所属行业：服务业<br/>
-                    细分行业：住宿<br/>
+                    细分行业：餐饮<br/>
                     <p class="content">
                     </p><br/>
                 </div>
@@ -152,7 +154,7 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    <p class="content">大连君悦酒店拥有370间豪华海景房，酒店所有房间都拥有无与伦比的辽阔海景。其中包括28间风格雅致的套房。2,568平方米的活动及会议空间，其中包括层高8米的854平方米无柱大宴会厅与390平方米的悦海厅与9个面积各异的小宴会厅，均拥有良好的自然采光。高速无线网络接入与先进的可视影像设备。悦水疗设有1个豪华双人理疗间及3个豪华单人理疗间，提供一系列的身体与面部护理。拥有自然采光的20米恒温泳池。
+                    <p class="content">提供优质化服务，个性化享受：济南蓝海大饭店的所有服务人员能熟练的掌握服务的技巧与流程，同时我们还可以根据客人的特殊要求如婚宴、寿宴、旅游等提供个性化、定制化的服务，让您感受高品味的享受。
                     </p><br/>
                 </div>
                 <div class="bottom-title-line">
@@ -161,11 +163,11 @@
                 </div>
                 <div class="center-content">
                     技术优势：先进的技术<br/>
-                    产品优势：环境整洁<br/>
-                    市场优势：市场充足<br/>
+                    产品优势：产品符合大众口味<br/>
+                    市场优势：市场必需品<br/>
                     人才优势：兢兢业业的优秀员工<br/>
                     管理优势：卓有成效的管理团队<br/>
-                    品牌优势：独有特色<br/><br/>
+                    品牌优势：品质安全健康<br/><br/>
                 </div>
                 <div class="bottom-title-line">
                     <span class="title">公司介绍：</span>
@@ -173,7 +175,7 @@
                 </div>
                 <div class="center-content">
                     <p class="content">
-                        致力于为客人打造更加完美的商务之旅，一键式服务让您体验现代商旅的舒适与便捷；训练有素的酒店一线员工能熟练地进行英语和日语沟通，并为客人提供优质、全面、超值地服务，同时酒店还特设了多语种的宾客关系团队，可以随时为外藉客人提供周到、贴心地服务，并帮助客人解决在店期间的一切问题。拥有370间豪华海景房，酒店所有房间都拥有无与伦比的辽阔海景，其中包括28间风格雅致的套房。
+                        饭店餐饮区域共设有600个餐位，以经营“精品鲁菜”为主，汇集燕、鲍、翅、参等高档菜品，配合地道的胶东海鲜和市场流行的地域菜品，均由名厨料理，菜品精良。朋友聚会或是贵宾宴请，20个风格独特的宴会包间均能使宾客在浓郁的文化氛围中品尝各款美食佳肴
                     </p>
                 </div>
             </div>

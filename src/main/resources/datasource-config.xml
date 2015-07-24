@@ -20,11 +20,11 @@
     <context:property-placeholder location="classpath:data-access.properties"/>
 
     <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource">
-    <property name="driverClassName" value="${jdbc.driverClassName}"/>
-    <property name="url" value="${jdbc.url}"/>
-    <property name="username" value="${jdbc.username}"/>
-    <property name="password" value="${jdbc.password}"/>
-</bean>
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
@@ -32,7 +32,7 @@
 
     <!--在jdbcTemplate注入中对namedParameterTemplate进行了实例化-->
     <!--<bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">-->
-        <!--<constructor-arg ref="dataSource"/>-->
+    <!--<constructor-arg ref="dataSource"/>-->
     <!--</bean>-->
     <!--可以注入-->
     <bean id="mySQLSimpleDao" class="com.citibank.dao.impl.MySQLSimpleDaoImpl">
@@ -54,5 +54,25 @@
     </bean>
 
     <cache:annotation-driven cache-manager="cacheManager"/>
+
+    <bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
+        <property name="config">
+            <bean class="com.google.code.kaptcha.util.Config">
+                <constructor-arg>
+                    <props>
+                        <prop key="kaptcha.image.width">100</prop>
+                        <prop key="kaptcha.image.height">27</prop>
+                        <prop key="kaptcha.textproducer.font.size">25</prop>
+                        <prop key="kaptcha.textproducer.font.color">black</prop>
+                        <prop key="kaptcha.textproducer.font.names">Arial</prop>
+                        <prop key="kaptcha.textproducer.char.string">1234567890abcdefghijklmnopqrstuvwxy</prop>
+                        <prop key="kaptcha.textproducer.char.length">4</prop>
+                        <prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+                        <!--<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.DefaultNoise</prop>-->
+                    </props>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
 
 </beans>

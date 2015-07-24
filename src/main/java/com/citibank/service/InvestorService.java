@@ -9,7 +9,7 @@ import java.util.Objects;
 public interface InvestorService {
     public Map<String, Object> registerInvestor(Map<String, Object> reqs);
     public Map<String,Object> loginInvestor(Map<String,Object> reqs);
-    public String completeInfo(Map<String, Objects> infos, String userId);
+    public String completeInfo(Map<String, Object> infos, String userId);
     public boolean hasEmail(String email);
     public Map<String, Object> getInvestorInfo(String userId);
     //更新投资者信息

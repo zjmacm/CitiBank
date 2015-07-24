@@ -80,7 +80,7 @@ public class BaseDaoImpl implements BaseDao {
 		
 		List<Object> plist = new ArrayList<Object>();
 		StringBuffer sb = new StringBuffer("INSERT INTO ");
-		sb.append(tbName.toUpperCase()).append(" (");
+		sb.append(tbName).append(" (");
 		StringBuffer sb2 = new StringBuffer("VALUES (");
 		for(String key : row.keySet()){
 			sb.append(key.toUpperCase());
@@ -106,7 +106,7 @@ public class BaseDaoImpl implements BaseDao {
 		
 		List<Object> plist = new ArrayList<Object>();
 		StringBuffer sb = new StringBuffer("UPDATE ");
-		sb.append(tbName.toUpperCase()).append(" SET ");
+		sb.append(tbName).append(" SET ");
 		
 		for(String key : row.keySet()){
 			sb.append(key.toUpperCase()).append('=');

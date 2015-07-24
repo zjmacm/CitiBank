@@ -26,7 +26,8 @@ public class CompanyServiceImpl implements CompanyService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    public String userRegister(Map<String, Object> reqs) {
+    public Map<String, Object> userRegister(Map<String, Object> reqs) {
+        Map<String,Object> map=new HashMap<String, Object>();
         String result = "success";
         try{
             Date date = new Date();
@@ -39,13 +40,14 @@ public class CompanyServiceImpl implements CompanyService {
             e.printStackTrace();
             result = "failed";
         }
+        map.put("result",result);
 
-        return result;
+        return map;
     }
 
     public Map<String,Object> userLogin(Map<String, Object> reqs) {
         Map<String,Object> result = new HashMap<String, Object>();
-        String sql = "select *from companyInfo where username=:username and password=:password";
+        String sql = "select *from company where username=:username and password=:password";
         List<Map<String,Object>> list = mySQLSimpleDao.queryForList(sql,reqs);
         if(list.size()==1){
             result.put("result","success");
@@ -61,16 +63,16 @@ public class CompanyServiceImpl implements CompanyService {
     public String confirmEmail(Map<String, Object> reqs) {
 
         String result = "success";
-        String sql = "select *from company where username=:username";
+        String sql = "select *from company where username = :user_name";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
         return result;
     }
-
+//什么鬼
     public String confirmCompanyCode(Map<String, Object> reqs) {
         String result = "success";
-        String sql = "select *from company where companyCode=:companyCode";
+        String sql = "select *from company where company_ode=:company_code";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
@@ -79,7 +81,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     public String confirmCompanyName(Map<String, Object> reqs) {
         String result = "success";
-        String sql = "select *from company where companyName=:companyName";
+        String sql = "select *from company where companyName = :company_name";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
@@ -88,7 +90,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     public String confirmBussinessLisence(Map<String, Object> reqs) {
         String result = "success";
-        String sql = "select *from company where bussinessLisence=:bussinessLisence";
+        String sql = "select *from company where businessLisence=:businessLisence";
         if(mySQLSimpleDao.queryForList(sql,reqs).size()!=0){
             result = "failed";
         }
@@ -97,9 +99,9 @@ public class CompanyServiceImpl implements CompanyService {
 
     //获取公司信息
     public Map<String, Object> getCompanyInfo(String userId) {
-        String sql = "select *from company where id=:userId";
+        String sql = "select *from company where companyId=:companyId";
         Map<String,Object> param = new HashMap<String, Object>();
-        param.put("id","userId");
+        param.put("companyId",userId);
         List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql,param);
         if(result.size()==0){
             Map<String ,Object> map=new HashMap<String, Object>();
@@ -108,7 +110,6 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return result.get(0);
     }
-
 
     public int saveCompanyInfo(Map<String, Object> map,String userId) {
 
@@ -122,4 +123,5 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return  mySQLSimpleDao.update("company", map, cons);
     }
+
 }

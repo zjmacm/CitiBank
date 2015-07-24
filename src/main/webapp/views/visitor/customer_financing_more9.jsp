@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,10 +76,10 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/logo_0005.jpg">
-                <p style="font-size: 2em">宜冠地产</p><br/>
+                <img class="head" src="../public/images/logo_0009.jpg">
+                <p style="font-size: 2em">日航饭店</p><br/>
                 <div class="about">
-                    <p>公司按照现代企业制度的管理模式，遵循有限责任公司制度的运作方式</p>
+                    <p>拥有中、西、日式餐厅、酒吧和茶室，可满足不同口味客人的需要</p>
                 </div>
                 <div class="top-right">
                     <div class="return">
@@ -102,11 +103,11 @@
                         <span class="short-line"></span>
                     </div>
                     <div class="center-content">
-                        成立时间：2011年12月11日<br/>
-                        注册资本：2000万人民币<br/>
-                        咨询电话：0554-608-6969<br/>
+                        成立时间：2006<br/>
+                        注册资本：500万人民币<br/>
+                        咨询电话：0769-89178333<br/>
                         企业类型：有限责任公司<br/>
-                        注册地址：淮南市山南新区<br/><br/>
+                        注册地址：东莞市南城区莞太路<br/><br/>
                     </div>
                     <div class="center-title-line">
                         <span class="title">公司规模：</span>
@@ -114,10 +115,10 @@
                     </div>
                     <div class="center-content">
                         分厂：无<br/>
-                        子公司：5个<br/>
+                        子公司：无<br/>
                         驻外办事处机构：无<br/>
-                        员工人数：50人<br/>
-                        占地面积：22.07万平方米<br/><br/>
+                        员工人数：200人<br/>
+                        占地面积：10000平米<br/><br/>
                     </div>
                 </div>
                 <div class="center-right">
@@ -142,8 +143,8 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    所属行业：基础建设行业<br/>
-                    细分行业：房地产<br/>
+                    所属行业：服务业<br/>
+                    细分行业：餐饮<br/>
                     <p class="content">
                     </p><br/>
                 </div>
@@ -152,7 +153,7 @@
                     <span class="long-line"></span>
                 </div>
                 <div class="center-content">
-                    <p class="content">房屋租售、公寓租售、商铺租售、写字楼租售，以内外多个露天广场串联各个功能中心，街区广场、花园庭院、下沉庭院等，地上与地下、垂直与水平交通系统使商业空间形成生动、变化的有机整体。在这里，休闲娱乐、运动健身、购物消费、餐饮聚会等业态多元混合，丰富多彩的活动让小镇街区每天都是欢乐的节日。
+                    <p class="content">主要经营川菜、鲁菜、创新菜、台湾菜、各式精美小炒、南北各地风味小吃。客人在此可享受全身心的放松。特色美食廊，传统的异国风情甜品、西饼，各种色拉、海鲜、甜点自助，不同的国度，体验不同的异国风情。
                     </p><br/>
                 </div>
                 <div class="bottom-title-line">
@@ -161,11 +162,11 @@
                 </div>
                 <div class="center-content">
                     技术优势：先进的技术<br/>
-                    产品优势：投资升值<br/>
-                    市场优势：便捷选房<br/>
+                    产品优势：产品符合大众口味<br/>
+                    市场优势：市场必需品<br/>
                     人才优势：兢兢业业的优秀员工<br/>
                     管理优势：卓有成效的管理团队<br/>
-                    品牌优势：有系统的资深品牌<br/><br/>
+                    品牌优势：品质安全健康<br/><br/>
                 </div>
                 <div class="bottom-title-line">
                     <span class="title">公司介绍：</span>
@@ -173,7 +174,7 @@
                 </div>
                 <div class="center-content">
                     <p class="content">
-                        公司始终坚持以市场为导向、开发为重点，经营为龙头，质量为根本的开发理念和经营方针，切实转变观念，解放思想，紧紧围绕市场狠抓经营，强化管理，树立责任感、认识危机感；不断留意和观察房地产市场行情，积极寻求探索与市场机制相适应的经营策略和经营方针，走品牌化之路。
+                        设有中、西、韩餐厅、酒吧、多功能厅等，位于酒店2层的中餐厅、包间装修豪华、富有特色，提供川、鲁、粤各种风味菜肴，由大师精心烹制的菜肴美味经典，味道独特，周到热情的服务让人印象深刻，受到新老顾客的一致好评。
                     </p>
                 </div>
             </div>
