@@ -47,7 +47,7 @@ public class VisitorController {
     @RequestMapping(value = "/register.htm",method = RequestMethod.GET)
     public String getRegisterPage()
     {
-        return "/visitor/register";
+        return "/visitor/reg";
     }
     @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
     public String  register(@RequestParam Map<String,Object> reqs,HttpSession session)
@@ -55,7 +55,7 @@ public class VisitorController {
         String flag=(String)reqs.get("userType");
         String id= IdUtil.uuid();
         session.setAttribute("userId",id);
-        if(flag=="investor")
+        if(flag=="投资者")
         {
             reqs.put("investorId",id);
             reqs.remove("userType");

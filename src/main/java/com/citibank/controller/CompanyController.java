@@ -46,7 +46,7 @@ public class CompanyController {
         map.put("user_name", email);
         String result = companyService.confirmEmail(map);
         map.clear();
-        map.put("result", result);
+        map.put("check", result);
         return map;
     }
 
@@ -58,7 +58,7 @@ public class CompanyController {
         map.put("company_name", name);
         String result = companyService.confirmCompanyName(map);
         map.clear();
-        map.put("result", result);
+        map.put("check", result);
         return map;
     }
 
@@ -70,7 +70,7 @@ public class CompanyController {
         map.put("company_code", code);
         String result = companyService.confirmCompanyCode(map);
         map.clear();
-        map.put("result", result);
+        map.put("check", result);
         return map;
     }
 
@@ -80,7 +80,7 @@ public class CompanyController {
     Map<String, Object> confirmBussinessLicense(@RequestParam Map<String, Object> reqs) {
         Map<String, Object> map = new HashMap<String, Object>();
         String result = companyService.confirmBussinessLisence(reqs);
-        map.put("result", result);
+        map.put("check", result);
         return map;
     }
 

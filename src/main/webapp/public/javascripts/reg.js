@@ -4,18 +4,6 @@ var reg = (function(citi) {
     var status = [];
 
     var flag = [];
-    /*var callback = function() {
-     var i = 0;
-     for (i = 0; i < status.length; i++) {
-     if (!status[i]) {
-     break;
-     }
-     }
-
-     if (i == status.length) {
-     $('#btn').removeAttr('disabled');
-     }
-     };*/
 
     $('.reg-input').each(function() {
         flag.push(false);
@@ -33,7 +21,7 @@ var reg = (function(citi) {
                     var id = '';
                     id = '#' + e.target.id;
 
-                    if (e.target.name == 'email') {
+                    if (e.target.name == 'username') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips');
                         $(id).next().html('请输入你的邮箱');
                     }
@@ -49,11 +37,11 @@ var reg = (function(citi) {
                     if (e.target.name == 'auth') {
                         $('#auth-check').addClass('icon-tips').html('输入验证码');
                     }
-                    if (e.target.name == 'name') {
+                    if (e.target.name == 'companyName') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips').html('输入企业名称')
                     }
 
-                    if (e.target.name == 'code') {
+                    if (e.target.name == 'companyCode') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips').html('输入15位组织机构代码');
                     }
 
@@ -63,7 +51,7 @@ var reg = (function(citi) {
                     var id = '';
                     id = '#' + e.target.id;
 
-                    if (e.target.name == 'email') {
+                    if (e.target.name == 'username') {
                         $(id).next().addClass('icon-tips');
                         $(id).next().html('请输入正确的邮箱');
                     }
@@ -79,11 +67,11 @@ var reg = (function(citi) {
                     if (e.target.name == 'auth') {
                     $('#auth-check').addClass('icon-tips').html('输入验证码');
                     }
-                    if (e.target.name == 'name') {
+                    if (e.target.name == 'companyName') {
                         $(id).next().addClass('icon-tips').html('输入企业名称')
                     }
 
-                    if (e.target.name == 'code') {
+                    if (e.target.name == 'companyCode') {
                         $(id).next().addClass('icon-tips').html('输入15位组织机构代码');
                     }
                 }
@@ -102,15 +90,15 @@ var reg = (function(citi) {
                         e,
                         i,
                         Xhr = {
-                            type: 'GET',
+                            type: 'POST',
                             url: '',
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true,
+                            async: true
                         };
 
-                    if (e.target.name == 'email') {
+                    if (e.target.name == 'username') {
 
                         eval = $(id).val();
                         e = /[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+/;
@@ -129,9 +117,11 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('邮箱错误');
                         }
 
-                        url = '/echeck/' + eval;
+                        url = '/company/echeck/' + eval;
+                        alert(eval);
 
                         success = function(text) {
+                            alert(text)
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -158,8 +148,8 @@ var reg = (function(citi) {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         };
 
-                        /*imd.ajax({
-                         type: "GET",
+                        imd.ajax({
+                         type: "POST",
                          url: url,
                          data: null,
                          timeOut: 3000,
@@ -168,7 +158,7 @@ var reg = (function(citi) {
                          success: success,
                          error: error
                          });
-                         */
+
                         return;
                     }
 
@@ -239,7 +229,7 @@ var reg = (function(citi) {
                             return $('#auth-check').addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
-                        url = '/auth/' + eval + '/' + now.getTime();
+                        url = '/authCheck/' + eval + '/' + now.getTime();
                         success = function() {
                             if (text.check == 'success') {
                                 $('#auth-check').addClass('icon-success').html('');
@@ -261,7 +251,7 @@ var reg = (function(citi) {
                             $('#auth-check').addClass('icon-error').html('网络错误，稍后重试');
                         }
 
-                        /*imd.ajax({
+                        imd.ajax({
                          type: "GET",
                          url: url,
                          data: null,
@@ -270,11 +260,11 @@ var reg = (function(citi) {
                          async: true,
                          success: success,
                          error: error
-                         });*/
+                         });
 
                     }
 
-                    if (e.target.name == 'name') {
+                    if (e.target.name == 'companyName') {
                         eval = $(id).val();
 
                         if (eval == '') {
@@ -286,7 +276,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('企业名不能为空');
                         }
 
-                        url = '/namecheck/' + eval;
+                        url = '/company/nameCheck/' + eval;
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -324,7 +314,7 @@ var reg = (function(citi) {
                         return;
                     }
 
-                    if (e.target.name == 'code') {
+                    if (e.target.name == 'companyCode') {
 
                         eval = $(id).val();
                         e = /\d+/;
@@ -345,7 +335,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
-                        url = '/codecheck/' + eval;
+                        url = '/company/codeCheck/' + eval;
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -401,7 +391,7 @@ var reg = (function(citi) {
                         };
 
 
-                    if (e.target.name == 'email') {
+                    if (e.target.name == 'username') {
 
                         eval = $(id).val();
                         e = /[a-zA-Z0-9_]+@[a-zA-Z0-9_]+\.[a-zA-Z0-9_]+/;
@@ -565,7 +555,7 @@ var reg = (function(citi) {
 
                     }
 
-                    if (e.target.name == 'name') {
+                    if (e.target.name == 'companyName') {
                         eval = $(id).val();
 
                         if (eval == '') {
@@ -615,7 +605,7 @@ var reg = (function(citi) {
                         return;
                     }
 
-                    if (e.target.name == 'code') {
+                    if (e.target.name == 'companyCode') {
 
                         eval = $(id).val();
                         e = /\d+/;
