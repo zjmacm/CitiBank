@@ -101,7 +101,7 @@
                     <ul>
                         <li>
                             <span class="label">邮箱:</span>
-                            <input type="text" id="email" class="reg-input" name="email">
+                            <input type="text" id="email" class="reg-input" name="username">
                             <span class="check">
             				</span>
                         </li>
@@ -124,20 +124,20 @@
                         </li>
                         <li>
                             <span class="label">用户类型:</span>
-                            <input type="radio" checked="checked" name="type" value="企业" class="checked" />
+                            <input type="radio" checked="checked" name="userType" value="企业" class="checked" />
                             <span>企业</span>
-                            <input type="radio" checked="checked" name="type" value="投资者" class="checked" />
+                            <input type="radio" checked="checked" name="userType" value="投资者" class="checked" />
                             <span class="check">投资者</span>
                         </li>
                         <li>
                             <span class="label">企业名称:</span>
-                            <input type="text" id="name" class="reg-input" name="name" />
+                            <input type="text" id="name" class="reg-input" name="companyName" />
                             <span class="check">
             				</span>
                         </li>
                         <li>
                             <span class="label">组织机构代码:</span>
-                            <input type="text" id="code" class="reg-input" name="code" />
+                            <input type="text" id="code" class="reg-input" name="companyCode" />
                             <span class="check">
             				</span>
                         </li>

@@ -56,7 +56,7 @@ public class VisitorController {
         String flag=(String)reqs.get("userType");
         String id= IdUtil.uuid();
         session.setAttribute("userId",id);
-        if(flag=="investor")
+        if(flag=="投资者")
         {
             reqs.put("investorId",id);
             reqs.remove("userType");
