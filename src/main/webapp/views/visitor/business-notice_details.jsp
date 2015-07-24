@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/business-notice_details.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/business-notice_details.css" rel="stylesheet" type="text/css">
     <title>查看公告详情</title>
 </head>
 <body>
@@ -64,12 +64,12 @@
                 <li id="user-photo">
                         <span>
 		            		<a href="_target" title="">
-                                <img src="../public/images/user.png" alt="" />
+                                <img src="/public/images/user.png" alt="" />
                             </a>
 		                </span>
                 </li>
                 <li id="go">
-                    <span id="text">我的账号<img src="../public/images/back-bottom.png"></span>
+                    <span id="text">我的账号<img src="/public/images/back-bottom.png"></span>
                     <ul>
                         <li>
                             <a href="/ifollow" title="">

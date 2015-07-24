@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>游客模式-融资企业-详情查看</title>
-    <link href="../public/stylesheets/customer_financing_more.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer_financing_more.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -76,7 +76,7 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/example.jpg">
+                <img class="head" src="/public/images/example.jpg">
                 <p style="font-size: 2em">广州市铱泰电子科技有限公司</p><br/>
                 <div class="about">
                     <p>广州市铱泰电子科技有限公司是集研究开发、制造销售、应用服务为一体的高新技术企业</p>
@@ -86,7 +86,7 @@
                     <div class="return">
                         <a id="return0" href="">访问官网</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="../public/images/back.png"></a>
+                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
                     </div>
                     <div class="button" id="send">
                         <a href="">发送意见</a>
@@ -127,14 +127,14 @@
                     <p style="font-size: 1.1em">公司图片：</p><br/>
                     <div class="imgBox">
                         <ul class="imgList">
-                            <li><img src="../public/images/1.PNG"></li>
-                            <li><img src="../public/images/2.PNG"></li>
+                            <li><img src="/public/images/1.PNG"></li>
+                            <li><img src="/public/images/2.PNG"></li>
                         </ul>
                         <div class="s-left">
-                            <img src="../public/images/s-left-inactive.png">
+                            <img src="/public/images/s-left-inactive.png">
                         </div>
                         <div class="s-right">
-                            <img src="../public/images/s-right-active.png">
+                            <img src="/public/images/s-right-active.png">
                         </div>
                     </div>
                 </div>

@@ -6,9 +6,9 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 	<title>资讯</title>
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-consulting.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-consulting.css">
 </head>
 <body>
 	<div id="header">

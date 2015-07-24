@@ -11,10 +11,7 @@ import com.citibank.service.impl.InvestorServiceImp;
 import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -74,17 +71,14 @@ public class VisitorController {
         }
 
    }
-    @RequestMapping(value = "/getFinancingCompany", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    Map<String, Object> getFinancingCom(
-            @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
-            Map<String, Object> map) {
-        Page<Map<String, Object>> page = visitorService.getFinancingCom(pageIndex);
-        map.put("pageIndex", page.getIndex());
-        map.put("pageSize", page.getpageCount());
-        map.put("data", page.getList());
-        return map;
+    @RequestMapping(value = "/financeCom", method = RequestMethod.GET)
+    public String getFinancingCom() {
+        return "visitor/finacing-company";
+    }
+
+    @RequestMapping("/financing_more/{num}")
+    public String getComDetail(@PathVariable("num") int num){
+        return "visitor/customer_financing_more"+num;
     }
 
     //主界面

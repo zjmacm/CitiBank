@@ -181,10 +181,10 @@
         <div id="content">
             <div id="first-glance" class="banner">
                 <a href="#" class="unslider-arrow next">
-                    <img src="../public/images/btn-pre.png" alt="" />
+                    <img src="/public/images/btn-pre.png" alt="" />
                 </a>
                 <a href="#" class="unslider-arrow next">
-                    <img src="../public/images/btn-next.png" alt="" />
+                    <img src="/public/images/btn-next.png" alt="" />
                 </a>
                 <ul>
                     <li style="background-image:url(/public/images/banner1.jpg)">
@@ -214,21 +214,21 @@
                             <li>
                                 <p>近一周</p>
                                 <div class="data-image">
-                                    <img src="../public/images/arrow1.png">
+                                    <img src="/public/images/arrow1.png">
                                 </div>
                                 <p class="speed">增长率:13%</p>
                             </li>
                             <li>
                                 <p>近一月</p>
                                 <div class="data-image">
-                                    <img src="../public/images/arrow2.png">
+                                    <img src="/public/images/arrow2.png">
                                 </div>
                                 <p class="speed">增长率:13%</p>
                             </li>
                             <li>
                                 <p>近一季</p>
                                 <div class="data-image">
-                                    <img src="../public/images/arrow3.png">
+                                    <img src="/public/images/arrow3.png">
                                 </div>
                                 <p class="speed">增长率:13%</p>
                             </li>

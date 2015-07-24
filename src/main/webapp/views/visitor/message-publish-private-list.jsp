@@ -1,11 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <head>
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
     	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 	<title>私募债列表</title>
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/message-publish-private-list.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/message-publish-private-list.css">
 
 </head>
 <body>
@@ -64,13 +65,13 @@
                     				<li id="user-photo">
                         					<span>
 		            					<a href="_target" title="">
-		            						<img src="../public/images/user.png" alt="">
+		            						<img src="/public/images/user.png" alt="">
 		                				</a>
 		                			</span>
                     				</li>
                     				<li id="go">
                         					<span id="text">我的账号
-                        						<img src="../public/images/back-bottom.png">
+                        						<img src="/public/images/back-bottom.png">
                         					</span>
                         					<ul>
                             					<li>
@@ -119,12 +120,12 @@
 				<div id="searchForm">
 					<div id="input">
 						<div id="textClear">
-							<a href=""><img src="../public/images/cancel.png"></a>
+							<a href=""><img src="/public/images/cancel.png"></a>
 						</div>
 						<input id="searchText" type="text" placeholder="请输入关键字搜索"></textarea>
 					</div>
 					<a href="" style="display:inline;">
-						<img src="../public/images/search.png" style="vertical-align:middle;">
+						<img src="/public/images/search.png" style="vertical-align:middle;">
 						<p id="searchTitle">搜索</p>
 					</a>
 
