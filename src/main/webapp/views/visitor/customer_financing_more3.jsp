@@ -4,10 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>游客模式-融资企业-详情查看</title>
-    <link href="../public/stylesheets/customer_financing_more.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
-
+    <link href="/public/stylesheets/customer_financing_more.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/islider.js"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+        $('.banner').unslider({
+            fluid: true,
+            dots: true
+        });
+        var arr = ['url(/public/images/s3_1.png)',
+            'url(/public/images/s3_2.png)',
+            'url(/public/images/s3_3.png)'
+        ];
+        var i = 0;
+        $('.dot').each(function() {
+            this.style.backgroundImage = arr[i++];
+        });
+    }
+    </script>
 </head>
 <body>
     <div id="header">
@@ -76,7 +93,7 @@
     <div id="main">
         <div class="container">
             <div class="top">
-                <img class="head" src="../public/images/logo_0003.jpg">
+                <img class="head" src="/public/images/logo_0003.jpg">
                 <p style="font-size: 2em">书风绿色酒店</p><br/>
                 <div class="about">
                     <p>坐落在大连市金融、商贸、旅游、交通中心的中山广场，是一座欧洲文艺复兴风格的巴洛克式建筑，现为全国重点文物保护单位。</p>
@@ -85,7 +102,7 @@
                     <div class="return">
                         <a id="return0" href="">访问官网</a>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="../public/images/back.png"></a>
+                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
                     </div>
                     <div class="button" id="send">
                         <a href="">发送意见</a>
@@ -122,17 +139,15 @@
                     </div>
                 </div>
                 <div class="center-right">
-                    <p style="font-size: 1.1em">公司图片：</p><br/>
-                    <div class="imgBox">
-                        <ul class="imgList">
-                            <li><img src="../public/images/1.PNG"></li>
-                            <li><img src="../public/images/2.PNG"></li>
-                        </ul>
-                        <div class="s-left">
-                            <img src="../public/images/s-left-inactive.png">
-                        </div>
-                        <div class="s-right">
-                            <img src="../public/images/s-right-active.png">
+                    <p style="font-size: 1.1em">公司图片：</p>
+                    <br/>
+                    <div class="imgBox" id="slider">
+                        <div class="banner">
+                            <ul id="banner-image">
+                                <li style="background-image: url(/public/images/rotate3_1.png)"></li>
+                                <li style="background-image: url(/public/images/rotate3_2.png)"></li>
+                                <li style="background-image: url(/public/images/rotate3_3.png)"></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

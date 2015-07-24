@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>市场</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-market-content.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-market-content.css">
 </head>
 <body>
     <div id="header">
@@ -80,7 +80,7 @@
                     <span>返回上一层</span>
                 </a>
                 <a href="/back" title="">
-                    <img src="../public/images/back.png" id="backimage">
+                    <img src="/public/images/back.png" id="backimage">
                 </a>
             </div>
         </div>

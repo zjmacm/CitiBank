@@ -7,10 +7,10 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
     <title>私募债详情</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer_investment_debt.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer_investment_debt.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/reset.css">
 </head>
 
 <body>
@@ -107,20 +107,20 @@
                 <div class="info">
                     <span>近一周</span>
                     <br>
-                    <img src="../public/images/arrow1.png">
+                    <img src="/public/images/arrow1.png">
                     <br>
                     <span>增长率13%</span></div>
                 <div class="info">
                     <span>近一月</span>
                     <br>
-                    <img src="../public/images/arrow2.png">
+                    <img src="/public/images/arrow2.png">
                     <br>
                     <span>增长率13%</span>
                 </div>
                 <div class="info">
                     <span>近一季</span>
                     <br>
-                    <img src="../public/images/arrow3.png">
+                    <img src="/public/images/arrow3.png">
                     <br>
                     <span>增长率13%</span>
                 </div>
@@ -131,13 +131,13 @@
         <div class="progress">
             <p class="tit">私募债交易流程</p>
             <ul>
-                <li><img src="../public/images/loan.png"></li>
-                <li><img src="../public/images/time.png"></li>
-                <li><img src="../public/images/number.png"></li>
-                <li><img src="../public/images/sign.png"></li>
-                <li><img src="../public/images/check.png"></li>
-                <li><img src="../public/images/issue.png"></li>
-                <li><img src="../public/images/DC.png"></li>
+                <li><img src="/public/images/loan.png"></li>
+                <li><img src="/public/images/time.png"></li>
+                <li><img src="/public/images/number.png"></li>
+                <li><img src="/public/images/sign.png"></li>
+                <li><img src="/public/images/check.png"></li>
+                <li><img src="/public/images/issue.png"></li>
+                <li><img src="/public/images/DC.png"></li>
                 <a href="#" class="DC">注册用户</a>
                 <a href="#" class="issue">实名认证</a>
                 <a href="#" class="check">撮合配对</a>

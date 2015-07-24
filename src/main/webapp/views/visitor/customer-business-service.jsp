@@ -4,12 +4,12 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/company-service-content.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
-    <script type="text/javascript" src="../public/javascripts/citi.js"></script>
-    <script src="../public/javascripts/unslider.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/company-service-content.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/citi.js"></script>
+    <script src="/public/javascripts/unslider.js"></script>
     <script type="text/javascript">
     $(window).load(function() {
         var unslider = $('.banner').unslider({
@@ -94,17 +94,17 @@
         <div id="content">
             <div id="first-glance" class="banner">
                 <a href="#" class="unslider-arrow next">
-                    <img src="../public/images/btn-pre.png" alt="" />
+                    <img src="/public/images/btn-pre.png" alt="" />
                 </a>
                 <a href="#" class="unslider-arrow next">
-                    <img src="../public/images/btn-next.png" alt="" />
+                    <img src="/public/images/btn-next.png" alt="" />
                 </a>
                 <ul>
-                    <li style="background-image:url(../public/images/banner1.jpg)">
+                    <li style="background-image:url(/public/images/banner1.jpg)">
                     </li>
-                    <li style="background-image:url(../public/images/banner2.png)">
+                    <li style="background-image:url(/public/images/banner2.png)">
                     </li>
-                    <li style="background-image:url(../public/images/banner3.png)">
+                    <li style="background-image:url(/public/images/banner3.png)">
                     </li>
                 </ul>
             </div>

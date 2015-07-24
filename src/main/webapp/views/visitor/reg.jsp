@@ -1,18 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../public/stylesheets/font.css">
-    <!-- <link rel="stylesheet" href="../public/stylesheets/new-font.css"> -->
-    <link rel="stylesheet" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/reg.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
-    <script type="text/javascript" src="../public/javascripts/d3.min.js"></script>
-    <script type="text/javascript" src="../public/javascripts/citi.js"></script>
-    <script type="text/javascript" src="../public/javascripts/imd.js"></script>
-    <script type="text/javascript" src="../public/javascripts/reg.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/font.css">
+    <!-- <link rel="stylesheet" href="/public/stylesheets/new-font.css"> -->
+    <link rel="stylesheet" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/reg.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/d3.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/citi.js"></script>
+    <script type="text/javascript" src="/public/javascripts/imd.js"></script>
+    <script type="text/javascript" src="/public/javascripts/reg.js"></script>
     <title>注册</title>
 </head>
 
@@ -85,13 +86,13 @@
             <div id="sitenav">
                 <ul>
                     <li>
-                        <span class="sitnav-active"><img src="../public/images/1.png" alt="" />设置登录名</span>
+                        <span class="sitnav-active"><img src="/public/images/1.png" alt="" />设置登录名</span>
                     </li>
                     <li>
-                        <span><img src="../public/images/2.png" alt="" />填写注册信息</span>
+                        <span><img src="/public/images/2.png" alt="" />填写注册信息</span>
                     </li>
                     <li>
-                        <span><img src="../public/images/3.png" alt="" />注册完成</span>
+                        <span><img src="/public/images/3.png" alt="" />注册完成</span>
                     </li>
                 </ul>
             </div>
@@ -118,7 +119,7 @@
                             <span class="label">验证码:</span>
                             <input type="text" id="auth" class="reg-input" name="auth" />
                             <span id="auth-image"><img src="/getCode" alt="" /></span>
-                            <span id="refresh"><img src="../public/images/refresh.png" /></span>
+                            <span id="refresh"><img src="/public/images/refresh.png" /></span>
                             <span class="check" id="auth-check"></span>
                         </li>
                         <li>
