@@ -1,4 +1,4 @@
-/*
+ /*
 Navicat MySQL Data Transfer
 
 Source Server         : lr
@@ -59,7 +59,7 @@ CREATE TABLE `company` (
   `companyName` varchar(50) NOT NULL COMMENT '公司名称',
   `companyType` int(1) NOT NULL COMMENT '公司类型,0为有限责任公司，1为股份有限公司，2为个人合伙企业，3为个人独资企业，4为其它',
   `registerCapital` int(11) NOT NULL COMMENT '注册资本',
-  `bussinessLicense` varchar(50) NOT NULL COMMENT '营业执照注册号',
+  `businessLisence` varchar(50) NOT NULL COMMENT '营业执照注册号',
   `legalPresentative` varchar(50) NOT NULL COMMENT '法定代表人',
   `formedTime` date NOT NULL COMMENT '成立时间',
   `officialWeb` varchar(50) DEFAULT NULL COMMENT '官网地址',
