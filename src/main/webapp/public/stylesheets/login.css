@@ -115,7 +115,7 @@
     margin: 0;
     left: 60px;
     height: 35px;
-    width: 260px;
+    width: 280px;
     vertical-align: middle;
 }
 
@@ -139,6 +139,9 @@
 }
 
 #refresh {
+    position: absolute;
+    left: 280px;
+    line-height: 35px;
     color: #B2B1B1;
 }
 
@@ -191,15 +194,12 @@
 }
 
 #auth {
-    margin-top:10px;
-    border: 1px solid red;
-    height: 35px;
-    width: 100px;
+    left:190px;
+    position: absolute;
+    width: 70px;
 }
 
-
 #auth img {
-    margin-top:10px;
     height: 35px;
-    width: 100px;
+    width:80px;
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.HttpCookie;
@@ -183,9 +184,34 @@ public class VisitorController {
 
     //导航栏跳转请求响应，首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPageAgain(Map<String, Object> map) {
-        map.put("flag", 0);
-        return "visitor/customer-index";
+    public String getIndexPageAgain(HttpSession session, HttpServletRequest request,
+                                    Map<String, Object> map) {
+        Cookie[] cookies = request.getCookies();
+        String username=null, password=null;
+        if(cookies==null){
+            return "visitor/customer-index";
+        }
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie.getName());
+            if(cookie.getName().equals("username")){
+                username=cookie.getValue();
+            }
+            if(cookie.getName().equals("password")){
+                password=cookie.getValue();
+            }
+        }
+        Map<String, Object> result = visitorService.login(username, password);
+        if(result==null){
+            return "visitor/customer-index";
+        }
+        session.setAttribute("userTyp", result.get("userType"));
+        if(Integer.valueOf(result.get("userType").toString())==0) {
+            session.setAttribute("userId", result.get("userId"));
+            return "main/index";
+        }else{
+            session.setAttribute("userId", result.get("userId"));
+            return "main/index";
+        }
     }
 
     //导航栏跳转请求响应，融资企业
