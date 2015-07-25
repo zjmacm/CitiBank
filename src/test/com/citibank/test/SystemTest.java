@@ -27,5 +27,10 @@ public class SystemTest {
         //appointService.getAppoint("123", true, "name", "", 1, 10);
         investorService.getInvestorInfo("123");
     }
+    @Test
+    public void testH()
+    {
+        System.out.println("HHHHHHHHHH");
+    }
 
 }

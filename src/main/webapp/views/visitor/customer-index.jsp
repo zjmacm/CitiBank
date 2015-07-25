@@ -59,7 +59,7 @@
                 strokeWidth: 1,
                 text: false,
                 animation: 60
-            },
+            }
 
         };
 
@@ -264,7 +264,7 @@
                 </div>
             </div>
             <div id="invest-center">
-                <p id="inv-title">投资中兴</p>
+                <p id="inv-title">投资中心</p>
                 <ul id="invest-list">
                     <li class="list">
                         <p>私募股权</p>
