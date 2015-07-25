@@ -49,12 +49,12 @@
             <div id="nav-login">
                 <ul>
                     <li>
-                        <a href="/customer/login" title="">
+                        <a href="/customer/login.htm" title="">
                             <span>登陆</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/customer/reg" title="">
+                        <a href="/customer/register.htm" title="">
                             <span>注册</span>
                         </a>
                     </li>
