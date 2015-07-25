@@ -49,7 +49,7 @@
             <div id="nav-login">
                 <ul>
                     <li>
-                        <a href="/customer/login" title="">
+                        <a href="/customer/login.htm" title="">
                             <span>登陆</span>
                         </a>
                     </li>

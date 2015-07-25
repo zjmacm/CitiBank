@@ -33,5 +33,7 @@ public interface VisitorService {
     //验证公司名字
     public String confirmName(String name);
 
+    public Map<String,Object> login(String username,String password);
+
 
 }
