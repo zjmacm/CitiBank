@@ -24,7 +24,6 @@
 
     });
     </script>
-    <script src="/public/javascripts/jq.js"></script>
     <script>
         $(document).ready(function() {
             $('.nav-item').eq(${flag}).addClass('active');
@@ -62,7 +61,9 @@
                         <br/> 为客户特定目的办理专项资产管理业务
                     </p>
                     <div class="other">
-                        <span>了解更多</span>
+                        <a href="/customer/management" class="content_more" style="color: black">
+                            了解更多
+                        </a>
                         <span>
 	            			<a href="/go" title="">
 	            				去管理
@@ -78,7 +79,9 @@
                         <br/> 依托数字认证，时间戳认证，完成线上交易
                     </p>
                     <div class="other">
-                        <span>了解更多</span>
+                        <a href="/customer/esignature" class="content_more" style="color: black">
+                            了解更多
+                        </a>
                         <span>
 	            			<a href="/go" title="">
 	            				去签约

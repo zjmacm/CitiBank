@@ -150,6 +150,18 @@ public class VisitorController {
         map.put("flag", 0);
         return "visitor/customer-index";
     }
+    //首页-更多政策咨询
+    @RequestMapping(value = "/policy_more",method = RequestMethod.GET)
+    public String getPolicy_morePage(Map<String,Object> map) {
+        map.put("flag", 0);
+        return "visitor/customer-information-policy";
+    }
+    //首页-更多市场咨询
+    @RequestMapping(value = "/mark_more",method = RequestMethod.GET)
+    public String getMark_morePage(Map<String,Object> map) {
+        map.put("flag", 0);
+        return "visitor/customer-market-news";
+    }
     //导航栏跳转请求响应，融资企业
     @RequestMapping(value = "/finance", method = RequestMethod.GET)
     public String getFinancePage(Map<String, Object> map) {
@@ -161,6 +173,20 @@ public class VisitorController {
     public String getInvestPage(Map<String,Object> map) {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
+    }
+    //投资中心-私募股权详情
+    @RequestMapping(value = "/invest_more",method = RequestMethod.GET)
+    public String getInvest_morePage(Map<String,Object> map)
+    {
+        map.put("flag", 2);
+        return "visitor/customer-investment-stock";
+    }
+    //投资中心-私募债详情
+    @RequestMapping(value = "/debt_more",method = RequestMethod.GET)
+    public String getDebt_morePage(Map<String,Object> map)
+    {
+        map.put("flag", 2);
+        return "visitor/customer_investment_debt";
     }
     //导航栏跳转请求响应，企业服务-主
     @RequestMapping(value = "/service", method = RequestMethod.GET)
@@ -185,6 +211,12 @@ public class VisitorController {
     public String getService_03Page(Map<String,Object> map) {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
+    }
+    //导航栏跳转请求响应，注册按钮
+    @RequestMapping(value = "/reg",method = RequestMethod.GET)
+    public String getRegPage()
+    {
+        return "visitor/reg";
     }
 
 }

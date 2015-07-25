@@ -26,7 +26,6 @@
 
     });
     </script>
-    <script src="/public/javascripts/jq.js"></script>
     <script>
         $(document).ready(function() {
             $('.nav-item').eq(${flag}).addClass('active');
@@ -66,9 +65,11 @@
                         <br/> 投资退出渠道多样化
                     </p>
                     <div class="other">
-                        <span class="content_more">了解更多</span>
+                            <a href="/customer/invest_more" class="content_more" style="color: black">
+                                了解更多
+                            </a>
                         <span class="content_more_text">
-                            <a href="/go" title="" style="color: #4F4F4F;font-size: 14px">
+                            <a href="/customer/go" title="" style="color: #4F4F4F;font-size: 14px">
                                 去投资 去融资
                             </a>
                         </span>
@@ -84,9 +85,11 @@
                         <br/> 期限较长
                     </p>
                     <div class="other">
-                        <span class="content_more">了解更多</span>
+                        <a href="/customer/debt_more" class="content_more" style="color: black">
+                            了解更多
+                        </a>
                         <span class="content_more_text_1">
-                            <a href="/go" title="" style="color: #4F4F4F;font-size: 14px">
+                            <a href="/customer/go" title="" style="color: #4F4F4F;font-size: 14px">
                                 去投资 去融资
                             </a>
                         </span>

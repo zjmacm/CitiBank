@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>市场</title>
+    <title>市场咨询</title>
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-market-content.css">
@@ -14,7 +14,7 @@
         <div id="content">
             <div id="nav">
                 <div id="back">
-                  <a href="/back" title="">
+                  <a href="/customer/index" title="">
                     <span>返回上一层</span>
                 </a>
                 <a href="/back" title="">

@@ -17,7 +17,7 @@
 			<div id="nav">
 				<p><span>市场资讯</span></p>
 				<div id="back">
-					<span><a href="/back" title="">返回上一页</a></span>
+					<span><a href="/customer/index" title="">返回上一页</a></span>
 				</div>
 			</div>
 			<div id="policynews">
