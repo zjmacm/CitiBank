@@ -97,7 +97,7 @@
                 </ul>
             </div>
             <div id="reg">
-                <form method="post" id="form">
+                <form method="post" id="form" action="/customer/nextstep">
                     <ul>
                         <li>
                             <span class="label">邮箱:</span>
@@ -120,7 +120,7 @@
                             <input type="text" id="auth" class="reg-input" name="auth" />
                             <span id="auth-image"><img src="/getCode" alt="" /></span>
                             <span id="refresh"><img src="/public/images/refresh.png" /></span>
-                            <span class="check" id="auth-check"></span>
+                            <span class="check" id="check-auth"></span>
                         </li>
                         <li>
                             <span class="label">用户类型:</span>

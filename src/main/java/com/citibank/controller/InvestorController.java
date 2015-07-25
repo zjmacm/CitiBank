@@ -103,5 +103,10 @@ public class InvestorController {
         }
         return status;
     }
+    @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
+    public String getNextStepPage(@RequestParam Map<String,Object> reqs)
+    {
+        return "";
+    }
 
 }
