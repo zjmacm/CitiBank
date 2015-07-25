@@ -70,7 +70,7 @@ public class CompanyServiceImpl implements CompanyService {
         }
         return result;
     }
-//什么鬼
+
     public String confirmCompanyCode(Map<String, Object> reqs) {
         String result = "success";
         String sql = "select *from company where company_ode=:company_code";

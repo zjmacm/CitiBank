@@ -203,6 +203,7 @@
                                 <span class="color"></span>
                                 <span class="d">1000万以上</span>
                             </li>
+                        </ul>
                     </div>
                     <div id="circle-image">
                     </div>

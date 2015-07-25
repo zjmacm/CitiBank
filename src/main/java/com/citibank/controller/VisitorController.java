@@ -23,6 +23,7 @@ import java.util.Map;
 
 @Controller("InformationController")
 @RequestMapping("/customer")
+
 public class VisitorController {
     @Autowired
     private InvestorServiceImp investorService;

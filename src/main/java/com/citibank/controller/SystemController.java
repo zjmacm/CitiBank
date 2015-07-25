@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+
 /**
  * Created by zjm on 2015/7/12.
  */
@@ -26,12 +27,9 @@ public class SystemController {
     @Autowired
     private VisitorService visitorService;
 
-//    @RequestMapping(value = "/index", method = RequestMethod.GET)
-//    public ModelAndView test(HttpServletResponse response) {
-//        //response.setHeader("Access-Control-Allow-Origin","*");
-//        ModelAndView modelAndView = new ModelAndView("main/index");
-//        return modelAndView;
-//    }
+
+    private final static String IMG_DESC_PATH = File.separator+"uploads"+File.separator;
+
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public

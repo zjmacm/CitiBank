@@ -15,9 +15,12 @@
 </head>
 <body>
 <%--<form action="user/fileUpload" method="post" enctype="multipart/form-data">--%>
+
 <form action="/fileUpload" method="post" enctype="multipart/form-data">
     <input type="file" name="fileUpload" />
     <input type="submit" value="上传" />
 </form>
+
+
 </body>
 </html>
