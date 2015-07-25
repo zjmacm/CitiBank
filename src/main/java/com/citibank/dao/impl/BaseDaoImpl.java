@@ -83,7 +83,7 @@ public class BaseDaoImpl implements BaseDao {
 		sb.append(tbName).append(" (");
 		StringBuffer sb2 = new StringBuffer("VALUES (");
 		for(String key : row.keySet()){
-			sb.append(key.toUpperCase());
+			sb.append(key);
 			Object o = row.get(key);
 			if(o instanceof InnerSql){
 				sb2.append(((InnerSql) o).getSql());
@@ -109,7 +109,7 @@ public class BaseDaoImpl implements BaseDao {
 		sb.append(tbName).append(" SET ");
 		
 		for(String key : row.keySet()){
-			sb.append(key.toUpperCase()).append('=');
+			sb.append(key).append('=');
 			Object o = row.get(key);
 			if(o instanceof InnerSql){
 				sb.append(((InnerSql) o).getSql());
@@ -122,7 +122,7 @@ public class BaseDaoImpl implements BaseDao {
 		sb.delete(sb.length() - 2, sb.length() - 1);
 		sb.append(" WHERE ");
 		for(String key : conds.keySet()){
-			sb.append(key.toUpperCase()).append('=');
+			sb.append(key).append('=');
 			Object o = conds.get(key);
 			if(o instanceof InnerSql){
 				sb.append(((InnerSql) o).getSql());
