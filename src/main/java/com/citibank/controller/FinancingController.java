@@ -17,6 +17,7 @@ import java.util.Map;
  */
 public class FinancingController {
 
+
     @Autowired
     private FinancingService financingService;
 
@@ -51,7 +52,5 @@ public class FinancingController {
         map.put("data",page.getList());
         return "";
     }
-
-
 
 }

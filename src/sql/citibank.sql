@@ -205,7 +205,6 @@ DROP TABLE IF EXISTS `stockcreditor`;
 CREATE TABLE `stockcreditor` (
   `id` varchar(32) CHARACTER SET utf8 NOT NULL,
   `productName` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '股债权名字',
-  `investorId` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT '投资人id',
   `investArea` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT '投资区域',
   `investIndustry` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT '投资行业',
   `createTime` date NOT NULL COMMENT '股债权创建时间',
