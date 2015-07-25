@@ -15,7 +15,7 @@
     <script type="text/javascript" src="/public/javascripts/d3.min.js"></script>
     <script type="text/javascript" src="/public/javascripts/citi.js"></script>
     <script src="/public/javascripts/unslider.js"></script>
-    <script src="/public/javascripts/jq.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.nav-item').eq(${flag}).addClass('active');
@@ -262,7 +262,7 @@
                             <div class="title-nav">
                                 <span>政策资讯</span>
                                 <span class="more">
-                                    <a href="/more" title="">更多</a>
+                                    <a href="/customer/policy_more" title="">更多</a>
                                 </span>
                             </div>
                             <div id="policy-item">
@@ -316,7 +316,7 @@
                             <div class="title-nav">
                                 <span>市场资讯</span>
                                 <span class="more">
-                                    <a href="/more" title="">更多</a>
+                                    <a href="/customer/mark_more" title="">更多</a>
                                 </span>
                             </div>
                             <div id="market-item">
