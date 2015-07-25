@@ -24,7 +24,7 @@
     <jsp:include page="customer-header.jsp"/>
     <div class="wrapper">
         <div class="return">
-            <a href="#">返回上一层</a>
+            <a href="/customer/invest">返回上一层</a>
         </div>
         <!--return-->
         <div class="title">

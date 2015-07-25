@@ -11,7 +11,6 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -28,8 +27,6 @@ public class SystemController {
     @Autowired
     private VisitorService visitorService;
 
-
-    private final static String IMG_DESC_PATH = File.separator+"uploads"+File.separator;
 
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
@@ -48,40 +45,10 @@ public class SystemController {
         }
         return "success";
     }
-   
-    @RequestMapping(value ="/customer",method = RequestMethod.GET)
+
+    @RequestMapping("/")
     public String homePage(HttpServletRequest request,HttpSession session) {
-
-        Cookie[] cookies = request.getCookies();
-        String username=new String();
-        String password=new String();
-        if(cookies==null){
-            return "/customer/register.htm";
-        }
-        for (Cookie cookie : cookies) {
-
-
-            if(cookie.getName().equals("username")){
-                username=cookie.getValue();
-
-            }
-            if(cookie.getName().equals("password")){
-                password=cookie.getValue();
-            }
-        }
-        Map<String, Object> result = visitorService.login(username, password);
-        System.out.println(username+"---"+password);
-        if(result==null){
-            return "visitor/customer-index";
-        }
-        session.setAttribute("userType",result.get("userType"));
-        if(Integer.valueOf(result.get("userType").toString())==0) {
-            session.setAttribute("userId", result.get("userId"));
-            return "main/index";
-        }else{
-            session.setAttribute("userId", result.get("userId"));
-            return "main/index";
-        }
+        return "redirect:/customer/index";
     }
 
 }
