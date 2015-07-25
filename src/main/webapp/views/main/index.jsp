@@ -5,45 +5,19 @@
   Time: 20:08
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set var="ctx" value="${pageContext.request.contextPath}"  scope="page"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>主页</title>
-  <script type="text/javascript" src="/public/javascripts/common/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="/public/javascripts/common/jcl.js"></script>
-
-
-
-  <script type="text/javascript">
-
-    $(document).ready(function() {
-        $('#btn').click(function () {
-            $.ajax({
-
-                url: "index",
-                type: "post",
-                dataType: "json",
-                data: {},
-                success: function (data) {
-                    if (data.result == "123") {
-                        alert(data.result);
-                    }
-                }
-
-            });
-
-        });
-    });
-  </script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>文件上传</title>
 </head>
 <body>
-<input type="text" id="username">
-<input type="password" id="password">
-<input id="btn" type="button" value="测试">
-
+<%--<form action="user/fileUpload" method="post" enctype="multipart/form-data">--%>
+<form action="/fileUpload" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileUpload" />
+    <input type="submit" value="上传" />
+</form>
 </body>
 </html>
