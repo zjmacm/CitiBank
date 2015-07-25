@@ -33,4 +33,5 @@ public interface VisitorService {
     //验证公司名字
     public String confirmName(String name);
 
+
 }

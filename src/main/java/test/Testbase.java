@@ -1,5 +1,6 @@
 package test;
 
+import com.citibank.common.uploadFile;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
 import org.junit.Test;
@@ -23,8 +24,12 @@ public class Testbase {
     private CompanyServiceImpl companyService;
     @Autowired
     private InvestorServiceImp investorServiceImp;
+
+    @Autowired
+    private uploadFile uploadFile;
+
     @Test
-    public void testComapny()
+    public void testCompany()
     {
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("username","liuhao");
@@ -43,7 +48,7 @@ public class Testbase {
         map.put("majorAffair", "it co");
         map.put("revenueModels", 0);
         Map<String,Object> nMap=new HashMap<String, Object>();
-        nMap.put("officialWeb", "www.tianmao.com");
+        nMap.put("officialWeb", "www.tianmao.com");;
         //System.out.println(companyService.userRegister(map));
        // System.out.println(companyService.userLogin(map));
       //  System.out.println(companyService.userLogin(map));
@@ -89,6 +94,14 @@ public class Testbase {
         //System.out.println("hasEmail:"+investorServiceImp.hasEmail("2537945384@qq.com"));
         //System.out.println("getInvestorInfo:"+investorServiceImp.getInvestorInfo("C363DF0894D044639F9EFB40B6A20BBA"));
         //System.out.println("saveInvestorInfo:" + investorServiceImp.saveInvestorInfo(mapnew, "C363DF0894D044639F9EFB40B6A20BBA"));
+    }
+
+    @Test
+    public void testUploadImage(){
+
+
+
+
     }
 
 
