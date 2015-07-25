@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,6 +15,12 @@
     <script type="text/javascript" src="/public/javascripts/d3.min.js"></script>
     <script type="text/javascript" src="/public/javascripts/citi.js"></script>
     <script src="/public/javascripts/unslider.js"></script>
+    <script src="/public/javascripts/jq.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-item').eq(${flag}).addClass('active');
+        })
+    </script>
     <script type="text/javascript">
     $(window).load(function() {
         var unslider = $('.banner').unslider({
@@ -59,7 +66,7 @@
                 strokeWidth: 1,
                 text: false,
                 animation: 60
-            },
+            }
 
         };
 
@@ -115,69 +122,6 @@
 
 <body>
     <jsp:include page="customer-header.jsp"/>
-    <%--<div id="header">
-        <div id="header-nav">
-            <div id="nav-list">
-                <ul>
-                    <li>
-                        <a href="/" title="">
-                            <span class="nav-item active">
-                                首页
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/customer/financeCom.htm" title="">
-                            <span class="nav-item">融资企业</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/invest" title="">
-                            <span class="nav-item">投资中心</span>
-                        </a>
-                    </li>
-                    <li id="service">
-                        <a href="/service" title="">
-                            <span class="nav-item">企业服务</span>
-                        </a>
-                        <div id="service-subnav">
-                            <ul>
-                                <li>
-                                    <a href="/management" title="">
-                                        <span>资产管理</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/customer/sign.htm" title="">
-                                        <span>电子签约</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/invetfinane" title="">
-                                        <span>投/融资</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="nav-login">
-                <ul>
-                    <li>
-                        <a href="/login" title="">
-                            <span>登陆</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/customer/register.htm" title="">
-                            <span>注册</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>--%>
     <div id="main">
         <div id="content">
             <div id="first-glance" class="banner">
@@ -265,7 +209,7 @@
                 </div>
             </div>
             <div id="invest-center">
-                <p id="inv-title">投资中兴</p>
+                <p id="inv-title">投资中心</p>
                 <ul id="invest-list">
                     <li class="list">
                         <p>私募股权</p>
