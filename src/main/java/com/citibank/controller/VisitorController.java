@@ -8,11 +8,16 @@ import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
+import com.sun.deploy.net.HttpResponse;
+import com.sun.mail.iap.Response;
 import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -63,7 +68,7 @@ public class VisitorController {
     public @ResponseBody Map<String,Object> confirmName(@RequestParam("data")String name){
         Map<String,Object> map=new HashMap<String, Object>();
         String result = visitorService.confirmName(name);
-        map.put("check",result);
+        map.put("check", result);
         return map;
     }
 
@@ -98,7 +103,7 @@ public class VisitorController {
 
     //主界面
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getIndexPage() {
+    public String getIndexPage(Map<String,Object> map) {
         return "visitor/customer-index";
     }
 
@@ -138,6 +143,30 @@ public class VisitorController {
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("check","success");
         return map;
+    }
+    //导航栏跳转请求响应，首页
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String getIndexPageAgain(Map<String,Object> map) {
+        map.put("flag", 0);
+        return "visitor/customer-index";
+    }
+    //导航栏跳转请求响应，融资企业
+    @RequestMapping(value = "/finance", method = RequestMethod.GET)
+    public String getFinancePage(Map<String, Object> map) {
+        map.put("flag", 1);
+        return "visitor/customer_financing_more";
+    }
+    //导航栏跳转请求响应，投资中心
+    @RequestMapping(value = "/invest", method = RequestMethod.GET)
+    public String getInvestPage(Map<String,Object> map) {
+        map.put("flag", 2);
+        return "visitor/customer_investment_debt";
+    }
+    //导航栏跳转请求响应，企业服务
+    @RequestMapping(value = "/service", method = RequestMethod.GET)
+    public String getServicePage(Map<String,Object> map) {
+        map.put("flag", 3);
+        return "visitor/customer-service-asset";
     }
 
 }

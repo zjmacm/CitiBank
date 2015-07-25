@@ -19,11 +19,11 @@ public class SystemController {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public ModelAndView test(HttpServletResponse response) {
-        //response.setHeader("Access-Control-Allow-Origin","*");
-        ModelAndView modelAndView = new ModelAndView("main/index");
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/index", method = RequestMethod.GET)
+//    public ModelAndView test(HttpServletResponse response) {
+//        //response.setHeader("Access-Control-Allow-Origin","*");
+//        ModelAndView modelAndView = new ModelAndView("main/index");
+//        return modelAndView;
+//    }
 
 }
