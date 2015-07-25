@@ -11,6 +11,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -47,18 +48,22 @@ public class SystemController {
         }
         return "success";
     }
-
-    @RequestMapping("/")
+   
+    @RequestMapping(value ="/customer",method = RequestMethod.GET)
     public String homePage(HttpServletRequest request,HttpSession session) {
+
         Cookie[] cookies = request.getCookies();
-        String username=null, password=null;
+        String username=new String();
+        String password=new String();
         if(cookies==null){
-            return "visitor/customer-index";
+            return "/customer/register.htm";
         }
         for (Cookie cookie : cookies) {
-            System.out.println(cookie.getName());
+
+
             if(cookie.getName().equals("username")){
                 username=cookie.getValue();
+
             }
             if(cookie.getName().equals("password")){
                 password=cookie.getValue();
@@ -69,7 +74,7 @@ public class SystemController {
         if(result==null){
             return "visitor/customer-index";
         }
-        session.setAttribute("userTyp",result.get("userType"));
+        session.setAttribute("userType",result.get("userType"));
         if(Integer.valueOf(result.get("userType").toString())==0) {
             session.setAttribute("userId", result.get("userId"));
             return "main/index";

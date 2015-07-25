@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.HttpCookie;
@@ -46,7 +47,8 @@ public class VisitorController {
 
     //进入注册页面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
-    public String getRegisterPage() {
+    public String getRegisterPage(HttpServletRequest request) {
+
         return "/visitor/reg";
     }
 
@@ -76,7 +78,7 @@ public class VisitorController {
     }
 
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
-    public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
+    public String register(@RequestParam Map<String, Object> reqs, HttpSession session,HttpServletRequest request) {
         String flag = (String) reqs.get("userType");
         reqs.remove("userType");
         reqs.remove("re-password");
