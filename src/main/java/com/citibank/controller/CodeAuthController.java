@@ -4,10 +4,7 @@ import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
@@ -48,8 +45,8 @@ public class CodeAuthController {
 
     }
 
-    @RequestMapping(value = "authCheck/{code}/*", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> authCheck(@PathVariable("code") String code,
+    @RequestMapping(value = "authCheck/*", method = RequestMethod.POST)
+    public @ResponseBody Map<String, Object> authCheck(@RequestParam("data") String code,
                                                        HttpSession session){
         Map<String,Object> map=new HashMap<String, Object>();
         String auth= (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);

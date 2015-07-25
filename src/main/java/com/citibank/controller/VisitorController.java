@@ -27,11 +27,12 @@ import java.util.Map;
 public class VisitorController {
 
     @Autowired
+    private InvestorServiceImp investorService;
+    @Autowired
+    private CompanyServiceImpl companyService;
+    @Autowired
     private VisitorService visitorService;
-    @Autowired
-    private InvestorServiceImp investorServiceImp;
-    @Autowired
-    private CompanyServiceImpl companyServiceImp;
+
     //游客模式下查看政策咨询和市场咨询
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
     public String getPolicyPage() {
@@ -43,42 +44,56 @@ public class VisitorController {
     public String getMarketPage() {
         return "visitor/market";
     }
+
     //进入注册页面
-    @RequestMapping(value = "/register.htm",method = RequestMethod.GET)
-    public String getRegisterPage()
-    {
+    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
+    public String getRegisterPage() {
         return "/visitor/reg";
     }
-    @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
-    public String  register(@RequestParam Map<String,Object> reqs,HttpSession session)
-    {
-        String flag=(String)reqs.get("userType");
-        String id= IdUtil.uuid();
-        session.setAttribute("userId",id);
-        if(flag=="投资者")
-        {
-            reqs.put("investorId",id);
+
+    @RequestMapping(value = "/echeck",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> confirmEmail(@RequestParam("data")String email){
+        Map<String, Object> map = new HashMap<String, Object>();
+        String result = visitorService.confirmEmail(email);
+        map.put("check",result);
+        return map;
+    }
+
+    @RequestMapping(value = "/nameCheck",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> confirmName(@RequestParam("data")String name){
+        Map<String,Object> map=new HashMap<String, Object>();
+        String result = visitorService.confirmName(name);
+        map.put("check",result);
+        return map;
+    }
+
+    @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
+    public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
+        String flag = (String) reqs.get("userType");
+        String id = IdUtil.uuid();
+        session.setAttribute("userId", id);
+        if (flag == "投资者") {
+            reqs.put("investorId", id);
             reqs.remove("userType");
-            investorServiceImp.registerInvestor(reqs);
+            investorService.registerInvestor(reqs);
             return "/";
-        }
-        else
-        {
-            reqs.put("companyId",id);
+        } else {
+            reqs.put("companyId", id);
             reqs.remove("userType");
-            companyServiceImp.userRegister(reqs);
+            companyService.userRegister(reqs);
             return "/";
         }
 
-   }
+    }
+
     @RequestMapping(value = "/financeCom", method = RequestMethod.GET)
     public String getFinancingCom() {
         return "visitor/finacing-company";
     }
 
     @RequestMapping("/financing_more/{num}")
-    public String getComDetail(@PathVariable("num") int num){
-        return "visitor/customer_financing_more"+num;
+    public String getComDetail(@PathVariable("num") int num) {
+        return "visitor/customer_financing_more" + num;
     }
 
     //主界面
@@ -116,6 +131,13 @@ public class VisitorController {
     @RequestMapping(value = "/serviceAsset.htm", method = RequestMethod.GET)
     public String getserviceAssetPage() {
         return "visitor/customer-service-asset";
+    }
+
+    @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> confirmCode(@RequestParam("data")String code){
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("check","success");
+        return map;
     }
 
 }
