@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -5,9 +6,9 @@
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 	<title>资讯</title>
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-information-policy.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-information-policy.css">
 </head>
 <body>
 	<div id="header">
@@ -110,7 +111,7 @@
 					<li><a href="/policynews" title="">税务总局：金融企业涉农贷款和中小企业贷款损失扣除条件放宽 </a>
 						<span>2015-7-11</span>
 					</li>
-					<li><a href="/policynews" title="">我国金融政策与区域产业结构趋同的机理及实证分析...</a>
+					<li><a href="/policynews" title="">我国金融政策与区域产业结构趋同的机理及实证分析.</a>
 						<span>2015-7-11</span>
 					</li>
 					<li><a href="/policynews" title="">公司债扩围 中小企业私募债或将停止备案</a>

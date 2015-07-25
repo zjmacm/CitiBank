@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,10 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 
 	<title>电子签约</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/signature.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/signature.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/reset.css">
 </head>
 <body>
 	<div id="header">
@@ -107,19 +108,19 @@
 				<div class="info">
 					<span>近一周</span>
                     	
-						<img src="../public/images/arrow1.png">
+						<img src="/public/images/arrow1.png">
 					<span>增长率13%</span>
             	</div>
 				<div class="info">
 					<span>近一月</span>
                     	
-						<img src="../public/images/arrow2.png">
+						<img src="/public/images/arrow2.png">
 					<span>增长率13%</span>
 				</div>
 				<div class="info">
 					<span >近一季</span>
                     	
-						<img src="../public/images/arrow3.png">
+						<img src="/public/images/arrow3.png">
 					<span>增长率13%</span>
 				</div>
 			</div><!--situation-->
@@ -128,25 +129,25 @@
 			<p class="tit">电子签约流程</p>
 			<ul>
             	<li >
-                	<img  src="../public/images/loan.png">
+                	<img  src="/public/images/loan.png">
                 </li>
             	<li>
-                	<img  src="../public/images/time.png">
+                	<img  src="/public/images/time.png">
                 </li>
             	<li>
-                	<img  src="../public/images/number.png">
+                	<img  src="/public/images/number.png">
                 </li>
             	<li>
-                	<img  src="../public/images/sign.png">
+                	<img  src="/public/images/sign.png">
                 </li>
             	<li>
-                	<img  src="../public/images/check.png">
+                	<img  src="/public/images/check.png">
                 </li>
             	<li>
-                	<img  src="../public/images/issue.png">
+                	<img  src="/public/images/issue.png">
                 </li>
             	<li>
-                	<img  src="../public/images/DC.png">
+                	<img  src="/public/images/DC.png">
                 </li>
             	<a href="#" class="DC">数字证书认证</a>
             	<a href="#" class="issue">证书下发</a>

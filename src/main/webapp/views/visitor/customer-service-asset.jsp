@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,10 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 
 	<title>资产管理</title>
-     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/asset_management.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/reset.css">
+     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/asset_management.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/reset.css">
 </head>
 <body>
 	<div id="header">
@@ -100,17 +101,17 @@
 			<p class="total" >交易增长情况</p>
 			<div class="info">
 			     <span >近一周</span><br>
-			     <img src="../public/images/arrow1.png"><br>
+			     <img src="/public/images/arrow1.png"><br>
 			     <span>增长率13%</span>
             </div>
 			<div class="info">
 			     <span>近一月</span><br>
-			     <img src="../public/images/arrow2.png"><br>
+			     <img src="/public/images/arrow2.png"><br>
 			     <span>增长率13%</span>
 			</div>
 			<div class="info">
 			     <span>近一季</span><br>
-			     <img src="../public/images/arrow3.png"><br>
+			     <img src="/public/images/arrow3.png"><br>
 			     <span>增长率13%</span>
 			</div>
 		</div><!--situation-->

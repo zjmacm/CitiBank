@@ -21,17 +21,16 @@
 
     $(document).ready(function() {
         $('#btn').click(function () {
+            alert("send request");
             $.ajax({
-
-
-                url: "index",
+                url: "/company/echeck/121",
                 type: "post",
                 dataType: "json",
                 data: {},
                 success: function (data) {
-                    if (data.result == "123") {
+                    //if (data.check == "success") {
                         alert(data.result);
-                    }
+                    //}
                 }
 
             });
