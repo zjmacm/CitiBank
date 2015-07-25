@@ -1,5 +1,6 @@
 package com.citibank.test;
 
+import com.citibank.common.uploadFile;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
 import com.citibank.service.InvestorService;
@@ -28,6 +29,10 @@ public class SystemTest {
 
     @Autowired
     private CompanyService comService;
+
+
+    public uploadFile uploadImage = new uploadFile();
+
 
     @Test
     public void testSql(){
@@ -63,5 +68,7 @@ public class SystemTest {
         map.put("revenueModels","0");
        comService.userRegister(map);
     }
+
+
 
 }

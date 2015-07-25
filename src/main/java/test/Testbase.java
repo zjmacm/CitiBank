@@ -1,5 +1,6 @@
 package test;
 
+import com.citibank.common.uploadFile;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
 import org.junit.Test;
@@ -23,6 +24,10 @@ public class Testbase {
     private CompanyServiceImpl companyService;
     @Autowired
     private InvestorServiceImp investorServiceImp;
+
+    @Autowired
+    private uploadFile uploadFile;
+
     @Test
     public void testCompany()
     {
@@ -89,6 +94,14 @@ public class Testbase {
         //System.out.println("hasEmail:"+investorServiceImp.hasEmail("2537945384@qq.com"));
         //System.out.println("getInvestorInfo:"+investorServiceImp.getInvestorInfo("C363DF0894D044639F9EFB40B6A20BBA"));
         //System.out.println("saveInvestorInfo:" + investorServiceImp.saveInvestorInfo(mapnew, "C363DF0894D044639F9EFB40B6A20BBA"));
+    }
+
+    @Test
+    public void testUploadImage(){
+
+
+
+
     }
 
 

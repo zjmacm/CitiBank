@@ -12,8 +12,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>主页</title>
-  <script type="text/javascript" src="/res/js/common/jquery-1.7.2.min.js"></script>
-  <script type="text/javascript" src="/res/js/common/jcl.js"></script>
+  <script type="text/javascript" src="/public/javascripts/common/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="/public/javascripts/common/jcl.js"></script>
 
 
 
@@ -22,7 +22,6 @@
     $(document).ready(function() {
         $('#btn').click(function () {
             $.ajax({
-
 
                 url: "index",
                 type: "post",
