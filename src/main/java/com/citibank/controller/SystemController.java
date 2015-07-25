@@ -1,26 +1,20 @@
 package com.citibank.controller;
 
-import com.citibank.common.uploadFile;
-import com.citibank.dao.impl.MySQLSimpleDaoImpl;
-import net.sf.ehcache.transaction.xa.EhcacheXAException;
+import com.citibank.service.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.Map;
-
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 
 /**
@@ -31,23 +25,17 @@ import java.io.IOException;
 public class SystemController {
 
     @Autowired
-    private MySQLSimpleDaoImpl mySQLSimpleDao;
+    private VisitorService visitorService;
 
-
-    public uploadFile uploadImage = new uploadFile();
 
     private final static String IMG_DESC_PATH = File.separator+"uploads"+File.separator;
 
-    @RequestMapping(value="/fileUpload1",method = RequestMethod.POST)
-    public void test(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,HttpServletRequest request){
-        String path = request.getServletContext().getRealPath("")+IMG_DESC_PATH;
-        System.out.println(path);
-        uploadImage.uploadFile(multipartFile,path);
 
-    }
-
-    @RequestMapping(value = "/fileUpload",method = RequestMethod.POST)
-    public @ResponseBody String uploadFile(@RequestParam("fileUpload")CommonsMultipartFile multipartFile){
+    @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile
+    ) {
         System.out.println(multipartFile.getOriginalFilename());
         System.out.println(multipartFile.getSize());
         System.out.println(multipartFile.getContentType());
@@ -60,9 +48,35 @@ public class SystemController {
         return "success";
     }
 
-    @RequestMapping("/uploadPage")
-    public String getUploadPage(){
-        return "main/index";
+    @RequestMapping("/")
+    public String homePage(HttpServletRequest request,HttpSession session) {
+        Cookie[] cookies = request.getCookies();
+        String username=null, password=null;
+        if(cookies==null){
+            return "visitor/customer-index";
+        }
+        for (Cookie cookie : cookies) {
+            System.out.println(cookie.getName());
+            if(cookie.getName().equals("username")){
+                username=cookie.getValue();
+            }
+            if(cookie.getName().equals("password")){
+                password=cookie.getValue();
+            }
+        }
+        Map<String, Object> result = visitorService.login(username, password);
+        System.out.println(username+"---"+password);
+        if(result==null){
+            return "visitor/customer-index";
+        }
+        session.setAttribute("userTyp",result.get("userType"));
+        if(Integer.valueOf(result.get("userType").toString())==0) {
+            session.setAttribute("userId", result.get("userId"));
+            return "main/index";
+        }else{
+            session.setAttribute("userId", result.get("userId"));
+            return "main/index";
+        }
     }
 
 }

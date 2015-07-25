@@ -1,26 +1,20 @@
 package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
-import com.citibank.dao.Page;
-import com.citibank.entity.Investor;
-import com.citibank.service.InvestorService;
-import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
+import com.google.code.kaptcha.Constants;
 import com.sun.deploy.net.HttpResponse;
-import com.sun.mail.iap.Response;
-import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.net.HttpCookie;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -56,24 +50,32 @@ public class VisitorController {
         return "/visitor/reg";
     }
 
-    @RequestMapping(value = "/echeck",method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> confirmEmail(@RequestParam("data")String email){
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public String getLoginPage() {
+        return "visitor/login";
+    }
+
+    @RequestMapping(value = "/echeck", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Map<String, Object> confirmEmail(@RequestParam("data") String email) {
         Map<String, Object> map = new HashMap<String, Object>();
         String result = visitorService.confirmEmail(email);
-        map.put("check",result);
+        map.put("check", result);
         return map;
     }
 
-    @RequestMapping(value = "/nameCheck",method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> confirmName(@RequestParam("data")String name){
-        Map<String,Object> map=new HashMap<String, Object>();
+    @RequestMapping(value = "/nameCheck", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Map<String, Object> confirmName(@RequestParam("data") String name) {
+        Map<String, Object> map = new HashMap<String, Object>();
         String result = visitorService.confirmName(name);
         map.put("check", result);
         return map;
     }
 
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
-
     public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
         String flag = (String) reqs.get("userType");
         reqs.remove("userType");
@@ -83,7 +85,7 @@ public class VisitorController {
         String id = IdUtil.uuid();
         System.out.println(flag);
         session.setAttribute("userId", id);
-        if (flag.equals( "投资者")) {
+        if (flag.equals("投资者")) {
             reqs.put("investorId", id);
             System.out.println(flag);
             investorService.registerInvestor(reqs);
@@ -93,7 +95,34 @@ public class VisitorController {
             companyService.userRegister(reqs);
             return "/";
         }
+    }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String doLogin(@RequestParam("username")String username, @RequestParam("password")String password,
+                          @RequestParam(value = "nologin", required = false, defaultValue = "0")int rememberMe,
+                          @RequestParam("auth")String auth, HttpSession session, HttpServletResponse response,
+                          Map<String,Object> map) {
+        Map<String, Object> result = visitorService.login(username, password);
+        if(result==null){
+            map.put("data","unEnable");
+            return "visitor/login";
+        }
+        session.setAttribute("userTyp",result.get("userType"));
+        if(rememberMe==1){
+            Cookie cookie=new Cookie("username",username);
+            cookie.setMaxAge(7*24*3600);
+            response.addCookie(cookie);
+            cookie=new Cookie("password",password);
+            cookie.setMaxAge(7*24*3600);
+            response.addCookie(cookie);
+        }
+        if(Integer.valueOf(result.get("userType").toString())==0) {
+            session.setAttribute("userId", result.get("userId"));
+            return "visitor/customer-index";
+        }else{
+            session.setAttribute("userId", result.get("userId"));
+            return "visitor/customer-index";
+        }
     }
 
     @RequestMapping(value = "/financeCom.htm", method = RequestMethod.GET)
@@ -108,7 +137,7 @@ public class VisitorController {
 
     //主界面
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String getIndexPage(Map<String,Object> map) {
+    public String getIndexPage(Map<String, Object> map) {
         return "visitor/customer-index";
     }
 
@@ -144,52 +173,59 @@ public class VisitorController {
     }
 
     @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> confirmCode(@RequestParam("data")String code){
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("check","success");
+    public
+    @ResponseBody
+    Map<String, Object> confirmCode(@RequestParam("data") String code) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("check", "success");
         return map;
     }
 
     //导航栏跳转请求响应，首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPageAgain(Map<String,Object> map) {
+    public String getIndexPageAgain(Map<String, Object> map) {
         map.put("flag", 0);
         return "visitor/customer-index";
     }
+
     //导航栏跳转请求响应，融资企业
     @RequestMapping(value = "/finance", method = RequestMethod.GET)
     public String getFinancePage(Map<String, Object> map) {
         map.put("flag", 1);
         return "visitor/finacing-company";
     }
+
     //导航栏跳转请求响应，投资中心
     @RequestMapping(value = "/invest", method = RequestMethod.GET)
-    public String getInvestPage(Map<String,Object> map) {
+    public String getInvestPage(Map<String, Object> map) {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
     }
+
     //导航栏跳转请求响应，企业服务-主
     @RequestMapping(value = "/service", method = RequestMethod.GET)
-    public String getServicePage(Map<String,Object> map) {
+    public String getServicePage(Map<String, Object> map) {
         map.put("flag", 3);
         return "visitor/customer-business-service";
     }
+
     //导航栏跳转请求响应，企业服务-资产管理
     @RequestMapping(value = "/management", method = RequestMethod.GET)
-    public String getService_01Page(Map<String,Object> map) {
+    public String getService_01Page(Map<String, Object> map) {
         map.put("flag", 3);
         return "visitor/customer-service-asset";
     }
 
     //导航栏跳转请求响应，企业服务-电子签约
     @RequestMapping(value = "/esignature", method = RequestMethod.GET)
-    public String getService_02Page(Map<String,Object> map) {
+    public String getService_02Page(Map<String, Object> map) {
         map.put("flag", 3);
         return "visitor/customer-service-signature";
     }
+
     //导航栏跳转请求响应，企业服务-投融资
     @RequestMapping(value = "/invetfinane", method = RequestMethod.GET)
-    public String getService_03Page(Map<String,Object> map) {
+    public String getService_03Page(Map<String, Object> map) {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
     }
