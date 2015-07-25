@@ -1,27 +1,17 @@
 package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
-import com.citibank.dao.Page;
-import com.citibank.entity.Investor;
-import com.citibank.service.InvestorService;
-import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
-import com.sun.deploy.net.HttpResponse;
-import com.sun.mail.iap.Response;
-import javafx.beans.binding.ObjectExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -238,6 +228,12 @@ public class VisitorController {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
     }
+
+    @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
+    public String getLoginPage(){
+        return "visitor/login";
+    }
+
     //导航栏跳转请求响应，注册按钮
     @RequestMapping(value = "/reg",method = RequestMethod.GET)
     public String getRegPage()
