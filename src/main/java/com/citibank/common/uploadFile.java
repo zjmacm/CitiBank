@@ -19,9 +19,6 @@ public class uploadFile {
     private final static String IMG_DESC_PATH =File.separator+"uploads";
 
 
-    public void test(CommonsMultipartFile commonsMultipartFile){
-
-    }
 
 
 
@@ -34,7 +31,9 @@ public class uploadFile {
         File file = new File(filePath);
 
         try{
+
             multipartFile.transferTo(file);
+
         }catch(Exception e){
             result = "failed";
             e.printStackTrace();
