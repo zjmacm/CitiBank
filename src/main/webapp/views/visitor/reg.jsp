@@ -23,14 +23,14 @@
             <div id="nav-list">
                 <ul>
                     <li>
-                        <a href="/index" title="">
+                        <a href="/" title="">
                             <span class="nav-item">
 								首页
 							</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/finance" title="">
+                        <a href="/customer/financeCom.htm" title="">
                             <span class="nav-item">融资企业</span>
                         </a>
                     </li>
@@ -73,7 +73,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/reg" title="">
+                        <a href="/customer/register.htm" title="">
                             <span>注册</span>
                         </a>
                     </li>

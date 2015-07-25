@@ -5,7 +5,7 @@
                 <ul>
                     <li>
                         <a href="/index" title="">
-                            <span class="nav-item">
+                            <span class="nav-item active">
 								首页
 							</span>
                         </a>
@@ -22,7 +22,7 @@
                     </li>
                     <li id="service">
                         <a href="/service" title="">
-                            <span class="nav-item active">企业服务</span>
+                            <span class="nav-item">企业服务</span>
                         </a>
                         <div id="service-subnav">
                             <ul>

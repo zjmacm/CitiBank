@@ -34,16 +34,16 @@ public class VisitorController {
     private VisitorService visitorService;
 
     //游客模式下查看政策咨询和市场咨询
-    @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
-    public String getPolicyPage() {
-        return "visitor/policy";
-    }
+//    @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
+//    public String getPolicyPage() {
+//        return "visitor/policy";
+//    }
 
     //市场咨询
-    @RequestMapping(value = "/market.htm", method = RequestMethod.POST)
-    public String getMarketPage() {
-        return "visitor/market";
-    }
+//    @RequestMapping(value = "/market.htm", method = RequestMethod.POST)
+//    public String getMarketPage() {
+//        return "visitor/market";
+//    }
 
     //进入注册页面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
@@ -86,7 +86,7 @@ public class VisitorController {
 
     }
 
-    @RequestMapping(value = "/financeCom", method = RequestMethod.GET)
+    @RequestMapping(value = "/financeCom.htm", method = RequestMethod.GET)
     public String getFinancingCom() {
         return "visitor/finacing-company";
     }

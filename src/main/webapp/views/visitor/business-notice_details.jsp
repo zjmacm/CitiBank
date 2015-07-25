@@ -14,12 +14,12 @@
         <div id="nav-list">
             <ul>
                 <li>
-                    <a href="/index" title="">
+                    <a href="/" title="">
                         <span class="nav-item  active">首页</span>
                     </a>
                 </li>
                 <li id="finance">
-                    <a href="/finance" title="">
+                    <a href="/customer/financeCom.htm" title="">
                         <span class="nav-item">融资板块</span>
                     </a>
                     <div id="finance-subnav">
