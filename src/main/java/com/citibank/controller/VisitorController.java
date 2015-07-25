@@ -29,6 +29,7 @@ import java.util.Map;
 
 @Controller("InformationController")
 @RequestMapping("/customer")
+
 public class VisitorController {
 
     @Autowired
@@ -144,6 +145,7 @@ public class VisitorController {
         map.put("check","success");
         return map;
     }
+
     //导航栏跳转请求响应，首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getIndexPageAgain(Map<String,Object> map) {
@@ -174,6 +176,7 @@ public class VisitorController {
         map.put("flag", 3);
         return "visitor/customer-service-asset";
     }
+
     //导航栏跳转请求响应，企业服务-电子签约
     @RequestMapping(value = "/esignature", method = RequestMethod.GET)
     public String getService_02Page(Map<String,Object> map) {

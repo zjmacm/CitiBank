@@ -100,8 +100,6 @@ public class Testbase {
     public void testUploadImage(){
 
 
-
-
     }
 
 
