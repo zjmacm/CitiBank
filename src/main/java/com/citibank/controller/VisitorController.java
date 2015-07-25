@@ -154,19 +154,37 @@ public class VisitorController {
     @RequestMapping(value = "/finance", method = RequestMethod.GET)
     public String getFinancePage(Map<String, Object> map) {
         map.put("flag", 1);
-        return "visitor/customer_financing_more";
+        return "visitor/finacing-company";
     }
     //导航栏跳转请求响应，投资中心
     @RequestMapping(value = "/invest", method = RequestMethod.GET)
     public String getInvestPage(Map<String,Object> map) {
         map.put("flag", 2);
-        return "visitor/customer_investment_debt";
+        return "visitor/customer_investment_hall";
     }
-    //导航栏跳转请求响应，企业服务
+    //导航栏跳转请求响应，企业服务-主
     @RequestMapping(value = "/service", method = RequestMethod.GET)
     public String getServicePage(Map<String,Object> map) {
         map.put("flag", 3);
+        return "visitor/customer-business-service";
+    }
+    //导航栏跳转请求响应，企业服务-资产管理
+    @RequestMapping(value = "/management", method = RequestMethod.GET)
+    public String getService_01Page(Map<String,Object> map) {
+        map.put("flag", 3);
         return "visitor/customer-service-asset";
+    }
+    //导航栏跳转请求响应，企业服务-电子签约
+    @RequestMapping(value = "/esignature", method = RequestMethod.GET)
+    public String getService_02Page(Map<String,Object> map) {
+        map.put("flag", 3);
+        return "visitor/customer-service-signature";
+    }
+    //导航栏跳转请求响应，企业服务-投融资
+    @RequestMapping(value = "/invetfinane", method = RequestMethod.GET)
+    public String getService_03Page(Map<String,Object> map) {
+        map.put("flag", 2);
+        return "visitor/customer_investment_hall";
     }
 
 }

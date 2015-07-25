@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,12 @@
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="/public/stylesheets/signature.css">
 	<link rel="stylesheet" type="text/css" href="/public/stylesheets/reset.css">
+	<script src="/public/javascripts/jq.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.nav-item').eq(${flag}).addClass('active');
+		})
+	</script>
 </head>
 <body>
 		<jsp:include page="customer-header.jsp"/>

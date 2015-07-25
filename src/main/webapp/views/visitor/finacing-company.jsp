@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/finacing-company.css">
+    <script src="/public/javascripts/jq.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-item').eq(${flag}).addClass('active');
+        })
+    </script>
     <title>融资企业</title>
 </head>
 

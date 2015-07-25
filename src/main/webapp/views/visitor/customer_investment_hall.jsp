@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
 
@@ -24,6 +25,12 @@
         });
 
     });
+    </script>
+    <script src="/public/javascripts/jq.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.nav-item').eq(${flag}).addClass('active');
+        })
     </script>
     <title>投资中心</title>
 </head>
