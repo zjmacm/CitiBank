@@ -50,6 +50,7 @@ public class CodeAuthController {
                                                        HttpSession session){
         Map<String,Object> map=new HashMap<String, Object>();
         String auth= (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println(session.getAttribute(Constants.KAPTCHA_SESSION_KEY)+"---"+code);
         if(code.equals(auth)){
             map.put("check","success");
         }else{

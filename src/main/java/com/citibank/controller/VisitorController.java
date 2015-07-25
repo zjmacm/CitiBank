@@ -31,7 +31,6 @@ import java.util.Map;
 @RequestMapping("/customer")
 
 public class VisitorController {
-
     @Autowired
     private InvestorServiceImp investorService;
     @Autowired
@@ -40,16 +39,16 @@ public class VisitorController {
     private VisitorService visitorService;
 
     //游客模式下查看政策咨询和市场咨询
-    @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
-    public String getPolicyPage() {
-        return "visitor/policy";
-    }
+//    @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
+//    public String getPolicyPage() {
+//        return "visitor/policy";
+//    }
 
     //市场咨询
-    @RequestMapping(value = "/market.htm", method = RequestMethod.POST)
-    public String getMarketPage() {
-        return "visitor/market";
-    }
+//    @RequestMapping(value = "/market.htm", method = RequestMethod.POST)
+//    public String getMarketPage() {
+//        return "visitor/market";
+//    }
 
     //进入注册页面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
@@ -74,25 +73,30 @@ public class VisitorController {
     }
 
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
+
     public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
         String flag = (String) reqs.get("userType");
+        reqs.remove("userType");
+        reqs.remove("re-password");
+        reqs.remove("auth");
+        reqs.remove("iagree");
         String id = IdUtil.uuid();
+        System.out.println(flag);
         session.setAttribute("userId", id);
-        if (flag == "投资者") {
+        if (flag.equals( "投资者")) {
             reqs.put("investorId", id);
-            reqs.remove("userType");
+            System.out.println(flag);
             investorService.registerInvestor(reqs);
-            return "/";
+            return "investor/complete-reg";
         } else {
             reqs.put("companyId", id);
-            reqs.remove("userType");
             companyService.userRegister(reqs);
             return "/";
         }
 
     }
 
-    @RequestMapping(value = "/financeCom", method = RequestMethod.GET)
+    @RequestMapping(value = "/financeCom.htm", method = RequestMethod.GET)
     public String getFinancingCom() {
         return "visitor/finacing-company";
     }

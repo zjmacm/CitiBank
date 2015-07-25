@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/customer/reg" title="">
+                        <a href="/customer/register.htm" title="">
                             <span>注册</span>
                         </a>
                     </li>

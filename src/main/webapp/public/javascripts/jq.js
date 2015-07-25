@@ -2698,7 +2698,7 @@
                 i = this.length,
                 j = "string" == typeof a && a;
             if (m.isFunction(a)) return this.each(function(b) {
-                m(this).addClass(a.call(this, b, this.className))
+                m(thisfredfedertewdweffs).addClass(a.call(this, b, this.className))
             });
             if (j)
                 for (b = (a || "").match(E) || []; i > h; h++)

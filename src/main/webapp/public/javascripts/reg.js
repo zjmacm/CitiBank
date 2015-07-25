@@ -95,7 +95,7 @@ var reg = (function(citi) {
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true,
+                            async: true
                         };
 
                     if (e.target.name == 'username') {
@@ -163,7 +163,7 @@ var reg = (function(citi) {
 
                     if (e.target.name == 'password') {
                         eval = $(id).val();
-                        e = /([0-9]+[a-zA-Z]+)+/;
+                        e = /([0-9a-zA-Z]+[a-zA-Z0-9]+)+/;
                         if (eval == '' || !e.test(eval) || eval.toString().length < 6 || eval.toString().length > 12) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -229,8 +229,10 @@ var reg = (function(citi) {
                         }
                         var now = new Date();
                         url = '/authCheck/' + now.getTime();
-                        success = function() {
+                        success = function(text) {
+                            alert(text.check)
                             if (text.check == 'success') {
+
                                 $('#check-auth').addClass('icon-success').html('');
                             } else {
                                 $('#check-auth').addClass('icon-error').html('验证码错误');
@@ -241,6 +243,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
+
                         error = function() {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -317,7 +320,7 @@ var reg = (function(citi) {
                         eval = $(id).val();
                         e = /\d+/;
 
-                        if (eval == '' || !e.test(eval) || eval.toString().length != 15) {
+                        if (eval == '' || !e.test(eval) || eval.toString().length != 10) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -386,7 +389,7 @@ var reg = (function(citi) {
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true,
+                            async: true
                         };
 
 
@@ -609,7 +612,7 @@ var reg = (function(citi) {
                         eval = $(id).val();
                         e = /\d+/;
 
-                        if (eval == '' || !e.test(eval) || eval.toString().length != 15) {
+                        if (eval == '' || !e.test(eval) || eval.toString().length != 10) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -621,7 +624,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('组织机构代码不能为空');
                         }
 
-                        if (!e.test(eval) || eval.toString().length != 15) {
+                        if (!e.test(eval) || eval.toString().length != 10) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
@@ -743,6 +746,7 @@ var reg = (function(citi) {
 $(document).ready(function() {
     reg.focus();
     reg.blur();
+    reg.isubmit();
 
 
 })
