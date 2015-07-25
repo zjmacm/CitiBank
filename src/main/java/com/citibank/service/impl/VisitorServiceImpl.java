@@ -7,9 +7,11 @@ import com.citibank.service.VisitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.lang.model.element.NestingKind;
 import java.io.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -92,13 +94,35 @@ public class VisitorServiceImpl implements VisitorService{
         return mySQLSimpleDao.pageQuery("select *from information",new HashMap<String, Object>(),pageIndex,10,order);
     }
 
-
-
     public Map<String, Object> investCenter() {
         return null;
     }
 
     public Map<String, Object> companyService() {
         return null;
+    }
+
+    public String confirmEmail(String email) {
+        String investorSql="select username from investor where username = ?";
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList(investorSql, email);
+        int count=result.size();
+        if(count!=0){
+            return "failed";
+        }
+        String companySql="select username from investor where username = ?";
+        count+=mySQLSimpleDao.queryForList(companySql, email).size();
+        return count==0?"success":"failed";
+    }
+
+    public String confirmName(String name) {
+        String investorSql="select username from investor where companyName = ?";
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList(investorSql, name);
+        int count=result.size();
+        if(count!=0){
+            return "failed";
+        }
+        String companySql="select username from investor where companyName = ?";
+        count+=mySQLSimpleDao.queryForList(companySql, name).size();
+        return count==0?"success":"failed";
     }
 }

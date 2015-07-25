@@ -38,34 +38,11 @@ public class CompanyController {
         return "company/companyRegister";
     }
 
-    @RequestMapping(value = "/echeck/{email}", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    Map<String, Object> confirmEmail(@PathVariable("email") String email) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("user_name", email);
-        String result = companyService.confirmEmail(map);
-        map.clear();
-        map.put("check", result);
-        return map;
-    }
 
-    @RequestMapping(value = "/nameCheck/{name}", method = RequestMethod.POST)
+    @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, Object> confirmCompanyName(@PathVariable("name") String name) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("company_name", name);
-        String result = companyService.confirmCompanyName(map);
-        map.clear();
-        map.put("check", result);
-        return map;
-    }
-
-    @RequestMapping(value = "/codeCheck/{code}", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    Map<String, Object> confirmCompanyCode(@PathVariable("code") String code) {
+    Map<String, Object> confirmCompanyCode(@RequestParam("code") String code) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("company_code", code);
         String result = companyService.confirmCompanyCode(map);
@@ -139,6 +116,7 @@ public class CompanyController {
         return status;
     }
 
+    @RequestMapping(value = "/saveFinance", method = RequestMethod.POST)
     public Map<String, Object> saveFinance(@RequestParam Map<String, Object> params,
                                            HttpSession session) {
         String userId = (String) session.getAttribute("userId");

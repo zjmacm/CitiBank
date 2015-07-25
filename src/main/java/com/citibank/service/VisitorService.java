@@ -27,9 +27,11 @@ public interface VisitorService {
     //企业服务
     public Map<String,Object> companyService();
 
+    //验证邮箱
+    public String confirmEmail(String email);
 
-
-
+    //验证公司名字
+    public String confirmName(String name);
 
 
 }

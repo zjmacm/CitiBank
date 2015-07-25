@@ -82,13 +82,6 @@ public class InvestorController {
         return "investor/completeInfo";
     }
 
-    @RequestMapping(value = "/hasEmail", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    boolean hasEmail(@RequestParam("email") String email) {
-        return investorService.hasEmail(email);
-    }
-
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");

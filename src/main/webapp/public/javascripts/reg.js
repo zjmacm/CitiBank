@@ -35,13 +35,13 @@ var reg = (function(citi) {
                     }
 
                     if (e.target.name == 'auth') {
-                        $('#auth-check').addClass('icon-tips').html('输入验证码');
+                        $('#check-auth').addClass('icon-tips').html('输入验证码');
                     }
                     if (e.target.name == 'companyName') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips').html('输入企业名称')
                     }
 
-                    if (e.target.name == 'companyCode') {
+                    if (e.target.name == 'comapnyCode') {
                         $(id).next().removeClass('icon-error').addClass('icon-tips').html('输入15位组织机构代码');
                     }
 
@@ -51,7 +51,7 @@ var reg = (function(citi) {
                     var id = '';
                     id = '#' + e.target.id;
 
-                    if (e.target.name == 'username') {
+                    if (e.target.name == 'email') {
                         $(id).next().addClass('icon-tips');
                         $(id).next().html('请输入正确的邮箱');
                     }
@@ -65,7 +65,7 @@ var reg = (function(citi) {
                     }
 
                     if (e.target.name == 'auth') {
-                    $('#auth-check').addClass('icon-tips').html('输入验证码');
+                        $(id).next().addClass('icon-tips').html('输入验证码');
                     }
                     if (e.target.name == 'companyName') {
                         $(id).next().addClass('icon-tips').html('输入企业名称')
@@ -90,12 +90,12 @@ var reg = (function(citi) {
                         e,
                         i,
                         Xhr = {
-                            type: 'POST',
+                            type: 'GET',
                             url: '',
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true
+                            async: true,
                         };
 
                     if (e.target.name == 'username') {
@@ -117,11 +117,9 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('邮箱错误');
                         }
 
-                        url = '/company/echeck/' + eval;
-                        alert(eval);
+                        url = '/customer/echeck';
 
                         success = function(text) {
-                            alert(text)
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -148,16 +146,17 @@ var reg = (function(citi) {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         };
 
-                        imd.ajax({
-                         type: "POST",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
 
                         return;
                     }
@@ -226,15 +225,15 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            return $('#auth-check').addClass('icon-error').html('验证码不能为空');
+                            return $('#check-auth').addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
-                        url = '/authCheck/' + eval + '/' + now.getTime();
+                        url = '/authCheck/' + now.getTime();
                         success = function() {
                             if (text.check == 'success') {
-                                $('#auth-check').addClass('icon-success').html('');
+                                $('#check-auth').addClass('icon-success').html('');
                             } else {
-                                $('#auth-check').addClass('icon-error').html('验证码错误');
+                                $('#check-auth').addClass('icon-error').html('验证码错误');
                             }
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -248,20 +247,19 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            $('#auth-check').addClass('icon-error').html('网络错误，稍后重试');
+                            $('#check-auth').addClass('icon-error').html('网络错误，稍后重试');
                         }
 
-                        imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });
-
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
                     }
 
                     if (e.target.name == 'companyName') {
@@ -276,7 +274,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('企业名不能为空');
                         }
 
-                        url = '/company/nameCheck/' + eval;
+                        url = '/customer/nameCheck';
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -300,16 +298,16 @@ var reg = (function(citi) {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         };
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });*/
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
 
                         return;
                     }
@@ -335,7 +333,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
-                        url = '/company/codeCheck/' + eval;
+                        url = '/customer/codeCheck';
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -358,16 +356,17 @@ var reg = (function(citi) {
                             }
                         }
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });*/
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
 
                     }
 
@@ -410,7 +409,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('邮箱错误');
                         }
 
-                        url = '/echeck/' + eval;
+                        url = '/echeck';
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -439,17 +438,17 @@ var reg = (function(citi) {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         };
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });
-                         */
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        }); 
                         return;
                     }
 
@@ -517,15 +516,15 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            return $('#auth-check').addClass('icon-error').html('验证码不能为空');
+                            return $(id).next().addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
-                        url = '/auth/' + eval + '/' + now.getTime();
+                        url = '/auth/' + now.getTime();
                         success = function() {
                             if (text.check == 'success') {
-                                $('#auth-check').addClass('icon-success').html('');
+                                $(id).next().addClass('icon-success').html('');
                             } else {
-                                $('#auth-check').addClass('icon-error').html('验证码错误');
+                                $(id).next().addClass('icon-error').html('验证码错误');
                             }
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -539,20 +538,19 @@ var reg = (function(citi) {
                                     status[i].success = false;
                                 }
                             }
-                            $('#auth-check').addClass('icon-error').html('网络错误，稍后重试');
+                            $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         }
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });*/
-
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
                     }
 
                     if (e.target.name == 'companyName') {
@@ -567,7 +565,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('企业名不能为空');
                         }
 
-                        url = '/namecheck/' + eval;
+                        url = '/namecheck';
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -591,16 +589,17 @@ var reg = (function(citi) {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                         };
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });*/
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
 
                         return;
                     }
@@ -626,7 +625,7 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
-                        url = '/codecheck/' + eval;
+                        url = '/codecheck';
 
                         success = function(text) {
                             if (text.check == 'success') {
@@ -649,16 +648,17 @@ var reg = (function(citi) {
                             }
                         }
 
-                        /*imd.ajax({
-                         type: "GET",
-                         url: url,
-                         data: null,
-                         timeOut: 3000,
-                         receiveType: "json",
-                         async: true,
-                         success: success,
-                         error: error
-                         });*/
+
+                        $.ajax({
+                            type: "POST",
+                            url: url,
+                            data: {
+                                "data": eval
+                            },
+                            dataType: "json",
+                            success: success,
+                            error: error
+                        });
 
                     }
                 }
@@ -720,25 +720,25 @@ var reg = (function(citi) {
         },
         refresh: function() {
             $('refresh').click(function(e) {
-                imd.ajax({
+                $.ajax({
                     type: "GET",
                     url: url,
-                    data: null,
-                    timeOut: 3000,
-                    receiveType: "json",
-                    async: true,
+                    dataType: "json",
                     success: function(text) {
-
+                        $('#auth-image').remove();
+                        var html = '<img src=' + '"'
+                        text.check + '"' + '>'
+                        $('#auth-list').append(html);
                     },
                     error: function(xhhr) {
-
+                        $('#check-auth').addClass('icon-error').html('网络错误，稍后重试')
                     }
                 });
             })
         }
     };
 
-})(citi);
+})();
 
 $(document).ready(function() {
     reg.focus();
