@@ -12,6 +12,7 @@ import java.util.*;
 /**
  * Created by liwang on 15-7-21.
  */
+
 @Service
 public class AssetServiceImpl implements AssetService {
 

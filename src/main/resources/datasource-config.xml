@@ -13,6 +13,7 @@
        http://www.springframework.org/schema/cache
        http://www.springframework.org/schema/cache/spring-cache.xsd">
 
+
     <context:component-scan base-package="com.citibank.dao"/>
     <context:component-scan base-package="com.citibank.service"/>
 
@@ -60,6 +61,7 @@
             <bean class="com.google.code.kaptcha.util.Config">
                 <constructor-arg>
                     <props>
+
                         <prop key="kaptcha.image.width">100</prop>
                         <prop key="kaptcha.image.height">27</prop>
                         <prop key="kaptcha.textproducer.font.size">25</prop>
@@ -68,6 +70,7 @@
                         <prop key="kaptcha.textproducer.char.string">1234567890abcdefghijklmnopqrstuvwxy</prop>
                         <prop key="kaptcha.textproducer.char.length">4</prop>
                         <prop key="kaptcha.obscurificator.impl">com.google.code.kaptcha.impl.ShadowGimpy</prop>
+
                         <!--<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.DefaultNoise</prop>-->
                     </props>
                 </constructor-arg>
