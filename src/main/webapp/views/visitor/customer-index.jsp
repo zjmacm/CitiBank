@@ -15,18 +15,18 @@
     <script type="text/javascript" src="/public/javascripts/d3.min.js"></script>
     <script type="text/javascript" src="/public/javascripts/citi.js"></script>
     <script src="/public/javascripts/unslider.js"></script>
-    <script src="/public/javascripts/jq.js"></script>
     <script>
-        $(document).ready(function() {
+       $(document).ready(function() {
             $('.nav-item').eq(${flag}).addClass('active');
         })
     </script>
     <script type="text/javascript">
     $(window).load(function() {
         var unslider = $('.banner').unslider({
-            delay: 3000,
-            fluid: true
-        });
+                    delay: 3000,
+                    fluid: true
+                }
+        );
         console.log(unslider);
         $('.unslider-arrow').click(function() {
             var fn = this.className.split(' ')[1];
