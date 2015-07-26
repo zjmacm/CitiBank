@@ -84,6 +84,7 @@ public class BaseDaoImpl implements BaseDao {
 		StringBuffer sb2 = new StringBuffer("VALUES (");
 		for(String key : row.keySet()){
 			sb.append(key);
+
 			Object o = row.get(key);
 			if(o instanceof InnerSql){
 				sb2.append(((InnerSql) o).getSql());

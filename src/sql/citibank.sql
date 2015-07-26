@@ -86,7 +86,7 @@ CREATE TABLE `company` (
   `industryOverview` varchar(100) DEFAULT NULL COMMENT '行业概况',
   `developmentStrategy` varchar(100) DEFAULT NULL COMMENT '发展战略',
   `financingDemand` varchar(10) DEFAULT NULL COMMENT '融资需求',
-  `companyInTroduct` varchar(255) DEFAULT NULL COMMENT '公司简介',
+  `companyIntroduct` varchar(255) DEFAULT NULL COMMENT '公司简介',
   PRIMARY KEY (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
