@@ -162,7 +162,7 @@ CREATE TABLE `investor` (
   `legalRepresentativeMandator` varchar(50) NOT NULL COMMENT '法定代表人委托人信息',
   `companyScale` varchar(50) NOT NULL COMMENT '公司规模',
   `totalMoney` int(11) NOT NULL COMMENT '拥有资金额',
-  `contactWay` varchar(50) NOT NULL COMMENT '联系方式',
+  `consultPhone` varchar(50) NOT NULL COMMENT '联系方式',
   `companyArea` varchar(50) NOT NULL COMMENT '公司所在地区',
   `investArea` varchar(50) NOT NULL COMMENT '投资地区',
   `investField` varchar(50) NOT NULL COMMENT '投资领域',
@@ -178,6 +178,8 @@ CREATE TABLE `investor` (
   `shareholderBackground` varchar(50) DEFAULT NULL COMMENT '股东背景',
   `managedFund` varchar(50) DEFAULT NULL COMMENT '管理基金',
   `logoPath` varchar(255) DEFAULT NULL COMMENT 'logo路径',
+  `baseAddress` varchar(50) NOT NULL COMMENT '总部地址',
+
   PRIMARY KEY (`investorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
