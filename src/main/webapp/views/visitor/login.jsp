@@ -72,7 +72,6 @@
                         <li>
                             <input type="checkbox" name="nologin" value="1" class="checke" id="nologin" checked/>
                             <span id="nologin-text">自动登陆</span>
-                            <span id="iforget"><a href="iforget" title="">忘记密码?</a></span>
                         </li>
                         <li>
                             <input type="submit" id="btn-login" value="立即登陆">

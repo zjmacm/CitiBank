@@ -5,7 +5,7 @@ import com.citibank.mail.MailSender;
 import com.citibank.service.InvestorService;
 
 
-import com.citibank.service.impl.uploadFileService;
+import com.citibank.service.impl.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +18,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 
 /**
@@ -34,7 +32,7 @@ public class InvestorController {
     @Autowired
     private InvestorService investorService;
     @Autowired
-    private uploadFileService uploadFileService;
+    private UploadFileService uploadFileService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     //投资者模式已登陆首页
@@ -125,6 +123,7 @@ public class InvestorController {
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+
         reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
         investorService.saveInvestorInfo(reqs, id);
         return "/investor/finsh-reg";

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 
 	<title>资产管理</title>
-     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-header.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="/public/stylesheets/asset_management.css">
 	<link rel="stylesheet" type="text/css" href="/public/stylesheets/reset.css">

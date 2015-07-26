@@ -1,6 +1,7 @@
 package com.citibank.test;
 
 import com.citibank.common.IdUtil;
+
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +34,9 @@ public class SystemTest {
 
     @Autowired
     private CompanyService comService;
+
+
+
 
 
     @Test
