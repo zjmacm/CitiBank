@@ -68,7 +68,7 @@ public class VisitorController {
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
         String flag = (String) reqs.get("userType");
-
+        System.out.println(flag);
         reqs.remove("userType");
         reqs.remove("auth");
         reqs.remove("iagree");
@@ -81,9 +81,12 @@ public class VisitorController {
             session.setAttribute("investorId", id);
             System.out.println(id);
             return "investor/complete-reg";
-        } else {
+        } else{
             companyService.userRegister(reqs);
-            return "investor/complete-reg";
+            String id=(String)reqs.get("companyId");
+            session.setAttribute("companyId",id);
+            System.out.println(id);
+            return "company/complete-company-reg";
         }
 
     }
