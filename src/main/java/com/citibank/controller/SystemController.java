@@ -1,7 +1,7 @@
 package com.citibank.controller;
 
 import com.citibank.service.VisitorService;
-import com.citibank.service.impl.uploadFileService;
+import com.citibank.service.impl.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 
 /**
@@ -27,7 +25,7 @@ public class SystemController {
 
     @Autowired
     private VisitorService visitorService;
-    private uploadFileService uploadFile;
+    private UploadFileService uploadFile;
     private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public

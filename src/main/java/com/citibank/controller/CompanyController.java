@@ -3,12 +3,13 @@ package com.citibank.controller;
 import com.citibank.mail.MailSender;
 import com.citibank.service.CompanyService;
 import com.citibank.service.FinanceService;
+import com.citibank.service.impl.UploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import com.citibank.service.impl.uploadFileService;
-
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +30,7 @@ public class CompanyController {
     @Autowired
     private CompanyService companyService;
     @Autowired
-    private uploadFileService uploadFileService;
+    private UploadFileService uploadFileService;
     @Autowired
     private FinanceService financeService;
 

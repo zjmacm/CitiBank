@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service("uploadFileService")
-public class uploadFileService {
+public class UploadFileService {
     private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
 
     public String uploadFile(CommonsMultipartFile multipartFile, String path){
