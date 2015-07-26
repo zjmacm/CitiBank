@@ -32,6 +32,7 @@ public class CompanyController {
     private uploadFileService uploadFileService;
     @Autowired
     private FinanceService financeService;
+
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     @RequestMapping(value = "/companyLogin.htm", method = RequestMethod.GET)

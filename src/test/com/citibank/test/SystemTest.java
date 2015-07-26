@@ -1,7 +1,7 @@
 package com.citibank.test;
 
 import com.citibank.common.IdUtil;
-import com.citibank.common.uploadFile;
+
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
@@ -36,7 +36,7 @@ public class SystemTest {
     private CompanyService comService;
 
 
-    public uploadFile uploadImage = new uploadFile();
+
 
 
     @Test
