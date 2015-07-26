@@ -69,7 +69,7 @@
                                 了解更多
                             </a>
                         <span class="content_more_text">
-                            <a href="/customer/go" title="" style="color: #4F4F4F;font-size: 14px">
+                            <a href="/customer/login.htm" title="" style="color: #4F4F4F;font-size: 14px">
                                 去投资 去融资
                             </a>
                         </span>
@@ -89,7 +89,7 @@
                             了解更多
                         </a>
                         <span class="content_more_text_1">
-                            <a href="/customer/go" title="" style="color: #4F4F4F;font-size: 14px">
+                            <a href="/customer/login.htm" title="" style="color: #4F4F4F;font-size: 14px">
                                 去投资 去融资
                             </a>
                         </span>

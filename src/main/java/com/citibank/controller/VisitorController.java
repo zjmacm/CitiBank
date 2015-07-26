@@ -4,12 +4,14 @@ import com.citibank.common.IdUtil;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
+import com.google.code.kaptcha.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -135,6 +137,7 @@ public class VisitorController {
         map.put("check","success");
         return map;
     }
+
     //导航栏跳转请求响应，首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getIndexPageAgain(HttpSession session, HttpServletRequest request,
@@ -145,7 +148,6 @@ public class VisitorController {
             return "visitor/customer-index";
         }
         for (Cookie cookie : cookies) {
-            System.out.println(cookie.getName());
             if (cookie.getName().equals("username")) {
                 username = cookie.getValue();
             }
@@ -166,6 +168,39 @@ public class VisitorController {
             return "main/index";
         }
     }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String doLogin(@RequestParam("username")String username,@RequestParam("password")String password,
+                          @RequestParam(value = "nologin", required = false, defaultValue = "0")int rememberMe,
+                          @RequestParam("auth")String auth,
+                          HttpSession session, HttpServletResponse response,Map<String,Object> map){
+        String code= (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        if(!code.equals(auth)){
+            map.put("auth","failed");
+            return "visitor/login";
+        }
+        Map<String, Object> result = visitorService.login(username, password);
+        if(result==null){
+            map.put("check","failed");
+            return "visitor/login";
+        }
+        if(rememberMe==1){
+            Cookie cookie=new Cookie("username", username);
+            cookie.setMaxAge(7*24*3600);
+            response.addCookie(cookie);
+            cookie=new Cookie("password",password);
+            cookie.setMaxAge(7*24*3600);
+            response.addCookie(cookie);
+        }
+        session.setAttribute("userId", result.get("userId"));
+        session.setAttribute("userType",result.get("userType"));
+        if(result.get("userType").toString().equals("1")){
+            return "investor/index";
+        }else{
+            return "company/index";
+        }
+    }
+
     //首页-更多政策咨询
     @RequestMapping(value = "/policy_more",method = RequestMethod.GET)
     public String getPolicy_morePage(Map<String,Object> map) {
