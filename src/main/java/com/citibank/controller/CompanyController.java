@@ -6,11 +6,15 @@ import com.citibank.service.FinanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import com.citibank.service.impl.uploadFileService;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,9 +28,11 @@ public class CompanyController {
 
     @Autowired
     private CompanyService companyService;
-
+    @Autowired
+    private uploadFileService uploadFileService;
     @Autowired
     private FinanceService financeService;
+    private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     @RequestMapping(value = "/companyLogin.htm", method = RequestMethod.GET)
     public String getLoginPage() {
@@ -85,7 +91,7 @@ public class CompanyController {
                 model.addObject("result", "success");
 
                 //登陆成功后将companyId加入session中
-                session.setAttribute("userId", user.get("companyId"));
+                session.setAttribute("companyId", user.get("companyId"));
                 session.setAttribute("userType", 0);
             } else {
                 model.addObject("result", "failed");
@@ -96,7 +102,7 @@ public class CompanyController {
 
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {
-        String userId = (String) session.getAttribute("userId");
+        String userId = (String) session.getAttribute("companyId");
         map.putAll(companyService.getCompanyInfo(userId));
         return "common/userInfo";
     }
@@ -105,7 +111,7 @@ public class CompanyController {
     public
     @ResponseBody
     Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session) {
-        String userId = (String) session.getAttribute("userId");
+        String userId = (String) session.getAttribute("companyId");
         int result = companyService.saveCompanyInfo(parms, userId);
         Map<String, String> status = new HashMap<String, String>();
         if (result == 0) {
@@ -119,11 +125,24 @@ public class CompanyController {
     @RequestMapping(value = "/saveFinance", method = RequestMethod.POST)
     public Map<String, Object> saveFinance(@RequestParam Map<String, Object> params,
                                            HttpSession session) {
-        String userId = (String) session.getAttribute("userId");
+        String userId = (String) session.getAttribute("companyId");
         params.put("companyId", userId);
         Map<String, Object> result = financeService.saveFinance(params);
         return result;
     }
+    @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
+    public String saveInfo(@RequestParam("logo") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
+                           HttpServletRequest request)
+    {
+        String id = (String) session.getAttribute("companyId");
+        String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
+        reqs.put("consultPhone", phoneNum);
+        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+        reqs.put("logo", uploadFileService.uploadFile(multipartFile, path));
+        companyService.saveCompanyInfo(reqs,id);
+        return "/investor/finsh-reg";
+    }
+
 
 
 

@@ -116,26 +116,10 @@ public class InvestorController {
     public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                                   HttpServletRequest request) {
         String id = (String) session.getAttribute("investorId");
-        System.out.println(reqs);
-        System.out.println(id);
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
-        System.out.println(multipartFile.getOriginalFilename());
-        System.out.println(multipartFile.getSize());
-
-
-        System.out.println(multipartFile.getContentType());
-        System.out.println(uploadFileService.uploadFile(multipartFile,path));
-
-        /*try {
-            multipartFile.transferTo(new File("/file/image.png"));
-        } catch (IOException e) {
-            System.out.println("文件上传失败");
-            e.printStackTrace();
-        }*/
-        System.out.println(reqs);
         investorService.saveInvestorInfo(reqs, id);
         return "/investor/finsh-reg";
     }
