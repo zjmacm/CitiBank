@@ -28,8 +28,6 @@ public class SystemController {
     private VisitorService visitorService;
 
 
-    private final static String IMG_DESC_PATH = File.separator+"uploads"+File.separator;
-
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public

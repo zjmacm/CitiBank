@@ -16,7 +16,7 @@ import java.util.UUID;
  * Created by zjm on 2015/7/25.
  */
 public class uploadFile {
-    private final static String IMG_DESC_PATH =File.separator+"uploads";
+    private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
 
 
 
@@ -51,7 +51,7 @@ public class uploadFile {
 
     public static String createUri(MultipartFile file,String path){
 
-//        String imgPath = request.getSession().getServletContext().getRealPath(IMG_DESC_PATH)+File.separator;
+//        String imgPath = request.getSession().getServletContext().getRealPath("")+IMG_DESC_PATH;
         String fileName = file.getOriginalFilename();
         String extName = fileName.substring(fileName.lastIndexOf("."));
         String newName = IdUtil.uuid()+extName;

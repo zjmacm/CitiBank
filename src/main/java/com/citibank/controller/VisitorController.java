@@ -139,7 +139,7 @@ public class VisitorController {
     }
 
     //导航栏跳转请求响应，首页
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String getIndexPageAgain(HttpSession session, HttpServletRequest request,
                                     Map<String, Object> map) {
         Cookie[] cookies = request.getCookies();
