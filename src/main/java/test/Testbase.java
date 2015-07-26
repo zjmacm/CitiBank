@@ -1,10 +1,9 @@
 package test;
 
-import com.citibank.common.IdUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
-import com.citibank.service.impl.uploadFileService;
+import com.citibank.service.impl.UploadFileService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class Testbase {
     private InvestorServiceImp investorServiceImp;
 
     @Autowired
-    private uploadFileService uploadFile;
+    private UploadFileService uploadFile;
 
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
