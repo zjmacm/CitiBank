@@ -32,7 +32,7 @@ public class InvestorController {
     @Autowired
     private InvestorService investorService;
     @Autowired
-    private UploadFileService UploadFileService;
+    private UploadFileService uploadFileService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
