@@ -1,6 +1,8 @@
-package com.citibank.common;
+package com.citibank.service.impl;
 
+import com.citibank.common.IdUtil;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -12,19 +14,13 @@ import java.net.URL;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * Created by zjm on 2015/7/25.
- */
-public class uploadFile {
+@Service("uploadFileService")
+public class uploadFileService {
     private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
-
-
-
-
 
     public String uploadFile(CommonsMultipartFile multipartFile, String path){
 
-        String result = "success";
+       // String result = "success";
 
         String filePath = createUri(multipartFile, path);
 
@@ -35,19 +31,16 @@ public class uploadFile {
             multipartFile.transferTo(file);
 
         }catch(Exception e){
-            result = "failed";
+
             e.printStackTrace();
         }
-        return result;
+        return filePath;
     }
-
-
     /**
      * 为图片产生uri 返回给前端
      * @param file
      * @return
      */
-
 
     public static String createUri(MultipartFile file,String path){
 
@@ -56,6 +49,7 @@ public class uploadFile {
         String extName = fileName.substring(fileName.lastIndexOf("."));
         String newName = IdUtil.uuid()+extName;
         return path+newName;
+
     }
 
 
