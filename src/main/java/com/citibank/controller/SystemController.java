@@ -1,6 +1,7 @@
 package com.citibank.controller;
 
 import com.citibank.service.VisitorService;
+import com.citibank.service.impl.uploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,16 +27,15 @@ public class SystemController {
 
     @Autowired
     private VisitorService visitorService;
-
-
-    private final static String IMG_DESC_PATH = File.separator+"uploads"+File.separator;
-
-
+    private uploadFileService uploadFile;
+    private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public
     @ResponseBody
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile
-    ) {
+    ,HttpServletRequest request) {
+        String path = request.getSession().getServletContext().getRealPath("")+IMG_DESC_PATH;
+        uploadFile.uploadFile(multipartFile,path);
         System.out.println(multipartFile.getOriginalFilename());
         System.out.println(multipartFile.getSize());
         System.out.println(multipartFile.getContentType());
@@ -47,36 +47,8 @@ public class SystemController {
         }
         return "success";
     }
-
     @RequestMapping("/")
     public String homePage(HttpServletRequest request,HttpSession session) {
-        Cookie[] cookies = request.getCookies();
-        String username=null, password=null;
-        if(cookies==null){
-            return "visitor/customer-index";
-        }
-        for (Cookie cookie : cookies) {
-            System.out.println(cookie.getName());
-            if(cookie.getName().equals("username")){
-                username=cookie.getValue();
-            }
-            if(cookie.getName().equals("password")){
-                password=cookie.getValue();
-            }
-        }
-        Map<String, Object> result = visitorService.login(username, password);
-        System.out.println(username+"---"+password);
-        if(result==null){
-            return "visitor/customer-index";
-        }
-        session.setAttribute("userTyp",result.get("userType"));
-        if(Integer.valueOf(result.get("userType").toString())==0) {
-            session.setAttribute("userId", result.get("userId"));
-            return "main/index";
-        }else{
-            session.setAttribute("userId", result.get("userId"));
-            return "main/index";
-        }
+        return "redirect:/customer/index";
     }
-
 }

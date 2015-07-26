@@ -5,15 +5,20 @@ import com.citibank.mail.MailSender;
 import com.citibank.service.InvestorService;
 
 
+import com.citibank.service.impl.uploadFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -28,6 +33,9 @@ public class InvestorController {
 
     @Autowired
     private InvestorService investorService;
+    @Autowired
+    private uploadFileService uploadFileService;
+    private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
@@ -55,13 +63,13 @@ public class InvestorController {
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     public String doRegister(@RequestParam Map<String, Object> regs) {
         regs.put("id", IdUtil.uuid());
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map = investorService.registerInvestor(regs);
         String result = map.get("result").toString();
         if (result.equals("failed")) {
             return "investor/investorRegister";
         } else {
-            MailSender.sendMail(regs.get("username").toString(),"恭喜您成功注册!");
+            MailSender.sendMail(regs.get("username").toString(), "恭喜您成功注册!");
             return "investor/completeInfo";
         }
     }
@@ -103,10 +111,18 @@ public class InvestorController {
         }
         return status;
     }
-    @RequestMapping(value = "/nextstep",method = RequestMethod.POST)
-    public String getNextStepPage(@RequestParam Map<String,Object> reqs)
-    {
-        return "";
+
+    @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
+    public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
+                                  HttpServletRequest request) {
+        String id = (String) session.getAttribute("investorId");
+        String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
+        reqs.put("consultPhone", phoneNum);
+        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+        reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+        investorService.saveInvestorInfo(reqs, id);
+        return "/investor/finsh-reg";
     }
+
 
 }
