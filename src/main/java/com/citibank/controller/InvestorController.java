@@ -37,6 +37,12 @@ public class InvestorController {
     private uploadFileService uploadFileService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
+    //投资者模式已登陆首页
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    public String getIndexPage()
+    {
+        return "investor/logined-invest-index";
+    }
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
