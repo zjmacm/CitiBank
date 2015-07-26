@@ -1,8 +1,10 @@
 package test;
 
-import com.citibank.common.uploadFile;
+import com.citibank.common.IdUtil;
+import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
+import com.citibank.service.impl.uploadFileService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,10 @@ public class Testbase {
     private InvestorServiceImp investorServiceImp;
 
     @Autowired
-    private uploadFile uploadFile;
+    private uploadFileService uploadFile;
+
+    @Autowired
+    private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     @Test
     public void testCompany()
@@ -95,11 +100,7 @@ public class Testbase {
         //System.out.println("saveInvestorInfo:" + investorServiceImp.saveInvestorInfo(mapnew, "C363DF0894D044639F9EFB40B6A20BBA"));
     }
 
-    @Test
-    public void testUploadImage(){
 
-
-    }
 
 
 

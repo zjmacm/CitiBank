@@ -1,6 +1,7 @@
 package com.citibank.test;
 
-import com.citibank.common.uploadFile;
+import com.citibank.common.IdUtil;
+import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
 import com.citibank.service.InvestorService;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +22,9 @@ import java.util.Map;
 public class SystemTest {
 
     @Autowired
+    private MySQLSimpleDaoImpl mySQLSimpleDao;
+
+    @Autowired
     private AppointService appointService;
 
     @Autowired
@@ -29,9 +32,6 @@ public class SystemTest {
 
     @Autowired
     private CompanyService comService;
-
-
-    public uploadFile uploadImage = new uploadFile();
 
 
     @Test
@@ -74,5 +74,17 @@ public class SystemTest {
        comService.userRegister(map);
     }
 
+    @Test
+    public void testBaseDao(){
+        String id = IdUtil.uuid();
+        String name = "zjmhaha";
+        String pwd = "123456";
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("userId",id);
+        map.put("userName",name);
+        map.put("userPwd",pwd);
+        map.put("userType",0);
+        mySQLSimpleDao.create("tp_users",map);
+    }
 
 }

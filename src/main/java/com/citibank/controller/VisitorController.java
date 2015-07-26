@@ -68,18 +68,22 @@ public class VisitorController {
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String register(@RequestParam Map<String, Object> reqs, HttpSession session) {
         String flag = (String) reqs.get("userType");
-        String id = IdUtil.uuid();
-        session.setAttribute("userId", id);
-        if (flag == "投资者") {
-            reqs.put("investorId", id);
-            reqs.remove("userType");
+
+        reqs.remove("userType");
+        reqs.remove("auth");
+        reqs.remove("iagree");
+        reqs.remove("re-password");
+
+        if (flag.equals( "投资者")) {
+
             investorService.registerInvestor(reqs);
-            return "/";
+            String id= (String) reqs.get("investorId");
+            session.setAttribute("investorId", id);
+            System.out.println(id);
+            return "investor/complete-reg";
         } else {
-            reqs.put("companyId", id);
-            reqs.remove("userType");
             companyService.userRegister(reqs);
-            return "/";
+            return "investor/complete-reg";
         }
 
     }

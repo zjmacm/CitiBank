@@ -84,6 +84,7 @@ public class BaseDaoImpl implements BaseDao {
 		StringBuffer sb2 = new StringBuffer("VALUES (");
 		for(String key : row.keySet()){
 			sb.append(key);
+
 			Object o = row.get(key);
 			if(o instanceof InnerSql){
 				sb2.append(((InnerSql) o).getSql());
@@ -93,10 +94,15 @@ public class BaseDaoImpl implements BaseDao {
 			}
 			sb.append(", ");
 			sb2.append(", ");
+			System.out.println("sb: "+sb);
+			System.out.println("sb2: "+sb2);
 		}
 		sb.replace(sb.length() - 2, sb.length() - 1, ")");
 		sb2.replace(sb2.length() - 2, sb2.length() - 1, ")");
+		System.out.println("sb: "+sb);
+		System.out.println("sb2: "+sb2);
 		sb.append(sb2);
+		System.out.println("sb: "+sb);
 		this.jdbcTemplate.update(sb.toString(), plist.toArray());
 	}
 	
