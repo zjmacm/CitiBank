@@ -212,6 +212,12 @@ public class VisitorController {
         map.put("flag", 2);
         return "visitor/customer_investment_hall";
     }
+    //导航栏跳转请求响应，登陆按钮
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String getLoginPage()
+    {
+        return "visitor/login";
+    }
     //导航栏跳转请求响应，注册按钮
     @RequestMapping(value = "/reg",method = RequestMethod.GET)
     public String getRegPage()
