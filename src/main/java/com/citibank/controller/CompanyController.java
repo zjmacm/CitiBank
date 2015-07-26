@@ -135,16 +135,10 @@ public class CompanyController {
                            HttpServletRequest request)
     {
         String id = (String) session.getAttribute("companyId");
-        System.out.println(id);
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         reqs.put("logo", uploadFileService.uploadFile(multipartFile, path));
-        System.out.println(multipartFile.getOriginalFilename());
-        System.out.println(multipartFile.getSize());
-        System.out.println(multipartFile.getContentType());
-        System.out.println(uploadFileService.uploadFile(multipartFile,path));
-        System.out.println(reqs);
         companyService.saveCompanyInfo(reqs,id);
         return "/investor/finsh-reg";
     }
