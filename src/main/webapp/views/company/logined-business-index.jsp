@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<!DOCTYPE html>
+<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/invest-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/logined-invest-index.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/logined-busiess-index.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
     <script type="text/javascript" src="../public/javascripts/d3.min.js"></script>
@@ -58,10 +60,11 @@
         citi.scrollUp(rscroll);
     })
     </script>
-    <title>投资人首页</title>
+    <title>企业首页</title>
 </head>
+
 <body>
-    <jsp:include page="invest-header.jsp"/>
+    <jsp:include page="business-header.jsp"/>
     <div id="main">
         <div id="content">
             <div class="banner" id="first-glance">
@@ -80,7 +83,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="banner" id="second-glance">
+            <!-- <div class="banner" id="second-glance">
                 <a href="#" class="unslider-arrow next">
                     <img src="../public/images/btn-pre.png" alt="" />
                 </a>
@@ -88,45 +91,44 @@
                     <img src="../public/images/btn-next.png" alt="" />
                 </a>
                 <ul>
-                    <li style="background-image:url(../public/images/banner1.jpg)">
+                    <li style="background-image:url(../public/images/company1.png)">
                     </li>
-                    <li style="background-image:url(../public/images/banner2.png)">
-                    </li>
-                    <li style="background-image:url(../public/images/banner3.png)">
+                    <li style="background-image:url(../public/images/company2.png)">
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <div id="invest-center">
                 <div id="inv-title">
-                    <p>推荐行业</p>
+                    <p id="inv-title">推荐投资人</p>
                 </div>
                 <div id="invest-list">
                     <div id="left-banner">
-                        <p>行业一</p>
+                        <p>知名投资人</p>
                         <div class="banner" id="site-banner-l">
                             <ul>
-                                <li style="background-image:url(../public/images/touzizhe1.png)">
                                 </li>
-                                <li style="background-image:url(../public/images/touzizhe2.png)">
+                                <li style="background-image:url(../public/images/company1.png)">
+                                </li>
+                                <li style="background-image:url(../public/images/company2.png)">
                                 </li>
                             </ul>
                         </div>
                         <div class="invest-more">
-                            <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                            <span><a href="/invest-more" title="">查看更多投资人>></a></span>
                         </div>
                     </div>
                     <div id="right-banner">
-                        <p>行业二</p>
+                        <p>新晋投资人</p>
                         <div class="banner" id="site-banner-r">
                             <ul>
-                                <li style="background-image:url(../public/images/touzizhe3.png)">
+                                <li style="background-image:url(../public/images/company3.png)">
                                 </li>
-                                <li style="background-image:url(../public/images/touzizhe4.png)">
+                                <li style="background-image:url(../public/images/company4.png)">
                                 </li>
                             </ul>
                         </div>
                         <div class="invest-more">
-                            <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                            <span><a href="/invest-more" title="">查看更多投资人>></a></span>
                         </div>
                     </div>
                 </div>
