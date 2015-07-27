@@ -34,7 +34,27 @@ public class InvestorController {
     @Autowired
     private UploadFileService uploadFileService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
+
 //跳转登陆界面
+
+
+    //投资者模式已登陆首页
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    public String getIndexPage(){return "investor/logined-invest-index"; }
+    //我的关注
+    @RequestMapping(value ="/ifollow.htm", method = RequestMethod.GET)
+    public String getIfollowPage(){ return "investor/personal-attiontion";}
+    //我的消息
+    @RequestMapping(value ="/inews.htm", method = RequestMethod.GET)
+    public String getInewsPage(){ return "investor/private-center-my-news";}
+    //资料管理
+    @RequestMapping(value ="/isource.htm", method = RequestMethod.GET)
+    public String getIsourcePage(){ return "investor/personal center_assets management";}
+    //退出按钮
+    @RequestMapping(value = "/logout.htm",method = RequestMethod.GET)
+    public String getLogoutPage(){ return "investor/login";}
+
+
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
