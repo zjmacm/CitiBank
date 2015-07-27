@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/invest-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/logined-invest-index.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/logined-busiess-index.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
     <script type="text/javascript" src="../public/javascripts/d3.min.js"></script>
@@ -60,98 +60,11 @@
         citi.scrollUp(rscroll);
     })
     </script>
-    <title>投资人首页</title>
+    <title>企业首页</title>
 </head>
 
 <body>
-    <div id="header">
-        <div id="header-nav">
-            <div id="nav-list">
-                <ul>
-                    <li>
-                        <a href="/index" title="">
-                            <span class="nav-item  active">首页</span>
-                        </a>
-                    </li>
-                    <li id="finance">
-                        <a href="/finance" title="">
-                            <span class="nav-item">投资板块</span>
-                        </a>
-                        <div id="finance-subnav">
-                            <ul>
-                                <li>
-                                    <a href="/management" title="">
-                                        <span>撮合配对</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/esignature" title="">
-                                        <span>意向发布</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/invetfinane" title="">
-                                        <span>业务洽谈</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/invetfinane" title="">
-                                        <span>电子签约</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="/invest" title="">
-                            <span class="nav-item">信息披露</span>
-                        </a>
-                    </li>
-                    <li id="service">
-                        <a href="/service" title="">
-                            <span class="nav-item">资产管理</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div id="iciti">
-                <ul id="i-column">
-                    <li id="user-photo">
-                        <span>
-		            		<a href="_target" title="">
-		            			<img src="../public/images/user.png" alt="" />
-		                	</a>
-		                </span>
-                    </li>
-                    <li id="go">
-                        <span id="text">我的账号<img src="../public/images/back-bottom.png"></span>
-                        <ul>
-                            <li>
-                                <a href="/ifollow" title="">
-                                    <span>我关注的</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/inews" title="">
-                                    <span>我的消息</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/isource" title="">
-                                    <span>资料管理</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/logout" title="">
-                                    <span>退出</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="business-header.jsp"/>
     <div id="main">
         <div id="content">
             <div class="banner" id="first-glance">
@@ -170,7 +83,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="banner" id="second-glance">
+            <!-- <div class="banner" id="second-glance">
                 <a href="#" class="unslider-arrow next">
                     <img src="../public/images/btn-pre.png" alt="" />
                 </a>
@@ -178,45 +91,44 @@
                     <img src="../public/images/btn-next.png" alt="" />
                 </a>
                 <ul>
-                    <li style="background-image:url(../public/images/banner1.jpg)">
+                    <li style="background-image:url(../public/images/company1.png)">
                     </li>
-                    <li style="background-image:url(../public/images/banner2.png)">
-                    </li>
-                    <li style="background-image:url(../public/images/banner3.png)">
+                    <li style="background-image:url(../public/images/company2.png)">
                     </li>
                 </ul>
-            </div>
+            </div> -->
             <div id="invest-center">
                 <div id="inv-title">
-                    <p id="inv-title">推荐行业</p>
+                    <p id="inv-title">推荐投资人</p>
                 </div>
                 <div id="invest-list">
                     <div id="left-banner">
-                        <p>行业一</p>
+                        <p>知名投资人</p>
                         <div class="banner" id="site-banner-l">
                             <ul>
-                                <li style="background-image:url(../public/images/touzizhe1.png)">
                                 </li>
-                                <li style="background-image:url(../public/images/touzizhe2.png)">
+                                <li style="background-image:url(../public/images/company1.png)">
+                                </li>
+                                <li style="background-image:url(../public/images/company2.png)">
                                 </li>
                             </ul>
                         </div>
                         <div class="invest-more">
-                            <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                            <span><a href="/invest-more" title="">查看更多投资人>></a></span>
                         </div>
                     </div>
                     <div id="right-banner">
-                        <p>行业二</p>
+                        <p>新晋投资人</p>
                         <div class="banner" id="site-banner-r">
                             <ul>
-                                <li style="background-image:url(../public/images/touzizhe3.png)">
+                                <li style="background-image:url(../public/images/company3.png)">
                                 </li>
-                                <li style="background-image:url(../public/images/touzizhe4.png)">
+                                <li style="background-image:url(../public/images/company4.png)">
                                 </li>
                             </ul>
                         </div>
                         <div class="invest-more">
-                            <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                            <span><a href="/invest-more" title="">查看更多投资人>></a></span>
                         </div>
                     </div>
                 </div>

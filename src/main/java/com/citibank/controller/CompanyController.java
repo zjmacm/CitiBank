@@ -36,6 +36,49 @@ public class CompanyController {
 
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
+    //企业模式已登陆首页
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    public String getIndexPage(){return "company/logined-business-index"; }
+    //我的关注
+    @RequestMapping(value ="/ifollow.htm", method = RequestMethod.GET)
+    public String getIfollowPage(){ return "company/personal-attiontion";}
+    //查看更多投资人
+    @RequestMapping(value = "/more_investor.htm",method = RequestMethod.GET)
+    public String getMore_investorPage(){ return "company/user-corporate-mode-finance-patch";}
+
+    //我的消息
+    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
+    public String getInewsPage(){ return "company/private-center-my-news";}
+    //系统信息
+    @RequestMapping(value = "/s_message",method = RequestMethod.GET)
+    public String getS_messagePage(){ return "company/private-center-my-news";}
+    //私信
+    @RequestMapping(value = "/p_letter",method = RequestMethod.GET)
+    public String getP_letterPage(){ return "";}
+    //定向披露
+    @RequestMapping(value = "/d_disclosure",method = RequestMethod.GET)
+    public String getD_disclosurePage(){ return "";}
+
+    //预约管理
+    @RequestMapping(value = "/reservation.htm",method = RequestMethod.GET)
+    public String getReservationPage(){ return "company/reservation-management-current-reservation";}
+    //当前预约
+    @RequestMapping(value = "/reservation_current.htm",method = RequestMethod.GET)
+    public String getReservation_currentPage(){ return "company/reservation-management-current-reservation";}
+    //已完成预约
+    @RequestMapping(value = "/reservation_finish.htm",method = RequestMethod.GET)
+    public String getReservation_finishPage(){ return "company/reservation-management-finished-reservation";}
+
+    //资料管理
+    @RequestMapping(value ="/isource.htm", method = RequestMethod.GET)
+    public String getIsourcePage(){ return "company/data_management-edit";}
+
+    //退出按钮
+    @RequestMapping(value = "/logout.htm",method = RequestMethod.GET)
+    public String getLogoutPage(){ return "company/login";}
+
+
+
     @RequestMapping(value = "/companyLogin.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "company/companyLogin";

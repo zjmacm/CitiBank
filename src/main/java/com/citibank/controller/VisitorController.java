@@ -43,12 +43,6 @@ public class VisitorController {
         return "visitor/market";
     }
 
-    //进入注册页面
-    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
-    public String getRegisterPage() {
-        return "/visitor/reg";
-    }
-
     @RequestMapping(value = "/echeck", method = RequestMethod.POST)
     public
     @ResponseBody
@@ -282,7 +276,7 @@ public class VisitorController {
     }
 
     //导航栏跳转请求响应，注册按钮
-    @RequestMapping(value = "/reg", method = RequestMethod.GET)
+    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String getRegPage() {
         return "visitor/reg";
     }
