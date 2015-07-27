@@ -6,6 +6,10 @@ import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.*;
 import net.sf.json.JSONArray;
+import com.citibank.service.AppointService;
+import com.citibank.service.CompanyService;
+import com.citibank.service.InvestorService;
+import com.citibank.service.impl.IntentionServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +37,17 @@ public class SystemTest {
     @Autowired
     private CompanyService comService;
 
-
+    @Autowired
+    private IntentionServiceImpl intentionService;
+	
     @Autowired
     private SystemMessageService systemMessageService;
 
+    @Test
+    public void testIntention()
+    {
 
+    }
 
     @Test
     public void testSql(){

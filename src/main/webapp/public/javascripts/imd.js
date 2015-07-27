@@ -94,7 +94,6 @@ var imd = (function() {
                         clearTimeout(timeFlag);
                     }, xhr.timeOut || 3000);
                     var res = function() {
-                        alert(_self.responseText);
                         if (!isTimeOut && (_self.status == 200 || _self.status == 304)) {
                             if (xhr.receiveType) {
                                 var recType = xhr.receiveType.toLocaleLowerCase();

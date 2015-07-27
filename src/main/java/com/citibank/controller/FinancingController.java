@@ -4,6 +4,7 @@ import com.citibank.common.SessionContext;
 import com.citibank.dao.Page;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,8 @@ import java.util.Map;
 /**
  * Created by Administrator on 2015/7/21.
  */
+@Controller
+@RequestMapping(value = "/financing")
 public class FinancingController {
 
 
@@ -28,11 +31,11 @@ public class FinancingController {
     public FinancingService getFinancingService() {
         return financingService;
     }
-
+//撮合配对的页面,也是投资板块的首页
     @RequestMapping(value="Matching.htm",method = RequestMethod.GET)
 
     public String getMatchingPage(){
-        return "";
+        return "investor/user-corporate-mode-finance-patch";
     }
 
 

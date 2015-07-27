@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /* CSS Document */
 
 #main {
@@ -86,14 +85,13 @@
     height: 40px;
     line-height: 40px;
     text-align: center;
-    color: #767b91;
+    color: #2F2F2F;
     font-size: 1.2em;
     border-bottom: 1px solid #E5E5E5;
 }
 
 .item-describe {
     height: 90px;
-    color: #4f4f4f;
     line-height: 25px;
     text-align: center;
 }

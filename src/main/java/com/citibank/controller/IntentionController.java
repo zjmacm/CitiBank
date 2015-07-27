@@ -5,9 +5,11 @@ import com.citibank.entity.Investor;
 import com.citibank.service.impl.IntentionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -26,13 +28,13 @@ public class IntentionController {
     @Autowired
     private MySQLSimpleDaoImpl simpleDao;
     //意向发布的页面默认返回股权的页面
-    @RequestMapping(value = "getIntentionPage")
+    @RequestMapping(value = "/getIntentionPage")
     public String getIntentionPage()
     {
         return "investor/release_tender_offers";
     }
     //意向发布的债权页面
-    @RequestMapping(value = "getDebtPage")
+    @RequestMapping(value = "/getDebtPage")
     public String getDebtPage()
     {
         return "investor/release_debt_purchase";
@@ -48,7 +50,7 @@ public class IntentionController {
     }
     //意向发布的按钮
     @RequestMapping("/intentionPublish")
-    public Map<String,Object> intentionPublish(@RequestParam Map<String,Object> reqs)
+    public Model intentionPublish(@RequestParam Map<String,Object> reqs,Model model)
     {
         Map<String,Object> map=new HashMap<String, Object>();
         if(intentionService.publishIntention(reqs))
@@ -59,7 +61,8 @@ public class IntentionController {
         {
             map.put("result","fail");
         }
-        return map;
+        model.addAttribute(map);
+        return model;
     }
 
 }
