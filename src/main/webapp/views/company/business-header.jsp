@@ -82,6 +82,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="/company/reservation.htm" title="">
+                                    <span>预约管理</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/company/isource.htm" title="">
                                     <span>资料管理</span>
                                 </a>

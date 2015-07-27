@@ -256,3 +256,21 @@ li{
 	margin-bottom: 70px;
 	overflow: hidden;
 }
+
+.invest-more {
+	width:100%;
+	height: 30px;
+}
+
+.invest-more span {
+	display:inline-block;
+	width: 150px;
+	margin:0 auto;
+	height: 30px;
+	line-height:30px;
+	font-size:0.8em;
+}
+
+.invest-more span a {
+	color:#2A214B;
+}
