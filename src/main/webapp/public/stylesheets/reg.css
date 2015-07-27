@@ -61,7 +61,7 @@
 #reg {
     position: relative;
     top: 10px;
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     padding-bottom: 30px;
 }
@@ -152,7 +152,7 @@ input:disabled {
 
 .check,
 #refresh,
-#auth-image{
+#auth-image {
     display: inline-block;
     height: 27px;
     vertical-align: middle;
@@ -163,8 +163,8 @@ input:disabled {
     width: 80px;
 }
 
-#refresh img {
+#refresh img,
+#auth-image img {
     width: 29px;
     vertical-align: middle;
 }
-

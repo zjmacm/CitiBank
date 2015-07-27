@@ -18,19 +18,41 @@
         <div id="nav-list">
             <ul>
                 <li>
-                    <a href="/index" title="">
-							<span class="nav-item active" >
-								首页
-							</span>
+                    <a href="/investor/index.htm" title="">
+                        <span class="nav-item  active">首页</span>
                     </a>
                 </li>
-                <li>
-                    <a href="/finance" title="">
-                        <span class="nav-item">投资模块</span>
+                <li id="finance">
+                    <a href="/financing/Matching.htm" title="">
+                        <span class="nav-item">投资板块</span>
                     </a>
+                    <div id="finance-subnav">
+                        <ul>
+                            <li>
+                                <a href="/financing/Matching.htm" title="">
+                                    <span>撮合配对</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/intention/getIntentionPage" title="">
+                                    <span>意向发布</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/invetfinane" title="">
+                                    <span>业务洽谈</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/electronical/getElectronicalPage" title="">
+                                    <span>电子签约</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <a href="/invest" title="">
+                    <a href="/report/getReport.htm" title="">
                         <span class="nav-item">信息披露</span>
                     </a>
                 </li>
@@ -38,7 +60,6 @@
                     <a href="/service" title="">
                         <span class="nav-item">资产管理</span>
                     </a>
-
                 </li>
             </ul>
         </div>
@@ -55,28 +76,29 @@
                     <span id="text">我的账号<img src="../public/images/back-bottom.png"></span>
                     <ul>
                         <li>
-                            <a href="/ifollow" title="">
+                            <a href="/investor/ifollow.htm" title="">
                                 <span>我关注的</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/inews" title="">
+                            <a href="/investor/inews.htm" title="">
                                 <span>我的消息</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/isource" title="">
+                            <a href="/investor/isource.htm" title="">
                                 <span>资料管理</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/logout" title="">
+                            <a href="/investor/logout.htm" title="">
                                 <span>退出</span>
                             </a>
                         </li>
                     </ul>
                 </li>
             </ul>
+        </div>
     </div>
 </div>
 <div id="main_body_m">
@@ -86,8 +108,8 @@
                 <span>意向发布</span>
             </div>
             <div id="list-item">
-                <span >股权收购</span>
-                <span >债权购买</span>
+                <span ><a href="/intention/getIntentionPage">股权收购</a></span>
+                <span ><a href="/intention/getDebtPage">债权购买</a></span>
             </div>
 
         </div>
@@ -144,10 +166,11 @@
                     <form >
                         <label >投资阶段:</label>
                         <select>
-                            <option value="看书">看书</option>
-                            <option value="旅游" selected="selectd">种子</option>
-                            <option value="运动">运动</option>
-                            <option value="购物">购物</option>
+                            <option value="种子">种子</option>
+                            <option value="初创" selected="selectd">初创</option>
+                            <option value="拓展前">拓展前</option>
+                            <option value="拓展后">拓展后</option>
+                            <option value="Pre-IPO">Pre-IPO</option>
                         </select>
                     </form>
                     <form class="input_form">
@@ -159,7 +182,7 @@
                     </form>
                 </div>
                 <div id="button">
-                    <a>发布</a>
+                    <a href="/intention/intentionPublish">发布</a>
                 </div>
 
             </div>
@@ -170,7 +193,6 @@
 
 
 <div id="footer">
-</div>
 </div>
 </body>
 </html>

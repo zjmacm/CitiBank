@@ -65,8 +65,8 @@
                 <span>意向发布</span>
             </div>
             <div id="list-item">
-                <span >股权收购</span>
-                <span id="selected">债权购买</span>
+                <span ><a href="/intention/getIntentionPage">股权收购</a></span>
+                <span id="selected"><a href="/intention/getDebtPage">债权购买</a></span>
             </div>
 
         </div>

@@ -14,23 +14,23 @@
             <div id="nav-list">
                 <ul>
                     <li>
-                        <a href="/index" title="">
+                        <a href="/investor/index.htm" title="">
                             <span class="nav-item  active">首页</span>
                         </a>
                     </li>
                     <li id="finance">
-                        <a href="/finance" title="">
+                        <a href="/financing/Matching.htm" title="">
                             <span class="nav-item">投资板块</span>
                         </a>
                         <div id="finance-subnav">
                             <ul>
                                 <li>
-                                    <a href="/management" title="">
+                                    <a href="/financing/Matching.htm" title="">
                                         <span>撮合配对</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/esignature" title="">
+                                    <a href="/intention/getIntentionPage" title="">
                                         <span>意向发布</span>
                                     </a>
                                 </li>
@@ -40,7 +40,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="/invetfinane" title="">
+                                    <a href="/electronical/getElectronicalPage" title="">
                                         <span>电子签约</span>
                                     </a>
                                 </li>
@@ -48,7 +48,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="/invest" title="">
+                        <a href="/report/getReport.htm" title="">
                             <span class="nav-item">信息披露</span>
                         </a>
                     </li>
