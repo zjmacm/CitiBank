@@ -24,7 +24,7 @@ public class CodeAuthController {
     @Autowired
     private Producer captchaProducer;
 
-    @RequestMapping("/getCode")
+    @RequestMapping("/getCode/**")
     public void getCaptcha(HttpServletRequest request, HttpServletResponse response) {
         try {
             response.setDateHeader("Expires", 0);

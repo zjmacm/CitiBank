@@ -1,11 +1,11 @@
 // JavaScript Document
 
-var reg = (function(citi) {
+var reg = (function (citi) {
     var status = [];
 
     var flag = [];
 
-    $('.reg-input').each(function() {
+    $('.reg-input').each(function () {
         flag.push(false);
         status.push({
             obj: '#' + this.style.id,
@@ -14,10 +14,10 @@ var reg = (function(citi) {
     });
 
     return {
-        focus: function() {
+        focus: function () {
 
             if (document.addEventListener) {
-                imd.getElement('#reg').addEventListener('focus', function(e) {
+                imd.getElement('#reg').addEventListener('focus', function (e) {
                     var id = '';
                     id = '#' + e.target.id;
 
@@ -47,7 +47,7 @@ var reg = (function(citi) {
 
                 }, true);
             } else {
-                imd.getElement('#reg').onfocusin = function(e) {
+                imd.getElement('#reg').onfocusin = function (e) {
                     var id = '';
                     id = '#' + e.target.id;
 
@@ -67,11 +67,11 @@ var reg = (function(citi) {
                     if (e.target.name == 'auth') {
                         $(id).next().addClass('icon-tips').html('输入验证码');
                     }
-                    if (e.target.name == 'name') {
+                    if (e.target.name == 'companyName') {
                         $(id).next().addClass('icon-tips').html('输入企业名称')
                     }
 
-                    if (e.target.name == 'code') {
+                    if (e.target.name == 'companyCode') {
                         $(id).next().addClass('icon-tips').html('输入15位组织机构代码');
                     }
                 }
@@ -79,9 +79,9 @@ var reg = (function(citi) {
             }
         },
 
-        blur: function() {
+        blur: function () {
             if (document.addEventListener) {
-                imd.getElement('#reg').addEventListener('blur', function(e) {
+                imd.getElement('#reg').addEventListener('blur', function (e) {
                     var id = '#' + e.target.id,
                         url = null,
                         success,
@@ -95,7 +95,7 @@ var reg = (function(citi) {
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true,
+                            async: true
                         };
 
                     if (e.target.name == 'username') {
@@ -117,9 +117,9 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('邮箱错误');
                         }
 
-                        url = '/echeck';
+                        url = '/customer/echeck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -137,7 +137,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -163,7 +163,7 @@ var reg = (function(citi) {
 
                     if (e.target.name == 'password') {
                         eval = $(id).val();
-                        e = /([0-9]+[a-zA-Z]+)+/;
+                        e = /([0-9a-zA-Z]+[a-zA-Z0-9]+)+/;
                         if (eval == '' || !e.test(eval) || eval.toString().length < 6 || eval.toString().length > 12) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -228,9 +228,11 @@ var reg = (function(citi) {
                             return $('#check-auth').addClass('icon-error').html('验证码不能为空');
                         }
                         var now = new Date();
-                        url = '/auth/' + now.getTime();
-                        success = function() {
+                        url = '/authCheck/' + now.getTime();
+                        success = function (text) {
+                            alert(text.check)
                             if (text.check == 'success') {
+
                                 $('#check-auth').addClass('icon-success').html('');
                             } else {
                                 $('#check-auth').addClass('icon-error').html('验证码错误');
@@ -241,7 +243,8 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -274,9 +277,9 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('企业名不能为空');
                         }
 
-                        url = '/namecheck';
+                        url = '/customer/nameCheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -289,7 +292,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -317,7 +320,7 @@ var reg = (function(citi) {
                         eval = $(id).val();
                         e = /\d+/;
 
-                        if (eval == '' || !e.test(eval) || eval.toString().length != 15) {
+                        if (eval == '' || !e.test(eval) || eval.toString().length != 10) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -333,9 +336,9 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
-                        url = '/codecheck';
+                        url = '/customer/codeCheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -347,7 +350,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -372,7 +375,7 @@ var reg = (function(citi) {
 
                 }, true);
             } else {
-                imd.getElement('#reg').onfocusout = function(e) {
+                imd.getElement('#reg').onfocusout = function (e) {
                     var id = '#' + e.target.id,
                         url = null,
                         success,
@@ -386,7 +389,7 @@ var reg = (function(citi) {
                             data: null,
                             timeOut: 3000,
                             receiveType: 'json',
-                            async: true,
+                            async: true
                         };
 
 
@@ -411,7 +414,7 @@ var reg = (function(citi) {
 
                         url = '/echeck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -429,7 +432,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -448,7 +451,7 @@ var reg = (function(citi) {
                             dataType: "json",
                             success: success,
                             error: error
-                        }); 
+                        });
                         return;
                     }
 
@@ -520,7 +523,7 @@ var reg = (function(citi) {
                         }
                         var now = new Date();
                         url = '/auth/' + now.getTime();
-                        success = function() {
+                        success = function () {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -532,7 +535,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -567,7 +570,7 @@ var reg = (function(citi) {
 
                         url = '/namecheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -580,7 +583,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -609,7 +612,7 @@ var reg = (function(citi) {
                         eval = $(id).val();
                         e = /\d+/;
 
-                        if (eval == '' || !e.test(eval) || eval.toString().length != 15) {
+                        if (eval == '' || !e.test(eval) || eval.toString().length != 10) {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -621,13 +624,13 @@ var reg = (function(citi) {
                             return $(id).next().addClass('icon-error').html('组织机构代码不能为空');
                         }
 
-                        if (!e.test(eval) || eval.toString().length != 15) {
+                        if (!e.test(eval) || eval.toString().length != 10) {
                             return $(id).next().addClass('icon-error').html('输入15位组织机构代码')
                         }
 
                         url = '/codecheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -639,7 +642,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -664,8 +667,8 @@ var reg = (function(citi) {
                 }
             }
         },
-        isubmit: function() {
-            $('#form').submit(function(e) {
+        isubmit: function () {
+            $('#form').submit(function (e) {
                 if ($('#agree').attr('checked') == undefined) {
                     e.preventDefault();
                 }
@@ -718,31 +721,34 @@ var reg = (function(citi) {
                 }
             });
         },
-        refresh: function() {
-            $('refresh').click(function(e) {
+        refresh: function () {
+            $('#refresh').click(function (e) {
+                var now = new Date();
+                var time = now.getTime();
                 $.ajax({
                     type: "GET",
-                    url: url,
-                    dataType: "json",
-                    success: function(text) {
-                        $('#auth-image').remove();
-                        var html = '<img src=' + '"'
-                        text.check + '"' + '>'
-                        $('#auth-list').append(html);
+                    url: "/getCode",
+                    dataType: "text",
+                    success: function (text) {
+                        $('#auth-image img').remove();
+                        var html = '<img src=' + '"' + "/getCode/" + time + '"' + '>'
+                        $('#auth-image').append(html);
                     },
-                    error: function(xhhr) {
+                    error: function (xhhr) {
                         $('#check-auth').addClass('icon-error').html('网络错误，稍后重试')
                     }
                 });
-            })
+            });
         }
     };
 
 })();
 
-$(document).ready(function() {
+$(document).ready(function () {
     reg.focus();
     reg.blur();
+    reg.isubmit();
+    reg.refresh();
 
 
 })

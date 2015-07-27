@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/personal-attiontion.css"> 
-	<script type="text/javascript" src="../public/javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="../public/javascripts/jq.js"></script>
 	<script type="text/javascript " src="../public/javascripts/lubotu.js"></script>
 	<script type="text/javascript">
 		$(function(){
@@ -291,6 +291,9 @@
 				       	</li>
 				     </ul>
 				</div>
+				<div class="invest-more">
+					<span><a href="more_investor.htm" title="">查看更多投资人>></a> </span>
+				</div>
 			</div><!--slider_left-->
 			<div class="slider_right">
 				<p>行业二</p>
@@ -320,7 +323,9 @@
 				       	</li>
 				     </ul>
 				</div>
-
+				<div class="invest-more">
+					<span><a href="more_investor.htm" title="">查看更多投资人>></a> </span>
+				</div>
 
 			</div><!--slider_right-->
 		</div><!--slider-->
