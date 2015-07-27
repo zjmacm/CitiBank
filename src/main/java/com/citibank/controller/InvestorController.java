@@ -34,12 +34,12 @@ public class InvestorController {
     @Autowired
     private UploadFileService uploadFileService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
-
+//跳转登陆界面
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
     }
-
+//登陆
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public String doLogin(@RequestParam Map<String, Object> reqs,
                           HttpSession session) {
@@ -51,13 +51,13 @@ public class InvestorController {
             return "investor/login";
         }
     }
-
+//跳转注册界面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String getRegisterPage() {
         return "investor/investorRegister";
     }
 
-
+//注册
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     public String doRegister(@RequestParam Map<String, Object> regs) {
         regs.put("id", IdUtil.uuid());
@@ -71,7 +71,7 @@ public class InvestorController {
             return "investor/completeInfo";
         }
     }
-
+//完善信息
     @RequestMapping(value = "/doCompleteInfo", method = RequestMethod.POST)
     public String completeInfo(@RequestParam Map<String, Object> infos, HttpSession session) {
         String userId = (String) session.getAttribute("userId");
@@ -87,14 +87,14 @@ public class InvestorController {
     public String getCompleteInfoPage() {
         return "investor/completeInfo";
     }
-
+//
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
         map.putAll(investorService.getInvestorInfo(userId));
         return "common/userInfo";
     }
-
+//
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
     public
     @ResponseBody
@@ -109,7 +109,7 @@ public class InvestorController {
         }
         return status;
     }
-
+//第二个页面的下一步
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                                   HttpServletRequest request) {
