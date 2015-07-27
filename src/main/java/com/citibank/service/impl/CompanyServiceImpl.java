@@ -17,8 +17,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-
-
     public MySQLSimpleDaoImpl getMySQLSimpleDao() {
         return mySQLSimpleDao;
     }

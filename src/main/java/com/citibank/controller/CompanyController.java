@@ -1,9 +1,12 @@
 package com.citibank.controller;
 
+import com.citibank.entity.Attention;
 import com.citibank.mail.MailSender;
 import com.citibank.service.CompanyService;
 import com.citibank.service.FinanceService;
+import com.citibank.service.SystemMessageService;
 import com.citibank.service.impl.UploadFileService;
+import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -33,7 +37,8 @@ public class CompanyController {
     private UploadFileService uploadFileService;
     @Autowired
     private FinanceService financeService;
-
+    @Autowired
+    private SystemMessageService systemMessageService;
     private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
 
     //企业模式已登陆首页
@@ -41,7 +46,12 @@ public class CompanyController {
     public String getIndexPage(){return "company/logined-business-index"; }
     //我的关注
     @RequestMapping(value ="/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(){ return "company/personal-attiontion";}
+    public String getIfollowPage(){
+//        Map<String,Object> map = new HashMap<String, Object>();
+//        map.put("companyId","a");
+//        attentionService.getAttentionList(map);
+        return "company/personal-attiontion";
+    }
     //查看更多投资人
     @RequestMapping(value = "/more_investor.htm",method = RequestMethod.GET)
     public String getMore_investorPage(){ return "company/user-corporate-mode-finance-patch";}
@@ -51,7 +61,9 @@ public class CompanyController {
     public String getInewsPage(){ return "company/private-center-my-news";}
     //系统信息
     @RequestMapping(value = "/s_message",method = RequestMethod.GET)
-    public String getS_messagePage(){ return "company/private-center-my-news";}
+    public String getS_messagePage(){
+        return "company/private-center-my-news";
+    }
     //私信
     @RequestMapping(value = "/p_letter",method = RequestMethod.GET)
     public String getP_letterPage(){ return "";}
