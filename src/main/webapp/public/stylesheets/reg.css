@@ -159,12 +159,18 @@ input:disabled {
     line-height: 27px;
 }
 
+#auth-image img {
+    height:27px;
+    width:50px;
+}
+
 #auth {
     width: 80px;
 }
 
 #refresh img {
     width: 29px;
+
     vertical-align: middle;
 }
 
