@@ -32,6 +32,7 @@ public class SystemController {
     @ResponseBody
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile
     ,HttpServletRequest request) {
+        //得到target/CitiBankBg/下的uploads文件夹
         String path = request.getSession().getServletContext().getRealPath("")+IMG_DESC_PATH;
         uploadFile.uploadFile(multipartFile,path);
         System.out.println(multipartFile.getOriginalFilename());
@@ -45,6 +46,7 @@ public class SystemController {
         }
         return "success";
     }
+
     @RequestMapping("/")
     public String homePage(HttpServletRequest request,HttpSession session) {
         return "redirect:/customer/index";

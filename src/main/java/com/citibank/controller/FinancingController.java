@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2015/7/21.
+ * Created by zjm on 2015/7/21.
  */
 public class FinancingController {
 
@@ -21,13 +21,6 @@ public class FinancingController {
     @Autowired
     private FinancingService financingService;
 
-    public void setFinancingService(FinancingService financingService) {
-        this.financingService = financingService;
-    }
-
-    public FinancingService getFinancingService() {
-        return financingService;
-    }
 
     @RequestMapping(value="Matching.htm",method = RequestMethod.GET)
 
@@ -36,6 +29,7 @@ public class FinancingController {
     }
 
 
+    //撮合配对
     @RequestMapping(value="Matching",method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                   @RequestParam(value = "investArea",required = false, defaultValue = "") String investArea,

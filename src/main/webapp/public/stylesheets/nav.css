@@ -1,20 +1,17 @@
-@charset "utf-8";
-/* CSS Document */
-
 .nav{
+	float: left;
 	width:20%;
 	height:615px;
 	background-color:#DDE5E8;
 	padding-top:15px;
 	color:#43495D;
 	position:relative;
-
 	}
-.tit{
+.title{
 	width:80%;
 	height:35px;
 	margin:0 auto;
-	border-radium:4px;
+	border-radius:4px;
 	background:white;
 	text-align:center;
 	line-height:35px;
@@ -42,8 +39,8 @@
 	border-top:8px transparent solid; 
 	
 	position:absolute;
-	top:52px;
-	left:75px;
+	top:72px;
+	left:74px;
 	}
 .list{
 	width:80%;
