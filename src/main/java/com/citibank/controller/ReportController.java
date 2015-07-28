@@ -68,7 +68,7 @@ public class ReportController {
         map.put("finance", finance);
         return "";
     }
-//中心公告
+    //中心公告
     @RequestMapping("/getCenter")
     public String getCenterPage()
     {
@@ -104,6 +104,5 @@ public class ReportController {
     {
         return "investor/information_temporary";
     }
-
 
 }
