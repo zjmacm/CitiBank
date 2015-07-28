@@ -22,26 +22,23 @@ public class ElectronicalContractController {
     private ElectronicalContractServiceImpl electronicalContractService;
     //点击电子签约出现的界面
     @RequestMapping("/getElectronicalPage")
-    public String getElectronicalPage()
-    {
+    public String getElectronicalPage() {
         return "investor/check-investment-sign";
     }
 
     //跳转到签合同页面,"协议签约" 没给
     @RequestMapping("/signContract.htm")
-    public ModelAndView getSignContractPage()
-    {
-        Map<String,Object> result=new HashMap<String, Object>();
-        result.put("oppositors",electronicalContractService.getOppositorList());
-        return new ModelAndView("investor/check-investment-sign","oppositors",result);
+    public ModelAndView getSignContractPage() {
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("oppositors", electronicalContractService.getOppositorList());
+        return new ModelAndView("investor/check-investment-sign", "oppositors", result);
     }
 
 
     //单选公司然后出现合同内容
     @RequestMapping("/getContractContent")
-    public Map<String,Object> getContractContent(HttpSession session)
-    {
-        String id= (String) session.getAttribute("investorId");
+    public Map<String, Object> getContractContent(HttpSession session) {
+        String id = (String) session.getAttribute("investorId");
         return electronicalContractService.getStateZeroOppositor(id);
     }
 
