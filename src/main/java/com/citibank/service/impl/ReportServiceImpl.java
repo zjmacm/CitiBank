@@ -22,7 +22,7 @@ public class ReportServiceImpl implements ReportService {
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     public Page<Map<String,Object>> getReport(int pageIndex, String queryContent,int type) {
-        StringBuffer templateSql = new StringBuffer("select i.id, i.name from information i where i.flag = :type");
+        StringBuffer templateSql = new StringBuffer("select i.id, i.fileName from information i where i.flag = :type");
         if(!queryContent.equals("")){
             templateSql.append(" and i.name like %:query_content%");
         }
