@@ -115,11 +115,7 @@ public class CompanyController {
     }
 
 
-    //跳转到公司登陆的主页
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
-    public String getLoginPage() {
-        return "company/logined-business-index";
-    }
+
 
     //跳转到公司融资板块的界面
     @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)

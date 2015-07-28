@@ -4,12 +4,11 @@
 	margin:0 auto;
 	
 }
-<<<<<<< HEAD
+
 #footer{
 	clear:both;
 }
-=======
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
+
 img{border:none;}
 li{list-style:none;}
 .clearfix:after{
@@ -26,11 +25,10 @@ body{
 }
 .main{
 	float: left;
-<<<<<<< HEAD
+
 	width: 580px;
-=======
-	width: 600px;		
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
+
+	width: 600px;
 	border: 1px solid #fff;
 	background-color: white;
 	margin-left: 10px;
@@ -52,20 +50,20 @@ body{
 }
 .left_line{
 	float: left;
-<<<<<<< HEAD
+
 	width: 180px;
-=======
+
 	width: 200px;
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
+
 	border: 1px solid #767B91;
 }
 .right_line{
 	float: right;
-<<<<<<< HEAD
+
 	width: 180px;
-=======
+
 	width: 200px;
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
+
 	border: 1px solid #767B91;
 }
 .tit{	
@@ -73,13 +71,13 @@ body{
 	float: left;
 	font-size: 1.3em;
 	color: #2A324B;
-<<<<<<< HEAD
+
 	margin: 0 38px;
 	margin-top: -14px;
-=======
+
 	margin: 0 32px;
 	margin-top: -11px;
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
+
 }
 .progress{
 	
