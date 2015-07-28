@@ -17,7 +17,6 @@ import java.util.Map;
 /**
  * Created by Nikolas on 2015/7/21.
  */
-//公告部分
 @Controller
 @RequestMapping("/report")
 public class ReportController {
@@ -49,11 +48,11 @@ public class ReportController {
         return map;
     }
 
-    @RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-    public String getReportDetail(@RequestParam("reportId") String reportId, Map<String, Object> map) {
+    @RequestMapping(value = "/detail/{reportId}", method = RequestMethod.GET)
+    public String getReportDetail(@PathVariable("reportId") String reportId) {
         String fileUrl = reportService.getReportFile(reportId);
-        map.put("url", fileUrl);
-        return "";
+//        map.put("url", fileUrl);
+        return "uploads/"+fileUrl;
     }
 
     @RequestMapping("/companyInfo.htm")

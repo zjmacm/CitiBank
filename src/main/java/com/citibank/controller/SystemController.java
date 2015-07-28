@@ -1,7 +1,10 @@
 package com.citibank.controller;
 
+import com.citibank.common.IdUtil;
+import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.UploadFileService;
+import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -24,29 +29,42 @@ import java.io.IOException;
 public class SystemController {
 
     @Autowired
-    private VisitorService visitorService;
+    private MySQLSimpleDaoImpl mySQLSimpleDao;
+
+    @Autowired
     private UploadFileService uploadFile;
-    private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
+
+    private final static String IMG_DESC_PATH = Constant.uploadPath;
+
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public
     @ResponseBody
-    String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile
-    ,HttpServletRequest request) {
-        String path = request.getSession().getServletContext().getRealPath("")+IMG_DESC_PATH;
-        uploadFile.uploadFile(multipartFile,path);
+    String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,
+                      @RequestParam("type") int type, HttpServletRequest request) {
         System.out.println(multipartFile.getOriginalFilename());
-        System.out.println(multipartFile.getSize());
-        System.out.println(multipartFile.getContentType());
-        try {
-            multipartFile.transferTo(new File("/file/image.png"));
-        } catch (IOException e) {
-            System.out.println("文件上传失败");
-            e.printStackTrace();
-        }
+        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+        String filePath = uploadFile.uploadFile(multipartFile, path);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("id", IdUtil.uuid());
+        map.put("flag", type);
+        map.put("fileName", multipartFile.getOriginalFilename());
+        map.put("path", filePath);
+
+        System.out.println(map.toString());
+
+        mySQLSimpleDao.create("information",map);
+
         return "success";
     }
+
+    @RequestMapping("/upload.htm")
+    public String getUploadPage() {
+        return "main/index";
+    }
+
     @RequestMapping("/")
-    public String homePage(HttpServletRequest request,HttpSession session) {
+    public String homePage(HttpServletRequest request, HttpSession session) {
         return "redirect:/customer/index";
     }
 }

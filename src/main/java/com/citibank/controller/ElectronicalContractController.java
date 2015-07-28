@@ -51,7 +51,7 @@ public class ElectronicalContractController {
     {
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("result",electronicalContractService.orderByTime());
-        return new ModelAndView("/investor/eletronic-contrating-inquiry-protocol","result",map);
+        return new ModelAndView("checkContract","result",map);
     }
     //按对方排序
     @RequestMapping(value = "/orderByOppositor")

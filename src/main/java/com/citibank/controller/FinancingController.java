@@ -1,6 +1,5 @@
 package com.citibank.controller;
 
-import com.citibank.common.SessionContext;
 import com.citibank.dao.Page;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;

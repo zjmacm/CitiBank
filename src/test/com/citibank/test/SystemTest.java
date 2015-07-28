@@ -2,7 +2,10 @@ package com.citibank.test;
 
 import com.citibank.common.IdUtil;
 
+import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
+import com.citibank.service.*;
+import net.sf.json.JSONArray;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
 import com.citibank.service.InvestorService;
@@ -13,9 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Nikolas on 2015/7/16.
@@ -38,6 +39,9 @@ public class SystemTest {
 
     @Autowired
     private IntentionServiceImpl intentionService;
+	
+    @Autowired
+    private SystemMessageService systemMessageService;
 
     @Test
     public void testIntention()
@@ -95,7 +99,17 @@ public class SystemTest {
         map.put("userName",name);
         map.put("userPwd",pwd);
         map.put("userType",0);
-        mySQLSimpleDao.create("tp_users",map);
+        mySQLSimpleDao.create("tp_users", map);
+    }
+    @Test
+    public void testAttention()
+    {
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("companyId", "a");
+        map.put("pageIndex",1);
+        Page page = systemMessageService.getMessageById(map,0);
+        System.out.println(page.getList().toString());
+        //System.out.println(jsonArray);
     }
 
 }

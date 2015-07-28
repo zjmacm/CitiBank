@@ -46,5 +46,6 @@
     <mvc:resources mapping="/public/fonts/*"
                    location="/public/fonts/"/>
 
+    <mvc:resources mapping="/uploads/*" location="/uploads/"/>
 
 </beans>

@@ -1,5 +1,7 @@
 package com.citibank.service.impl;
 
+import com.citibank.dao.Order;
+import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.SystemMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,49 +45,118 @@ public class SystemMessageServiceImpl implements SystemMessageService{
             return null;
         }
     }
-    public List<Map<String,Object>> getMessageById(Map<String,Object> reqs)
+    public Page<Map<String, Object>> getMessageById(Map<String,Object> reqs,int flag)
     {
-        String sql = "select * from message where id=:id";
-        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-        list = mySQLSimpleDao.queryForList(sql,reqs);
-        if(list.size() > 0)
+        int pageSize = 10;
+        int pageIndex = 0;
+        if(flag == 0)//代表企业
         {
-            System.out.println("找到list!");
-            return list;
+            String sql = "select * from message where companyId=:companyId and flag=0 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
-        else {
-            System.out.println("没找到list!");
-            return null;
+        else if(flag == 1)//代表投资者
+        {
+            String sql = "select * from message where companyId=:companyId and flag=1 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
+        return null;
     }
-    public List<Map<String,Object>> getMessageByTime(Map<String,Object> reqs)
+    public Page<Map<String, Object>> getMessageByTime(Map<String,Object> reqs,int flag)
     {
-        String sql = "select * from message where time=:time";
-        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-        list = mySQLSimpleDao.queryForList(sql,reqs);
-        if(list.size() > 0)
+        int pageSize = 10;
+        int pageIndex = 0;
+        if(flag == 0)//代表企业
         {
-            System.out.println("找到list!");
-            return list;
+            String sql = "select * from message where companyId=:companyId and flag=0 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
-        else {
-            System.out.println("没找到list!");
-            return null;
+        else if(flag == 1)//代表投资者
+        {
+            String sql = "select * from message where time=:time and flag=1 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
+        return null;
     }
-    public List<Map<String,Object>> getMessageByContent(Map<String, Object> reqs)
+    public Page<Map<String, Object>> getMessageByContent(Map<String, Object> reqs,int flag)
     {
-        String sql = "select * from message where content=:content";
-        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-        list = mySQLSimpleDao.queryForList(sql,reqs);
-        if(list.size() > 0)
+        int pageSize = 10;
+        int pageIndex = 0;
+        if(flag == 0)//代表企业
         {
-            System.out.println("找到list!");
-            return list;
+            String sql = "select * from message where content=:content and flag=0 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
-        else {
-            System.out.println("没找到list!");
-            return null;
+        else if(flag == 1)//代表投资者
+        {
+            String sql = "select * from message where time=:time and flag=1 and ss=0";
+            pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+            Order order=new Order().asc("companyId");
+            Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+            if(page.getSize() > 0)
+            {
+                System.out.println("找到page!");
+                return page;
+            }
+            else {
+                System.out.println("没找到page!");
+                return null;
+            }
         }
+        return null;
     }
 }

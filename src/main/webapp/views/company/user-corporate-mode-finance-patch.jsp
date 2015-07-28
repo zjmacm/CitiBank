@@ -19,7 +19,7 @@
                                 <div id="textClear">
                                     <a href=""><img src="../public/images/cancel.png"></a>
                                 </div>
-                                <input id="searchText" type="text" placeholder="请输入关键字搜索">
+                                <input id="searchText" type="text" placeholder="请输入关键字搜索">i
                         </div>
                         <a href="" style="display:inline;">
                             <div id="searchButton">确定</div>
