@@ -1,8 +1,10 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="renderer" content="webkit">
@@ -121,6 +123,8 @@
 </head>
 
 <body>
+<%List<Map<String,Object>> policy= (List<Map<String, Object>>) request.getAttribute("policy");
+    List<Map<String,Object>> market= (List<Map<String, Object>>) request.getAttribute("market");%>
     <jsp:include page="customer-header.jsp"/>
     <div id="main">
         <div id="content">
@@ -267,48 +271,20 @@
                             </div>
                             <div id="policy-item">
                                 <div class="zixun-item" id="lf">
+                                    <% for(int i=0;i<policy.size();++i){%>
                                     <p>
-                                        <a title="浙江发布金融产业发展规划 金融产业再获政策支持" href="_target">浙江发布金融产业发展规划 金融产业再获政策支持
+                                        <a title="<%=policy.get(i).get("fileName")%>" href="/uploads/<%= policy.get(i).get("path")%>"><%=policy.get(i).get("fileName")%>
                                         </a>
                                     </p>
-                                    <p>
-                                        <a title="用好改革政策做好金融工作 " href="_target">用好改革政策做好金融工作 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="金融数据显经济企稳 央行定调下半年政策" href="_target">金融数据显经济企稳 央行定调下半年政策
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="国务院部署促进进出口稳定增长政策措施 " href="_target">国务院部署促进进出口稳定增长政策措施 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="央行定调货币政策：基调保持稳健 调控追求精准" href="_target">央行定调货币政策：基调保持稳健 调控追求精准
-                                        </a>
-                                    </p>
+                                    <%}%>
                                 </div>
                                 <div class="zixun-item" id="ls">
+                                    <% for(int i=0;i<policy.size();++i){%>
                                     <p>
-                                        <a title="浙江发布金融产业发展规划 金融产业再获政策支持" href="_target">浙江发布金融产业发展规划 金融产业再获政策支持
+                                        <a title="<%=policy.get(i).get("fileName")%>" href="/uploads/<%=policy.get(i).get("path")%>"><%=policy.get(i).get("fileName")%>
                                         </a>
                                     </p>
-                                    <p>
-                                        <a title="用好改革政策做好金融工作 " href="_target">用好改革政策做好金融工作 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="金融数据显经济企稳 央行定调下半年政策" href="_target">金融数据显经济企稳 央行定调下半年政策
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="国务院部署促进进出口稳定增长政策措施 " href="_target">国务院部署促进进出口稳定增长政策措施 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="央行定调货币政策：基调保持稳健 调控追求精准" href="_target">央行定调货币政策：基调保持稳健 调控追求精准
-                                        </a>
-                                    </p>
+                                    <%}%>
                                 </div>
                             </div>
                         </li>
@@ -321,80 +297,20 @@
                             </div>
                             <div id="market-item">
                                 <div class="zixun-item" id="rf">
+                                    <% for(int i=0;i<market.size();++i){%>
                                     <p>
-                                        <a title="2015年上半年社会融资规模增量8.81万亿元 " href="_target">2015年上半年社会融资规模增量8.81万亿元 
+                                        <a title="<%=market.get(i).get("fileName")%>" href="/uploads/<%=market.get(i).get("path")%>"><%=market.get(i).get("fileName")%>
                                         </a>
                                     </p>
-                                    <p>
-                                        <a title="德隆系前高管操盘 深圳惠程证券投资收益剧增" href="_target">德隆系前高管操盘 深圳惠程证券投资收益剧增
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="德隆系前高管操盘 深圳惠程证券投资收益剧增" href="_target">德隆系前高管操盘 深圳惠程证券投资收益剧增 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="方正证券被证监会立案调查 涉嫌信息披露违规" href="_target">方正证券被证监会立案调查 涉嫌信息披露违规 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="工行与泛欧交易所开展战略合作 " href="_target">工行与泛欧交易所开展战略合作 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="理财产品发行量维持平稳" href="_target">理财产品发行量维持平稳 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="红蜻蜓等6只新股周一上市定位分析" href="_target">红蜻蜓等6只新股周一上市定位分析
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="赛升药业等3只新股周三申购指南 顶格需83.4万元" href="_target">赛升药业等3只新股周三申购指南 顶格需83.4万元 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="兖州煤业高管增持超10万股 拟投资超23亿建煤矿" href="_target">兖州煤业高管增持超10万股 拟投资超23亿建煤矿
-                                        </a>
-                                    </p>
+                                    <%}%>
                                 </div>
                                 <div class="zixun-item" id="rs">
+                                    <% for(int i=0;i<market.size();++i){%>
                                     <p>
-                                        <a title="2015年上半年社会融资规模增量8.81万亿元 " href="_target">2015年上半年社会融资规模增量8.81万亿元 
+                                        <a title="<%=market.get(i).get("fileName")%>" href="/uploads/<%=market.get(i).get("path")%>"><%=market.get(i).get("fileName")%>
                                         </a>
                                     </p>
-                                    <p>
-                                        <a title="德隆系前高管操盘 深圳惠程证券投资收益剧增" href="_target">德隆系前高管操盘 深圳惠程证券投资收益剧增
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="德隆系前高管操盘 深圳惠程证券投资收益剧增" href="_target">德隆系前高管操盘 深圳惠程证券投资收益剧增 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="方正证券被证监会立案调查 涉嫌信息披露违规" href="_target">方正证券被证监会立案调查 涉嫌信息披露违规 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="工行与泛欧交易所开展战略合作 " href="_target">工行与泛欧交易所开展战略合作 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="理财产品发行量维持平稳" href="_target">理财产品发行量维持平稳 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="红蜻蜓等6只新股周一上市定位分析" href="_target">红蜻蜓等6只新股周一上市定位分析
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="赛升药业等3只新股周三申购指南 顶格需83.4万元" href="_target">赛升药业等3只新股周三申购指南 顶格需83.4万元 
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a title="兖州煤业高管增持超10万股 拟投资超23亿建煤矿" href="_target">兖州煤业高管增持超10万股 拟投资超23亿建煤矿
-                                        </a>
-                                    </p>
+                                    <%}%>
                                 </div>
                         </li>
                     </ul>

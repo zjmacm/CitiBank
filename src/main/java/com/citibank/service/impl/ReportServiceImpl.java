@@ -33,7 +33,7 @@ public class ReportServiceImpl implements ReportService {
     }
 
     public List<Map<String, Object>> getInformation(int type) {
-        String sql  = "select i.id, i.name from information i where i.flag = :type";
+        String sql  = "select i.id, i.fileName, i.path from information i where i.flag = :type";
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("type", type);
         return mySQLSimpleDao.queryForList(sql, map);
@@ -48,8 +48,8 @@ public class ReportServiceImpl implements ReportService {
     }
 
     public String getReportFile(String id) {
-        String sql="select i.path from information i where i.id = "+id;
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql, new HashMap<String, Object>());
+        String sql="select i.path from information i where i.id = ?";
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList(sql, id);
         return (String) result.get(0).get("path");
     }
 

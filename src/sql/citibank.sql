@@ -206,7 +206,7 @@ DROP TABLE IF EXISTS `information`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `information` (
   `id` varchar(32) NOT NULL,
-  `flag` int(1) NOT NULL COMMENT '标记文件类型0是政策资讯，1是市场资讯，2是中心公告，3是信用监管报告，4是备案发信公告，5是转让交易报告，6是定期报告，7是临时报告，8是信用报告',
+  `flag` int(1) NOT NULL COMMENT '标记文件类型0是中心公告，1是私募債列表，2是备案发行公告，3是转让交易报告，4是定期报告，5是临时报告，6是信用报告，7政策资讯，8是市场咨询',
   `fileName` varchar(50) NOT NULL COMMENT '文件名称，用来搜索',
   `path` varchar(255) NOT NULL COMMENT '文件路径',
   `investorId` varchar(32) DEFAULT NULL COMMENT '指向投资者的id',

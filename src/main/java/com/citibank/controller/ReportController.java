@@ -7,10 +7,7 @@ import jdk.nashorn.internal.ir.RuntimeNode;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -49,11 +46,11 @@ public class ReportController {
         return map;
     }
 
-    @RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-    public String getReportDetail(@RequestParam("reportId") String reportId, Map<String, Object> map) {
+    @RequestMapping(value = "/detail/{reportId}", method = RequestMethod.GET)
+    public String getReportDetail(@PathVariable("reportId") String reportId) {
         String fileUrl = reportService.getReportFile(reportId);
-        map.put("url", fileUrl);
-        return "";
+//        map.put("url", fileUrl);
+        return "uploads/"+fileUrl;
     }
 
     @RequestMapping("/companyInfo.htm")
