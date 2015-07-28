@@ -31,6 +31,7 @@ public class FinancingController {
     public FinancingService getFinancingService() {
         return financingService;
     }
+
 //撮合配对的页面,也是投资板块的首页
     @RequestMapping(value="Matching.htm",method = RequestMethod.GET)
 
@@ -39,7 +40,7 @@ public class FinancingController {
     }
 
 
-    @RequestMapping(value="Matching",method = RequestMethod.POST)
+    @RequestMapping(value="/matching",method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                   @RequestParam(value = "investArea",required = false, defaultValue = "") String investArea,
                                   @RequestParam(value = "investIndustry",required = false,defaultValue = "")String investIndustry,

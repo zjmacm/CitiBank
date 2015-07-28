@@ -7,10 +7,8 @@ import jdk.nashorn.internal.ir.RuntimeNode;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -19,6 +17,7 @@ import java.util.Map;
 /**
  * Created by Nikolas on 2015/7/21.
  */
+//公告部分
 @Controller
 @RequestMapping("/report")
 public class ReportController {
@@ -29,16 +28,17 @@ public class ReportController {
     @Autowired
     private FinanceService financeService;
 
-    @RequestMapping(value = "/getReport.htm", method = RequestMethod.GET)
-    public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
+    @RequestMapping(value = "/getReport/{type}", method = RequestMethod.GET)
+    public ModelAndView getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
                             @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
-                            @RequestParam(value = "type", required = false, defaultValue = "0") int type,
+                            @PathVariable("type") int type,
                             Map<String, Object> map) {
         Page<Map<String, Object>> result = reportService.getReport(pageIndex, queryContent, type);
         map.put("pageIndex", pageIndex);
         map.put("totalPage", result.getpageCount());
         map.put("data", result.getList());
-        return "investor/inquiry-protocol-detail";
+        map.put("type",type);
+        return new ModelAndView("data",map);
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
