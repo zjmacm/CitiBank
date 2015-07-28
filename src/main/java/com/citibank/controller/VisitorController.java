@@ -140,6 +140,7 @@ public class VisitorController {
         return "visitor/customer-service-asset";
     }
 
+    //验证验证码
     @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
     public
     @ResponseBody

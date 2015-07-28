@@ -39,8 +39,11 @@ public class SystemController {
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public
     @ResponseBody
+
+
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,
                       @RequestParam("type") int type, HttpServletRequest request) {
+
         System.out.println(multipartFile.getOriginalFilename());
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         String filePath = uploadFile.uploadFile(multipartFile, path);
@@ -58,10 +61,6 @@ public class SystemController {
         return "success";
     }
 
-    @RequestMapping("/upload.htm")
-    public String getUploadPage() {
-        return "main/index";
-    }
 
     @RequestMapping("/")
     public String homePage(HttpServletRequest request, HttpSession session) {

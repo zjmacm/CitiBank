@@ -20,12 +20,11 @@ import java.util.Map;
 @RequestMapping(value = "/financing")
 public class FinancingController {
 
-
     @Autowired
     private FinancingService financingService;
 
-    //企业的撮合配对的页面,也是投资板块的首页
-    @RequestMapping(value = "/company/Matching.htm", method = RequestMethod.GET)
+    //撮合配对的页面,也是投资板块的首页
+    @RequestMapping(value = "Matching.htm", method = RequestMethod.GET)
     public String getMatchingPage() {
         return "investor/user-corporate-mode-finance-patch";
     }
@@ -47,7 +46,8 @@ public class FinancingController {
                               @RequestParam(value = "fundBody", required = false, defaultValue = "-1") int fundBody,
                               @RequestParam(value = "lowMoney", required = false, defaultValue = "-1") int lowMoney,
                               @RequestParam(value = "highMoney", required = false, defaultValue = "-1") int highMoney,
-                              HttpSession session, Map<String,Object> map){
+
+                              HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
         int userType = (Integer) session.getAttribute("userType");
         Page<Map<String,Object>> page = financingService.getMatching(userId,userType,pageIndex,investArea,investIndustry,fundBody,lowMoney,highMoney);
@@ -56,8 +56,5 @@ public class FinancingController {
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }
-
-    //投资者的撮合配对
-    @RequestMapping(value = "")
 
 }
