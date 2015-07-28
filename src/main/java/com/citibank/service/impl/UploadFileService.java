@@ -22,9 +22,9 @@ public class UploadFileService {
 
        // String result = "success";
 
-        String filePath = createUri(multipartFile, path);
+        String fileName = createUri(multipartFile, path);
 
-        File file = new File(filePath);
+        File file = new File(path+fileName);
 
         try{
 
@@ -34,7 +34,7 @@ public class UploadFileService {
 
             e.printStackTrace();
         }
-        return filePath;
+        return fileName;
     }
     /**
      * 为图片产生uri 返回给前端
@@ -48,7 +48,7 @@ public class UploadFileService {
         String fileName = file.getOriginalFilename();
         String extName = fileName.substring(fileName.lastIndexOf("."));
         String newName = IdUtil.uuid()+extName;
-        return path+newName;
+        return newName;
 
     }
 

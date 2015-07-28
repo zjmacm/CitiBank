@@ -1,6 +1,7 @@
 package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
+import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +32,8 @@ public class VisitorController {
     private CompanyServiceImpl companyService;
     @Autowired
     private VisitorService visitorService;
+    @Autowired
+    private ReportService reportService;
 
     //游客模式下查看政策咨询和市场咨询
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
@@ -41,12 +45,6 @@ public class VisitorController {
     @RequestMapping(value = "/market.htm", method = RequestMethod.POST)
     public String getMarketPage() {
         return "visitor/market";
-    }
-
-    //进入注册页面
-    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
-    public String getRegisterPage() {
-        return "/visitor/reg";
     }
 
     @RequestMapping(value = "/echeck", method = RequestMethod.POST)
@@ -158,6 +156,10 @@ public class VisitorController {
                                     @CookieValue(value = "password", required = false) String password,
                                     HttpSession session, HttpServletRequest request,
                                     Map<String, Object> map) {
+        List<Map<String, Object>> policy = reportService.getInformation(7);
+        List<Map<String, Object>> market = reportService.getInformation(8);
+        map.put("policy", policy);
+        map.put("market",market);
         if (username == null || password == null) {
             return "visitor/customer-index";
         }
@@ -211,6 +213,8 @@ public class VisitorController {
     @RequestMapping(value = "/policy_more", method = RequestMethod.GET)
     public String getPolicy_morePage(Map<String, Object> map) {
         map.put("flag", 0);
+        List<Map<String, Object>> result = reportService.getInformation(7);
+        map.put("information",result);
         return "visitor/customer-information-policy";
     }
 
@@ -283,7 +287,7 @@ public class VisitorController {
     }
 
     //导航栏跳转请求响应，注册按钮
-    @RequestMapping(value = "/reg", method = RequestMethod.GET)
+    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String getRegPage() {
         return "visitor/reg";
     }

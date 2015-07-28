@@ -1,11 +1,11 @@
 // JavaScript Document
 
-var reg = (function(citi) {
+var reg = (function (citi) {
     var status = [];
 
     var flag = [];
 
-    $('.reg-input').each(function() {
+    $('.reg-input').each(function () {
         flag.push(false);
         status.push({
             obj: '#' + this.style.id,
@@ -14,10 +14,10 @@ var reg = (function(citi) {
     });
 
     return {
-        focus: function() {
+        focus: function () {
 
             if (document.addEventListener) {
-                imd.getElement('#reg').addEventListener('focus', function(e) {
+                imd.getElement('#reg').addEventListener('focus', function (e) {
                     var id = '';
                     id = '#' + e.target.id;
 
@@ -47,7 +47,7 @@ var reg = (function(citi) {
 
                 }, true);
             } else {
-                imd.getElement('#reg').onfocusin = function(e) {
+                imd.getElement('#reg').onfocusin = function (e) {
                     var id = '';
                     id = '#' + e.target.id;
 
@@ -79,9 +79,9 @@ var reg = (function(citi) {
             }
         },
 
-        blur: function() {
+        blur: function () {
             if (document.addEventListener) {
-                imd.getElement('#reg').addEventListener('blur', function(e) {
+                imd.getElement('#reg').addEventListener('blur', function (e) {
                     var id = '#' + e.target.id,
                         url = null,
                         success,
@@ -119,7 +119,7 @@ var reg = (function(citi) {
 
                         url = '/customer/echeck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -137,7 +137,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -229,7 +229,7 @@ var reg = (function(citi) {
                         }
                         var now = new Date();
                         url = '/authCheck/' + now.getTime();
-                        success = function(text) {
+                        success = function (text) {
                             alert(text.check)
                             if (text.check == 'success') {
 
@@ -244,7 +244,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -279,7 +279,7 @@ var reg = (function(citi) {
 
                         url = '/customer/nameCheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -292,7 +292,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -338,7 +338,7 @@ var reg = (function(citi) {
 
                         url = '/customer/codeCheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -350,7 +350,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -375,7 +375,7 @@ var reg = (function(citi) {
 
                 }, true);
             } else {
-                imd.getElement('#reg').onfocusout = function(e) {
+                imd.getElement('#reg').onfocusout = function (e) {
                     var id = '#' + e.target.id,
                         url = null,
                         success,
@@ -414,7 +414,7 @@ var reg = (function(citi) {
 
                         url = '/echeck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 for (i = 0; i < status.length; i++) {
                                     if (status[i].obj == id) {
@@ -432,7 +432,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -451,7 +451,7 @@ var reg = (function(citi) {
                             dataType: "json",
                             success: success,
                             error: error
-                        }); 
+                        });
                         return;
                     }
 
@@ -523,7 +523,7 @@ var reg = (function(citi) {
                         }
                         var now = new Date();
                         url = '/auth/' + now.getTime();
-                        success = function() {
+                        success = function () {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -535,7 +535,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -570,7 +570,7 @@ var reg = (function(citi) {
 
                         url = '/namecheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -583,7 +583,7 @@ var reg = (function(citi) {
                             }
                         };
 
-                        error = function() {
+                        error = function () {
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
                                     status[i].success = false;
@@ -630,7 +630,7 @@ var reg = (function(citi) {
 
                         url = '/codecheck';
 
-                        success = function(text) {
+                        success = function (text) {
                             if (text.check == 'success') {
                                 $(id).next().addClass('icon-success').html('');
                             } else {
@@ -642,7 +642,7 @@ var reg = (function(citi) {
                                 }
                             }
                         };
-                        error = function() {
+                        error = function () {
                             $(id).next().addClass('icon-error').html('网络错误，稍后重试');
                             for (i = 0; i < status.length; i++) {
                                 if (status[i].obj == id) {
@@ -667,8 +667,8 @@ var reg = (function(citi) {
                 }
             }
         },
-        isubmit: function() {
-            $('#form').submit(function(e) {
+        isubmit: function () {
+            $('#form').submit(function (e) {
                 if ($('#agree').attr('checked') == undefined) {
                     e.preventDefault();
                 }
@@ -721,32 +721,34 @@ var reg = (function(citi) {
                 }
             });
         },
-        refresh: function() {
-            $('refresh').click(function(e) {
+        refresh: function () {
+            $('#refresh').click(function (e) {
+                var now = new Date();
+                var time = now.getTime();
                 $.ajax({
                     type: "GET",
-                    url: url,
-                    dataType: "json",
-                    success: function(text) {
-                        $('#auth-image').remove();
-                        var html = '<img src=' + '"'
-                        text.check + '"' + '>'
-                        $('#auth-list').append(html);
+                    url: "/getCode",
+                    dataType: "text",
+                    success: function (text) {
+                        $('#auth-image img').remove();
+                        var html = '<img src=' + '"' + "/getCode/" + time + '"' + '>'
+                        $('#auth-image').append(html);
                     },
-                    error: function(xhhr) {
+                    error: function (xhhr) {
                         $('#check-auth').addClass('icon-error').html('网络错误，稍后重试')
                     }
                 });
-            })
+            });
         }
     };
 
 })();
 
-$(document).ready(function() {
+$(document).ready(function () {
     reg.focus();
     reg.blur();
     reg.isubmit();
+    reg.refresh();
 
 
 })

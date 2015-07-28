@@ -18,8 +18,6 @@ import java.util.Map;
 @RequestMapping("/appoint")
 public class AppointController {
 
-
-
     @Autowired
     private AppointService appointService;
 

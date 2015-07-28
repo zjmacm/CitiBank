@@ -1,5 +1,7 @@
 package com.citibank.service;
 
+import com.citibank.dao.Page;
+
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +12,8 @@ import java.util.Map;
  */
 public interface SystemMessageService {
     public List<Map<String,Object>> getAllMessage();
-    public List<Map<String,Object>> getMessageById(Map<String, Object> reqs);
-    public List<Map<String,Object>> getMessageByTime(Map<String, Object> reqs);
-    public List<Map<String,Object>> getMessageByContent(Map<String, Object> reqs);
+    public Page<Map<String, Object>> getMessageById(Map<String, Object> reqs,int flag);
+    public Page<Map<String, Object>> getMessageByTime(Map<String, Object> reqs,int flag);
+    public Page<Map<String, Object>> getMessageByContent(Map<String, Object> reqs,int flag);
 
 }

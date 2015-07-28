@@ -7,10 +7,7 @@ import jdk.nashorn.internal.ir.RuntimeNode;
 import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -38,7 +35,7 @@ public class ReportController {
         map.put("pageIndex", pageIndex);
         map.put("totalPage", result.getpageCount());
         map.put("data", result.getList());
-        return "";
+        return "investor/inquiry-protocol-detail";
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
@@ -49,11 +46,11 @@ public class ReportController {
         return map;
     }
 
-    @RequestMapping(value = "/detail.htm", method = RequestMethod.GET)
-    public String getReportDetail(@RequestParam("reportId") String reportId, Map<String, Object> map) {
+    @RequestMapping(value = "/detail/{reportId}", method = RequestMethod.GET)
+    public String getReportDetail(@PathVariable("reportId") String reportId) {
         String fileUrl = reportService.getReportFile(reportId);
-        map.put("url", fileUrl);
-        return "";
+//        map.put("url", fileUrl);
+        return "uploads/"+fileUrl;
     }
 
     @RequestMapping("/companyInfo.htm")
@@ -67,6 +64,42 @@ public class ReportController {
         map.put("temporary",temporary);
         map.put("finance", finance);
         return "";
+    }
+    //中心公告
+    @RequestMapping("/getCenter")
+    public String getCenterPage()
+    {
+        return "investor/information-center-notice";
+    }
+    //信用公告
+    @RequestMapping("/getCredit")
+    public String getCreditPage()
+    {
+        return "investor/information_credit";
+    }
+    //备案发行公告
+    @RequestMapping("/getIssue")
+    public String getIssuePage()
+    {
+        return "investor/information_issue";
+    }
+    //定期公告
+    @RequestMapping("/getRegular")
+    public String getRegularPage()
+    {
+        return "investor/information_regular";
+    }
+    //转让交易
+    @RequestMapping("/getTransform")
+    public String getTransformPage()
+    {
+        return "investor/information_transform";
+    }
+    //临时报告
+    @RequestMapping("/getTemporary")
+    public String getTemporaryPage()
+    {
+        return "investor/information_temporary";
     }
 
 }

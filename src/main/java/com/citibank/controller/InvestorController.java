@@ -6,6 +6,7 @@ import com.citibank.service.InvestorService;
 
 
 import com.citibank.service.impl.UploadFileService;
+import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +34,49 @@ public class InvestorController {
     private InvestorService investorService;
     @Autowired
     private UploadFileService uploadFileService;
-    private final static String IMG_DESC_PATH = File.separator + "uploads" + File.separator;
+
+    private final static String IMG_DESC_PATH = Constant.uploadPath;
+
+//跳转登陆界面
+
+
+    //投资者模式已登陆首页
+    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    public String getIndexPage() {
+        return "investor/logined-invest-index";
+    }
+
+    //我的关注
+    @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
+    public String getIfollowPage() {
+        return "investor/personal-attiontion";
+    }
+
+    //我的消息
+    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
+    public String getInewsPage() {
+        return "investor/private-center-my-news";
+    }
+
+    //资料管理
+    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
+    public String getIsourcePage() {
+        return "investor/personal center_assets management";
+    }
+
+    //退出按钮
+    @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
+    public String getLogoutPage() {
+        return "investor/login";
+    }
+
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
     }
 
+    //登陆
     @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
     public String doLogin(@RequestParam Map<String, Object> reqs,
                           HttpSession session) {
@@ -52,12 +89,13 @@ public class InvestorController {
         }
     }
 
+    //跳转注册界面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
     public String getRegisterPage() {
         return "investor/investorRegister";
     }
 
-
+    //注册
     @RequestMapping(value = "/doRegister", method = RequestMethod.POST)
     public String doRegister(@RequestParam Map<String, Object> regs) {
         regs.put("id", IdUtil.uuid());
@@ -72,6 +110,7 @@ public class InvestorController {
         }
     }
 
+    //完善信息
     @RequestMapping(value = "/doCompleteInfo", method = RequestMethod.POST)
     public String completeInfo(@RequestParam Map<String, Object> infos, HttpSession session) {
         String userId = (String) session.getAttribute("userId");
@@ -88,6 +127,7 @@ public class InvestorController {
         return "investor/completeInfo";
     }
 
+    //
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
@@ -95,6 +135,7 @@ public class InvestorController {
         return "common/userInfo";
     }
 
+    //
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
     public
     @ResponseBody
@@ -110,6 +151,7 @@ public class InvestorController {
         return status;
     }
 
+    //第二个页面的下一步
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                                   HttpServletRequest request) {

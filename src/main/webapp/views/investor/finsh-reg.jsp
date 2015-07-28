@@ -62,12 +62,12 @@
             <div id="nav-login">
                 <ul>
                     <li>
-                        <a href="/login" title="">
+                        <a href="/investor/login.htm" title="">
                             <span>登陆</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/reg" title="">
+                        <a href="/customer/register.htm" title="">
                             <span>注册</span>
                         </a>
                     </li>
