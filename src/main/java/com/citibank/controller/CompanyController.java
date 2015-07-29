@@ -40,7 +40,7 @@ public class CompanyController {
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
     //企业模式已登陆首页
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getIndexPage() {
         return "company/logined-business-index";
     }
@@ -103,8 +103,11 @@ public class CompanyController {
     }
 
     //资料管理
-    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
-    public String getIsourcePage() {
+    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    public String getIsourcePage(HttpSession session,Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+        map.put("userInfo",userInfo);
         return "company/data_management-edit";
     }
 

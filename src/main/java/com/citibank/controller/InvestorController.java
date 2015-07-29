@@ -1,6 +1,7 @@
 package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
+import com.citibank.entity.Investor;
 import com.citibank.mail.MailSender;
 import com.citibank.service.InvestorService;
 
@@ -37,9 +38,6 @@ public class InvestorController {
 
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
-//跳转登陆界面
-
-
     //投资者模式已登陆首页
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public String getIndexPage() {
@@ -60,8 +58,12 @@ public class InvestorController {
 
     //资料管理
     @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
-    public String getIsourcePage() {
-        return "investor/personal center_assets management";
+    public String getIsourcePage(HttpSession session, Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        userInfo.put("logoPath",File.separator+IMG_DESC_PATH+userInfo.get("logoPath"));
+        map.put("userInfo",userInfo);
+        return "investor/personal_center_assets_management";
     }
 
     //退出按钮
@@ -74,25 +76,6 @@ public class InvestorController {
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
-    }
-
-    //登陆
-    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-    public String doLogin(@RequestParam Map<String, Object> reqs,
-                          HttpSession session) {
-        Map<String, Object> result = investorService.loginInvestor(reqs);
-        if (result.get("result").equals("success")) {
-            session.setAttribute("userId", result.get("id"));
-            return "investor/index";
-        } else {
-            return "investor/login";
-        }
-    }
-
-    //跳转注册界面
-    @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
-    public String getRegisterPage() {
-        return "investor/investorRegister";
     }
 
     //注册
@@ -152,7 +135,7 @@ public class InvestorController {
     }
 
     //第二个页面的下一步
-    @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
+    @RequestMapping(value = "/nextstep", method = RequestMethod.GET)
     public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                                   HttpServletRequest request) {
         String id = (String) session.getAttribute("investorId");
