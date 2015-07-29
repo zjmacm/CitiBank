@@ -318,7 +318,7 @@ CREATE TABLE `person` (
   `name` varchar(20) NOT NULL,
   `age` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -339,7 +339,7 @@ DROP TABLE IF EXISTS `stockcreditor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `stockcreditor` (
-  `id` varchar(32) NOT NULL,
+  `id` varchar(32) NOT NULL PRIMARY KEY ,
   `productName` varchar(255) NOT NULL COMMENT '股债权名字',
   `investArea` varchar(50) NOT NULL COMMENT '投资区域',
   `investIndustry` varchar(50) NOT NULL COMMENT '投资行业',
@@ -354,6 +354,8 @@ CREATE TABLE `stockcreditor` (
   `demandFile` varchar(50) DEFAULT NULL COMMENT '要求文件',
   `demandSummarize` varchar(50) DEFAULT NULL COMMENT '投资要求概述',
   `creditRank` int(1) DEFAULT NULL COMMENT '信用等级，0为AAA，1为AA，2为A，3为BBB，4为BB，5为B，6为CCC，7为CC，8为C',
+  `fundBody` int(10) NOT NULL COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，
+  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
   `flag` int(1) NOT NULL COMMENT '标记，0为企业模式，1为投资者模式',
   `userId` varchar(32) NOT NULL COMMENT '关联用户外键'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

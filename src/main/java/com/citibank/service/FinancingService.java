@@ -11,7 +11,16 @@ import java.util.Map;
 public interface FinancingService {
     //撮合配对
 
-    public Page<Map<String,Object>> getMatching(String userId,int userType,int pageIndex,String investArea,String investIndustry,int fundBody,int lowMoney, int highMoney);
+    public Page<Map<String,Object>> getMatching(String userId,
+                                                int userType,
+                                                int pageIndex,
+                                                String investArea,
+                                                String investIndustry,
+                                                int fundBody,
+                                                int lowMoney,
+                                                int highMoney,
+                                                double leastDemand,
+                                                double heightDemand);
 
     public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 

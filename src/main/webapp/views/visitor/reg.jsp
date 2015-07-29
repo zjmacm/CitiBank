@@ -45,7 +45,7 @@
                         </li>
                         <li>
                             <span class="label">密码:</span>
-                            <input type="password" id="password" class="reg-input" name="password">
+                            <input type="password" id="password" class="reg-input" name="password"/>
                             <span class="check"></span>
                         </li>
                         <li>

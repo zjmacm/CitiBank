@@ -3,22 +3,103 @@
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
     	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-<<<<<<< HEAD
 	<title>已登录-企业模式-融资板块（撮合配对）</title>
-=======
-	<title>已登录-投资者-融资板块（撮合配对）</title>
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-<jsp:include page="business-header.jsp"/>
-=======
-	<jsp:include page="business-header.jsp"/>
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
+	<div id="header">
+        		<div id="header-nav">
+            			<div id="nav-list">
+                			<ul>
+                    				<li>
+                        					<a href="/index" title="">
+                            					<span class="nav-item  active">首页</span>
+                        					</a>
+                    				</li>
+                    				<li id="finance">
+                        					<a href="/finance" title="">
+                            					<span class="nav-item">融资板块</span>
+                        					</a>
+                        					<div id="finance-subnav">
+                            					<ul>
+                                						<li>
+                                    							<a href="/management" title="">
+                                        							<span>撮合配对</span>
+                                    							</a>
+                                						</li>
+                                						<li>
+                                    							<a href="/esignature" title="">
+                                        							<span>意向发布</span>
+                                    							</a>
+                                						</li>
+                                						<li>
+                                    							<a href="/invetfinane" title="">
+                                        							<span>业务洽谈</span>
+                                    							</a>
+                                						</li>
+                                						<li>
+                                    							<a href="/invetfinane" title="">
+                                        							<span>电子签约</span>
+                                    							</a>
+                                						</li>
+                            					</ul>
+                        					</div>
+                    				</li>
+                    				<li>
+                        					<a href="/invest" title="">
+                            					<span class="nav-item">信息发布</span>
+                        					</a>
+                    				</li>
+                    				<li id="service">
+                        					<a href="/service" title="">
+                            					<span class="nav-item">资产管理</span>
+                        					</a>
+                    				</li>
+                			</ul>
+            			</div>
+            			<div id="iciti">
+                			<ul id="i-column">
+                    				<li id="user-photo">
+                        					<span>
+		            					<a href="_target" title="">
+		            						<img src="../public/images/user.png" alt="">
+		                				</a>
+		                			</span>
+                    				</li>
+                    				<li id="go">
+                        					<span id="text">我的账号
+                        						<img src="../public/images/back-bottom.png">
+                        					</span>
+                        					<ul>
+                            					<li>
+                                						<a href="/ifollow" title="">
+                                    							<span>我关注的</span>
+                                						</a>
+                            					</li>
+                            					<li>
+                                						<a href="/inews" title="">
+                                    							<span>我的消息</span>
+                                						</a>
+                            					</li>
+                            					<li>
+                                						<a href="/isource" title="">
+                                    							<span>资料管理</span>
+                                						</a>
+                            					</li>
+                            					<li>
+                                						<a href="/logout" title="">
+                                    							<span>退出</span>
+                                						</a>
+                            					</li>
+                        					</ul>
+                    				</li>
+                			</ul>
+            			</div>
+        		</div>
+    	</div>
 	<div id="mainContainer">
 		<div id="main">
 			<div id="mainContent">
@@ -27,11 +108,7 @@
                                 <div id="textClear">
                                     <a href=""><img src="../public/images/cancel.png"></a>
                                 </div>
-<<<<<<< HEAD
                                 <input id="searchText" type="text" placeholder="请输入关键字搜索">
-=======
-                                <input id="searchText" type="text" placeholder="请输入关键字搜索">i
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                         </div>
                         <a href="" style="display:inline;">
                             <div id="searchButton">确定</div>
@@ -48,41 +125,6 @@
                     <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;" onclick="$('#patchPanel').slideToggle('slow');">显示/隐藏筛选信息</a>
                     <div id="patchPanel">
                         <div>地区筛选：<div class="selectItemGroup">
-<<<<<<< HEAD
-                                <span class="selectItem"><input type="checkbox">黑龙江</span>
-                                <span class="selectItem"><input type="checkbox">吉林</span>
-                                <span class="selectItem"><input type="checkbox">辽宁</span>
-                                <span class="selectItem"><input type="checkbox">河北</span>
-                                <span class="selectItem"><input type="checkbox">河南</span>
-                                <span class="selectItem"><input type="checkbox">新疆</span>
-                                <span class="selectItem"><input type="checkbox">江苏</span>
-                                <span class="selectItem"><input type="checkbox">山西</span>
-                                <span class="selectItem"><input type="checkbox">陕西</span>
-                                <span class="selectItem"><input type="checkbox">甘肃</span>
-                                <span class="selectItem"><input type="checkbox">四川</span>
-                                <span class="selectItem"><input type="checkbox">青海</span>
-							<span class="selectItem"><input type="checkbox">湖南</span>
-							<span class="selectItem"><input type="checkbox">江西</span>
-							<span class="selectItem"><input type="checkbox">湖北</span>
-							<span class="selectItem"><input type="checkbox">安徽</span>
-							<span class="selectItem"><input type="checkbox">浙江</span>
-							<span class="selectItem"><input type="checkbox">福建</span>
-							<span class="selectItem"><input type="checkbox">广东</span>
-							<span class="selectItem"><input type="checkbox">广西</span>
-							<span class="selectItem"><input type="checkbox">贵州</span>
-							<span class="selectItem"><input type="checkbox">云南</span>
-							<span class="selectItem"><input type="checkbox">海南</span>
-							<span class="selectItem"><input type="checkbox">内蒙古</span>
-							<span class="selectItem"><input type="checkbox">山东</span>
-							<span class="selectItem"><input type="checkbox">宁夏</span>
-							<span class="selectItem"><input type="checkbox">西藏</span>
-							<span class="selectItem"><input type="checkbox">北京</span>
-							<span class="selectItem"><input type="checkbox">天津</span>
-							<span class="selectItem"><input type="checkbox">上海</span>
-							<span class="selectItem"><input type="checkbox">重庆 </span>
-							<span class="selectItem"><input type="checkbox">香港</span>
-							<span class="selectItem"><input type="checkbox">台湾</span>
-=======
                                 <span class="selectItem"><input type="checkbox">地区一</span>
                                 <span class="selectItem"><input type="checkbox">地区一</span>
                                 <span class="selectItem"><input type="checkbox">地区一</span>
@@ -95,55 +137,11 @@
                                 <span class="selectItem"><input type="checkbox">地区一</span>
                                 <span class="selectItem"><input type="checkbox">地区一</span>
                                 <span class="selectItem"><input type="checkbox">地区一</span>
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                             </div>
                             
                         </div>
                         <br/>
                         <div>行业筛选：<div class="selectItemGroup">
-<<<<<<< HEAD
-                                <span class="selectItem"><input type="checkbox">金融投资</span>
-                                <span class="selectItem"><input type="checkbox">房地产</span>
-                                <span class="selectItem"><input type="checkbox">能源</span>
-                                <span class="selectItem"><input type="checkbox">化学化工</span>
-                                <span class="selectItem"><input type="checkbox">节能环保</span>
-                                <span class="selectItem"><input type="checkbox">建筑建材</span>
-                                <span class="selectItem"><input type="checkbox">矿产冶金</span>
-                                <span class="selectItem"><input type="checkbox">基础设施</span>
-                                <span class="selectItem"><input type="checkbox">农林牧渔</span>
-                                <span class="selectItem"><input type="checkbox">国防军工</span>
-                                <span class="selectItem"><input type="checkbox">航空航天</span>
-                                <span class="selectItem"><input type="checkbox">电气设备</span>
-							<span class="selectItem"><input type="checkbox">机械机电</span>
-							<span class="selectItem"><input type="checkbox">交通运输</span>
-							<span class="selectItem"><input type="checkbox">仓储物流</span>
-							<span class="selectItem"><input type="checkbox">汽车汽配</span>
-							<span class="selectItem"><input type="checkbox">纺织服装饰品</span>
-							<span class="selectItem"><input type="checkbox">旅游酒店</span>
-							<span class="selectItem"><input type="checkbox">餐饮休闲娱乐</span>
-							<span class="selectItem"><input type="checkbox">教育培训体育</span>
-							<span class="selectItem"><input type="checkbox">文化传媒广告</span>
-							<span class="selectItem"><input type="checkbox">批发零售</span>
-							<span class="selectItem"><input type="checkbox">家电数码</span>
-							<span class="selectItem"><input type="checkbox">家居日用</span>
-							<span class="selectItem"><input type="checkbox">食品饮料烟草</span>
-							<span class="selectItem"><input type="checkbox">医疗保健</span>
-							<span class="selectItem"><input type="checkbox">生物医药</span>
-							<span class="selectItem"><input type="checkbox">IT互联网</span>
-							<span class="selectItem"><input type="checkbox">电子通信</span>
-							<span class="selectItem"><input type="checkbox">海洋开发</span>
-							<span class="selectItem"><input type="checkbox">商务贸易</span>
-							<span class="selectItem"><input type="checkbox">家政服务</span>
-							<span class="selectItem"><input type="checkbox">园林园艺</span>
-							<span class="selectItem"><input type="checkbox">收藏品</span>
-							<span class="selectItem"><input type="checkbox">行政事业机构</span>
-							<span class="selectItem"><input type="checkbox">其他行业</span>
-
-
-
-
-
-=======
                                 <span class="selectItem"><input type="checkbox">行业一</span>
                                 <span class="selectItem"><input type="checkbox">行业一</span>
                                 <span class="selectItem"><input type="checkbox">行业一</span>
@@ -156,7 +154,6 @@
                                 <span class="selectItem"><input type="checkbox">行业一</span>
                                 <span class="selectItem"><input type="checkbox">行业一</span>
                                 <span class="selectItem"><input type="checkbox">行业一</span>
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                             </div>
                         </div>
                         <br/>
@@ -164,29 +161,10 @@
                                 <span class="selectItem"><input type="checkbox">全部</span>
                                 <span class="selectItem"><input type="checkbox">个人资金</span>
                                 <span class="selectItem"><input type="checkbox">企业资金</span>
-<<<<<<< HEAD
-								<span class="selectItem"><input type="checkbox">天使投资</span>
-								<span class="selectItem"><input type="checkbox">VC投资</span>
-								<span class="selectItem"><input type="checkbox">PE投资</span>
-								<span class="selectItem"><input type="checkbox">小额贷款</span>
-								<span class="selectItem"><input type="checkbox">典当公司</span>
-								<span class="selectItem"><input type="checkbox">担保公司</span>
-								<span class="selectItem"><input type="checkbox">金融租赁</span>
-                                <span class="selectItem"><input type="checkbox">投资公司</span>
-								<span class="selectItem"><input type="checkbox">资产管理</span>
-                                <span class="selectItem"><input type="checkbox">商业银行</span>
-								<span class="selectItem"><input type="checkbox">证券公司</span>
-								<span class="selectItem"><input type="checkbox">基金公司</span>
-								<span class="selectItem"><input type="checkbox">信托公司</span>
-								<span class="selectItem"><input type="checkbox">资产管理</span>
-                                <span class="selectItem"><input type="checkbox">其他资金</span>
-						 </div>
-=======
                                 <span class="selectItem"><input type="checkbox">投资公司</span>
                                 <span class="selectItem"><input type="checkbox">基金公司</span>
                                 <span class="selectItem"><input type="checkbox">其他资金</span>
                             </div>
->>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                         </div>
                         <br/>
                         <div>金额区间：<div class="selectItemGroup">
