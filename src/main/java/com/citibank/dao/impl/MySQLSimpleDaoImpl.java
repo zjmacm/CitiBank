@@ -68,10 +68,10 @@ public class MySQLSimpleDaoImpl extends AbstractSimpleDao {
 
 		sql += order.toSqlString();
 		String execSql = SPLIT_PAGE_SQL.replaceAll("\\$\\{SQL\\}", sql);
+		System.out.println(execSql);
+		System.out.println(p.toString());
 		List<Map<String, Object>> pageList = queryForList(execSql, p);
 		Page<Map<String, Object>> page = new Page<Map<String, Object>>();
-		page.setSize(pagesize);
-		page.setIndex(pageindex);
 		page.setTotal(totalCount,pagesize);
 		page.setList(pageList);
 

@@ -58,7 +58,7 @@
                         <ul>
                             <li>
                                 <span class="label">企业类型:</span>
-                                <select name="" class="reg-input">
+                                <select name="companyType" class="reg-input">
                                     <option value =""></option>
                                     <option value ="0">有限责任公司</option>
                                     <option value ="1">股份有限公司</option>

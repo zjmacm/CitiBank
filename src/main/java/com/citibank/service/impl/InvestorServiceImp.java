@@ -100,6 +100,7 @@ public class InvestorServiceImp implements InvestorService {
 
     public int saveInvestorInfo(Map<String, Object> map, String userId) {
         Map<String,Object> cons=new HashMap<String, Object>();
+        System.out.println(map.toString());
         cons.put("investorId", userId);
         return mySQLSimpleDao.update("investor", map, cons);
     }

@@ -28,16 +28,28 @@ public class ReportController {
     private FinanceService financeService;
 
     @RequestMapping(value = "/getReport/{type}", method = RequestMethod.GET)
-    public ModelAndView getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
-                            @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
-                            @PathVariable("type") int type,
+    public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                            @PathVariable(value = "type") Integer type,
+                            Map<String, Object> map) {
+        Page<Map<String, Object>> result = reportService.getReport(pageIndex, "", type);
+        map.put("pageIndex", pageIndex);
+        map.put("totalPage", result.getpageCount());
+        map.put("data", result.getList());
+        map.put("flag1",type);
+        return "investor/information-center-notice";
+    }
+
+    @RequestMapping(value = "/getReport/{type}/{queryContent}", method = RequestMethod.GET)
+    public String searchReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                            @PathVariable(value = "queryContent") String queryContent,
+                            @PathVariable(value = "type") Integer type,
                             Map<String, Object> map) {
         Page<Map<String, Object>> result = reportService.getReport(pageIndex, queryContent, type);
         map.put("pageIndex", pageIndex);
         map.put("totalPage", result.getpageCount());
         map.put("data", result.getList());
-        map.put("type",type);
-        return new ModelAndView("data",map);
+        map.put("flag1",type);
+        return "investor/information-center-notice";
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)

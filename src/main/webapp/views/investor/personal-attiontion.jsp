@@ -1,4 +1,8 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
@@ -26,6 +30,7 @@
 	<title>我关注的</title>
 </head>
 <body>
+    <% List<Map<String,Object>> myAttention_message = (List<Map<String,Object>>)request.getAttribute("myAttention_message");%>
 	<jsp:include page="invest-header.jsp"/>
 	<div class="wrap">
 		<div class="title">
@@ -70,193 +75,25 @@
 					更多操作
 				</th>
 			</tr>
+			<% for(int i=0;i<myAttention_message.size();i++){%>
 			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
+				<th>
+					<%= myAttention_message.get(i).get("userName")%>
+				</th>
+				<th>
+					<%= myAttention_message.get(i).get("attentionState")%>
+				</th>
+				<th>
+					<%= myAttention_message.get(i).get("productName")%>
+				</th>
+				<th>
+					<%= myAttention_message.get(i).get("productType")%>
+				</th>
+				<th>
+					更多操作
+				</th>
 			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					天津电力建设有限公司
-				</td>
-				<td>
-					互相关注
-				</td>
-				<td>
-					天津电力建设有限公司增信私募债
-				</td>
-				<td>
-					单一债
-				</td>
-				<td>
-					<button class="private_letter">私信</button>
-				</td>
-			</tr>
+			<% } %>
 		</table>
 		<div class="page">
 			

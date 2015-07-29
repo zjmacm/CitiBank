@@ -36,6 +36,9 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="/company/isource" title="">
+                                    <span>资料管理</span>
+
                                 <a href="/company/invetfinane.htm" title="">
                                     <span>业务洽谈</span>
                                 </a>
