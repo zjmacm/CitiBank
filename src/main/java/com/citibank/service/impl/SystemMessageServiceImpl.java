@@ -51,7 +51,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         int pageIndex = 0;
         if(flag == 0)//代表企业
         {
-            String sql = "select * from message where companyId=:companyId and flag=0 and ss=0";
+            String sql = "select * from message where companyId=:companyId and flag=0 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
@@ -67,7 +67,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         }
         else if(flag == 1)//代表投资者
         {
-            String sql = "select * from message where companyId=:companyId and flag=1 and ss=0";
+            String sql = "select * from message where companyId=:companyId and flag=1 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
@@ -89,7 +89,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         int pageIndex = 0;
         if(flag == 0)//代表企业
         {
-            String sql = "select * from message where companyId=:companyId and flag=0 and ss=0";
+            String sql = "select * from message where companyId=:companyId and flag=0 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
@@ -105,7 +105,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         }
         else if(flag == 1)//代表投资者
         {
-            String sql = "select * from message where time=:time and flag=1 and ss=0";
+            String sql = "select * from message where time=:time and flag=1 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
@@ -127,7 +127,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         int pageIndex = 0;
         if(flag == 0)//代表企业
         {
-            String sql = "select * from message where content=:content and flag=0 and ss=0";
+            String sql = "select * from message where content=:content and flag=0 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
@@ -143,7 +143,7 @@ public class SystemMessageServiceImpl implements SystemMessageService{
         }
         else if(flag == 1)//代表投资者
         {
-            String sql = "select * from message where time=:time and flag=1 and ss=0";
+            String sql = "select * from message where time=:time and flag=1 and tag=0";
             pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
             Order order=new Order().asc("companyId");
             Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);

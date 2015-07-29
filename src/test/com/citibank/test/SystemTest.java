@@ -5,7 +5,6 @@ import com.citibank.common.IdUtil;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.*;
-import net.sf.json.JSONArray;
 import com.citibank.service.AppointService;
 import com.citibank.service.CompanyService;
 import com.citibank.service.InvestorService;
@@ -43,6 +42,10 @@ public class SystemTest {
     @Autowired
     private SystemMessageService systemMessageService;
 
+    @Autowired
+    private AttentionService attentionService;
+
+
     @Test
     public void testIntention()
     {
@@ -52,7 +55,6 @@ public class SystemTest {
     @Test
     public void testSql(){
         //assetService.getTotalMoney("123","1_month");
-        appointService.getAppoint("123", true, "name", "", 1, 10);
         investorService.getInvestorInfo("123");
     }
     @Test
@@ -104,12 +106,28 @@ public class SystemTest {
     @Test
     public void testAttention()
     {
+//        Map<String,Object> map = new HashMap<String, Object>();
+//        map.put("companyId", "a");//公司id
+//        map.put("pageIndex",1);//起始位置
+//        Page page = attentionService.getMyAttentionByCompanyId(map);
+//        System.out.println(page.getList().toString());
+//        String sql = "select * from stockcreditor,attention WHERE attention.stockCreditorId = stockcreditor.id AND attention.companyId = 'a'";
+//        System.out.println(mySQLSimpleDao.queryForList(sql).toString());
+        Map<String,Object> map0 = new HashMap<String, Object>();
+        map0.put("investorId", "o");//公司id
+        map0.put("pageIndex",1);//起始位置
+        Page results = attentionService.getMyAttentionByInvestorId(map0);
+        System.out.println(results.getList());
+
+    }
+    @Test
+    public void testAppoint()
+    {
         Map<String,Object> map = new HashMap<String, Object>();
-        map.put("companyId", "a");
-        map.put("pageIndex",1);
-        Page page = systemMessageService.getMessageById(map,0);
-        System.out.println(page.getList().toString());
-        //System.out.println(jsonArray);
+        map.put("companyId","a"); //公司id
+        map.put("pageIndex",1);//数据起始位置
+        map.put("flag",0);//是否已读
+        System.out.println(appointService.getAppoint(map).getList());
     }
 
 }

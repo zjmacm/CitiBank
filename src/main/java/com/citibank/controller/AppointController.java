@@ -27,10 +27,10 @@ public class AppointController {
                              @RequestParam(value = "columnName",required = false, defaultValue = "id")String columnName,
                              @RequestParam(value = "queryContent", required = false)String queryContent,
                              HttpSession session, Map<String ,Object> model){
-        Page<Map<String, Object>> result = appointService.getAppoint(session.getAttribute("userId").toString(),
-                isComplete, columnName, queryContent, pageIndex, 10);
-        model.put("pageCount", result.getpageCount());
-        model.put("data", result.getList());
+//        Page<Map<String, Object>> result = appointService.getAppoint(session.getAttribute("userId").toString(),
+//                isComplete, columnName, queryContent, pageIndex, 10);
+//        model.put("pageCount", result.getpageCount());
+//        model.put("data", result.getList());
         return "common/appoint";
     }
 
