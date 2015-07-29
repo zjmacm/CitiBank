@@ -3,6 +3,7 @@ package com.citibank.controller;
 import com.citibank.mail.MailSender;
 import com.citibank.service.CompanyService;
 import com.citibank.service.FinanceService;
+import com.citibank.service.ReportService;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -37,11 +39,18 @@ public class CompanyController {
     @Autowired
     private FinanceService financeService;
 
+    @Autowired
+    private ReportService reportService;
+
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
     //企业模式已登陆首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPage() {
+    public String getIndexPage(Map<String,Object> map) {
+        List<Map<String, Object>> policy = reportService.getInformation(7);
+        List<Map<String, Object>> market = reportService.getInformation(8);
+        map.put("policy", policy);
+        map.put("market",market);
         return "company/logined-business-index";
     }
 
@@ -107,6 +116,7 @@ public class CompanyController {
     public String getIsourcePage(HttpSession session,Map<String,Object> map) {
         String userId= (String) session.getAttribute("userId");
         Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+        userInfo.put("logo","/uploads/"+userInfo.get("logo"));
         map.put("userInfo",userInfo);
         return "company/data_management-edit";
     }
@@ -117,9 +127,6 @@ public class CompanyController {
         return "company/login";
     }
 
-
-
-
     //跳转到公司融资板块的界面
     @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)
     public String getFinancePage(){return "company/user-corporate-mode-finance-patch";}
@@ -128,18 +135,6 @@ public class CompanyController {
     @RequestMapping(value = "/management.htm",method=RequestMethod.GET)
     public String getMacthing(){
         return "company/user-corporate-mode-finance-patch";
-    }
-
-
-    //跳转到公司信息发布的界面-中心公告
-    @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
-    public String getInformationPage(){return "company/logined-company-issue";}
-
-
-    //信息发布-信用监管
-    @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
-    public String creditTakeover(){
-        return "company/information_Credit_takeover";
     }
 
     //信息发布-我要发布
@@ -181,10 +176,6 @@ public class CompanyController {
     public String getInvention2Page(){
         return "/company/release_privately_raised_bonds";
     }
-
-
-
-
 
     //验证验证码
     @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)

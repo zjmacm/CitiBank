@@ -33,10 +33,9 @@ public class FinancingController {
     public String getMatchingCompanyPage(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                          @RequestParam(value = "investArea",required = false) String investArea,
                                          @RequestParam(value = "investIndustry",required = false) String investIndustry,
-                                         @RequestParam(value = "guarantor",required = false) String guarantor,
-                                         @)
+                                         @RequestParam(value = "guarantor",required = false) String guarantor)
     {
-
+        return "";
     }
 //企业的撮合配对
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)

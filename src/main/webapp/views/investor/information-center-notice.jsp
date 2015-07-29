@@ -24,8 +24,6 @@
                 window.location.href = '/report/getReport/' + flag1 + '/' + search;
             });
         });
-
-
     </script>
 
 </head>

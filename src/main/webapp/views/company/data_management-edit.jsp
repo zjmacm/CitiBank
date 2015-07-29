@@ -6,16 +6,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="../public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/data_management-edit.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/data_management-edit.css" rel="stylesheet" type="text/css">
     <title>资料管理-编辑状态</title>
     <script>
         document.getElementById("sit").value="<%= userInfo.get("companyType")%>";
     </script>
 </head>
 <body>
-${userInfo}
 <jsp:include page="business-header.jsp"/>
 <div id="main">
     <div id="title">
@@ -34,7 +33,8 @@ ${userInfo}
                 公司名称：<%= userInfo.get("companyName")%><br/>
                 公司类型：<%= userInfo.get("companyType")%><br/>
                 所属行业：<%= userInfo.get("workingFiled")%><br/>
-                咨询电话：<input id="tel"><%= userInfo.get("consultPhone")%><br/>
+                咨询电话：<input id="tel" value="<%= userInfo.get("consultPhone")%>"><br/>
+                <%--咨询电话：<%= userInfo.get("consultPhone")%><br>--%>
                 主营业务：<%= userInfo.get("majorAffair")%><br/>
                 盈利模式：
                 <select id="sit">
@@ -55,15 +55,15 @@ ${userInfo}
             <p>
                 注册资本：<%= userInfo.get("registerCapital")%>万<br/>
                 营业执照注册号：<%= userInfo.get("businessLisence")%><br/>
-                法人代表：<input id="legal_person"><%= userInfo.get("legalPresentative")%><br/>
+                法人代表：<input id="legal_person" value="<%= userInfo.get("legalPresentative")%>"><br/>
                 注册时间：<%= userInfo.get("formedTime")%><br/>
-                总部地址：<input id="address"><%= userInfo.get("baseAddress")%><br/>
+                总部地址：<input id="address" value="<%= userInfo.get("baseAddress")%>"><br/>
                 当前信用等级：AAA<br/>
             </p>
         </div>
         <div class="box3">
             <div id="img">
-                <img src="">
+                <img src="<%= userInfo.get("logo")%>" style="width: 133px;height:183px">
             </div>
             <div id="modify">
                 <a href="">更改</a>
@@ -79,14 +79,14 @@ ${userInfo}
             <div class="box1">
                 <p>
                     公司细分行业：<%= userInfo.get("subdividedIndustry")%><br/>
-                    担保方：<input id="danbaofang"><%= userInfo.get("guarantor")%><br/>
+                    担保方：<input id="danbaofang" value="<%= userInfo.get("guarantor")%>"><br/>
                     员工人数：<input id="renshu"><br/>
                     相关机构：<input id="xiangguanjigou"><br/>
                 </p>
             </div>
             <div class="box2">
                 <p>
-                    占地面积：<input id="area"><%= userInfo.get("occupiedArea")%><br/>
+                    占地面积：<input id="area" value="<%= userInfo.get("occupiedArea")%>"><br/>
                     分厂：<input id="fenchang"><br/>
                     子公司：<input id="zigongsi"><br/>
                     驻外办事机构：<input id="banshijigou"><br/>
@@ -112,9 +112,9 @@ ${userInfo}
         <div class="box1">
             <p>优势与专长：</p>
             <div class="subbox">
-                技术优势：<input id="jishuyoushi"><%= userInfo.get("technologicalAdvantage")%><br/>
-                产品优势：<input id="chanpinyoushi"><%= userInfo.get("productAdvantage")%><br/>
-                市场优势：<input id="shichangyoushi"><%= userInfo.get("marketAdvantage")%><br/>
+                技术优势：<input id="jishuyoushi" value="<%= userInfo.get("technologicalAdvantage")%>"><br/>
+                产品优势：<input id="chanpinyoushi" value="<%= userInfo.get("productAdvantage")%>"><br/>
+                市场优势：<input id="shichangyoushi" value="<%= userInfo.get("marketAdvantage")%>"><br/>
             </div>
             <p>发展情况：<a href="">点击添加</a></p>
         </div>
