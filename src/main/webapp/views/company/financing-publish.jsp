@@ -6,8 +6,32 @@
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/finacing-publish.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
 	<meta charset="UTF-8">
 	<title>意向发布</title>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log("helloworld");
+            $.ajax({
+                url : 'getCompanyInfo',
+                type : 'post',
+                dataType : 'json',
+                data:{},
+                error:'error',
+                success:function(data){
+                    $('#name').val(data.row.NAME);
+                    $('#companyName').val(data.companyName);
+                    $('#formedTime').val(data.formedTime);
+                    $('#baseAddress').val(data.baseAddress);
+                    $('#registerCapital').val(data.registerCapital);
+                    $('#workingFiled').val(data.workingFiled);
+                }
+
+            });
+
+
+        });
+    </script>
 </head>
 
 <body>
@@ -38,14 +62,14 @@
         		<div class="basic_info">
         			<p class="tit">基本信息</p>
         			<div class="left fl">
-        				<p>公司名称：<span>自行获取</span></p>
-    					<p>公司注册时间：<span>自行获取</span></p>
-    					<p>产品类型：<span>自行获取</span></p>
+        				<p>公司名称：<span id="companyName"></span></p>
+    					<p>公司注册时间：<span id="formedTime"></span></p>
+    					<p>产品类型：<span id=""></span></p>
         			</div><!--left-->
         			<div class="right fr">
-        				<p>公司注册地区：<span>自行获取</span></p>
-    					<p>公司注册资本：<span>自行获取</span></p>
-    					<p>所属行业：<span>自行获取</span></p>
+        				<p>公司注册地区：<span id="baseAddress"></span></p>
+    					<p>公司注册资本：<span id="registerCapital"></span></p>
+    					<p>所属行业：<span id="workingFiled"></span></p>
         			</div><!--right-->
         			<div class="buttom">
     	    			<p>

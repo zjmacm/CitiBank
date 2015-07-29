@@ -24,6 +24,7 @@ import java.util.Map;
 /**
  * Created by zjm on 2015/7/13.
  */
+
 @Controller("CompanyController")
 @RequestMapping("/company")
 public class CompanyController {
@@ -132,12 +133,18 @@ public class CompanyController {
     @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
     public String getInformationPage(){return "company/logined-company-issue";}
 
+    //信息发布-私募债列表
+    @RequestMapping(value = "/private-list.htm",method = RequestMethod.GET)
+    public String getPrivateList(){return "company/message-publish-private-list";}
+
 
     //信息发布-信用监管
     @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
     public String creditTakeover(){
         return "company/information_Credit_takeover";
     }
+
+
 
     //信息发布-我要发布
     @RequestMapping(value="/message-publish.htm",method = RequestMethod.GET)
@@ -166,6 +173,12 @@ public class CompanyController {
         return "company/inquiry-protocol-detail";
     }
 
+    //电子签约-返回
+    @RequestMapping(value = "/xieyifanhui.htm",method = RequestMethod.GET)
+    public String getSign2Page(){
+        return "company/undefined-financing-sign";
+    }
+
 
     //意向发布 私募股权
     @RequestMapping(value = "/esignature.htm",method = RequestMethod.GET)
@@ -181,6 +194,13 @@ public class CompanyController {
 
 
 
+    @RequestMapping(value = "/getCompanyInfo",method = RequestMethod.POST)
+    public @ResponseBody Map<String,Object> getCompanyInfo(HttpSession session){
+        Map<String,Object> map = new HashMap<String, Object>();
+        String userId = session.getAttribute("userId").toString();
+        map = companyService.getCompanyInfo(userId);
+        return map;
+    }
 
 
     //验证验证码
@@ -238,6 +258,7 @@ public class CompanyController {
         }
         return model;
     }
+
 
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {

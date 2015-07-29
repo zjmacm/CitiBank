@@ -30,7 +30,7 @@
                           <a href="#">中心公告</a>
                        </li>
                       <li>
-                          <a href="#">私募债券列表</a>
+                          <a href="/company/private-list.htm">私募债券列表</a>
                       </li>
                       <li>
                           <a href="/company/credit-takeover.htm">信用监管报告</a>

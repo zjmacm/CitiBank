@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_privately_raised_bonds.css">
     <title>私募债</title>
 
@@ -16,16 +17,26 @@
 <jsp:include page="business-header.jsp"/>
 <div id="main_body_m">
     <div id="swap">
-        <div id="list">
-            <div id="list-title">
-                <span>意向发布</span>
+        <div class="nav">
+            <div class="title">
+                <p>意向发布</p>
+            </div><!--tit-->
+            <div class="tri">
             </div>
-            <div id="list-item">
-                <p><a href= "/company/esignature.htm" >私募债权</a></p>
-                <p></p><a href ="/company/simuzhai.htm"id="selected">私募债</a></p>
+            <div class="tri1">
             </div>
+            <div class="list">
+                <ul>
+                    <li >
+                        <a href="/company/esignature.htm">私募股权</a>
+                    </li>
+                    <li class="on">
+                        <a href="#">私募债</a>
+                    </li>
 
-        </div>
+                </ul>
+            </div><!--list-->
+        </div><!--nav-->
 
         <div class="main_body">
             <div id="main_first">
@@ -64,10 +75,12 @@
                     <br/>
                     <form class="input_form">
                         <div class="input_textarea"> 还本付息方式: </div>
-                        <textarea rows="3" cols="59"></textarea>
-                        <br/>
-                        <div class="input_textarea"> 发行完成: &nbsp;</div>
-                        <textarea rows="3" cols="60"></textarea>
+                        <textarea rows="2" cols="59"></textarea>
+                        <div id="bloak">
+
+                        </div>
+                        <div class="input_textarea"> 发行完成: &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <textarea rows="2" cols="60"></textarea>
                     </form>
                 </div>
 
@@ -135,8 +148,6 @@
         </div>
     </div>
 </div>
-
-
 
 <div id="footer">
 </div>

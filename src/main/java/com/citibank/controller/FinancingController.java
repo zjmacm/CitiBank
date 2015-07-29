@@ -16,7 +16,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/financing")
-public class FinancingController {
+public class    FinancingController {
 
     @Autowired
     private FinancingService financingService;
@@ -38,12 +38,24 @@ public class FinancingController {
                               @RequestParam(value = "fundBody", required = false, defaultValue = "-1") int fundBody,
                               @RequestParam(value = "lowMoney", required = false, defaultValue = "-1") int lowMoney,
                               @RequestParam(value = "highMoney", required = false, defaultValue = "-1") int highMoney,
+                              @RequestParam(value = "leastDemand", required = false, defaultValue = "-1") double leastDemand,
+                              @RequestParam(value = "highestDemand", required = false,defaultValue = "-1") double highestDemand,
 
 
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
         int userType = (Integer) session.getAttribute("userType");
-        Page<Map<String, Object>> page = financingService.getMatching(userId, userType, pageIndex, investArea, investIndustry, fundBody, lowMoney, highMoney);
+        Page<Map<String, Object>> page = financingService.
+                getMatching(userId,
+                        userType,
+                        pageIndex,
+                        investArea,
+                        investIndustry,
+                        fundBody,
+                        lowMoney,
+                        highMoney,
+                        leastDemand,
+                        highestDemand);
         map.put("totalPage", page.getpageCount());
         map.put("data", page.getList());
         return "";

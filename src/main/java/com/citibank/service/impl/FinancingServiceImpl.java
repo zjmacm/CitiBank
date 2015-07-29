@@ -7,6 +7,7 @@ import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.rmi.dgc.Lease;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,19 +28,29 @@ public class FinancingServiceImpl implements FinancingService {
         this.mySQLSimpleDao = mySQLSimpleDao;
     }
 
-    public Page<Map<String, Object>> getMatching(String userId, int userType, int pageIndex, String investArea, String investIndustry,
-                                                 int fundBody, int lowMoney, int highMoney) {
+    public Page<Map<String, Object>> getMatching(String userId,
+                                                 int userType,
+                                                 int pageIndex,
+                                                 String investArea,
+                                                 String investIndustry,
+                                                 int fundBody,
+                                                 int lowMoney,
+                                                 int highMoney,
+                                                 double leastDemand,
+                                                 double highestDemand) {
         Order order = new Order().asc("id");
         StringBuffer sb = new StringBuffer();
-        //
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("investArea", investArea);
         map.put("investIndustry", investIndustry);
         map.put("fundBody", fundBody);
         map.put("lowMoney", lowMoney);
         map.put("highMoney", highMoney);
+        map.put("least",leastDemand);
+        map.put("highest",highestDemand);
         if (userType == 0) {
-            sb.append("select i.productName,i.investType,i.investArea,i.investMoney,i.investorName from investor i where 1 = 1");
+            sb.append("select s.productName,s.investType,s.investArea,s.investMoney,s.investorName,v.investorName from stockcreditor s left join  investor i " +
+                    "on s.userId = i.investorId where 1 = 1");
             if (investArea != "") {
                 sb.append(" and investArea=:investArea");
             }
@@ -52,10 +63,12 @@ public class FinancingServiceImpl implements FinancingService {
             if (lowMoney != -1 && highMoney != -1) {
                 sb.append(" and investMoney between :lowMoney and :highMoney");
             }
+            if(highestDemand!=-1&&leastDemand!=-1){
+                sb.append(" and leastReturnDemand between :leastDemand and :highestDemand");
+            }
             sb.append(";");
 
         }
-
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
 
     }

@@ -29,26 +29,13 @@
     background: #2A3F4B;
     border: 1px solid #E3E3E3;
 }
-<<<<<<< HEAD
-#list-item {
-=======
 #list-item{
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
     height: 120px;
     letter-spacing: 1px;
     width: 80%;
     margin: auto auto;
 
 }
-<<<<<<< HEAD
-#list-item a {
-    display: inline-block;
-    color: #2A324B;
-    width:100%;
-
-}
-=======
->>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
 #list-item> span{
     display: block;
     width: 100%;
@@ -78,7 +65,7 @@
 
 #main_first{
     width: 100%;
-    height: 60%;
+    height: 65%;
 }
 
 .first{

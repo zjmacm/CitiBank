@@ -167,7 +167,7 @@ public class VisitorController {
         if (result == null) {
             return "visitor/customer-index";
         }
-        session.setAttribute("userTyp", result.get("userType"));
+        session.setAttribute("userType", result.get("userType"));
         if (Integer.valueOf(result.get("userType").toString()) == 0) {
             session.setAttribute("userId", result.get("userId"));
             return "main/index";

@@ -23,9 +23,9 @@
 				<div id="listContent">
 					<ul id="sidebar">
 						<li class="sidebarItem"><a href="/company/invest.htm" class="sidebarItem">中心公告</a></li>
-						<li class="sidebarItem"><a href="" class="sidebarItem">私募债券列表</a></li>
+						<li class="sidebarItem"><a href="/company/private-list.htm" class="sidebarItem">私募债券列表</a></li>
 						<li class="sidebarItem"><a href="/company/credit-takeover.htm" class="sidebarItem">信用监管报告</a></li>
-                        <li class="sidebarItem"><a href="#" class="sidebarItem">返回</a></li>
+                        <li class="sidebarItem"><a href="/company/invest.htm" class="sidebarItem">返回</a></li>
 					</ul>
 				</div>
 			</div>
