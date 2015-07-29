@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/reservation.htm" title="">
+                            <a href="/company/reservation/0" title="">
                                 <span>预约管理</span>
                             </a>
                         </li>

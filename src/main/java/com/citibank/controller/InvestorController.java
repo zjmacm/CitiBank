@@ -8,6 +8,7 @@ import com.citibank.service.AttentionService;
 import com.citibank.service.InvestorService;
 
 
+import com.citibank.service.ReportService;
 import com.citibank.service.SystemMessageService;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
@@ -43,14 +44,20 @@ public class InvestorController {
     private AttentionService attentionService;
     @Autowired
     private SystemMessageService systemMessageService;
+    @Autowired
+    private ReportService reportService;
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
 //跳转登陆界面
 
 
     //投资者模式已登陆首页
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
-    public String getIndexPage() {
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String getIndexPage(Map<String,Object> map) {
+        List<Map<String, Object>> policy = reportService.getInformation(7);
+        List<Map<String, Object>> market = reportService.getInformation(8);
+        map.put("policy", policy);
+        map.put("market",market);
         return "investor/logined-invest-index";
     }
 
@@ -72,16 +79,20 @@ public class InvestorController {
         Map<String, Object> map0 = new HashMap<String, Object>();
         map0.put("companyId", "f");//公司id;
         map0.put("pageIndex", 1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0, 1);//1代表投资者
+        Page page = systemMessageService.getSystemMessage(map0, 1);//1代表投资者
         List<Map<String, Object>> results = page.getList();
         map.put("system_message", results);
         return "investor/private-center-my-news";
     }
 
     //资料管理
-    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
-    public String getIsourcePage() {
-        return "investor/personal center_assets management";
+    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    public String getIsourcePage(HttpSession session, Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        userInfo.put("logoPath", "/uploads/"+userInfo.get("logoPath"));
+        map.put("userInfo",userInfo);
+        return "investor/personal_center_assets_management";
     }
 
     //退出按钮

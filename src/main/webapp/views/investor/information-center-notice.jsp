@@ -29,7 +29,7 @@
 </head>
 <body>
 <% List<Map<String, Object>> reports = (List<Map<String, Object>>) request.getAttribute("data");%>
-<jsp:include page="investor_header.jsp"/>
+<jsp:include page="invest-header.jsp"/>
 <div class="swap">
     <div class="nav fl">
         <div class="tit ">

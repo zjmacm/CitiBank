@@ -5,11 +5,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/personal-attiontion.css"> 
-	<script type="text/javascript" src="../public/javascripts/jquery.min.js"></script>
-	<script type="text/javascript " src="../public/javascripts/lubotu.js"></script>
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/personal-attiontion.css"> 
+	<script type="text/javascript" src="/public/javascripts/jquery.min.js"></script>
+	<script type="text/javascript " src="/public/javascripts/lubotu.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$(".select").each(function(){
@@ -108,22 +108,22 @@
 				    <ul> 
 				    	<li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner1.jpg">
+				       			<img src="/public/images/company-service-banner1.jpg">
 				       		</a>
 				       	</li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner2.jpg">
+				       			<img src="/public/images/company-service-banner2.jpg">
 				       		</a>
 				       </li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner3.jpg">
+				       			<img src="/public/images/company-service-banner3.jpg">
 				       		</a>
 				       </li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner4.jpg">
+				       			<img src="/public/images/company-service-banner4.jpg">
 				       		</a>
 				       	</li>
 				     </ul>
@@ -137,22 +137,22 @@
 				    <ul> 
 				    	<li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner2.jpg">
+				       			<img src="/public/images/company-service-banner2.jpg">
 				       		</a>
 				       	</li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner4.jpg">
+				       			<img src="/public/images/company-service-banner4.jpg">
 				       		</a>
 				       </li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner3.jpg">
+				       			<img src="/public/images/company-service-banner3.jpg">
 				       		</a>
 				       </li>
 				       <li>
 				       		<a href="#" target="_blank">
-				       			<img src="../public/images/company-service-banner1.jpg">
+				       			<img src="/public/images/company-service-banner1.jpg">
 				       		</a>
 				       	</li>
 				     </ul>

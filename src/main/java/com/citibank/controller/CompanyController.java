@@ -7,10 +7,7 @@ import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -87,20 +84,7 @@ public class CompanyController {
         Map<String,Object> map0 = new HashMap<String, Object>();
         map0.put("companyId","a");//公司id;
         map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表企业
-        List<Map<String,Object>> results = page.getList();
-        map.put("system_message",results);
-        return "company/private-center-my-news";
-    }
-
-    //系统信息
-    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
-    public String getS_messagePage(Map<String,Object> map)
-    {
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId","a");//公司id;
-        map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表系统消息
+        Page page = systemMessageService.getSystemMessage(map0,0);//0代表企业
         List<Map<String,Object>> results = page.getList();
         map.put("system_message",results);
         return "company/private-center-my-news";
@@ -119,43 +103,43 @@ public class CompanyController {
     }
 
     //预约管理
-    @RequestMapping(value = "/reservation.htm", method = RequestMethod.GET)
-    public String getReservationPage(Map<String,Object> map)
+    @RequestMapping(value = "/reservation/{type}", method = RequestMethod.GET)
+    public String getReservationPage(@PathVariable("type")int type, HttpSession session, Map<String,Object> map)
     {
-        map.put("companyId","a"); //公司id
+        map.put("user_id",session.getAttribute("userId")); //公司id
         map.put("pageIndex",1);//数据起始位置
-        map.put("flag",0);//是否已读
+        map.put("flag",type);//是否已读
         Page page = appointService.getAppoint(map);
         List<Map<String,Object>> results = page.getList();
         map.put("manage_message_current",results);
         return "company/reservation-management-current-reservation";
     }
-
-    //当前预约
-    @RequestMapping(value = "/reservation_current.htm", method = RequestMethod.GET)
-    public String getReservation_currentPage(Map<String,Object> map)
-    {
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",0);//是否已读-未读
-        Page page = appointService.getAppoint(map);
-        List<Map<String,Object>> results = page.getList();
-        map.put("manage_message_current",results);
-        return "company/reservation-management-current-reservation";
-    }
-
-    //已完成预约
-    @RequestMapping(value = "/reservation_finish.htm", method = RequestMethod.GET)
-    public String getReservation_finishPage(Map<String,Object> map)
-    {
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",1);//是否已读-已读
-        Page page = appointService.getAppoint(map);
-        List<Map<String,Object>> results = page.getList();
-        map.put("manage_message_finish",results);
-        return "company/reservation-management-finished-reservation";
-    }
+//
+//    当前预约
+//    @RequestMapping(value = "/reservation_current.htm", method = RequestMethod.GET)
+//    public String getReservation_currentPage(Map<String,Object> map)
+//    {
+//        map.put("companyId","a"); //公司id
+//        map.put("pageIndex",1);//数据起始位置
+//        map.put("flag",0);//是否已读-未读
+//        Page page = appointService.getAppoint(map);
+//        List<Map<String,Object>> results = page.getList();
+//        map.put("manage_message_current",results);
+//        return "company/reservation-management-current-reservation";
+//    }
+//
+//    已完成预约
+//    @RequestMapping(value = "/reservation_finish.htm", method = RequestMethod.GET)
+//    public String getReservation_finishPage(Map<String,Object> map)
+//    {
+//        map.put("companyId","a"); //公司id
+//        map.put("pageIndex",1);//数据起始位置
+//        map.put("flag",1);//是否已读-已读
+//        Page page = appointService.getAppoint(map);
+//        List<Map<String,Object>> results = page.getList();
+//        map.put("manage_message_finish",results);
+//        return "company/reservation-management-finished-reservation";
+//    }
 
     //资料管理
     @RequestMapping(value = "/isource", method = RequestMethod.GET)

@@ -64,7 +64,7 @@
 </head>
 
 <body>
-    <jsp:include page="investor_header.jsp"/>
+    <jsp:include page="invest-header.jsp"/>
     <div id="main">
         <div id="content">
             <div class="banner" id="first-glance">

@@ -24,6 +24,8 @@ DROP TABLE IF EXISTS `appointment`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `appointment` (
   `id` varchar(32) NOT NULL,
+  `userId` VARCHAR(32) NOT NULL COMMENT '预约本方id',
+  `appointmentId` VARCHAR(32) NOT NULL COMMENT '预约方id',
   `appointmentName` varchar(50) NOT NULL COMMENT '预约方',
   `contractWay` int(11) NOT NULL COMMENT '联系方式',
   `appointmentTime` date NOT NULL COMMENT '预约时间',
@@ -287,15 +289,11 @@ CREATE TABLE `message` (
   `id` varchar(32) NOT NULL,
   `time` date NOT NULL COMMENT '时间',
   `content` varchar(255) NOT NULL COMMENT '内容',
-  `investorId` varchar(32) DEFAULT NULL,
-  `companyId` varchar(32) DEFAULT NULL,
+  `userId` varchar(32) DEFAULT NULL,
+  `otherId` varchar(32) DEFAULT NULL,
   `flag` int(1) NOT NULL,
   `status` int(1) DEFAULT NULL COMMENT '0是未读，1是已读',
-  PRIMARY KEY (`id`),
-  KEY `mesInvestorId` (`investorId`),
-  KEY `mesCompanyId` (`companyId`),
-  CONSTRAINT `mesCompanyId` FOREIGN KEY (`companyId`) REFERENCES `company` (`companyId`),
-  CONSTRAINT `mesInvestorId` FOREIGN KEY (`investorId`) REFERENCES `investor` (`investorId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
