@@ -24,20 +24,24 @@ public class FinancingController {
     private FinancingService financingService;
 
     //撮合配对的页面,也是投资板块的首页
-    @RequestMapping(value = "Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage() {
-        return "investor/user-corporate-mode-finance-patch";
+    @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
+    public String getMatchingPage(Map<String, Object> map) {
+        map.put("data", financingService.getDefault().getList());
+        System.out.println(map);
+        return "investor/company-corporate-mode-finance-patch";
     }
+
     //投资者的撮合配对
     @RequestMapping(value = "/investor/matching")
-    public String getMatchingCompanyPage(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
-                                         @RequestParam(value = "investArea",required = false) String investArea,
-                                         @RequestParam(value = "investIndustry",required = false) String investIndustry,
-                                         @RequestParam(value = "guarantor",required = false) String guarantor)
-    {
-        return "";
+    public String getMatchingCompanyPage(@RequestParam Map<String, Object> reqs,
+                                         @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                                         HttpSession session, Map<String, Object> map) {
+        map.put("data", financingService.getMatchingCompany(reqs, pageIndex).getList());
+        System.out.println(map);
+        return "/company/company-corporate-mode-finance-patch";
     }
-//企业的撮合配对
+
+    //企业的撮合配对
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
@@ -49,9 +53,9 @@ public class FinancingController {
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
         int userType = (Integer) session.getAttribute("userType");
-        Page<Map<String,Object>> page = financingService.getMatching(userId,userType,pageIndex,investArea,investIndustry,fundBody,lowMoney,highMoney);
-        map.put("totalPage",page.getpageCount());
-        map.put("data",page.getList());
+        Page<Map<String, Object>> page = financingService.getMatching(userId, userType, pageIndex, investArea, investIndustry, fundBody, lowMoney, highMoney);
+        map.put("totalPage", page.getpageCount());
+        map.put("data", page.getList());
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }

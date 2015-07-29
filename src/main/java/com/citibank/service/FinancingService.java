@@ -13,8 +13,9 @@ public interface FinancingService {
 
     public Page<Map<String,Object>> getMatching(String userId,int userType,int pageIndex,String investArea,String investIndustry,int fundBody,int lowMoney, int highMoney);
 
+    public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 
-
+    public Page<Map<String,Object>> getDefault();
 
 
 
