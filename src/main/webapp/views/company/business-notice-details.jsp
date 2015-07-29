@@ -12,31 +12,34 @@
 <body>
 <jsp:include page="business-header.jsp"/>
 <div class="main">
-        <div class="container">
-            <div class="sidebar">
-                <div class="sidebar-title">
-                    <p>信息发布</p>
-                </div>
-                <div id="triangle-up"></div>
-                <div class="sidebar-list">
-                    <div>
-                        <p><a href="">中心公告</a></p>
-                        <P><a href="">私募债券列表</a></P>
-                        <p><a href="">信用监管报告</a></p>
-                        <p><a href="">我要发布</a></p>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-title">
+                <p>信息发布</p>
             </div>
-            <div class="content">
-                <div class="header">
-                    公告详情
-                </div>
-                <div class="content-main">
+            <div id="triangle-up"></div>
+            <div class="sidebar-list">
+                <div>
+                    <p><a href="">中心公告</a></p>
 
+                    <P><a href="">私募债券列表</a></P>
+
+                    <p><a href="">信用监管报告</a></p>
+
+                    <p><a href="">我要发布</a></p>
                 </div>
             </div>
         </div>
+        <div class="content">
+            <div class="header">
+                公告详情
+            </div>
+            <div class="content-main">
+
+            </div>
+        </div>
     </div>
+</div>
 <div id="footer">
     <div id="foot-list">
     </div>

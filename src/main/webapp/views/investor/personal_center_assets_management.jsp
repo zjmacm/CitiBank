@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>个人中心-资产管理</title>
-    <link href="../public/stylesheets/personalcenter_assetsmanagement.css" type="text/css" rel="stylesheet">
-    <link href="../public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/personalcenter_assetsmanagement.css" type="text/css" rel="stylesheet">
+    <link href="/public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <% Map<String,Object> userInfo= (Map<String, Object>) request.getAttribute("userInfo");%>

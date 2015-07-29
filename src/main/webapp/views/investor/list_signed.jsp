@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/list_signed.css">
     <title></title>
 </head>

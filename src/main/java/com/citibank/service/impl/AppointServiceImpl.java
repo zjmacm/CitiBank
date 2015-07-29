@@ -1,6 +1,5 @@
 package com.citibank.service.impl;
 
-import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
@@ -46,4 +45,16 @@ public class AppointServiceImpl implements AppointService {
         }
     }
 
+    public boolean completeReservation(String reserId) {
+        Map<String,Object> columns=new HashMap<String, Object>();
+        columns.put("flag", 1);
+        Map<String,Object> cons=new HashMap<String, Object>();
+        cons.put("id", reserId);
+        try {
+            mySQLSimpleDao.update("appointment", columns, cons);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
 }

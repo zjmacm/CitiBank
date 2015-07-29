@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>个人中心-我的消息</title>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
@@ -24,6 +24,7 @@
                     <a href="/finance" title="">
                         <span class="nav-item">投资板块</span>
                     </a>
+
                     <div id="finance-subnav">
                         <ul>
                             <li>
@@ -120,6 +121,7 @@
         <div id="mainContent">
             <div id="searchForm">
                 <p>查询：</p>
+
                 <div id="searchInput">
                     <input id="searchText" type="text" placeholder="请输入关键字搜索">
                 </div>
@@ -133,89 +135,152 @@
                 <table class="hovertable">
 
                     <tr>
-                        <th>&nbsp;日期&nbsp;&nbsp;&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容&nbsp;&nbsp;&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多操作</th>
+                        <th>&nbsp;日期&nbsp;&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容&nbsp;&nbsp;&nbsp;</th>
+                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多操作</th>
                     </tr>
 
                     <!--*****************全是一样的**************************************************************************************-->
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
-                    </tr><tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                             onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                    <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
-                </tr>
-                    <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                        onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
                     </tr>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
-                    </tr><tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                             onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                    <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
-                </tr>
-
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
+                    </tr>
+                    <tr onMouseOver="this.style.backgroundColor='#ffff66';"
+                        onMouseOut="this.style.backgroundColor='#d4e3e5';">
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
+                    </tr>
+                    <tr onMouseOver="this.style.backgroundColor='#ffff66';"
+                        onMouseOut="this.style.backgroundColor='#d4e3e5';">
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
+                    </tr>
+                    <tr onMouseOver="this.style.backgroundColor='#ffff66';"
+                        onMouseOut="this.style.backgroundColor='#d4e3e5';">
+                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td>
+                        <td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a>
+                        </td>
+                    </tr>
 
 
                 </table>

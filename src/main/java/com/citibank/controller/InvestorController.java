@@ -2,12 +2,9 @@ package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
 import com.citibank.dao.Page;
-import com.citibank.entity.Attention;
 import com.citibank.mail.MailSender;
 import com.citibank.service.AttentionService;
 import com.citibank.service.InvestorService;
-
-
 import com.citibank.service.ReportService;
 import com.citibank.service.SystemMessageService;
 import com.citibank.service.impl.UploadFileService;
@@ -20,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,9 +42,6 @@ public class InvestorController {
     @Autowired
     private ReportService reportService;
     private final static String IMG_DESC_PATH = Constant.uploadPath;
-
-//跳转登陆界面
-
 
     //投资者模式已登陆首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -107,18 +99,18 @@ public class InvestorController {
         return "investor/investorLogin";
     }
 
-    //登陆
-    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-    public String doLogin(@RequestParam Map<String, Object> reqs,
-                          HttpSession session) {
-        Map<String, Object> result = investorService.loginInvestor(reqs);
-        if (result.get("result").equals("success")) {
-            session.setAttribute("userId", result.get("id"));
-            return "investor/index";
-        } else {
-            return "investor/login";
-        }
-    }
+//    登陆
+//    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
+//    public String doLogin(@RequestParam Map<String, Object> reqs,
+//                          HttpSession session) {
+//        Map<String, Object> result = investorService.loginInvestor(reqs);
+//        if (result.get("result").equals("success")) {
+//            session.setAttribute("userId", result.get("id"));
+//            return "investor/index";
+//        } else {
+//            return "investor/login";
+//        }
+//    }
 
     //跳转注册界面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)
@@ -149,7 +141,7 @@ public class InvestorController {
         if (result.equals("failed")) {
             return "investor/completeInfo";
         } else {
-            return "investor/index";
+            return "investor/logined-invest-index";
         }
     }
 

@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li id="service">
-                    <a href="/company/service.htm" title="">
+                    <a href="/asset/company/0" title="">
                         <span class="nav-item">资产管理</span>
                     </a>
                 </li>
@@ -86,7 +86,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/reservation/0" title="">
+                            <a href="/appoint/reservation/0" title="">
                                 <span>预约管理</span>
                             </a>
                         </li>

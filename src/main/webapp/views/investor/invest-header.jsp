@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li id="service">
-                        <a href="/service" title="">
+                        <a href="/asset/investor/0" title="">
                             <span class="nav-item">资产管理</span>
                         </a>
                     </li>

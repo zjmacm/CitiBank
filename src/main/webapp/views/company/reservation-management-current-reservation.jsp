@@ -2,7 +2,6 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -62,7 +61,9 @@
                         <td>&nbsp;<%= manage_message_current.get(i).get("contractWay") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("appointmentTime") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("submitTime") %>&nbsp;&nbsp;</td>
-                        <td><a class="A_finished" href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
+                        <td><a class="A_finished"
+                               href="/appoint/compReser/<%= manage_message_current.get(i).get("id")%>/${flag}">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a>
+                        </td>
                     </tr>
                     <% } %>
 
