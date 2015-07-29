@@ -50,7 +50,7 @@ public class CompanyController {
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
     //企业模式已登陆首页
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String getIndexPage() {
         return "company/logined-business-index";
     }
@@ -152,8 +152,11 @@ public class CompanyController {
     }
 
     //资料管理
-    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
-    public String getIsourcePage() {
+    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    public String getIsourcePage(HttpSession session,Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+        map.put("userInfo",userInfo);
         return "company/data_management-edit";
     }
 
@@ -164,17 +167,75 @@ public class CompanyController {
     }
 
 
-    @RequestMapping(value = "/companyLogin.htm", method = RequestMethod.GET)
-    public String getLoginPage() {
-        return "company/companyLogin";
+
+
+    //跳转到公司融资板块的界面
+    @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)
+    public String getFinancePage(){return "company/user-corporate-mode-finance-patch";}
+
+    //融资板块-撮合配对
+    @RequestMapping(value = "/management.htm",method=RequestMethod.GET)
+    public String getMacthing(){
+        return "company/user-corporate-mode-finance-patch";
     }
 
-    @RequestMapping(value = "/companyRegister.htm", method = RequestMethod.GET)
-    public String getRegisterPage() {
-        return "company/companyRegister";
+
+    //跳转到公司信息发布的界面-中心公告
+    @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
+    public String getInformationPage(){return "company/logined-company-issue";}
+
+
+    //信息发布-信用监管
+    @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
+    public String creditTakeover(){
+        return "company/information_Credit_takeover";
+    }
+
+    //信息发布-我要发布
+    @RequestMapping(value="/message-publish.htm",method = RequestMethod.GET)
+    public String getMessagePublishPage(){return "company/message-publish-my-publish";}
+
+
+
+    //跳转到公司资产管理的界面-股权管理
+    @RequestMapping(value = "/service.htm",method = RequestMethod.GET)
+    public String getServicePage(){ return "/company/logined-company-proprety-debat";}
+
+    //资产管理-债权管理
+
+    @RequestMapping(value ="/stock-manag.htm",method = RequestMethod.GET)
+    public String getServicedebatPage(){ return "/company/logined-company-proprety";}
+
+    //公司电子签约未完成
+    @RequestMapping(value = "/invetfinane.htm",method = RequestMethod.GET)
+    public String getSignPage(){
+        return "company/undefined-financing-sign";
+    }
+
+    //二级目录 融资板块-电子签约-协议查询
+    @RequestMapping(value = "/xieyichaxun.htm",method = RequestMethod.GET)
+    public String getXieyichaxunPage(){
+        return "company/inquiry-protocol-detail";
     }
 
 
+    //意向发布 私募股权
+    @RequestMapping(value = "/esignature.htm",method = RequestMethod.GET)
+    public String getInventionPage(){
+        return "company/financing-publish";
+    }
+
+    //意向发布 私募债
+    @RequestMapping(value = "/simuzhai.htm",method =RequestMethod.GET)
+    public String getInvention2Page(){
+        return "/company/release_privately_raised_bonds";
+    }
+
+
+
+
+
+    //验证验证码
     @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
     public
     @ResponseBody

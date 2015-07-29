@@ -14,43 +14,7 @@
 <body>
 <jsp:include page="invest-header.jsp"/>
 <div class="swap">
-    <div class="nav fl">
-        <div class="tit ">
-            <p>信息披露</p>
-        </div><!--tit-->
-
-        <div class="tri">
-        </div>
-        <div class="tri1">
-        </div>
-
-        <div class="list">
-            <ul>
-                <li >
-                    <a href="#">中心公告</a>
-                </li>
-                <li>
-                    <a href="#">私募债券列表</a>
-                </li>
-                <li >
-                    <a href="#">备案发行报告</a>
-                </li>
-                <li >
-                    <a href="#">转让交易报告</a>
-                </li>
-                <li >
-                    <a href="#">定期报告</a>
-                </li>
-                <li class="on">
-                    <a href="#">临时报告</a>
-                </li>
-                <li >
-                    <a href="#">信用报告</a>
-                </li>
-
-            </ul>
-        </div><!--list-->
-    </div><!--nav-->
+    <jsp:include page="task4-nav.jsp"/>
     <div class="main fl">
         <div class="main_head">
             <p>临时报告</p>

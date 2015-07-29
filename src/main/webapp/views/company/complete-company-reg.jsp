@@ -36,69 +36,7 @@
 </head>
 
 <body>
-    <div id="header">
-        <div id="header-nav">
-            <div id="nav-list">
-                <ul>
-                    <li>
-                        <a href="/index" title="">
-                            <span class="nav-item">
-								首页
-							</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/finance" title="">
-                            <span class="nav-item">融资企业</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/invest" title="">
-                            <span class="nav-item">投资中心</span>
-                        </a>
-                    </li>
-                    <li id="service">
-                        <a href="/service" title="">
-                            <span class="nav-item">企业服务</span>
-                        </a>
-                        <div id="service-subnav">
-                            <ul>
-                                <li>
-                                    <a href="/management" title="">
-                                        <span>资产管理</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/esignature" title="">
-                                        <span>电子签约</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/invetfinane" title="">
-                                        <span>投/融资</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="nav-login">
-                <ul>
-                    <li>
-                        <a href="/login" title="">
-                            <span>登陆</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/reg" title="">
-                            <span>注册</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<jsp:include page="business-header.jsp"/>
     <div id="main">
         <div id="content">
             <div id="sitenav">
@@ -120,7 +58,7 @@
                         <ul>
                             <li>
                                 <span class="label">企业类型:</span>
-                                <select name="" class="reg-input">
+                                <select name="companyType" class="reg-input">
                                     <option value =""></option>
                                     <option value ="0">有限责任公司</option>
                                     <option value ="1">股份有限公司</option>
@@ -142,7 +80,7 @@
                                 <input type="text" name="legalPresentative" class="reg-input">
                             </li>
                             <li>
-                                <span class="label">成立时间:</span>companyName
+                                <span class="label">成立时间:</span>
                                 <input type="text" name="formedTime" class="reg-input" id="date">
                             </li>
                             <li>

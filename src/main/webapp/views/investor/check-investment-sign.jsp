@@ -99,28 +99,7 @@
         </div>
     </div>
     <div class="wrap">
-        <div class="nav">
-          <div class="title">
-              <p>电子签约</p>
-          </div><!--tit-->
-          <div class="tri">
-          </div>
-          <div class="tri1">
-          </div>
-          <div class="list">
-            <ul>
-                <li class="on">
-                    <a href="/electronical/signContract.htm">协议签约</a>
-                </li>
-                <li>
-                    <a href="/electronical/checkContract">协议查询</a>
-                </li>
-                <li>
-                    <a href="/electronical/getElectronicalPage">返回</a>
-                </li>
-            </ul>
-           </div><!--list-->
-        </div><!--nav-->
+        <jsp:include page="list_signed.jsp"/>
         </div>
         <div class="main">
             <p class="welcome">

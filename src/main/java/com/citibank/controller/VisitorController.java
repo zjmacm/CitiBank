@@ -81,13 +81,11 @@ public class VisitorController {
             investorService.registerInvestor(reqs);
             String id= (String) reqs.get("investorId");
             session.setAttribute("investorId", id);
-            System.out.println(id);
             return "investor/complete-reg";
         } else{
             companyService.userRegister(reqs);
             String id=(String)reqs.get("companyId");
-            session.setAttribute("companyId",id);
-            System.out.println(id);
+            session.setAttribute("companyId", id);
             return "company/complete-company-reg";
         }
 
@@ -140,6 +138,7 @@ public class VisitorController {
         return "visitor/customer-service-asset";
     }
 
+    //验证验证码
     @RequestMapping(value = "/codeCheck", method = RequestMethod.POST)
     public
     @ResponseBody
@@ -169,10 +168,10 @@ public class VisitorController {
         session.setAttribute("userTyp", result.get("userType"));
         if (Integer.valueOf(result.get("userType").toString()) == 0) {
             session.setAttribute("userId", result.get("userId"));
-            return "main/index";
+            return "company/index";
         } else {
             session.setAttribute("userId", result.get("userId"));
-            return "main/index";
+            return "investor/index";
         }
     }
 
@@ -204,7 +203,7 @@ public class VisitorController {
         if (result.get("userType").toString().equals("1")) {
             return "investor/index";
         } else {
-            return "company/index";
+            return "company/logined-business-index";
         }
     }
 

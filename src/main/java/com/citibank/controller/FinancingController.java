@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 2015/7/21.
  */
+//撮合配对的页面
 @Controller
 @RequestMapping(value = "/financing")
 public class FinancingController {
@@ -26,9 +28,18 @@ public class FinancingController {
     public String getMatchingPage() {
         return "investor/user-corporate-mode-finance-patch";
     }
+    //投资者的撮合配对
+    @RequestMapping(value = "/investor/matching")
+    public String getMatchingCompanyPage(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
+                                         @RequestParam(value = "investArea",required = false) String investArea,
+                                         @RequestParam(value = "investIndustry",required = false) String investIndustry,
+                                         @RequestParam(value = "guarantor",required = false) String guarantor,
+                                         @)
+    {
 
-
-    @RequestMapping(value = "Matching", method = RequestMethod.POST)
+    }
+//企业的撮合配对
+    @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
                               @RequestParam(value = "investIndustry", required = false, defaultValue = "") String investIndustry,
@@ -39,10 +50,11 @@ public class FinancingController {
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
         int userType = (Integer) session.getAttribute("userType");
-        Page<Map<String, Object>> page = financingService.getMatching(userId, userType, pageIndex, investArea, investIndustry, fundBody, lowMoney, highMoney);
-        map.put("totalPage", page.getpageCount());
-        map.put("data", page.getList());
-        return "";
+        Page<Map<String,Object>> page = financingService.getMatching(userId,userType,pageIndex,investArea,investIndustry,fundBody,lowMoney,highMoney);
+        map.put("totalPage",page.getpageCount());
+        map.put("data",page.getList());
+        System.out.println(page.getList());
+        return "/company/itemcuohepeidui";
     }
 
 }
