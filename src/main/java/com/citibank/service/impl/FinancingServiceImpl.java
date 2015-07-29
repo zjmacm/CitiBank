@@ -12,7 +12,10 @@ import java.util.Map;
 
 /**
  * Created by zjm on 2015/7/21.
+ * 公司的撮合配对
+ * 加上投资者的撮合配对
  */
+
 @Service("FinancingService")
 public class FinancingServiceImpl implements FinancingService {
 
@@ -39,7 +42,7 @@ public class FinancingServiceImpl implements FinancingService {
         map.put("lowMoney", lowMoney);
         map.put("highMoney", highMoney);
         if (userType == 0) {
-            sb.append("select i.productName,i.investType,i.investArea,i.investMoney,i.investorName from investor i where 1 = 1");
+            sb.append("select i.productName,i.investType,i.investArea,i.fundBody,i.investMoney,i.investorName from investor i where 1 = 1");
             if (investArea != "") {
                 sb.append(" and investArea=:investArea");
             }

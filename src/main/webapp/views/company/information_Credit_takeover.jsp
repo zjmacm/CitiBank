@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,16 +8,41 @@
     <link href="../public/stylesheets/task4-nav.css" type="text/css" rel="stylesheet"/>
     <link href="../public/stylesheets/information_issue.css" type="text/css" rel="stylesheet"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>临时报告</title>
+    <title>信用监管报告</title>
 </head>
-
 <body>
-<jsp:include page="invest-header.jsp"/>
+<jsp:include page="business-header.jsp"/>
 <div class="swap">
-    <jsp:include page="task4-nav.jsp"/>
+    <div class="nav fl">
+        <div class="tit ">
+            <p>信息发布</p>
+        </div><!--tit-->
+
+        <div class="tri">
+        </div>
+        <div class="tri1">
+        </div>
+
+        <div class="list">
+            <ul>
+                <li >
+                    <a href="/company/invest.htm">中心公告</a>
+                </li>
+                <li>
+                    <a href="#">私募债券列表</a>
+                </li>
+                <li class="on">
+                    <a href="#">信用监管报告</a>
+                </li>
+                <li >
+                    <a href="/company/message-publish.htm">我要发布</a>
+                </li>
+            </ul>
+        </div><!--list-->
+    </div><!--nav-->
     <div class="main fl">
         <div class="main_head">
-            <p>临时报告</p>
+            <p>信用监管报告</p>
             <div class="search">
                 <input type="text" class="input"  placeholder="请输入关键字搜索" >
                 <button class="search_button">&nbsp;&nbsp;&nbsp;搜&nbsp;索</button>

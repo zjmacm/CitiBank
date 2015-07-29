@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+
 <div class="list">
-    <ul id="addclass">
+    <ul>
         <li>
             <a href="/report/getReport/0">中心公告</a>
         </li>

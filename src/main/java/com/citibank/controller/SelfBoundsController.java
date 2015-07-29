@@ -20,7 +20,7 @@ public class SelfBoundsController {
 
     @Autowired
     private SelfBoundsService selfBoundsService;
-
+//私募债
     @RequestMapping(value = "/getSelfBounds.htm", method = RequestMethod.GET)
     public String getSelfBounds(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,

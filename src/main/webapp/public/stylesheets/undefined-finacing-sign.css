@@ -4,6 +4,11 @@
 	margin:0 auto;
 	
 }
+
+#footer{
+	clear:both;
+}
+
 img{border:none;}
 li{list-style:none;}
 .clearfix:after{
@@ -20,7 +25,10 @@ body{
 }
 .main{
 	float: left;
-	width: 600px;		
+
+	width: 580px;
+
+	width: 600px;
 	border: 1px solid #fff;
 	background-color: white;
 	margin-left: 10px;
@@ -42,12 +50,20 @@ body{
 }
 .left_line{
 	float: left;
+
+	width: 180px;
+
 	width: 200px;
+
 	border: 1px solid #767B91;
 }
 .right_line{
 	float: right;
+
+	width: 180px;
+
 	width: 200px;
+
 	border: 1px solid #767B91;
 }
 .tit{	
@@ -55,8 +71,13 @@ body{
 	float: left;
 	font-size: 1.3em;
 	color: #2A324B;
+
+	margin: 0 38px;
+	margin-top: -14px;
+
 	margin: 0 32px;
 	margin-top: -11px;
+
 }
 .progress{
 	

@@ -255,6 +255,8 @@ li{
 .slider{
 	margin-bottom: 70px;
 	overflow: hidden;
+<<<<<<< HEAD
+=======
 }
 
 .invest-more {
@@ -274,4 +276,5 @@ li{
 .invest-more span a {
 	color:#2A214B;
 >>>>>>> 4a6bb769e84987de92667a211d4f37c2edb7c85a
+>>>>>>> 499af6892c0e79b9ef5c4869cd591272c08bd639
 }

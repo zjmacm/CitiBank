@@ -3,7 +3,7 @@
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
     	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-	<title>已登录-企业模式-融资板块（撮合配对）</title>
+	<title>已登录-投资者-融资板块（撮合配对）</title>
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
