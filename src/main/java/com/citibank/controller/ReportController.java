@@ -8,6 +8,7 @@ import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -26,21 +27,49 @@ public class ReportController {
     @Autowired
     private FinanceService financeService;
 
-    @RequestMapping(value = "/getReport.htm", method = RequestMethod.GET)
-    public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "2") int pageIndex,
-                            @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
-                            @RequestParam(value = "type", required = false, defaultValue = "0") int type,
+    @RequestMapping(value = "/getReport/{type}", method = RequestMethod.GET)
+    public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                            @PathVariable(value = "type") Integer type,
                             Map<String, Object> map) {
+        Page<Map<String, Object>> result = reportService.getReport(pageIndex, "", type);
+        map.put("pageIndex", pageIndex);
+        map.put("totalPage", result.getpageCount());
+        map.put("data", result.getList());
+        map.put("flag1", type);
+        return "investor/information-center-notice";
+    }
+
+    @RequestMapping(value = "/getReport/{type}/{queryContent}", method = RequestMethod.GET)
+    public String searchReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                               @PathVariable(value = "queryContent") String queryContent,
+                               @PathVariable(value = "type") Integer type,
+                               Map<String, Object> map) {
         Page<Map<String, Object>> result = reportService.getReport(pageIndex, queryContent, type);
         map.put("pageIndex", pageIndex);
         map.put("totalPage", result.getpageCount());
         map.put("data", result.getList());
-        return "investor/inquiry-protocol-detail";
+        map.put("flag1", type);
+        return "investor/information-center-notice";
+    }
+
+    @RequestMapping(value = "/getCReport/{type}", method = RequestMethod.GET)
+    public String getCReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                             @PathVariable(value = "type") Integer type,
+                             Map<String, Object> map) {
+        type = type != 2 ? type : 6;
+        Page<Map<String, Object>> result = reportService.getReport(pageIndex, "", type);
+        map.put("pageIndex", pageIndex);
+        map.put("totalPage", result.getpageCount());
+        map.put("data", result.getList());
+        map.put("flag1", type);
+        return "company/logined-company-issue";
     }
 
     @RequestMapping(value = "/policy.htm", method = RequestMethod.GET)
-    public @ResponseBody Map<String,Object> getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
-                                  Map<String, Object> map) {
+    public
+    @ResponseBody
+    Map<String, Object> getPolicyReport(@RequestParam(value = "type", required = false, defaultValue = "0") int type,
+                                        Map<String, Object> map) {
         List<Map<String, Object>> result = reportService.getInformation(type);
         map.put("data", result);
         return map;
@@ -50,56 +79,57 @@ public class ReportController {
     public String getReportDetail(@PathVariable("reportId") String reportId) {
         String fileUrl = reportService.getReportFile(reportId);
 //        map.put("url", fileUrl);
-        return "uploads/"+fileUrl;
+        return "uploads/" + fileUrl;
     }
 
     @RequestMapping("/companyInfo.htm")
-    public String getCompanyInfo(@RequestParam("companyId")String companyId, HttpSession session,
-                                 Map<String,Object> map){
-        String userId= (String) session.getAttribute("userId");
+    public String getCompanyInfo(@RequestParam("companyId") String companyId, HttpSession session,
+                                 Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
         List<Map<String, Object>> onTime = reportService.getReportById(6, companyId);
         List<Map<String, Object>> temporary = reportService.getReportById(7, companyId);
         Map<String, Object> finance = financeService.getFinance(userId);
-        map.put("onTime",onTime);
-        map.put("temporary",temporary);
+        map.put("onTime", onTime);
+        map.put("temporary", temporary);
         map.put("finance", finance);
         return "";
     }
+
     //中心公告
     @RequestMapping("/getCenter")
-    public String getCenterPage()
-    {
+    public String getCenterPage() {
         return "investor/information-center-notice";
     }
+
     //信用公告
     @RequestMapping("/getCredit")
-    public String getCreditPage()
-    {
+    public String getCreditPage() {
         return "investor/information_credit";
     }
+
     //备案发行公告
     @RequestMapping("/getIssue")
-    public String getIssuePage()
-    {
+    public String getIssuePage() {
         return "investor/information_issue";
     }
+
     //定期公告
     @RequestMapping("/getRegular")
-    public String getRegularPage()
-    {
+    public String getRegularPage() {
         return "investor/information_regular";
     }
+
     //转让交易
     @RequestMapping("/getTransform")
-    public String getTransformPage()
-    {
+    public String getTransformPage() {
         return "investor/information_transform";
     }
+
     //临时报告
     @RequestMapping("/getTemporary")
-    public String getTemporaryPage()
-    {
+    public String getTemporaryPage() {
         return "investor/information_temporary";
     }
+
 
 }

@@ -16,22 +16,36 @@ import java.util.Map;
  */
 @Service
 public class AppointServiceImpl implements AppointService {
-
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    public Page<Map<String, Object>> getAppoint(String userId, boolean isComplete, String columnName, String queryContent, int pageIndex,int pageSize) {
-        StringBuffer sb=new StringBuffer();
-        sb.append(isComplete?" where flag = 1 ":"");
-        if(sb.length()!=0) {
-            sb.append(queryContent == null ? "" : " and appointmentName like " + ConditionUtil.like(queryContent));
-        }else{
-            sb.append(queryContent == null ? "" : " where appointmentName like " + ConditionUtil.like(queryContent));
+    public MySQLSimpleDaoImpl getMySQLSimpleDao() {
+        return mySQLSimpleDao;
+    }
+
+    public void setMySQLSimpleDao(MySQLSimpleDaoImpl mySQLSimpleDao) {
+        this.mySQLSimpleDao = mySQLSimpleDao;
+    }
+
+
+
+    public Page<Map<String, Object>> getAppoint(Map<String,Object> reqs) {
+        String sql = "select * from appointment where companyId=:companyId and flag =:flag";
+        int pageSize = 10;
+        String companyId = (String)reqs.get("companyId");
+        int flag = Integer.parseInt(reqs.get("flag").toString());
+        int pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
+        Order order=new Order().asc("companyId");
+        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
+        if(page.getSize() > 0)
+        {
+            System.out.println("找到page!");
+            return page;
         }
-        String sql="select appointmentName, contractWay, appointmentTime, submitTime from appointment"+sb.toString();
-        Order order=new Order().asc(columnName);
-        Page<Map<String, Object>> result = mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), pageIndex, pageSize, order);
-        return result;
+        else {
+            System.out.println("没找到page!");
+            return null;
+        }
     }
 
 

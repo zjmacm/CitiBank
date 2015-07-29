@@ -7,13 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
- * Created by zjm on 2015/7/21.
+ * Created by Administrator on 2015/7/21.
  */
+//撮合配对的页面
 @Controller
 @RequestMapping(value = "/financing")
 public class    FinancingController {
@@ -21,17 +23,26 @@ public class    FinancingController {
     @Autowired
     private FinancingService financingService;
 
-
-    //撮合配对
-
     //撮合配对的页面,也是投资板块的首页
-    @RequestMapping(value = "Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage() {
-        return "investor/user-corporate-mode-finance-patch";
+    @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
+    public String getMatchingPage(Map<String, Object> map) {
+        map.put("data", financingService.getDefault().getList());
+        System.out.println(map);
+        return "investor/company-corporate-mode-finance-patch";
     }
 
+    //投资者的撮合配对
+    @RequestMapping(value = "/investor/matching")
+    public String getMatchingCompanyPage(@RequestParam Map<String, Object> reqs,
+                                         @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                                         HttpSession session, Map<String, Object> map) {
+        map.put("data", financingService.getMatchingCompany(reqs, pageIndex).getList());
+        System.out.println(map);
+        return "/company/company-corporate-mode-finance-patch";
+    }
 
-    @RequestMapping(value = "Matching", method = RequestMethod.POST)
+    //企业的撮合配对
+    @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
                               @RequestParam(value = "investIndustry", required = false, defaultValue = "") String investIndustry,
@@ -40,7 +51,6 @@ public class    FinancingController {
                               @RequestParam(value = "highMoney", required = false, defaultValue = "-1") int highMoney,
                               @RequestParam(value = "leastDemand", required = false, defaultValue = "-1") double leastDemand,
                               @RequestParam(value = "highestDemand", required = false,defaultValue = "-1") double highestDemand,
-
 
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
@@ -58,9 +68,8 @@ public class    FinancingController {
                         highestDemand);
         map.put("totalPage", page.getpageCount());
         map.put("data", page.getList());
-        return "";
+        System.out.println(page.getList());
+        return "/company/itemcuohepeidui";
     }
-
-
 
 }

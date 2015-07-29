@@ -1,4 +1,8 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
@@ -10,23 +14,11 @@
 
 </head>
 <body>
+    <% List<Map<String,Object>>  manage_message_current = (List<Map<String,Object>>)request.getAttribute("manage_message_current"); %>
 	<jsp:include page="business-header.jsp"/>
 	<div id="mainContainer">
 		<div id="main">
-			<div id="sidebarContainer">
-				<div id="listTitle">
-					<ul id="sidebarTitle">
-						<li class="sidebarItem">预约管理</li>
-					</ul>
-				</div>	
-				<div id="listContent">
-					<ul id="sidebar">
-						<li class="sidebarItem"><a href="/company/reservation_current.htm" class="sidebarItem">当前预约</a></li>
-						<li class="sidebarItem"><a href="/company/reservation_finish.htm" class="sidebarItem">已完成预约</a></li>
-						
-					</ul>
-				</div>
-			</div>
+			<jsp:include page="reservation_list_appointment.jsp"/>
 			<div id="mainContent">
                      <div id="searchForm">
                      <p>查询：</p>
@@ -58,104 +50,13 @@
                         </tr>
                         
    <!--*****************全是一样的**************************************************************************************-->
+                            <% for(int i=0;i<manage_message_current.size();i++){ %>
                         <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                             onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
+                            <td><%= manage_message_current.get(i).get("appointmentName")%>>&nbsp;</td><td>&nbsp;<%= manage_message_current.get(i).get("contractWay") %>&nbsp;</td><td>&nbsp;<%= manage_message_current.get(i).get("appointmentTime") %>&nbsp;</td> <td>&nbsp;<%= manage_message_current.get(i).get("submitTime") %>&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
                         </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                         <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                         <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                         <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>王森淼&nbsp;</td><td>&nbsp;18840838187&nbsp;</td><td>&nbsp;2015-08-01&nbsp;</td> <td>&nbsp;2015-01-01&nbsp;&nbsp;</td><td><a class="A_finished"href="链接地址">&nbsp;&nbsp;&nbsp;完成&nbsp;&nbsp;&nbsp;</a></td>
-                        </tr>
-                      
-    
+                            <% } %>
+
                     </table>
                     <hr class="hr1"/>
                     </div>

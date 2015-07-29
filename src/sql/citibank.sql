@@ -87,18 +87,18 @@ CREATE TABLE `company` (
   `password` varchar(50) NOT NULL,
   `companyCode` varchar(50) NOT NULL COMMENT '公司代码',
   `companyName` varchar(50) NOT NULL COMMENT '公司名称',
-  `companyType` int(1) NOT NULL COMMENT '公司类型,0为有限责任公司，1为股份有限公司，2为个人合伙企业，3为个人独资企业，4为其它',
-  `registerCapital` int(11) NOT NULL COMMENT '注册资本',
-  `businessLisence` varchar(50) NOT NULL COMMENT '营业执照注册号',
-  `legalPresentative` varchar(50) NOT NULL COMMENT '法定代表人',
-  `formedTime` varchar(50) NOT NULL COMMENT '成立时间',
+  `companyType` int(1) COMMENT '公司类型,0为有限责任公司，1为股份有限公司，2为个人合伙企业，3为个人独资企业，4为其它',
+  `registerCapital` int(11) COMMENT '注册资本',
+  `businessLisence` varchar(50) COMMENT '营业执照注册号',
+  `legalPresentative` varchar(50) COMMENT '法定代表人',
+  `formedTime` varchar(50) COMMENT '成立时间',
   `officialWeb` varchar(50) DEFAULT NULL COMMENT '官网地址',
-  `baseAddress` varchar(50) NOT NULL COMMENT '总部地址',
-  `registerAddress` varchar(50) NOT NULL COMMENT '注册地址',
-  `consultPhone` varchar(20) NOT NULL COMMENT '咨询电话',
-  `workingFiled` varchar(50) NOT NULL COMMENT '所属行业',
-  `majorAffair` varchar(50) NOT NULL COMMENT '主营业务',
-  `revenueModels` int(50) NOT NULL COMMENT '盈利模式，0为关系服务，1为产业标准，2为客户解决方案，3为个性挖掘，4为速度领先，5为数据处理，6为成本占优，7为中转站模式，8为其它',
+  `baseAddress` varchar(50) COMMENT '总部地址',
+  `registerAddress` varchar(50) COMMENT '注册地址',
+  `consultPhone` varchar(20) COMMENT '咨询电话',
+  `workingFiled` varchar(50) COMMENT '所属行业',
+  `majorAffair` varchar(50) COMMENT '主营业务',
+  `revenueModels` int(50) COMMENT '盈利模式，0为关系服务，1为产业标准，2为客户解决方案，3为个性挖掘，4为速度领先，5为数据处理，6为成本占优，7为中转站模式，8为其它',
   `teamDescription` varchar(50) DEFAULT NULL COMMENT '团队描述',
   `logo` varchar(255) DEFAULT NULL COMMENT 'logo路径',
   `companyPicture` varchar(255) DEFAULT NULL COMMENT '公司图片路径',
@@ -235,21 +235,22 @@ CREATE TABLE `investor` (
   `investorId` varchar(32) NOT NULL COMMENT '投资人id',
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `investorName` varchar(20) NOT NULL COMMENT '投资人名称',
-  `fundBody` int(10) NOT NULL COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
-  `companyName` varchar(50) NOT NULL COMMENT '公司名称',
-  `address` varchar(50) NOT NULL COMMENT '公司地址',
-  `registeredCapital` int(11) NOT NULL COMMENT '注册资本',
-  `legalRepresentative` varchar(50) NOT NULL COMMENT '法定代表人信息',
-  `legalRepresentativeMandator` varchar(50) NOT NULL COMMENT '法定代表人委托人信息',
-  `companyScale` varchar(50) NOT NULL COMMENT '公司规模',
-  `totalMoney` int(11) NOT NULL COMMENT '拥有资金额',
-  `consultPhone` varchar(50) NOT NULL COMMENT '联系方式',
-  `companyArea` varchar(50) NOT NULL COMMENT '公司所在地区',
-  `investArea` varchar(50) NOT NULL COMMENT '投资地区',
-  `investField` varchar(50) NOT NULL COMMENT '投资领域',
-  `investStage` int(1) NOT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
-  `investPeriod` varchar(50) NOT NULL COMMENT '投资周期',
+  `investorName` varchar(20) DEFAULT NULL COMMENT '投资人名称',
+  `fundBody` int(10) DEFAULT NULL COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
+  `companyName` varchar(50) DEFAULT NULL COMMENT '公司名称',
+  `companyCode` varchar(50) DEFAULT NULL COMMENT '公司代码',
+  `address` varchar(50) DEFAULT NULL COMMENT '公司地址',
+  `registeredCapital` int(11) DEFAULT NULL COMMENT '注册资本',
+  `legalRepresentative` varchar(50) DEFAULT NULL COMMENT '法定代表人信息',
+  `legalRepresentativeMandator` varchar(50) DEFAULT NULL COMMENT '法定代表人委托人信息',
+  `companyScale` varchar(50) DEFAULT NULL COMMENT '公司规模',
+  `totalMoney` int(11) DEFAULT NULL COMMENT '拥有资金额',
+  `consultPhone` varchar(50) DEFAULT NULL COMMENT '联系方式',
+  `companyArea` varchar(50) DEFAULT NULL COMMENT '公司所在地区',
+  `investArea` varchar(50) DEFAULT NULL COMMENT '投资地区',
+  `investField` varchar(50) DEFAULT NULL COMMENT '投资领域',
+  `investStage` varchar(20) DEFAULT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
+  `investPeriod` varchar(50) DEFAULT NULL COMMENT '投资周期',
   `investIndustry` varchar(50) DEFAULT NULL COMMENT '投资行业',
   `investMoney` int(11) DEFAULT NULL COMMENT '投资意向金额',
   `investType` varchar(50) DEFAULT NULL COMMENT '投资类型',
@@ -260,7 +261,7 @@ CREATE TABLE `investor` (
   `shareholderBackground` varchar(50) DEFAULT NULL COMMENT '股东背景',
   `managedFund` varchar(50) DEFAULT NULL COMMENT '管理基金',
   `logoPath` varchar(255) DEFAULT NULL COMMENT 'logo路径',
-  `baseAddress` varchar(50) NOT NULL COMMENT '总部地址',
+  `baseAddress` varchar(50) DEFAULT NULL COMMENT '总部地址',
   PRIMARY KEY (`investorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -271,6 +272,7 @@ CREATE TABLE `investor` (
 
 LOCK TABLES `investor` WRITE;
 /*!40000 ALTER TABLE `investor` DISABLE KEYS */;
+INSERT INTO `investor` VALUES ('292ABC3521394FDEB6F553E5BD0D3C49','liwangadd@gmail.com','liwang','李旺',NULL,'大连理工大学','1234567890',NULL,10000,'张三','李四',NULL,NULL,'010123456789',NULL,'大连','电子','初期','2',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'38A9A6C44DBB409298922DB1169666D9.jpg','北京');
 /*!40000 ALTER TABLE `investor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,4 +381,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-28 11:50:47
+-- Dump completed on 2015-07-28 20:57:46

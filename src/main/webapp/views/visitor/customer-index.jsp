@@ -123,8 +123,10 @@
 </head>
 
 <body>
-<%List<Map<String,Object>> policy= (List<Map<String, Object>>) request.getAttribute("policy");
-    List<Map<String,Object>> market= (List<Map<String, Object>>) request.getAttribute("market");%>
+<%
+    List<Map<String, Object>> policy = (List<Map<String, Object>>) request.getAttribute("policy");
+    List<Map<String, Object>> market = (List<Map<String, Object>>) request.getAttribute("market");
+%>
     <jsp:include page="customer-header.jsp"/>
     <div id="main">
         <div id="content">
@@ -266,7 +268,7 @@
                             <div class="title-nav">
                                 <span>政策资讯</span>
                                 <span class="more">
-                                    <a href="/customer/policy_more" title="">更多</a>
+                                    <a href="/customer/report_more/7" title="">更多</a>
                                 </span>
                             </div>
                             <div id="policy-item">
@@ -292,7 +294,7 @@
                             <div class="title-nav">
                                 <span>市场资讯</span>
                                 <span class="more">
-                                    <a href="/customer/mark_more" title="">更多</a>
+                                    <a href="/customer/report_more/8" title="">更多</a>
                                 </span>
                             </div>
                             <div id="market-item">

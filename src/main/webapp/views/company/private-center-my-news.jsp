@@ -1,4 +1,8 @@
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
@@ -10,23 +14,11 @@
 
 </head>
 <body>
+<%List<Map<String,Object>> system_message= (List<Map<String, Object>>) request.getAttribute("system_message");%>
 	<jsp:include page="business-header.jsp"/>
 	<div id="mainContainer">
 		<div id="main">
-			<div id="sidebarContainer">
-				<div id="listTitle">
-					<ul id="sidebarTitle">
-						<li class="sidebarItem">我的消息</li>
-					</ul>
-				</div>	
-				<div id="listContent">
-					<ul id="sidebar">
-						<li class="sidebarItem"><a href="/company/s_message" class="sidebarItem">系统信息</a></li>
-						<li class="sidebarItem"><a href="/company/p_letter" class="sidebarItem">私信</a></li>
-						<li class="sidebarItem"><a href="/company/d_disclosure" class="sidebarItem">定向披露</a></li>
-					</ul>
-				</div>
-			</div>
+			<jsp:include page="list_direct.jsp"/>
 			<div id="mainContent">
                      <div id="searchForm">
                      <p>查询：</p>
@@ -47,91 +39,12 @@
                         </tr>
                         
    <!--*****************全是一样的**************************************************************************************-->
+                            <% for(int i=0;i<system_message.size();i++){  %>
                         <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                             onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
+                            <td>&nbsp;&nbsp;&nbsp;<%= system_message.get(i).get("time")%>&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;<%= system_message.get(i).get("content")%>&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="/company/<%= system_message.get(i).get("companyId")%>>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td>
                         </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                        <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-                       <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                            onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                            <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司欢迎您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;企业详情</a></td> 
-                        </tr>
-    
+                            <% }%>
                     </table>
                     <hr class="hr1"/>
                     </div>

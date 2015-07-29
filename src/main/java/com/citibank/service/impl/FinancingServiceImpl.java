@@ -6,6 +6,7 @@ import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.rmi.dgc.Lease;
 import java.util.HashMap;
@@ -13,7 +14,10 @@ import java.util.Map;
 
 /**
  * Created by zjm on 2015/7/21.
+ * 公司的撮合配对
+ * 加上投资者的撮合配对
  */
+
 @Service("FinancingService")
 public class FinancingServiceImpl implements FinancingService {
 
@@ -49,8 +53,10 @@ public class FinancingServiceImpl implements FinancingService {
         map.put("least",leastDemand);
         map.put("highest",highestDemand);
         if (userType == 0) {
+
             sb.append("select s.productName,s.investType,s.investArea,s.investMoney,s.investorName,v.investorName from stockcreditor s left join  investor i " +
                     "on s.userId = i.investorId where 1 = 1");
+
             if (investArea != "") {
                 sb.append(" and investArea=:investArea");
             }
@@ -70,6 +76,20 @@ public class FinancingServiceImpl implements FinancingService {
 
         }
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
+
+    }
+    public Page<Map<String,Object>> getDefault()
+    {
+        String sql="select * from stockcreditor";
+        return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,new Order());
+    }
+    public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex)
+    {
+        String sql="select * from stockcreditor where investArea=:investArea " +
+                "and investIndustry=:investIndustry and investMoney between :lowMoney and :highMoney " +
+                "and creditRank between :lowCreditRank and :highCreditRank and leastReturnDemand between :lowLeastReturnDemand and :highLeastReturnDemand";
+        Order order=new Order().asc("productName");
+        return mySQLSimpleDao.pageQuery(sql,map,(pageIndex-1)*10+1,10,order);
 
     }
 

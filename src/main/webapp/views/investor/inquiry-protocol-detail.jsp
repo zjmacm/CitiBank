@@ -102,20 +102,7 @@
     	</div>
 	<div id="mainContainer">
 		<div id="main">
-			<div id="sidebarContainer">
-				<div id="listTitle">
-					<ul id="sidebarTitle">
-						<li class="sidebarItem">电子签约</li>
-					</ul>
-				</div>	
-				<div id="listContent">
-					<ul id="sidebar">
-						<li class="sidebarItem"><a href="" class="sidebarItem">协议签约</a></li>
-						<li class="sidebarItem"><a href="" class="sidebarItem">协议查询</a></li>
-						<li class="sidebarItem"><a href="" class="sidebarItem">返回</a></li>
-					</ul>
-				</div>
-			</div>
+			<jsp:include page="list_signed.jsp">
 			<div id="mainContent">
             <br>
             <br>

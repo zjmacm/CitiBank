@@ -22,8 +22,9 @@ public interface FinancingService {
                                                 double leastDemand,
                                                 double heightDemand);
 
+    public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 
-
+    public Page<Map<String,Object>> getDefault();
 
 
 

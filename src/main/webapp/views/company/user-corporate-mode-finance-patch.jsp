@@ -1,16 +1,24 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <head>
 	<meta charset="UTF-8">
     	<meta name="renderer" content="webkit">
     	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
+<<<<<<< HEAD
 	<title>已登录-企业模式-融资板块（撮合配对）</title>
+=======
+	<title>已登录-投资者-融资板块（撮合配对）</title>
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
 	<link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="business-header.jsp"/>
+=======
+	<jsp:include page="business-header.jsp"/>
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
 	<div id="mainContainer">
 		<div id="main">
 			<div id="mainContent">
@@ -19,7 +27,11 @@
                                 <div id="textClear">
                                     <a href=""><img src="../public/images/cancel.png"></a>
                                 </div>
+<<<<<<< HEAD
                                 <input id="searchText" type="text" placeholder="请输入关键字搜索">
+=======
+                                <input id="searchText" type="text" placeholder="请输入关键字搜索">i
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                         </div>
                         <a href="" style="display:inline;">
                             <div id="searchButton">确定</div>
@@ -36,6 +48,7 @@
                     <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;" onclick="$('#patchPanel').slideToggle('slow');">显示/隐藏筛选信息</a>
                     <div id="patchPanel">
                         <div>地区筛选：<div class="selectItemGroup">
+<<<<<<< HEAD
                                 <span class="selectItem"><input type="checkbox">黑龙江</span>
                                 <span class="selectItem"><input type="checkbox">吉林</span>
                                 <span class="selectItem"><input type="checkbox">辽宁</span>
@@ -69,11 +82,26 @@
 							<span class="selectItem"><input type="checkbox">重庆 </span>
 							<span class="selectItem"><input type="checkbox">香港</span>
 							<span class="selectItem"><input type="checkbox">台湾</span>
+=======
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+                                <span class="selectItem"><input type="checkbox">地区一</span>
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                             </div>
                             
                         </div>
                         <br/>
                         <div>行业筛选：<div class="selectItemGroup">
+<<<<<<< HEAD
                                 <span class="selectItem"><input type="checkbox">金融投资</span>
                                 <span class="selectItem"><input type="checkbox">房地产</span>
                                 <span class="selectItem"><input type="checkbox">能源</span>
@@ -115,6 +143,20 @@
 
 
 
+=======
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+                                <span class="selectItem"><input type="checkbox">行业一</span>
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                             </div>
                         </div>
                         <br/>
@@ -122,6 +164,7 @@
                                 <span class="selectItem"><input type="checkbox">全部</span>
                                 <span class="selectItem"><input type="checkbox">个人资金</span>
                                 <span class="selectItem"><input type="checkbox">企业资金</span>
+<<<<<<< HEAD
 								<span class="selectItem"><input type="checkbox">天使投资</span>
 								<span class="selectItem"><input type="checkbox">VC投资</span>
 								<span class="selectItem"><input type="checkbox">PE投资</span>
@@ -138,6 +181,12 @@
 								<span class="selectItem"><input type="checkbox">资产管理</span>
                                 <span class="selectItem"><input type="checkbox">其他资金</span>
 						 </div>
+=======
+                                <span class="selectItem"><input type="checkbox">投资公司</span>
+                                <span class="selectItem"><input type="checkbox">基金公司</span>
+                                <span class="selectItem"><input type="checkbox">其他资金</span>
+                            </div>
+>>>>>>> b84d26c8c3eaf801a46a481e32ec3eb00ad2bbd6
                         </div>
                         <br/>
                         <div>金额区间：<div class="selectItemGroup">

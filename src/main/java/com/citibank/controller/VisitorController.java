@@ -81,13 +81,11 @@ public class VisitorController {
             investorService.registerInvestor(reqs);
             String id= (String) reqs.get("investorId");
             session.setAttribute("investorId", id);
-            System.out.println(id);
             return "investor/complete-reg";
         } else{
             companyService.userRegister(reqs);
             String id=(String)reqs.get("companyId");
-            session.setAttribute("companyId",id);
-            System.out.println(id);
+            session.setAttribute("companyId", id);
             return "company/complete-company-reg";
         }
 
@@ -170,10 +168,10 @@ public class VisitorController {
         session.setAttribute("userType", result.get("userType"));
         if (Integer.valueOf(result.get("userType").toString()) == 0) {
             session.setAttribute("userId", result.get("userId"));
-            return "main/index";
+            return "redirect:/company/index";
         } else {
             session.setAttribute("userId", result.get("userId"));
-            return "main/index";
+            return "redirect:/investor/index";
         }
     }
 
@@ -203,18 +201,18 @@ public class VisitorController {
         session.setAttribute("userId", result.get("userId"));
         session.setAttribute("userType", result.get("userType"));
         if (result.get("userType").toString().equals("1")) {
-            return "investor/index";
+            return "redirect:/investor/index";
         } else {
-            return "company/index";
+            return "redirect:/company/index";
         }
     }
 
     //首页-更多政策咨询
-    @RequestMapping(value = "/policy_more", method = RequestMethod.GET)
-    public String getPolicy_morePage(Map<String, Object> map) {
-        map.put("flag", 0);
-        List<Map<String, Object>> result = reportService.getInformation(7);
-        map.put("information",result);
+    @RequestMapping(value = "/report_more/{type}", method = RequestMethod.GET)
+    public String getPolicy_morePage(@PathVariable("type")int type, Map<String, Object> map) {
+        map.put("flag", type);
+        List<Map<String, Object>> result = reportService.getInformation(type);
+        map.put("information", result);
         return "visitor/customer-information-policy";
     }
 

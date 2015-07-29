@@ -5,14 +5,14 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../public/stylesheets/font.css">
-    <link rel="stylesheet" href="../public/stylesheets/customer-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/complete-company-reg.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" href="../public/stylesheets/kalendae.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
-    <script type="text/javascript" src="../public/javascripts/imd.js"></script>
-    <script type="text/javascript" src="../public/javascripts/kalendae.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/font.css">
+    <link rel="stylesheet" href="/public/stylesheets/customer-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/complete-company-reg.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" href="/public/stylesheets/kalendae.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/imd.js"></script>
+    <script type="text/javascript" src="/public/javascripts/kalendae.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         imd.Event('#fileInput').on('change', function(e) {
@@ -42,13 +42,13 @@
             <div id="sitenav">
                 <ul>
                     <li>
-                        <span><img src="../public/images/1.png" alt="" />设置登录名</span>
+                        <span><img src="/public/images/1.png" alt="" />设置登录名</span>
                     </li>
                     <li>
-                        <span class="sitnav-active"><img src="../public/images/2.png" alt="" />填写注册信息</span>
+                        <span class="sitnav-active"><img src="/public/images/2.png" alt="" />填写注册信息</span>
                     </li>
                     <li>
-                        <span><img src="../public/images/3.png" alt="" />注册完成</span>
+                        <span><img src="/public/images/3.png" alt="" />注册完成</span>
                     </li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
                         <ul>
                             <li>
                                 <span class="label">企业类型:</span>
-                                <select name="" class="reg-input">
+                                <select name="companyType" class="reg-input">
                                     <option value =""></option>
                                     <option value ="0">有限责任公司</option>
                                     <option value ="1">股份有限公司</option>

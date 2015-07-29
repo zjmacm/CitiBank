@@ -22,13 +22,13 @@ public class ReportServiceImpl implements ReportService {
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     public Page<Map<String,Object>> getReport(int pageIndex, String queryContent,int type) {
-        StringBuffer templateSql = new StringBuffer("select i.id, i.fileName from information i where i.flag = :type");
+        StringBuffer templateSql = new StringBuffer("select i.id, i.fileName, i.path from information i where i.flag = :type");
         if(!queryContent.equals("")){
-            templateSql.append(" and i.name like %:query_content%");
+            templateSql.append(" and i.fileName like :query_content");
         }
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("type",type);
-        map.put("query_content", queryContent);
+        map.put("query_content", "%"+queryContent+"%");
         return mySQLSimpleDao.pageQuery(templateSql.toString(), map, pageIndex, 10, new Order().asc("id"));
     }
 
