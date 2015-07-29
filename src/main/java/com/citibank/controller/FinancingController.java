@@ -30,13 +30,12 @@ public class FinancingController {
     }
     //投资者的撮合配对
     @RequestMapping(value = "/investor/matching")
-    public String getMatchingCompanyPage(@RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
-                                         @RequestParam(value = "investArea",required = false) String investArea,
-                                         @RequestParam(value = "investIndustry",required = false) String investIndustry,
-                                         @RequestParam(value = "guarantor",required = false) String guarantor,
-                                         @)
+    public String getMatchingCompanyPage(@RequestParam Map<String,Object> reqs,
+                                         @RequestParam(value = "pageIndex",required = false,defaultValue = "0") int pageIndex,
+                                         HttpSession session,Map<String,Object> map)
     {
-
+        map.put("data",financingService.getMatchingCompany(reqs,pageIndex).getList());
+        return "/company/company-corporate-mode-finance-patch";
     }
 //企业的撮合配对
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)

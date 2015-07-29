@@ -6,6 +6,7 @@ import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -60,6 +61,15 @@ public class FinancingServiceImpl implements FinancingService {
         }
 
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
+
+    }
+    public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex)
+    {
+        String sql="select * from stockcreditor where investorArea=:investorArea " +
+                "and investorIndustry=:investorIndustry and investorMoney between :lowMoney and :highMoney " +
+                "and creditRank=:creditRank";
+        Order order=new Order().asc("productName");
+        return mySQLSimpleDao.pageQuery(sql,map,(pageIndex-1)*10,10,order);
 
     }
 

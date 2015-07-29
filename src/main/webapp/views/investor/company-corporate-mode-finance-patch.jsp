@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -10,6 +12,8 @@
 </head>
 
 <body>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.List" %><% List<Map<String,Object>> matching=(List<Map<String,Object>>)request.getAttribute("data");%>
     <div id="header">
         <div id="header-nav">
             <div id="nav-list">
@@ -126,7 +130,7 @@
                 <div id="patchPanel">
                     <div>地区筛选：
                         <div class="selectItemGroup">
-                            <span class="selectItem"><input type="checkbox">地区一</span>
+                            <span class="selectItem"><input type="checkbox" >地区一</span>
                             <span class="selectItem"><input type="checkbox">地区一</span>
                             <span class="selectItem"><input type="checkbox">地区一</span>
                             <span class="selectItem"><input type="checkbox">地区一</span>
@@ -192,25 +196,26 @@
                         </a>
                     </div>
                 </div>
-                <!--******* *************************************** table**********************************************-->
                 <div id="TableList">
                     <table>
                         <tr>
                             <th>产品名称</th>
                             <th>类型</th>
                             <th>地区</th>
+                            <th>所属行业</th>
                             <th>资金类型</th>
-                            <th>金额</th>
-                            <th class="rightItem">投资者</th>
+                            <th>收益率</th>
+                            <th class="rightItem">信用等级</th>
                         </tr>
                         <!--*****************全是一样的**************************************************************************************-->
-                        <tr>
+                       <%-- <tr>
                             <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
                             <td>股权投资</td>
                             <td>深圳市</td>
+                            <td>教师</td>
                             <td>企业资金</td>
-                            <td>4000万</td>
-                            <td>王女士</td>
+                            <td>6.1%</td>
+                            <td>AAA</td>
                         </tr>
                         <tr>
                             <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
@@ -243,7 +248,17 @@
                             <td>企业资金</td>
                             <td>4000万</td>
                             <td>王女士</td>
+                        </tr>--%>
+                        <% for (int i=0;i<matching.size();i++){%>
+                        <tr>
+                            <td>"<%matching.get(i).get("productName");%>"</td>
+                            <td>"<%matching.get(i).get("investType");%>"</td>
+                            <td>"<%matching.get(i).get("investArea");%>"</td>
+                            <td>"<%matching.get(i).get("investArea");%>"</td>
+                            <td>"<%matching.get(i).get("fundBody");%>"</td>
+                            <td>"<%matching.get(i).get("investorName");%>"</td>
                         </tr>
+                        <%}%>
                     </table>
                 </div>
                 <div id="page">
