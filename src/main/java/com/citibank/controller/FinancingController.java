@@ -24,17 +24,20 @@ public class FinancingController {
     private FinancingService financingService;
 
     //撮合配对的页面,也是投资板块的首页
-    @RequestMapping(value = "Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage() {
-        return "investor/user-corporate-mode-finance-patch";
+    @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
+    public String getMatchingPage(Map<String,Object> map) {
+        map.put("data",financingService.getDefault().getList());
+        System.out.println(map);
+        return "investor/company-corporate-mode-finance-patch";
     }
     //投资者的撮合配对
     @RequestMapping(value = "/investor/matching")
     public String getMatchingCompanyPage(@RequestParam Map<String,Object> reqs,
-                                         @RequestParam(value = "pageIndex",required = false,defaultValue = "0") int pageIndex,
+                                         @RequestParam(value = "pageIndex",required = false,defaultValue = "1") int pageIndex,
                                          HttpSession session,Map<String,Object> map)
     {
         map.put("data",financingService.getMatchingCompany(reqs,pageIndex).getList());
+        System.out.println(map);
         return "/company/company-corporate-mode-finance-patch";
     }
 //企业的撮合配对

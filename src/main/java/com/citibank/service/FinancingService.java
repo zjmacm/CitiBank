@@ -15,7 +15,7 @@ public interface FinancingService {
 
     public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 
-
+    public Page<Map<String,Object>> getDefault();
 
 
 

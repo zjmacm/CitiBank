@@ -36,7 +36,8 @@ public class SystemTest {
 
     @Autowired
     private CompanyService comService;
-
+    @Autowired
+    private FinancingService financingService;
     @Autowired
     private IntentionServiceImpl intentionService;
 	
@@ -44,10 +45,13 @@ public class SystemTest {
     private SystemMessageService systemMessageService;
 
     @Test
-    public void testIntention()
+    public void testfid()
     {
+        System.out.println(financingService.getDefault().getList());
 
     }
+
+
 
     @Test
     public void testSql(){

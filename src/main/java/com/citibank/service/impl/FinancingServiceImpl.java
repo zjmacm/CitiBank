@@ -63,13 +63,18 @@ public class FinancingServiceImpl implements FinancingService {
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
 
     }
+    public Page<Map<String,Object>> getDefault()
+    {
+        String sql="select * from stockcreditor";
+        return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,new Order());
+    }
     public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex)
     {
-        String sql="select * from stockcreditor where investorArea=:investorArea " +
-                "and investorIndustry=:investorIndustry and investorMoney between :lowMoney and :highMoney " +
-                "and creditRank=:creditRank";
+        String sql="select * from stockcreditor where investArea=:investArea " +
+                "and investIndustry=:investIndustry and investMoney between :lowMoney and :highMoney " +
+                "and creditRank between :lowCreditRank and :highCreditRank and leastReturnDemand between :lowLeastReturnDemand and :highLeastReturnDemand";
         Order order=new Order().asc("productName");
-        return mySQLSimpleDao.pageQuery(sql,map,(pageIndex-1)*10,10,order);
+        return mySQLSimpleDao.pageQuery(sql,map,(pageIndex-1)*10+1,10,order);
 
     }
 
