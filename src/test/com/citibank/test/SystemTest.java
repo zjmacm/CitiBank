@@ -39,7 +39,7 @@ public class SystemTest {
     private FinancingService financingService;
     @Autowired
     private IntentionServiceImpl intentionService;
-	
+
     @Autowired
     private SystemMessageService systemMessageService;
 
@@ -48,95 +48,82 @@ public class SystemTest {
 
 
     @Test
-    public void testfid()
-    {
+    public void testfid() {
         System.out.println(financingService.getDefault().getList());
 
     }
 
 
-
     @Test
-    public void testSql(){
+    public void testSql() {
         //assetService.getTotalMoney("123","1_month");
         investorService.getInvestorInfo("123");
     }
+
     @Test
-    public void testH()
-    {
+    public void testH() {
         System.out.println("HHHHHHHHHH");
     }
 
     @Test
-    public void test(){
+    public void test() {
         System.out.println("Hello");
     }
 
     @Test
-    public void testComReg(){
-        Map<String,Object> map = new HashMap<String,Object>();
+    public void testComReg() {
+        Map<String, Object> map = new HashMap<String, Object>();
 
-        map.put("username","zjm");
-        map.put("password","123");
-        map.put("companyName","1");
-        map.put("companyType","1");
-        map.put("registerCapital","10000");
-        map.put("bussinessLicense","123456");
-        map.put("legalPresentative","刘浩");
+        map.put("username", "zjm");
+        map.put("password", "123");
+        map.put("companyName", "1");
+        map.put("companyType", "1");
+        map.put("registerCapital", "10000");
+        map.put("bussinessLicense", "123456");
+        map.put("legalPresentative", "刘浩");
       /*  Date date = new Date();*/
        /* map.put("formedTime",date);*/
         /*map.put("officialWeb","http://www.google.com.hk");*/
-        map.put("baseAddress","newYork");
-        map.put("registerAddress","newYork");
-        map.put("consultPhone","010-110");
-        map.put("workingFiled","金融");
-        map.put("majorAffair","软件");
-        map.put("revenueModels","0");
-       comService.userRegister(map);
+        map.put("baseAddress", "newYork");
+        map.put("registerAddress", "newYork");
+        map.put("consultPhone", "010-110");
+        map.put("workingFiled", "金融");
+        map.put("majorAffair", "软件");
+        map.put("revenueModels", "0");
+        comService.userRegister(map);
     }
 
     @Test
-    public void testBaseDao(){
+    public void testBaseDao() {
         String id = IdUtil.uuid();
         String name = "zjmhaha";
         String pwd = "123456";
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("userId",id);
-        map.put("userName",name);
-        map.put("userPwd",pwd);
-        map.put("userType",0);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userId", id);
+        map.put("userName", name);
+        map.put("userPwd", pwd);
+        map.put("userType", 0);
         mySQLSimpleDao.create("tp_users", map);
     }
-    @Test
-    public void testAttention()
-    {
-//        Map<String,Object> map = new HashMap<String, Object>();
-//        map.put("companyId", "a");//公司id
-//        map.put("pageIndex",1);//起始位置
-//        Page page = attentionService.getMyAttentionByCompanyId(map);
-//        System.out.println(page.getList().toString());
-//        String sql = "select * from stockcreditor,attention WHERE attention.stockCreditorId = stockcreditor.id AND attention.companyId = 'a'";
-//        System.out.println(mySQLSimpleDao.queryForList(sql).toString());
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("investorId", "o");//公司id
-        map0.put("pageIndex",1);//起始位置
-        Page results = attentionService.getMyAttentionByInvestorId(map0);
-        System.out.println(results.getList());
 
-    }
     @Test
-    public void testAppoint()
-    {
-        Map<String,Object> map = new HashMap<String, Object>();
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",0);//是否已读
+    public void testAppoint() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("companyId", "a"); //公司id
+        map.put("pageIndex", 1);//数据起始位置
+        map.put("flag", 0);//是否已读
         System.out.println(appointService.getAppoint(map).getList());
     }
 
+    @Test
+    public void testAttention(){
+        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
+        System.out.println(page.getList().toString());
+    }
+
 
     @Test
-    public void getUUID(){
+    public void getUUID() {
         System.out.println(IdUtil.uuid());
     }
 

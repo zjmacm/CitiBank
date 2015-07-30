@@ -55,12 +55,12 @@ public class InvestorController {
 
     //我的关注
     @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(Map<String, Object> map) {
-        Map<String, Object> map0 = new HashMap<String, Object>();
-        map0.put("investorId", "o");//公司id
-        map0.put("pageIndex", 1);//起始位置
-        Page results = attentionService.getMyAttentionByInvestorId(map0);
-        map.put("myAttention_message", results.getList());
+    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
+                                 @RequestParam(value = "queryContent",required = false, defaultValue = "") String queryContent,
+            HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column);
+        map.put("attention", results.getList());
         return "investor/personal-attiontion";
     }
 
@@ -90,7 +90,7 @@ public class InvestorController {
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public String getLogoutPage() {
-        return "investor/login";
+        return "visitor/login";
     }
 
 
@@ -98,19 +98,6 @@ public class InvestorController {
     public String getLoginPage() {
         return "investor/investorLogin";
     }
-
-//    登陆
-//    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-//    public String doLogin(@RequestParam Map<String, Object> reqs,
-//                          HttpSession session) {
-//        Map<String, Object> result = investorService.loginInvestor(reqs);
-//        if (result.get("result").equals("success")) {
-//            session.setAttribute("userId", result.get("id"));
-//            return "investor/index";
-//        } else {
-//            return "investor/login";
-//        }
-//    }
 
     //跳转注册界面
     @RequestMapping(value = "/register.htm", method = RequestMethod.GET)

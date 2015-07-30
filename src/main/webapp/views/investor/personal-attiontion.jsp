@@ -45,7 +45,7 @@
     <title>我关注的</title>
 </head>
 <body>
-<% List<Map<String, Object>> myAttention_message = (List<Map<String, Object>>) request.getAttribute("myAttention_message");%>
+<% List<Map<String, Object>> attention = (List<Map<String, Object>>) request.getAttribute("attention");%>
 <jsp:include page="invest-header.jsp"/>
 <div class="wrap">
     <div class="title">
@@ -93,19 +93,19 @@
                 更多操作
             </th>
         </tr>
-        <% for (int i = 0; i < myAttention_message.size(); i++) {%>
+        <% for (int i = 0; i < attention.size(); i++) {%>
         <tr>
             <th>
-                <%= myAttention_message.get(i).get("userName")%>
+                <%= attention.get(i).get("companyName")%>
             </th>
             <th>
-                <%= myAttention_message.get(i).get("attentionState")%>
+                <%= attention.get(i).get("attentionState")%>
             </th>
             <th>
-                <%= myAttention_message.get(i).get("productName")%>
+                <%= attention.get(i).get("productName")%>
             </th>
             <th>
-                <%= myAttention_message.get(i).get("productType")%>
+                <%= Integer.valueOf(attention.get(i).get("productType").toString())==0?"股券":"债券"%>
             </th>
             <th>
                 更多操作

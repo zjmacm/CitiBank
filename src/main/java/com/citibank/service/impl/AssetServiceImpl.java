@@ -20,14 +20,14 @@ public class AssetServiceImpl implements AssetService {
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     public Page<Map<String, Object>> getCompanyStock(String userId, int pageIndex, String queryContent,
-                                                     String duration,int type) {
+                                                     String duration, int type) {
         StringBuffer sb = new StringBuffer("select s.createTime, s.investTime, s.investMoney, sum(totalMoney) sum" +
                 " from stockcreditor where userId = :user_id and createTime < :create_time and productType = product_type");
         Map<String, Object> parms = new HashMap<String, Object>();
         parms.put("user_id", userId);
         parms.put("create_time", getAimDate(duration));
         parms.put("product_type", type);
-        if(!queryContent.equals("")) {
+        if (!queryContent.equals("")) {
             sb.append(" and productName like %:product_name%");
             parms.put("product_name", queryContent);
         }
@@ -47,17 +47,17 @@ public class AssetServiceImpl implements AssetService {
         return null;
     }
 
-    private Date getAimDate(String duration){
-        Calendar calendar=Calendar.getInstance();
-        if(duration.equals("1_month")){
+    private Date getAimDate(String duration) {
+        Calendar calendar = Calendar.getInstance();
+        if (duration.equals("1_month")) {
             calendar.add(calendar.MONTH, -1);
-        }else if(duration.equals("3_month")){
+        } else if (duration.equals("3_month")) {
             calendar.add(calendar.MONTH, -3);
-        }else if(duration.equals("6_month")){
+        } else if (duration.equals("6_month")) {
             calendar.add(calendar.MONTH, -6);
-        }else if(duration.equals("1_year")){
+        } else if (duration.equals("1_year")) {
             calendar.add(Calendar.YEAR, -1);
-        }else{
+        } else {
             calendar.add(Calendar.YEAR, -2);
         }
         return calendar.getTime();
