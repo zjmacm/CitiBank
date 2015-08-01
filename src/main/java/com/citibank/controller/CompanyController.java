@@ -250,7 +250,7 @@ public class CompanyController {
     }
 
 
-    
+
     @RequestMapping(value = "/getCompanyInfo",method = RequestMethod.POST)
     public @ResponseBody Map<String,Object> getCompanyInfo(HttpSession session){
         Map<String,Object> map = new HashMap<String, Object>();
