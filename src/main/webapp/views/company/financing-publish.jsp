@@ -1,41 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"
+        import ="java.util.*"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="../public/stylesheets/business-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/finacing-publish.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+	<link rel="stylesheet" href="/public/stylesheets/business-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/task1.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/finacing-publish.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <script type="text/javascript" src="/public/javascripts/jquery-1.7.2.min.js"></script>
 	<meta charset="UTF-8">
 	<title>意向发布</title>
     <script type="text/javascript">
-        $(document).ready(function(){
-            console.log("helloworld");
-            $.ajax({
-                url : 'getCompanyInfo',
-                type : 'post',
-                dataType : 'json',
-                data:{},
-                error:'error',
-                success:function(data){
-                    $('#name').val(data.row.NAME);
-                    $('#companyName').val(data.companyName);
-                    $('#formedTime').val(data.formedTime);
-                    $('#baseAddress').val(data.baseAddress);
-                    $('#registerCapital').val(data.registerCapital);
-                    $('#workingFiled').val(data.workingFiled);
-                }
 
-            });
-
-
-        });
     </script>
+
 </head>
 
 <body>
 <jsp:include page="business-header.jsp"/>
+<%Map<String,Object> userInfo = (Map<String,Object>)request.getAttribute("userInfo");%>
+
     <div class="wrap">
         	 <div class="nav">
                   <div class="title">
@@ -58,30 +42,31 @@
                    </div><!--list-->
             </div><!--nav-->
     	<div class="main">
-            <form action="#" method="post">
+            <form action="" method="post">
+
         		<div class="basic_info">
         			<p class="tit">基本信息</p>
         			<div class="left fl">
-        				<p>公司名称：<span id="companyName"></span></p>
-    					<p>公司注册时间：<span id="formedTime"></span></p>
-    					<p>产品类型：<span id=""></span></p>
+        				<p>公司名称：<%=userInfo.get("companyName")%></p>
+    					<p>公司注册时间：<%=userInfo.get("formedTime")%></p>
+    					<p>产品类型：<%=userInfo.get("productName")%></p>
         			</div><!--left-->
         			<div class="right fr">
-        				<p>公司注册地区：<span id="baseAddress"></span></p>
-    					<p>公司注册资本：<span id="registerCapital"></span></p>
-    					<p>所属行业：<span id="workingFiled"></span></p>
+        				<p>公司注册地区：<%=userInfo.get("baseAddress")%></p>
+    					<p>公司注册资本：<%=userInfo.get("registerCapital")%></p>
+    					<p>所属行业：<%=userInfo.get("workingFiled")%></p>
         			</div><!--right-->
         			<div class="buttom">
     	    			<p>
     	    				发行金额：
-    	    				<input type="text" >
+    	    				<input type="text" name="lowMoney">
     	    				—
-    	    				<input type="text">
+    	    				<input type="text" name="highMoney">
     	    				万
     	    			</p>
     	    			<p>
     	    				<label>发行年限：</label>
-    	    				<input type="text" id="year">
+    	    				<input type="text" name="year">
     	    				年
     	    			</p>
     	    			<p>
@@ -96,52 +81,52 @@
                     <div class="left fl">
                          <p> 
                             资金方占股比例：
-                            <input class="por" type="text">
+                            <input class="por" type="text" name="lowRatio">
                             —
-                            <input class="por" type="text">
+                            <input class="por" type="text" name="highRatio">
                             %
                          </p>
                          <p>
                              投资退出方式：
-                             <input class="exit" type="text">
+                             <input class="exit" type="text" name="exit">
                          </p>
                          <p>
                              项目所处阶段:
-                            <input class="stage" type="text">
+                            <input class="stage" type="text" name="stage">
                          </p>
                          <p>
                              最短退出年限:
-                            <input class="short" type="text">
+                            <input class="short" type="text" name="shortYear">
                          </p>
                          <p>
                              担保方:
-                            <input class="ensure" type="text">
+                            <input class="ensure" type="text" name="assure">
                          </p>
                     </div><!--left-->
                     <div class="right right1 fl">
                         <p>
                             企业当前净资产:
-                            <input  class="pro" type="text">
+                            <input  class="pro" type="text" name="property">
                             万
                         </p>
                         <p>
                              去年营业额：
-                            <input class="trunover" type="text">
+                            <input class="trunover" type="text" name="lastYearEarn">
                             万
                         </p>
                         <p>
                             公司净利润：
-                            <input  class="profits" type="text">
+                            <input  class="profits" type="text" name="profit">
                             万
                         </p>
                         <p>
                             投资门槛：
-                            <input type="text" class="threshold">
+                            <input type="text" class="threshold" name="threshold">
                             万
                         </p>
                         <p>
                             最低追加资金:
-                            <input type="text" class="add">
+                            <input type="text" class="add" name="add">
                             万
                         </p>
                     </div><!--right-->

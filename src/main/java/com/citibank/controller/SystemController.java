@@ -62,6 +62,7 @@ public class SystemController {
     }
 
 
+
     @RequestMapping("/")
     public String homePage(HttpServletRequest request, HttpSession session) {
         return "redirect:/customer/index";

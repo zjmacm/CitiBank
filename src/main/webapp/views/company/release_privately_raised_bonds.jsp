@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"
+        import="java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,11 +11,17 @@
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_privately_raised_bonds.css">
+    <script type="text/javascript" src="/public/javascripts/jquery-1.7.2.min.js"></script>
     <title>私募债</title>
+    <script type="text/javascript">
+
+
+    </script>
 
 </head>
 <body>
 <jsp:include page="business-header.jsp"/>
+<% Map<String,Object> userInfo = (Map<String,Object>) request.getAttribute("userInfo");%>
 <div id="main_body_m">
     <div id="swap">
         <div class="nav">
@@ -46,29 +53,29 @@
                 <hr >
                 <div class="first">
                     <p >
-                        公司名称：自动获取<br/>
-                        公司注册时间：自动获取<br/>
-                        产品类型：私募债<br/>
+                    <p>公司名称：<%=userInfo.get("companyName")%></p>
+                    <p>公司注册时间：<%=userInfo.get("formedTime")%></p>
+                    <p>产品类型：<%=userInfo.get("productType")%></p>
                     </p>
                 </div>
                 <div class="first">
                     <p >
-                        公司注册地区：自动获取<br/>
-                        公司注册资本：自动获取<br/>
-                        所属行业：自动获取<br/>
+                    <p>公司注册地区：<%=userInfo.get("baseAddress")%></p>
+                    <p>公司注册资本：<%=userInfo.get("registerCapital")%></p>
+                    <p>所属行业：<%=userInfo.get("workingFiled")%></p>
                     </p>
                 </div>
                 <div class="input_text">
                     <form class="input_form">
                         <label >发行金额：</label>
-                        <input class="input" type="text"/>
+                        <input class="input" type="text" id="lowMoney"/>
                         <label> — </label>
-                        <input class="input" type="text"/>
+                        <input class="input" type="text" id="highMoney"/>
                         <label>万</label>
                     </form>
                     <form >
                         <label >发行年限：</label>
-                        <input class="input" type="text"/>
+                        <input class="input" type="text" id="year"/>
                         <label> 年 </label>
 
                     </form>
@@ -96,7 +103,7 @@
                 <div class="input_text_1">
                     <form class="input_form">
                         <label >可承担最高利息:</label>
-                        <input class="input" type="text"/>
+                        <input class="input" type="text" />
                         <label> — </label>
                         <input class="input" type="text"/>
                         <label>%</label>
@@ -137,7 +144,7 @@
                     </form>
                     <from>
                         <label>还款来源:</label>&nbsp;&nbsp;&nbsp;
-                        <input type="text"/>
+                        d<input type="text"/>
                     </from>
                 </div>
                 <div id="button">

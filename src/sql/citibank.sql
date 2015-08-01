@@ -291,6 +291,7 @@ CREATE TABLE `message` (
   `companyId` varchar(32) DEFAULT NULL,
   `flag` int(1) NOT NULL,
   `status` int(1) DEFAULT NULL COMMENT '0是未读，1是已读',
+  `tag` int(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `mesInvestorId` (`investorId`),
   KEY `mesCompanyId` (`companyId`),

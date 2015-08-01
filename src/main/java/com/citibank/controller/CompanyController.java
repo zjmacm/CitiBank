@@ -1,10 +1,10 @@
 package com.citibank.controller;
 
 import com.citibank.dao.Page;
-import com.citibank.mail.MailSender;
 import com.citibank.service.*;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -184,39 +184,24 @@ public class CompanyController {
         return "company/user-corporate-mode-finance-patch";
     }
 
-
-
-    //跳转到公司信息发布的界面-中心公告
-    @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
-    public String getInformationPage(){return "company/logined-company-issue";}
-
-    //信息发布-私募债列表
-    @RequestMapping(value = "/private-list.htm",method = RequestMethod.GET)
-    public String getPrivateList(){return "company/message-publish-private-list";}
-
-
-    //信息发布-信用监管
-    @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
-    public String creditTakeover(){
-        return "company/information_Credit_takeover";
+    //意向发布 私募股权
+    @RequestMapping(value = "/esignature.htm",method = RequestMethod.GET)
+    public String getInventionPage(HttpSession session,Map<String,Object>  map){
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+      /*  userInfo.put("logo","/uploads/"+userInfo.get("logo"));*//*  userInfo.put("logo","/uploads/"+userInfo.get("logo"));*/
+        map.put("userInfo",userInfo);
+        return "company/financing-publish";
     }
 
-
-
-    //信息发布-我要发布
-    @RequestMapping(value="/message-publish.htm",method = RequestMethod.GET)
-    public String getMessagePublishPage(){return "company/message-publish-my-publish";}
-
-
-
-    //跳转到公司资产管理的界面-股权管理
-    @RequestMapping(value = "/service.htm",method = RequestMethod.GET)
-    public String getServicePage(){ return "/company/logined-company-proprety-debat";}
-
-    //资产管理-债权管理
-
-    @RequestMapping(value ="/stock-manag.htm",method = RequestMethod.GET)
-    public String getServicedebatPage(){ return "/company/logined-company-proprety";}
+    //意向发布 私募债
+    @RequestMapping(value = "/simuzhai.htm",method =RequestMethod.GET)
+    public String getInvention2Page(HttpSession session,Map<String,Object> map){
+        String id = (String) session.getAttribute("userId");
+        Map<String,Object> userInfo = companyService.getCompanyInfo(id);
+        map.put("userInfo",userInfo);
+        return "/company/release_privately_raised_bonds";
+    }
 
     //公司电子签约未完成
     @RequestMapping(value = "/invetfinane.htm",method = RequestMethod.GET)
@@ -237,22 +222,42 @@ public class CompanyController {
     }
 
 
-    //意向发布 私募股权
-    @RequestMapping(value = "/esignature.htm",method = RequestMethod.GET)
-    public String getInventionPage(){
-        return "company/financing-publish";
+    //跳转到公司信息发布的界面-中心公告
+    @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
+    public String getInformationPage(){return "company/logined-company-issue";}
+
+    //信息发布-私募债列表
+    @RequestMapping(value = "/private-list.htm",method = RequestMethod.GET)
+    public String getPrivateList(){return "company/message-publish-private-list";}
+
+
+    //信息发布-信用监管
+    @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
+    public String creditTakeover(){
+        return "company/information_Credit_takeover";
     }
 
-    //意向发布 私募债
-    @RequestMapping(value = "/simuzhai.htm",method =RequestMethod.GET)
-    public String getInvention2Page(){
-        return "/company/release_privately_raised_bonds";
-    }
+
+    //信息发布-我要发布
+    @RequestMapping(value="/message-publish.htm",method = RequestMethod.GET)
+    public String getMessagePublishPage(){return "company/message-publish-my-publish";}
+
+
+
+    //跳转到公司资产管理的界面-股权管理
+    @RequestMapping(value = "/service.htm",method = RequestMethod.GET)
+    public String getServicePage(){ return "/company/logined-company-proprety";}
+
+    //资产管理-债权管理
+
+    @RequestMapping(value ="/stock-manag.htm",method = RequestMethod.GET)
+    public String getServicedebatPage(){ return "/company/logined-company-proprety-debat";}
 
 
 
     @RequestMapping(value = "/getCompanyInfo",method = RequestMethod.POST)
     public @ResponseBody Map<String,Object> getCompanyInfo(HttpSession session){
+
         Map<String,Object> map = new HashMap<String, Object>();
         String userId = session.getAttribute("userId").toString();
         map = companyService.getCompanyInfo(userId);
@@ -283,38 +288,6 @@ public class CompanyController {
         return map;
     }
 
-    @RequestMapping(value = "/companyRegister", method = RequestMethod.POST)
-    public ModelAndView userRegister(@RequestParam Map<String, Object> reqs) {
-        //new一个模型
-        ModelAndView model = new ModelAndView();
-        String result = companyService.userRegister(reqs).get("result").toString();
-        if (result.equals("success")) {
-            MailSender.sendMail(reqs.get("username").toString(), "恭喜您注册成功");
-        }
-        model.addObject("result", result);
-        return model;
-    }
-
-    @RequestMapping(value = "/companyLogin", method = RequestMethod.POST)
-    public ModelAndView userLogin(@RequestParam Map<String, Object> reqs, HttpSession session) {
-        ModelAndView model = new ModelAndView();
-        if (!reqs.containsKey("username") || !reqs.containsKey("password")) {
-            model.addObject("result", "empty");
-        } else {
-            Map<String, Object> user = new HashMap<String, Object>();
-            user = companyService.userLogin(reqs);
-            if (user.get("result").toString().equals("success")) {
-                model.addObject("result", "success");
-
-                //登陆成功后将companyId加入session中
-                session.setAttribute("companyId", user.get("companyId"));
-                session.setAttribute("userType", 0);
-            } else {
-                model.addObject("result", "failed");
-            }
-        }
-        return model;
-    }
 
 
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
@@ -322,6 +295,13 @@ public class CompanyController {
         String userId = (String) session.getAttribute("companyId");
         map.putAll(companyService.getCompanyInfo(userId));
         return "common/userInfo";
+    }
+
+    @RequestMapping(value ="/getUserInfo.html",method = RequestMethod.GET)
+    public String getInfo(HttpSession session,Map<String,Object> map){
+        String userId = session.getAttribute("UserId").toString();
+        map = companyService.getCompanyInfo(userId);
+        return "company/financing-publish";
     }
 
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
