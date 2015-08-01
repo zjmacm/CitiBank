@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
     <title>header</title>
 </head>
 
@@ -48,12 +48,12 @@
                         </div>
                     </li>
                     <li>
-                        <a href="/report/getReport.htm" title="">
+                        <a href="/report/getReport/0" title="">
                             <span class="nav-item">信息披露</span>
                         </a>
                     </li>
                     <li id="service">
-                        <a href="/service" title="">
+                        <a href="/asset/investor/0" title="">
                             <span class="nav-item">资产管理</span>
                         </a>
                     </li>
@@ -64,12 +64,12 @@
                     <li id="user-photo">
                         <span>
 		            		<a href="_target" title="">
-		            			<img src="../public/images/user.png" alt="" />
+		            			<img src="/public/images/user.png" alt="" />
 		                	</a>
 		                </span>
                     </li>
                     <li id="go">
-                        <span id="text">我的账号<img src="../public/images/back-bottom.png"></span>
+                        <span id="text">我的账号<img src="/public/images/back-bottom.png"></span>
                         <ul>
                             <li>
                                 <a href="/investor/ifollow.htm" title="">

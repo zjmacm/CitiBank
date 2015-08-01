@@ -18,7 +18,7 @@
     </div>
     <div id="listContent">
         <ul id="sidebar">
-            <li class="sidebarItem"><a href="/company/s_message" class="sidebarItem">系统信息</a></li>
+            <li class="sidebarItem"><a href="/company/inews.htm" class="sidebarItem">系统信息</a></li>
             <li class="sidebarItem"><a href="/company/p_letter" class="sidebarItem">私信</a></li>
             <li class="sidebarItem"><a href="/company/d_disclosure" class="sidebarItem">定向披露</a></li>
         </ul>

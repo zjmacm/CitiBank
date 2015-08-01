@@ -3,18 +3,14 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
-
-    <title>已登录-投资者-融资板块（撮合配对）</title>
-
+    <title>已登录-企业模式-融资板块（撮合配对）</title>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
 </head>
 <body>
-
 <jsp:include page="business-header.jsp"/>
-
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
@@ -23,9 +19,7 @@
                     <div id="textClear">
                         <a href=""><img src="../public/images/cancel.png"></a>
                     </div>
-
                     <input id="searchText" type="text" placeholder="请输入关键字搜索">
-
                 </div>
                 <a href="" style="display:inline;">
                     <div id="searchButton">确定</div>
@@ -45,7 +39,6 @@
             <div id="patchPanel">
                 <div>地区筛选：
                     <div class="selectItemGroup">
-
                         <span class="selectItem"><input type="checkbox">黑龙江</span>
                         <span class="selectItem"><input type="checkbox">吉林</span>
                         <span class="selectItem"><input type="checkbox">辽宁</span>
@@ -79,7 +72,6 @@
                         <span class="selectItem"><input type="checkbox">重庆 </span>
                         <span class="selectItem"><input type="checkbox">香港</span>
                         <span class="selectItem"><input type="checkbox">台湾</span>
-
                     </div>
 
                 </div>
@@ -87,7 +79,6 @@
 
                 <div>行业筛选：
                     <div class="selectItemGroup">
-
                         <span class="selectItem"><input type="checkbox">金融投资</span>
                         <span class="selectItem"><input type="checkbox">房地产</span>
                         <span class="selectItem"><input type="checkbox">能源</span>
@@ -125,7 +116,6 @@
                         <span class="selectItem"><input type="checkbox">行政事业机构</span>
                         <span class="selectItem"><input type="checkbox">其他行业</span>
 
-
                     </div>
                 </div>
                 <br/>
@@ -135,7 +125,6 @@
                         <span class="selectItem"><input type="checkbox">全部</span>
                         <span class="selectItem"><input type="checkbox">个人资金</span>
                         <span class="selectItem"><input type="checkbox">企业资金</span>
-
                         <span class="selectItem"><input type="checkbox">天使投资</span>
                         <span class="selectItem"><input type="checkbox">VC投资</span>
                         <span class="selectItem"><input type="checkbox">PE投资</span>
@@ -152,11 +141,7 @@
                         <span class="selectItem"><input type="checkbox">资产管理</span>
                         <span class="selectItem"><input type="checkbox">其他资金</span>
                     </div>
-
-
                 </div>
-
-
                 <br/>
 
                 <div>金额区间：

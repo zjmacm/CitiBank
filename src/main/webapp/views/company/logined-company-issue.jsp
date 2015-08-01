@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<% List<Map<String,Object>> data= (List<Map<String, Object>>) request.getAttribute("data");%>
+<% List<Map<String, Object>> data = (List<Map<String, Object>>) request.getAttribute("data");%>
 <jsp:include page="business-header.jsp"/>
 <div class="swap">
     <div class="nav fl">
@@ -43,10 +43,11 @@
         <!--main_head-->
         <div class="main_content">
             <ul>
-                <% for (int i=0;i<data.size();++i){%>
+                <% for (int i = 0; i < data.size(); ++i) {%>
                 <li>
                     <%--<img src="/public/images/select.png"/>--%>
-                    <a href="/uploads/<%= data.get(i).get("path")%>"><%= data.get(i).get("fileName")%></a>
+                    <a href="/uploads/<%= data.get(i).get("path")%>"><%= data.get(i).get("fileName")%>
+                    </a>
                 </li>
                 <%}%>
             </ul>

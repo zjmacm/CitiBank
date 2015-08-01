@@ -9,4 +9,5 @@ import java.util.Map;
  */
 public interface AppointService {
     public Page<Map<String, Object>> getAppoint(Map<String,Object> map);
+    public boolean completeReservation(String reserId);
 }

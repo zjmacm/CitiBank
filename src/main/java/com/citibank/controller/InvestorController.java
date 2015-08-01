@@ -2,12 +2,10 @@ package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
 import com.citibank.dao.Page;
-import com.citibank.entity.Attention;
 import com.citibank.mail.MailSender;
 import com.citibank.service.AttentionService;
 import com.citibank.service.InvestorService;
-
-
+import com.citibank.service.ReportService;
 import com.citibank.service.SystemMessageService;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
@@ -19,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,25 +39,28 @@ public class InvestorController {
     private AttentionService attentionService;
     @Autowired
     private SystemMessageService systemMessageService;
+    @Autowired
+    private ReportService reportService;
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
-//跳转登陆界面
-
-
     //投资者模式已登陆首页
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
-    public String getIndexPage() {
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String getIndexPage(Map<String,Object> map) {
+        List<Map<String, Object>> policy = reportService.getInformation(7);
+        List<Map<String, Object>> market = reportService.getInformation(8);
+        map.put("policy", policy);
+        map.put("market",market);
         return "investor/logined-invest-index";
     }
 
     //我的关注
     @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(Map<String, Object> map) {
-        Map<String, Object> map0 = new HashMap<String, Object>();
-        map0.put("investorId", "o");//公司id
-        map0.put("pageIndex", 1);//起始位置
-        Page results = attentionService.getMyAttentionByInvestorId(map0);
-        map.put("myAttention_message", results.getList());
+    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
+                                 @RequestParam(value = "queryContent",required = false, defaultValue = "") String queryContent,
+            HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column);
+        map.put("attention", results.getList());
         return "investor/personal-attiontion";
     }
 
@@ -72,41 +71,32 @@ public class InvestorController {
         Map<String, Object> map0 = new HashMap<String, Object>();
         map0.put("companyId", "f");//公司id;
         map0.put("pageIndex", 1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0, 1);//1代表投资者
+        Page page = systemMessageService.getSystemMessage(map0, 1);//1代表投资者
         List<Map<String, Object>> results = page.getList();
         map.put("system_message", results);
         return "investor/private-center-my-news";
     }
 
     //资料管理
-    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
-    public String getIsourcePage() {
-        return "investor/personal center_assets management";
+    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    public String getIsourcePage(HttpSession session, Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        userInfo.put("logoPath", "/uploads/"+userInfo.get("logoPath"));
+        map.put("userInfo",userInfo);
+        return "investor/personal_center_assets_management";
     }
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public String getLogoutPage() {
-        return "investor/login";
+        return "visitor/login";
     }
 
 
     @RequestMapping(value = "/login.htm", method = RequestMethod.GET)
     public String getLoginPage() {
         return "investor/investorLogin";
-    }
-
-    //登陆
-    @RequestMapping(value = "/doLogin", method = RequestMethod.POST)
-    public String doLogin(@RequestParam Map<String, Object> reqs,
-                          HttpSession session) {
-        Map<String, Object> result = investorService.loginInvestor(reqs);
-        if (result.get("result").equals("success")) {
-            session.setAttribute("userId", result.get("id"));
-            return "investor/index";
-        } else {
-            return "investor/login";
-        }
     }
 
     //跳转注册界面
@@ -138,7 +128,7 @@ public class InvestorController {
         if (result.equals("failed")) {
             return "investor/completeInfo";
         } else {
-            return "investor/index";
+            return "investor/logined-invest-index";
         }
     }
 

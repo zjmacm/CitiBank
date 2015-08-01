@@ -7,6 +7,7 @@ import com.citibank.service.AttentionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -14,53 +15,36 @@ import java.util.Map;
  */
 @Service
 public class AttentionServiceImpl implements AttentionService {
+
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    public MySQLSimpleDaoImpl getMySQLSimpleDao() {
-        return mySQLSimpleDao;
-    }
-
-    public void setMySQLSimpleDao(MySQLSimpleDaoImpl mySQLSimpleDao) {
-        this.mySQLSimpleDao = mySQLSimpleDao;
-    }
-
-    public Page<Map<String, Object>> getMyAttentionByCompanyId(Map<String, Object> reqs)
-    {
-        String sql = "select investor.username,attention.investorId,attentionState,productName,attention.productType from investor,stockcreditor,attention WHERE attention.investorId = investor.investorId AND attention.stockCreditorId = stockcreditor.id AND attention.companyId =:companyId";
-        int pageSize = 10;
-        String companyId = (String)reqs.get("companyId");
-        int pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
-        System.out.println(companyId+"   "+pageIndex);
-        Order order=new Order().asc("companyId");
-        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
-        if(page.getSize() > 0)
-        {
-            System.out.println("找到page!");
+    public Page<Map<String, Object>> getMyAttentionByCompanyId(String userId, int pageIndex, String column) {
+        String sql = "select a.attentionState, a.productType, o.companyName, s.productName from attention a join investor o on a.otherId = o.investorId" +
+                " join stockcreditor s on a.attStockCreditorId = s.id where a.userId = :user_id";
+        column=" s."+column;
+        Order order = new Order().asc(column);
+        Map<String,Object> reqs=new HashMap<String, Object>();
+        reqs.put("user_id", userId);
+        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql, reqs, pageIndex, 10, order);
+        if (page.getSize() > 0) {
             return page;
-        }
-        else {
-            System.out.println("没找到page!");
+        } else {
             return null;
         }
     }
 
-    public Page<Map<String, Object>> getMyAttentionByInvestorId(Map<String, Object> reqs)
-    {
-        String sql = "select company.username,attention.companyId,attention.investorId,attentionState,productName,attention.productType from company,stockcreditor,attention WHERE attention.companyId=company.companyId AND attention.stockCreditorId = stockcreditor.id AND attention.investorId =:investorId";
-        int pageSize = 10;
-        String companyId = (String)reqs.get("investorId");
-        int pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
-        System.out.println(companyId+"   "+pageIndex);
-        Order order=new Order().asc("companyId");
-        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
-        if(page.getSize() > 0)
-        {
-            System.out.println("找到page!");
+    public Page<Map<String, Object>> getMyAttentionByInvestorId(String userId, int pageIndex, String column) {
+        String sql = "select a.attentionState, a.productType, o.companyName, s.productName from attention a join company o on a.otherId = o.companyId" +
+                " join stockcreditor s on a.attStockCreditorId = s.id where a.userId = :user_id";
+        column=" a."+column;
+        Order order = new Order().asc(column);
+        Map<String,Object> reqs=new HashMap<String, Object>();
+        reqs.put("user_id", userId);
+        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql, reqs, pageIndex, 10, order);
+        if (page.getSize() > 0) {
             return page;
-        }
-        else {
-            System.out.println("没找到page!");
+        } else {
             return null;
         }
     }

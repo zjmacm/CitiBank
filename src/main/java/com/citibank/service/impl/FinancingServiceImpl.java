@@ -50,8 +50,8 @@ public class FinancingServiceImpl implements FinancingService {
         map.put("fundBody", fundBody);
         map.put("lowMoney", lowMoney);
         map.put("highMoney", highMoney);
-        map.put("least",leastDemand);
-        map.put("highest",highestDemand);
+        map.put("least", leastDemand);
+        map.put("highest", highestDemand);
         if (userType == 0) {
 
             sb.append("select s.productName,s.investType,s.investArea,s.investMoney,s.investorName,v.investorName from stockcreditor s left join  investor i " +
@@ -69,7 +69,7 @@ public class FinancingServiceImpl implements FinancingService {
             if (lowMoney != -1 && highMoney != -1) {
                 sb.append(" and investMoney between :lowMoney and :highMoney");
             }
-            if(highestDemand!=-1&&leastDemand!=-1){
+            if (highestDemand != -1 && leastDemand != -1) {
                 sb.append(" and leastReturnDemand between :leastDemand and :highestDemand");
             }
             sb.append(";");
@@ -78,18 +78,18 @@ public class FinancingServiceImpl implements FinancingService {
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
 
     }
-    public Page<Map<String,Object>> getDefault()
-    {
-        String sql="select * from stockcreditor";
-        return mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,new Order());
+
+    public Page<Map<String, Object>> getDefault() {
+        String sql = "select * from stockcreditor";
+        return mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order());
     }
-    public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex)
-    {
-        String sql="select * from stockcreditor where investArea=:investArea " +
+
+    public Page<Map<String, Object>> getMatchingCompany(Map<String, Object> map, int pageIndex) {
+        String sql = "select * from stockcreditor where investArea=:investArea " +
                 "and investIndustry=:investIndustry and investMoney between :lowMoney and :highMoney " +
                 "and creditRank between :lowCreditRank and :highCreditRank and leastReturnDemand between :lowLeastReturnDemand and :highLeastReturnDemand";
-        Order order=new Order().asc("productName");
-        return mySQLSimpleDao.pageQuery(sql,map,(pageIndex-1)*10+1,10,order);
+        Order order = new Order().asc("productName");
+        return mySQLSimpleDao.pageQuery(sql, map, (pageIndex - 1) * 10 + 1, 10, order);
 
     }
 

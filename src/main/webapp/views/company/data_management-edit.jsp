@@ -1,7 +1,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page isELIgnored="false" %>
-<% Map<String,Object> userInfo= (Map<String, Object>) request.getAttribute("userInfo");%>
+<% Map<String, Object> userInfo = (Map<String, Object>) request.getAttribute("userInfo");%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@
     <link href="/public/stylesheets/data_management-edit.css" rel="stylesheet" type="text/css">
     <title>资料管理-编辑状态</title>
     <script>
-        document.getElementById("sit").value="<%= userInfo.get("companyType")%>";
+        document.getElementById("sit").value = "<%= userInfo.get("companyType")%>";
     </script>
 </head>
 <body>
@@ -98,19 +98,24 @@
             经营理念：<textarea rows="2" cols="80%" id="linian" style="vertical-align: top"></textarea><br/>
         </div>
         <div class="textarea">
-            产品服务：<textarea rows="2" cols="80%" id="fuwu" style="vertical-align: top"><%= userInfo.get("productService")%></textarea><br/>
+            产品服务：<textarea rows="2" cols="80%" id="fuwu"
+                           style="vertical-align: top"><%= userInfo.get("productService")%></textarea><br/>
         </div>
         <div class="textarea">
-            行业概况：<textarea rows="2" cols="80%" id="gaikuang" style="vertical-align: top"><%= userInfo.get("industryOverview")%></textarea><br/>
+            行业概况：<textarea rows="2" cols="80%" id="gaikuang"
+                           style="vertical-align: top"><%= userInfo.get("industryOverview")%></textarea><br/>
         </div>
         <div class="textarea">
-            发展战略：<textarea rows="2" cols="80%" id="zhanlue" style="vertical-align: top"><%= userInfo.get("developmentStrategy")%></textarea><br/>
+            发展战略：<textarea rows="2" cols="80%" id="zhanlue"
+                           style="vertical-align: top"><%= userInfo.get("developmentStrategy")%></textarea><br/>
         </div>
         <div class="textarea">
-            团队描述：<textarea rows="2" cols="80%" id="miaoshu" style="vertical-align: top"><%= userInfo.get("companyInTroduct")%></textarea><br/>
+            团队描述：<textarea rows="2" cols="80%" id="miaoshu"
+                           style="vertical-align: top"><%= userInfo.get("companyInTroduct")%></textarea><br/>
         </div>
         <div class="box1">
             <p>优势与专长：</p>
+
             <div class="subbox">
                 技术优势：<input id="jishuyoushi" value="<%= userInfo.get("technologicalAdvantage")%>"><br/>
                 产品优势：<input id="chanpinyoushi" value="<%= userInfo.get("productAdvantage")%>"><br/>

@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public interface SystemMessageService {
     public List<Map<String,Object>> getAllMessage();
-    public Page<Map<String, Object>> getMessageById(Map<String, Object> reqs,int flag);
+    public Page<Map<String, Object>> getSystemMessage(Map<String, Object> reqs,int flag);
     public Page<Map<String, Object>> getMessageByTime(Map<String, Object> reqs,int flag);
     public Page<Map<String, Object>> getMessageByContent(Map<String, Object> reqs,int flag);
 

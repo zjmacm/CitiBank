@@ -95,41 +95,4 @@ public class ReportController {
         return "";
     }
 
-    //中心公告
-    @RequestMapping("/getCenter")
-    public String getCenterPage() {
-        return "investor/information-center-notice";
-    }
-
-    //信用公告
-    @RequestMapping("/getCredit")
-    public String getCreditPage() {
-        return "investor/information_credit";
-    }
-
-    //备案发行公告
-    @RequestMapping("/getIssue")
-    public String getIssuePage() {
-        return "investor/information_issue";
-    }
-
-    //定期公告
-    @RequestMapping("/getRegular")
-    public String getRegularPage() {
-        return "investor/information_regular";
-    }
-
-    //转让交易
-    @RequestMapping("/getTransform")
-    public String getTransformPage() {
-        return "investor/information_transform";
-    }
-
-    //临时报告
-    @RequestMapping("/getTemporary")
-    public String getTemporaryPage() {
-        return "investor/information_temporary";
-    }
-
-
 }

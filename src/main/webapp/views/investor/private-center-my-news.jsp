@@ -8,9 +8,9 @@
     	<meta name="renderer" content="webkit">
     	<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
 	<title>个人中心-我的消息</title>
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-	<link rel="stylesheet" type="text/css" href="../public/stylesheets/private-center-my-news.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+	<link rel="stylesheet" type="text/css" href="/public/stylesheets/private-center-my-news.css">
 
 </head>
 <body>
