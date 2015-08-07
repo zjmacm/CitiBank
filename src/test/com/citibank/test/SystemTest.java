@@ -38,6 +38,12 @@ public class SystemTest {
 
     @Autowired
     private FinancingService financingService;
+	
+    @Autowired
+    private IntentionServiceImpl intentionService;
+
+    @Autowired
+    private SystemMessageService systemMessageService;
 
     @Autowired
     private AttentionService attentionService;
@@ -101,9 +107,8 @@ public class SystemTest {
         System.out.println(appointService.getAppoint(map).getList());
     }
 
-    @Test
-    public void testAttention() {
-        Page<Map<String, Object>> page = selfBoundsService.getSelfBounds("292ABC3521394FDEB6F553E5BD0D3C49", 1, "", 0);
+    public void testAttention(){
+        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
         System.out.println(page.getList().toString());
     }
 

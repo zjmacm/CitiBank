@@ -64,6 +64,7 @@
                         <p>投资行业：<%= userInfo.get("investIndustry")==null?userInfo.get("investIndustry"):"暂无"%></p><br/>
                         <p>投资类型：<%= userInfo.get("investType")==null?userInfo.get("investType"):"暂无"%></p><br/>
                         <p>达成案例：点击查看</p><br/>
+
                     </div>
                     <div id="top_right">
                         <p>管理基金：方圆基金</p><br/>
