@@ -54,15 +54,12 @@ DROP TABLE IF EXISTS `attention`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attention` (
   `id` varchar(32) NOT NULL,
-  `investorId` varchar(32) NOT NULL,
-  `companyId` varchar(32) NOT NULL,
   `attentionState` int(1) NOT NULL COMMENT '关注状态，0为互相不关注，1为一方关注，2为互相关注',
-  `stockCreditorId` varchar(32) NOT NULL,
   `productType` int(1) NOT NULL,
   `flag` int(1) NOT NULL COMMENT '标记是企业还是投资者,0为企业1为投资者',
   `userId` varchar(32) NOT NULL COMMENT '关联的用户ID',
+  `otherId` VARCHAR(32) NOT NULL COMMENT '关注对方的ID',
   `attStockCreditorId` varchar(32) NOT NULL COMMENT '指向股债券的ID',
-  `attCompanyId` varchar(32) NOT NULL COMMENT '指向公司的ID',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

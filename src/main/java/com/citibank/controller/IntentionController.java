@@ -1,21 +1,15 @@
 package com.citibank.controller;
 
-import com.citibank.dao.impl.MySQLSimpleDaoImpl;
-import com.citibank.entity.Investor;
 import com.citibank.service.impl.IntentionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by liuhao on 15-7-21.

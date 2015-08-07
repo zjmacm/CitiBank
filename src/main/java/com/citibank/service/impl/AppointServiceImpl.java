@@ -15,18 +15,9 @@ import java.util.Map;
  */
 @Service
 public class AppointServiceImpl implements AppointService {
+
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
-
-    public MySQLSimpleDaoImpl getMySQLSimpleDao() {
-        return mySQLSimpleDao;
-    }
-
-    public void setMySQLSimpleDao(MySQLSimpleDaoImpl mySQLSimpleDao) {
-        this.mySQLSimpleDao = mySQLSimpleDao;
-    }
-
-
 
     public Page<Map<String, Object>> getAppoint(Map<String,Object> reqs) {
         String sql = "select * from appointment where userId = :user_id and flag =:flag";

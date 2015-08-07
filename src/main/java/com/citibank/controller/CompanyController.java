@@ -61,12 +61,13 @@ public class CompanyController {
 
     //我的关注
     @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(Map<String, Object> map) {
-        Map<String, Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId", "a");//公司id
-        map0.put("pageIndex", 1);//起始位置
-        Page results = attentionService.getMyAttentionByCompanyId(map0);
-        map.put("myAttention_message", results.getList());
+    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
+                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                                 HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column);
+        map.put("attention", results.getList());
+        System.out.println(results.getList().toString());
         return "company/personal-attiontion";
     }
 
@@ -189,14 +190,17 @@ public class CompanyController {
     }
 
     //信息发布-私募债列表
-    @RequestMapping(value = "/private-list.htm", method = RequestMethod.GET)
-    public String getPrivateList() {
-        return "company/message-publish-private-list";
-    }
+//    @RequestMapping(value = "/private-list.htm", method = RequestMethod.GET)
+//    public String getPrivateList() {
+//        return "company/message-publish-private-list";
+//    }
 
     //信息发布-我要发布
     @RequestMapping(value = "/message-publish.htm", method = RequestMethod.GET)
-    public String getMessagePublishPage() {
+    public String getMessagePublishPage(HttpSession session, Map<String,Object> map) {
+        String userId= (String) session.getAttribute("userId");
+        Map<String, Object> companyInfo = companyService.getCompanyInfo(userId);
+        map.put("companyInfo", companyInfo);
         return "company/message-publish-my-publish";
     }
 

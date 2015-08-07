@@ -1,6 +1,5 @@
 package com.citibank.controller;
 
-import com.citibank.common.IdUtil;
 import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
