@@ -144,7 +144,7 @@
                     </form>
                     <from>
                         <label>还款来源:</label>&nbsp;&nbsp;&nbsp;
-                        d<input type="text"/>
+                        <input type="text"/>
                     </from>
                 </div>
                 <div id="button">

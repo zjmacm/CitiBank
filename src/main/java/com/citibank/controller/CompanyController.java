@@ -64,13 +64,13 @@ public class CompanyController {
 
     //我的关注
     @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(Map<String,Object> map)
-    {
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId", "a");//公司id
-        map0.put("pageIndex",1);//起始位置
-        Page results = attentionService.getMyAttentionByCompanyId(map0);
-        map.put("myAttention_message",results.getList());
+    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
+                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                                 HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column);
+        map.put("attention", results.getList());
+        System.out.println(results.getList().toString());
         return "company/personal-attiontion";
     }
 
@@ -82,30 +82,19 @@ public class CompanyController {
 
     //我的消息
     @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(Map<String,Object> map)
-    {
+    public String getInewsPage(Map<String, Object> map) {
         //返回系统消息,首先得获取公司id.
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId","a");//公司id;
-        map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表企业
-        List<Map<String,Object>> results = page.getList();
-        map.put("system_message",results);
+        Map<String, Object> map0 = new HashMap<String, Object>();
+        map0.put("companyId", "a");//公司id;
+        map0.put("pageIndex", 1);//数据起始位置
+        Page page = systemMessageService.getSystemMessage(map0, 0);//0代表企业
+        List<Map<String, Object>> results = page.getList();
+        map.put("system_message", results);
         return "company/private-center-my-news";
     }
 
-    //系统信息
-    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
-    public String getS_messagePage(Map<String,Object> map)
-    {
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId","a");//公司id;
-        map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表系统消息
-        List<Map<String,Object>> results = page.getList();
-        map.put("system_message",results);
-        return "company/private-center-my-news";
-    }
+
+
 
     //私信
     @RequestMapping(value = "/p_letter", method = RequestMethod.GET)
@@ -118,6 +107,7 @@ public class CompanyController {
     public String getD_disclosurePage() {
         return "company/personal_center_my_message_direction_down";
     }
+
 
     //预约管理
     @RequestMapping(value = "/reservation.htm", method = RequestMethod.GET)

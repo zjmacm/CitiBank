@@ -71,7 +71,7 @@
     	    			</p>
     	    			<p>
                             <label for="text">发行完成:</label>
-    	    				<textarea id="text"  cols=50 rows=6 >
+    	    				<textarea id="text"  cols="20" rows="1" >
                             </textarea>
                         </p>
     	    		</div><!--bottom-->
