@@ -22,7 +22,6 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-
     @RequestMapping(value = "/privateLetter.htm", method = RequestMethod.GET)
     public String getPrivateLetterPage() {
         return "";
@@ -35,7 +34,6 @@ public class MessageController {
 
 
     @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
-
     public
     @ResponseBody
     Map<String, Object> sendMessage(@RequestParam Map<String, Object> reqs, HttpSession session) {
@@ -44,8 +42,6 @@ public class MessageController {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("result", result);
         return map;
-
-
     }
 
     @RequestMapping(value = "/showMessage", method = RequestMethod.POST)

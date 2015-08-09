@@ -15,9 +15,4 @@ public class AssetServiceTest {
 
     @Autowired
     private AssetService assetService;
-
-    public void testCompany(){
-        assetService.getCompanyStock("")
-    }
-
 }

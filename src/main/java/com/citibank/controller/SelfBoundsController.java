@@ -36,6 +36,10 @@ public class SelfBoundsController {
         }
         map.put("totalPage", page.getpageCount());
         map.put("data", bounds);
-        return "company/message-publish-private-list";
+        if(userType==0) {
+            return "company/message-publish-private-list";
+        }else{
+            return "investor/message-publish-private-list";
+        }
     }
 }

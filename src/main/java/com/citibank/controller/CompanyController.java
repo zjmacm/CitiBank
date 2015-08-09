@@ -4,7 +4,6 @@ import com.citibank.dao.Page;
 import com.citibank.service.*;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -68,7 +66,7 @@ public class CompanyController {
                                  @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                  HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
-        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column);
+        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column, queryContent);
         map.put("attention", results.getList());
         System.out.println(results.getList().toString());
         return "company/personal-attiontion";
@@ -88,7 +86,7 @@ public class CompanyController {
         Map<String,Object> map0 = new HashMap<String, Object>();
         map0.put("companyId","a");//公司id;
         map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表企业
+        Page page = systemMessageService.getSystemMessage(map0,0);//0代表企业
         List<Map<String,Object>> results = page.getList();
         map.put("system_message",results);
         return "company/private-center-my-news";
@@ -101,7 +99,7 @@ public class CompanyController {
         Map<String,Object> map0 = new HashMap<String, Object>();
         map0.put("companyId","a");//公司id;
         map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getMessageById(map0,0);//0代表系统消息
+        Page page = systemMessageService.getSystemMessage(map0,0);//0代表系统消息
         List<Map<String,Object>> results = page.getList();
         map.put("system_message",results);
         return "company/private-center-my-news";
@@ -241,11 +239,6 @@ public class CompanyController {
         return "company/undefined-financing-sign";
     }
 
-
-    //跳转到公司信息发布的界面-中心公告
-    @RequestMapping(value= "/invest.htm",method = RequestMethod.GET)
-    public String getInformationPage(){return "company/logined-company-issue";}
-
     //信息发布-私募债列表
     @RequestMapping(value = "/private-list.htm",method = RequestMethod.GET)
     public String getPrivateList(){return "company/message-publish-private-list";}
@@ -256,13 +249,6 @@ public class CompanyController {
     public String creditTakeover(){
         return "company/information_Credit_takeover";
     }
-
-
-    //信息发布-我要发布
-    @RequestMapping(value="/message-publish.htm",method = RequestMethod.GET)
-    public String getMessagePublishPage(){return "company/message-publish-my-publish";}
-
-
 
     //跳转到公司资产管理的界面-股权管理
     @RequestMapping(value = "/service.htm",method = RequestMethod.GET)
@@ -307,8 +293,6 @@ public class CompanyController {
         map.put("check", result);
         return map;
     }
-
-
 
     @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
     public String getUserInfo(HttpSession session, Map<String, Object> map) {
@@ -359,6 +343,5 @@ public class CompanyController {
         companyService.saveCompanyInfo(reqs, id);
         return "/investor/finsh-reg";
     }
-
 
 }

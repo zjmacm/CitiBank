@@ -108,8 +108,8 @@ public class SystemTest {
     }
 
     public void testAttention(){
-        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
-        System.out.println(page.getList().toString());
+//        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
+//        System.out.println(page.getList().toString());
     }
 
     @Test

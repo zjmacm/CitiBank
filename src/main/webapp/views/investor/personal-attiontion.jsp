@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/personal-attiontion.css">
     <script type="text/javascript" src="/public/javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
     <script type="text/javascript " src="/public/javascripts/lubotu.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -37,6 +38,10 @@
                 $("body").click(function (i) {
                     !$(i.target).parents(".select").first().is(s) ? _hide() : "";
                 });
+                $("#search-btn").click(function(i){
+                    var search = $('#search').val();
+                    window.location.href = '/investor/ifollow.htm?queryContent='+ search;
+                })
             })
         })
     </script>
@@ -70,8 +75,8 @@
         </div>
         <!--sort-->
         <div class="search">
-            <input type="text" placeholder="请输入关键字搜索">
-            <button>&nbsp&nbsp&nbsp&nbsp搜&nbsp索</button>
+            <input id="search" type="text" placeholder="请输入关键字搜索">
+            <button id="search-btn">&nbsp&nbsp&nbsp&nbsp搜&nbsp索</button>
         </div>
     </div>
     <!--search-->

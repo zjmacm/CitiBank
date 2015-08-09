@@ -45,21 +45,21 @@ public class InvestorController {
 
     //投资者模式已登陆首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPage(Map<String,Object> map) {
+    public String getIndexPage(Map<String, Object> map) {
         List<Map<String, Object>> policy = reportService.getInformation(7);
         List<Map<String, Object>> market = reportService.getInformation(8);
         map.put("policy", policy);
-        map.put("market",market);
+        map.put("market", market);
         return "investor/logined-invest-index";
     }
 
     //我的关注
     @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
     public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
-                                 @RequestParam(value = "queryContent",required = false, defaultValue = "") String queryContent,
-            HttpSession session, Map<String, Object> map) {
+                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                                 HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
-        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column);
+        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column, queryContent);
         map.put("attention", results.getList());
         return "investor/personal-attiontion";
     }
@@ -79,11 +79,11 @@ public class InvestorController {
 
     //资料管理
     @RequestMapping(value = "/isource", method = RequestMethod.GET)
-    public String getIsourcePage(HttpSession session, Map<String,Object> map) {
-        String userId= (String) session.getAttribute("userId");
+    public String getIsourcePage(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
         Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
-        userInfo.put("logoPath", "/uploads/"+userInfo.get("logoPath"));
-        map.put("userInfo",userInfo);
+        userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
+        map.put("userInfo", userInfo);
         return "investor/personal_center_assets_management";
     }
 
