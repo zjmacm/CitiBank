@@ -37,7 +37,7 @@
                         <li>
                             <a href="/company/simuzhai.htm">私募债</a>
                         </li>
-                        
+
                     </ul>
                    </div><!--list-->
             </div><!--nav-->
@@ -79,7 +79,7 @@
         		<div class="more_info">
         			<p class="tit">更多信息</p>
                     <div class="left fl">
-                         <p> 
+                         <p>
                             资金方占股比例：
                             <input class="por" type="text" name="lowRatio">
                             —

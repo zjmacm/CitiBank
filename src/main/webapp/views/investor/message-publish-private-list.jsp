@@ -7,7 +7,17 @@
     <link href="/public/stylesheets/reset.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/task4-nav.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/information_issue.css" type="text/css" rel="stylesheet"/>
-    <meta charset="UTF-8">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search-btn').click(function (e) {
+                var search = $('#search').val();
+                if(search!="") {
+                    window.location.href = '/selfBounds/getSelfBounds.htm?queryContent=' + search;
+                }
+            });
+        });
+    </script>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>私募债列表</title>
@@ -32,6 +42,7 @@
     <div class="main fl">
         <div class="main_head">
             <p>私募债券列表</p>
+
             <div class="search">
                 <input type="text" class="input" placeholder="请输入关键字搜索" id="search">
                 <button class="search_button" id="search-btn">&nbsp;&nbsp;&nbsp;搜&nbsp;索</button>
@@ -52,7 +63,8 @@
                 </tr>
                 <% for (int i = 0; i < bounds.size(); ++i) {%>
                 <tr>
-                    <td class="listItem"><%= bounds.get(i).get("code")%></td>
+                    <td class="listItem"><%= bounds.get(i).get("code")%>
+                    </td>
                     <td class="listItem"><%= bounds.get(i).get("productName")%>
                     </td>
                     <td class="listItem"><%= bounds.get(i).get("industry")%>

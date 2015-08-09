@@ -1,5 +1,6 @@
 package com.citibank.service.impl;
 
+import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
@@ -30,6 +31,10 @@ public class SelfBoundsServiceImpl implements SelfBoundsService {
         }
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("user_id", userId);
+        if(!"".equals(queryContent)){
+            sb.append(" and s.productName  like :query_content");
+            map.put("query_content", ConditionUtil.like(queryContent));
+        }
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, new Order());
     }
 

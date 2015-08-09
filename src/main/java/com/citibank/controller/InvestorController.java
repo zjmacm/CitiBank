@@ -3,10 +3,8 @@ package com.citibank.controller;
 import com.citibank.common.IdUtil;
 import com.citibank.dao.Page;
 import com.citibank.mail.MailSender;
-import com.citibank.service.AttentionService;
-import com.citibank.service.InvestorService;
-import com.citibank.service.ReportService;
-import com.citibank.service.SystemMessageService;
+import com.citibank.service.*;
+import com.citibank.service.impl.MessageServiceImpl;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +31,19 @@ public class InvestorController {
 
     @Autowired
     private InvestorService investorService;
+
     @Autowired
     private UploadFileService uploadFileService;
+
     @Autowired
     private AttentionService attentionService;
+
     @Autowired
-    private SystemMessageService systemMessageService;
+    private MessageService messageService;
+
     @Autowired
     private ReportService reportService;
+
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
     //投资者模式已登陆首页
@@ -64,14 +67,13 @@ public class InvestorController {
         return "investor/personal-attiontion";
     }
 
-    //我的消息
+    //系统消息
     @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(Map<String, Object> map) {
+    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1")int pageIndex,
+                               @RequestParam(value = "queryContent", required = false, defaultValue = "")String queryContent,
+                               Map<String,Object> map) {
         //返回系统消息,首先得获取公司id.
-        Map<String, Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId", "f");//公司id;
-        map0.put("pageIndex", 1);//数据起始位置
-        Page page = systemMessageService.getSystemMessage(map0, 1);//1代表投资者
+        Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
         List<Map<String, Object>> results = page.getList();
         map.put("system_message", results);
         return "investor/private-center-my-news";
@@ -137,15 +139,7 @@ public class InvestorController {
         return "investor/completeInfo";
     }
 
-    //
-    @RequestMapping(value = "/getUserInfo.htm", method = RequestMethod.GET)
-    public String getUserInfo(HttpSession session, Map<String, Object> map) {
-        String userId = (String) session.getAttribute("userId");
-        map.putAll(investorService.getInvestorInfo(userId));
-        return "common/userInfo";
-    }
-
-    //
+    //保存用户信息
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
     public
     @ResponseBody

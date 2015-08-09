@@ -7,7 +7,17 @@
     <link href="/public/stylesheets/reset.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/task4-nav.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/information_issue.css" type="text/css" rel="stylesheet"/>
-    <meta charset="UTF-8">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search-btn').click(function (e) {
+                var search = $('#search').val();
+                if(search!="") {
+                    window.location.href = '/selfBounds/getSelfBounds.htm?queryContent=' + search;
+                }
+            });
+        });
+    </script>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>私募债列表</title>

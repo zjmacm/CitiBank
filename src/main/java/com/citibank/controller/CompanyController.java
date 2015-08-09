@@ -40,7 +40,7 @@ public class CompanyController {
     private ReportService reportService;
 
     @Autowired
-    private SystemMessageService systemMessageService;
+    private MessageService messageService;
 
     @Autowired
     private AppointService appointService;
@@ -52,11 +52,11 @@ public class CompanyController {
 
     //企业模式已登陆首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPage(Map<String,Object> map) {
+    public String getIndexPage(Map<String, Object> map) {
         List<Map<String, Object>> policy = reportService.getInformation(7);
         List<Map<String, Object>> market = reportService.getInformation(8);
         map.put("policy", policy);
-        map.put("market",market);
+        map.put("market", market);
         return "company/logined-business-index";
     }
 
@@ -80,30 +80,27 @@ public class CompanyController {
 
     //我的消息
     @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(Map<String,Object> map)
-    {
+    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                               Map<String, Object> map) {
         //返回系统消息,首先得获取公司id.
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId","a");//公司id;
-        map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getSystemMessage(map0,0);//0代表企业
-        List<Map<String,Object>> results = page.getList();
-        map.put("system_message",results);
+        Page page = messageService.getSystemMessage(pageIndex, queryContent);//0代表企业
+        List<Map<String, Object>> results = page.getList();
+        map.put("system_message", results);
         return "company/private-center-my-news";
     }
 
     //系统信息
-    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
-    public String getS_messagePage(Map<String,Object> map)
-    {
-        Map<String,Object> map0 = new HashMap<String, Object>();
-        map0.put("companyId","a");//公司id;
-        map0.put("pageIndex",1);//数据起始位置
-        Page page = systemMessageService.getSystemMessage(map0,0);//0代表系统消息
-        List<Map<String,Object>> results = page.getList();
-        map.put("system_message",results);
-        return "company/private-center-my-news";
-    }
+//    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
+//    public String getS_messagePage(Map<String, Object> map) {
+//        Map<String, Object> map0 = new HashMap<String, Object>();
+//        map0.put("companyId", "a");//公司id;
+//        map0.put("pageIndex", 1);//数据起始位置
+//        Page page = messageService.getSystemMessage(map0, 0);//0代表系统消息
+//        List<Map<String, Object>> results = page.getList();
+//        map.put("system_message", results);
+//        return "company/private-center-my-news";
+//    }
 
     //私信
     @RequestMapping(value = "/p_letter", method = RequestMethod.GET)
@@ -119,50 +116,47 @@ public class CompanyController {
 
     //预约管理
     @RequestMapping(value = "/reservation.htm", method = RequestMethod.GET)
-    public String getReservationPage(Map<String,Object> map)
-    {
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",0);//是否已读
+    public String getReservationPage(Map<String, Object> map) {
+        map.put("companyId", "a"); //公司id
+        map.put("pageIndex", 1);//数据起始位置
+        map.put("flag", 0);//是否已读
         Page page = appointService.getAppoint(map);
-        List<Map<String,Object>> results = page.getList();
-        map.put("manage_message_current",results);
+        List<Map<String, Object>> results = page.getList();
+        map.put("manage_message_current", results);
         return "company/reservation-management-current-reservation";
     }
 
     //当前预约
     @RequestMapping(value = "/reservation_current.htm", method = RequestMethod.GET)
-    public String getReservation_currentPage(Map<String,Object> map)
-    {
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",0);//是否已读-未读
+    public String getReservation_currentPage(Map<String, Object> map) {
+        map.put("companyId", "a"); //公司id
+        map.put("pageIndex", 1);//数据起始位置
+        map.put("flag", 0);//是否已读-未读
         Page page = appointService.getAppoint(map);
-        List<Map<String,Object>> results = page.getList();
-        map.put("manage_message_current",results);
+        List<Map<String, Object>> results = page.getList();
+        map.put("manage_message_current", results);
         return "company/reservation-management-current-reservation";
     }
 
     //已完成预约
     @RequestMapping(value = "/reservation_finish.htm", method = RequestMethod.GET)
-    public String getReservation_finishPage(Map<String,Object> map)
-    {
-        map.put("companyId","a"); //公司id
-        map.put("pageIndex",1);//数据起始位置
-        map.put("flag",1);//是否已读-已读
+    public String getReservation_finishPage(Map<String, Object> map) {
+        map.put("companyId", "a"); //公司id
+        map.put("pageIndex", 1);//数据起始位置
+        map.put("flag", 1);//是否已读-已读
         Page page = appointService.getAppoint(map);
-        List<Map<String,Object>> results = page.getList();
-        map.put("manage_message_finish",results);
+        List<Map<String, Object>> results = page.getList();
+        map.put("manage_message_finish", results);
         return "company/reservation-management-finished-reservation";
     }
 
     //资料管理
     @RequestMapping(value = "/isource", method = RequestMethod.GET)
-    public String getIsourcePage(HttpSession session,Map<String,Object> map) {
-        String userId= (String) session.getAttribute("userId");
+    public String getIsourcePage(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
         Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
-        userInfo.put("logo","/uploads/"+userInfo.get("logo"));
-        map.put("userInfo",userInfo);
+        userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
+        map.put("userInfo", userInfo);
         return "company/data_management-edit";
     }
 
@@ -174,11 +168,13 @@ public class CompanyController {
 
     //跳转到公司融资板块的界面
     @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)
-    public String getFinancePage(){return "company/user-corporate-mode-finance-patch";}
+    public String getFinancePage() {
+        return "company/user-corporate-mode-finance-patch";
+    }
 
     //融资板块-撮合配对
-    @RequestMapping(value = "/management.htm",method=RequestMethod.GET)
-    public String getMacthing(){
+    @RequestMapping(value = "/management.htm", method = RequestMethod.GET)
+    public String getMacthing() {
         return "company/user-corporate-mode-finance-patch";
     }
 
@@ -196,75 +192,83 @@ public class CompanyController {
 
     //信息发布-我要发布
     @RequestMapping(value = "/message-publish.htm", method = RequestMethod.GET)
-    public String getMessagePublishPage(HttpSession session, Map<String,Object> map) {
-        String userId= (String) session.getAttribute("userId");
+    public String getMessagePublishPage(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
         Map<String, Object> companyInfo = companyService.getCompanyInfo(userId);
         map.put("companyInfo", companyInfo);
         return "company/message-publish-my-publish";
     }
+
     //意向发布 私募股权
-    @RequestMapping(value = "/esignature.htm",method = RequestMethod.GET)
-    public String getInventionPage(HttpSession session,Map<String,Object>  map){
-        String userId= (String) session.getAttribute("userId");
+    @RequestMapping(value = "/esignature.htm", method = RequestMethod.GET)
+    public String getInventionPage(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
         Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
       /*  userInfo.put("logo","/uploads/"+userInfo.get("logo"));*//*  userInfo.put("logo","/uploads/"+userInfo.get("logo"));*/
-        map.put("userInfo",userInfo);
+        map.put("userInfo", userInfo);
         return "company/financing-publish";
     }
 
     //意向发布 私募债
-    @RequestMapping(value = "/simuzhai.htm",method =RequestMethod.GET)
-    public String getInvention2Page(HttpSession session,Map<String,Object> map){
+    @RequestMapping(value = "/simuzhai.htm", method = RequestMethod.GET)
+    public String getInvention2Page(HttpSession session, Map<String, Object> map) {
         String id = (String) session.getAttribute("userId");
-        Map<String,Object> userInfo = companyService.getCompanyInfo(id);
-        map.put("userInfo",userInfo);
+        Map<String, Object> userInfo = companyService.getCompanyInfo(id);
+        map.put("userInfo", userInfo);
         return "/company/release_privately_raised_bonds";
     }
 
     //公司电子签约未完成
-    @RequestMapping(value = "/invetfinane.htm",method = RequestMethod.GET)
-    public String getSignPage(){
+    @RequestMapping(value = "/invetfinane.htm", method = RequestMethod.GET)
+    public String getSignPage() {
         return "company/undefined-financing-sign";
     }
 
     //二级目录 融资板块-电子签约-协议查询
-    @RequestMapping(value = "/xieyichaxun.htm",method = RequestMethod.GET)
-    public String getXieyichaxunPage(){
+    @RequestMapping(value = "/xieyichaxun.htm", method = RequestMethod.GET)
+    public String getXieyichaxunPage() {
         return "company/inquiry-protocol-detail";
     }
 
     //电子签约-返回
-    @RequestMapping(value = "/xieyifanhui.htm",method = RequestMethod.GET)
-    public String getSign2Page(){
+    @RequestMapping(value = "/xieyifanhui.htm", method = RequestMethod.GET)
+    public String getSign2Page() {
         return "company/undefined-financing-sign";
     }
 
     //信息发布-私募债列表
-    @RequestMapping(value = "/private-list.htm",method = RequestMethod.GET)
-    public String getPrivateList(){return "company/message-publish-private-list";}
+    @RequestMapping(value = "/private-list.htm", method = RequestMethod.GET)
+    public String getPrivateList() {
+        return "company/message-publish-private-list";
+    }
 
 
     //信息发布-信用监管
-    @RequestMapping(value="/credit-takeover.htm",method =  RequestMethod.GET)
-    public String creditTakeover(){
+    @RequestMapping(value = "/credit-takeover.htm", method = RequestMethod.GET)
+    public String creditTakeover() {
         return "company/information_Credit_takeover";
     }
 
     //跳转到公司资产管理的界面-股权管理
-    @RequestMapping(value = "/service.htm",method = RequestMethod.GET)
-    public String getServicePage(){ return "/company/logined-company-proprety";}
+    @RequestMapping(value = "/service.htm", method = RequestMethod.GET)
+    public String getServicePage() {
+        return "/company/logined-company-proprety";
+    }
 
     //资产管理-债权管理
 
-    @RequestMapping(value ="/stock-manag.htm",method = RequestMethod.GET)
-    public String getServicedebatPage(){ return "/company/logined-company-proprety-debat";}
+    @RequestMapping(value = "/stock-manag.htm", method = RequestMethod.GET)
+    public String getServicedebatPage() {
+        return "/company/logined-company-proprety-debat";
+    }
 
 
+    @RequestMapping(value = "/getCompanyInfo", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    Map<String, Object> getCompanyInfo(HttpSession session) {
 
-    @RequestMapping(value = "/getCompanyInfo",method = RequestMethod.POST)
-    public @ResponseBody Map<String,Object> getCompanyInfo(HttpSession session){
-
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
         String userId = session.getAttribute("userId").toString();
         map = companyService.getCompanyInfo(userId);
         return map;
@@ -301,8 +305,8 @@ public class CompanyController {
         return "common/userInfo";
     }
 
-    @RequestMapping(value ="/getUserInfo.html",method = RequestMethod.GET)
-    public String getInfo(HttpSession session,Map<String,Object> map){
+    @RequestMapping(value = "/getUserInfo.html", method = RequestMethod.GET)
+    public String getInfo(HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("UserId").toString();
         map = companyService.getCompanyInfo(userId);
         return "company/financing-publish";
