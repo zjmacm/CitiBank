@@ -169,5 +169,4 @@ public class InvestorController {
         return "/investor/finsh-reg";
     }
 
-
 }

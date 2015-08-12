@@ -44,7 +44,20 @@ public class AssetServiceImpl implements AssetService {
     }
 
     public Page<Map<String, Object>> getInvestorStock(String userId, int pageIndex, String queryContent, String duration, int type) {
-        return null;
+        StringBuffer sb = new StringBuffer("select s.investMoney, s.investArea, s.stockRate" +
+                " from stockcreditor s where s.userId = :user_id and s.createTime > :create_time");
+        Map<String, Object> parms = new HashMap<String, Object>();
+        parms.put("user_id", userId);
+        parms.put("create_time", getAimDate(duration));
+        if (!queryContent.equals("")) {
+            sb.append(" and productName like %:product_name%");
+            parms.put("product_name", queryContent);
+        }
+        if(type!=0){
+            sb.append(" and productType = :product_type");
+            parms.put("product_type", type);
+        }
+        return mySQLSimpleDao.pageQuery(sb.toString(), parms, pageIndex, 10, new Order().asc("s.createTime"));
     }
 
     private Date getAimDate(String duration) {

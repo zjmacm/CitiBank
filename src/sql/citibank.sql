@@ -343,7 +343,7 @@ CREATE TABLE `stockcreditor` (
   `createTime` date NOT NULL COMMENT '股债权创建时间',
   `investMoney` int(11) NOT NULL COMMENT '投资金额',
   `investTime` int(11) NOT NULL COMMENT '投资年限',
-  `productType` int(1) NOT NULL COMMENT '产品类型，0为股权，1为债权',
+  `productType` int(1) NOT NULL COMMENT '产品类型，1为股权，2为债权',
   `stockRate` varchar(50) DEFAULT NULL COMMENT '参股比例',
   `investStage` varchar(50) DEFAULT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
   `leastReturnDemand` varchar(50) DEFAULT NULL COMMENT '最低要求回报',

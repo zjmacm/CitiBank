@@ -1,5 +1,6 @@
 package com.citibank.controller;
 
+import com.citibank.dao.Page;
 import com.citibank.service.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,11 +56,11 @@ public class AssetController {
                                    @RequestParam(value = "duration", required = false, defaultValue = "1_month") String duration,
                                    @PathVariable(value = "type") Integer type,
                                    HttpSession session, Map<String, Object> map) {
-//        String userId= (String) session.getAttribute("userId");
-//        Page<Map<String, Object>> stockPage = assetService.getInvestorStock(userId, pageIndex, queryContent, duration, type);
-//        map.put("totalPage", stockPage.getpageCount());
-//        map.put("pageIndex",pageIndex);
-//        map.put("data", stockPage.getList());
+        String userId= (String) session.getAttribute("userId");
+        Page<Map<String, Object>> stockPage = assetService.getInvestorStock(userId, pageIndex, queryContent, duration, type);
+        map.put("totalPage", stockPage.getpageCount());
+        map.put("pageIndex",pageIndex);
+        map.put("data", stockPage.getList());
         if(type==0) {
             return "investor/logined_investorpatten_survey_of_investment";
         }else if(type==1){
