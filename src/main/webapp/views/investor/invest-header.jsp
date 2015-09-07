@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%--<!DOCTYPE html>--%>
+<%--<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,7 +8,7 @@
     <title>header</title>
 </head>
 
-<body>
+<body>--%>
     <div id="header">
         <div id="header-nav">
             <div id="nav-list">
@@ -97,6 +97,6 @@
             </div>
         </div>
     </div>
-</body>
+<%--</body>
 
-</html>
+</html>--%>

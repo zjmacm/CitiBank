@@ -172,11 +172,11 @@ public class CompanyController {
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //融资板块-撮合配对
+   /* //融资板块-撮合配对
     @RequestMapping(value = "/management.htm", method = RequestMethod.GET)
     public String getMacthing() {
         return "company/user-corporate-mode-finance-patch";
-    }
+    }*/
 
     //跳转到公司信息发布的界面-中心公告
     @RequestMapping(value = "/invest.htm", method = RequestMethod.GET)

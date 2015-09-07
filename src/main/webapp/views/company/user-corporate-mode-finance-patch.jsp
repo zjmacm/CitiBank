@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@page import="java.util.Map" %>
+<%@page import="java.util.List" %>
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -21,7 +24,7 @@
                     </div>
                     <input id="searchText" type="text" placeholder="请输入关键字搜索">
                 </div>
-                <a href="" style="display:inline;">
+                <a href="/financing/investor/matching" style="display:inline;">
                     <div id="searchButton">确定</div>
                 </a>
             </div>
@@ -174,56 +177,26 @@
                         <th>金额</th>
                         <th class="rightItem">投资者</th>
                     </tr>
+                    <% List<Map<String, Object>> matching = (List<Map<String, Object>>) request.getAttribute("data");
+                    %>
 
-                    <!--*****************全是一样的**************************************************************************************-->
+                    <% for (int i = 0; i < matching.size(); i++) {%>
                     <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
+                        <td><%=matching.get(i).get("productName")%>
+                        </td>
+                        <td><%=matching.get(i).get("productType")%>
+                        </td>
+                        <td><%=matching.get(i).get("investArea")%>
+                        </td>
+                        <td><%=matching.get(i).get("investArea")%>
+                        </td>
+                        <td><%=matching.get(i).get("fundBody")%>
+                        </td>
+                        <td><%=matching.get(i).get("investorName")%>
+                        </td>
+
                     </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
+                    <%}%>
                 </table>
             </div>
             <div id="page">

@@ -20,13 +20,13 @@
                     </a>
                 </li>
                 <li id="finance">
-                    <a href="/company/finance.htm" title="">
+                    <a href="/financing/company/Mathcing.htm" title="">
                         <span class="nav-item">融资板块</span>
                     </a>
                     <div id="finance-subnav">
                         <ul>
                             <li>
-                                <a href="/company/management.htm" title="">
+                                <a href="/financing/company/Mathcing.htm" title="">
                                     <span>撮合配对</span>
                                 </a>
                             </li>
