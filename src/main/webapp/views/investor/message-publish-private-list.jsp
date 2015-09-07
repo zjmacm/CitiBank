@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
@@ -54,11 +55,11 @@
             <table id="subjectListContent">
                 <tbody>
                 <tr>
-                    <th>债券代码</th>
-                    <th>债券名称</th>
-                    <th>所属行业</th>
-                    <th>转让日期</th>
-                    <th>承销商</th>
+                    <th class="rightListHead">债券代码</th>
+                    <th class="rightListHead">债券名称</th>
+                    <th class="rightListHead">所属行业</th>
+                    <th class="rightListHead">转让日期</th>
+                    <th class="rightListHead">承销商</th>
                     <th class="rightListHead">受托人</th>
                 </tr>
                 <% for (int i = 0; i < bounds.size(); ++i) {%>
@@ -81,7 +82,6 @@
         <div id="page">
         </div>
     </div>
-</div>
 </div>
 <div id="footer">
 </div>

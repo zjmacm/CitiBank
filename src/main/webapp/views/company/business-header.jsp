@@ -1,17 +1,23 @@
-<!-- <!DOCTYPE html>
+<%--<!DOCTYPE html>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <title>header</title>
 </head>
 
-<body> -->
+<body>--%>
 
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
 <div id="header">
     <div id="header-nav">
+        <div id="nav-logo">
+           	  <span>
+                <img src="/public/images/logo-last.png" alt="" id="logo">
+            </span>
+        </div>
+
         <div id="nav-list">
             <ul>
                 <li>
@@ -20,13 +26,13 @@
                     </a>
                 </li>
                 <li id="finance">
-                    <a href="/company/finance.htm" title="">
+                    <a href="/financing/company/Matching.htm" title="">
                         <span class="nav-item">融资板块</span>
                     </a>
                     <div id="finance-subnav">
                         <ul>
                             <li>
-                                <a href="/company/management.htm" title="">
+                                <a href="/financing/company/Matching.htm" title="">
                                     <span>撮合配对</span>
                                 </a>
                             </li>

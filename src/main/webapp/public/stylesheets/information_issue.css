@@ -66,3 +66,7 @@
 	text-overflow: ellipsis;
 	word-wrap: normal;
 }
+
+.rightListHead {
+	padding:20px;
+}

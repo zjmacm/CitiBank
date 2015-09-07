@@ -163,20 +163,16 @@ public class CompanyController {
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
     public String getLogoutPage() {
-        return "company/login";
+        return "visitor/login";
     }
 
-    //跳转到公司融资板块的界面
-    @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)
-    public String getFinancePage() {
-        return "company/user-corporate-mode-finance-patch";
-    }
 
-    //融资板块-撮合配对
+   /* //融资板块-撮合配对
     @RequestMapping(value = "/management.htm", method = RequestMethod.GET)
     public String getMacthing() {
         return "company/user-corporate-mode-finance-patch";
-    }
+    }*/
+
 
     //跳转到公司信息发布的界面-中心公告
     @RequestMapping(value = "/invest.htm", method = RequestMethod.GET)
@@ -198,6 +194,13 @@ public class CompanyController {
         map.put("companyInfo", companyInfo);
         return "company/message-publish-my-publish";
     }
+
+    //跳转到公司融资板块的界面
+    @RequestMapping(value = "/finance.htm", method = RequestMethod.GET)
+    public String getFinancePage() {
+        return "company/user-corporate-mode-finance-patch";
+    }
+
 
     //意向发布 私募股权
     @RequestMapping(value = "/esignature.htm", method = RequestMethod.GET)

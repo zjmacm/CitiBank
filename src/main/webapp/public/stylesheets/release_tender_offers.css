@@ -123,3 +123,9 @@ hr{
     height: 10px;
     width: 33px;
 }
+#btn {
+    background: #2A324B;
+    color: white;
+    font-family: "微软雅黑";
+    border: none;
+}

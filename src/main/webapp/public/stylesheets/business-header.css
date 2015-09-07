@@ -1,19 +1,22 @@
 @charset "utf-8";
+
 /* CSS Document */
 
 body {
     font-size: 1em;
+    margin:0;
 }
 
 body,
 #header,
 #header-nav,
 #header-nav div {
-    margin: 0;
     padding: 0;
 }
 
 #header {
+    margin: 0;
+    font-size: 1em;
     position: relative;
     width: auto;
     height: 45px;
@@ -22,18 +25,43 @@ body,
 }
 
 #header-nav {
+     margin: 0;
     width: 980px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     zoom: 1;
-    /*border: 1px solid red;*/
 }
 
 #header-nav div {
     float: left;
-    height: 35px;
     zoom: 1;
+}
+
+#nav-logo {
+    position: relative;
+    width: 120px;
+    left: 80px;
+    height: 45px;
+}
+
+#nav-logo span {
+    display: inline-block;
+    width: 160px;
+    margin-left: 0;
+    height: 40px;
+    margin-top: -2px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+#logo {
+    vertical-align: middle;
+    height: 45px;
+}
+
+#fonts {
+    width: 100px;
 }
 
 #nav-list ul,
@@ -43,11 +71,13 @@ body,
 }
 
 #nav-list {
-    width: 720px;
+    margin-left: 70px;
+    height: 45px;
+    width: 520px;
 }
 
 #nav-list ul {
-    margin-left: 200px;
+    margin-left: 0;
 }
 
 #nav-list ul span {
@@ -89,6 +119,7 @@ a {
     position: absolute;
     left: -999em;
     width: 100%;
+    height: 30px;
     overflow: hidden;
     z-index: 1000;
     background-color: #EBEBEB;
@@ -138,9 +169,12 @@ a {
 }
 
 #iciti {
-    width: 200px;
-    left: 30px;
     position: relative;
+    left: 35px;
+    width: 200px;
+    /*
+    left: 30px;
+    position: relative;*/
 }
 
 #i-column {
@@ -190,7 +224,7 @@ a {
     display: none;
     z-index: 1000;
     background-color: #0D5878;
-    border-radius:3px;
+    border-radius: 3px;
 }
 
 #go ul li {
@@ -210,7 +244,7 @@ a {
     position: absolute;
     display: block;
     z-index: 1000;
-    border-radius:3px;
+    border-radius: 3px;
 }
 
 #go:hover img {
@@ -219,10 +253,11 @@ a {
 
 #text img {
     width: 12px;
+    padding-left:4px;
     vertical-align: middle;
 }
 
-@keyframes roate {
+/*@keyframes roate {
     0% {
         transform: roate(0)
     }
@@ -238,4 +273,4 @@ a {
     90% {
         transform: roate (180deg);
     }
-}
+}*/

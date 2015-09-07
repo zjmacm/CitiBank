@@ -122,3 +122,10 @@ hr{
     margin-top: 5%;
     margin-left: 81%;
 }
+
+#btn {
+    background: #2A324B;
+    color: white;
+    font-family: "微软雅黑";
+    border: none;
+}
