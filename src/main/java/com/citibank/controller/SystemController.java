@@ -36,11 +36,14 @@ public class SystemController {
 
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
+    @RequestMapping("/index")
+    public String index(){
+        return "investor/network-service-protocol";
+    }
+
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public
     @ResponseBody
-
-
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,
                       @RequestParam("type") int type, HttpServletRequest request) {
 
