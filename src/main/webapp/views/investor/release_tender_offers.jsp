@@ -3,15 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="renderer" content="webkit" />
   <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-  <link rel="stylesheet" type="text/css" href="/stylesheets/business-header.css">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/customer-footer.css">
-  <link rel="stylesheet" type="text/css" href="/stylesheets/release_tender_offers.css">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_tender_offers.css">
   <title>股权发布</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
       <div id="list-title">
         <span>意向发布</span>
       </div>
-      <%--<jsp:include page="release-debt-left-nav.jsp"></jsp:include>--%>
+      <jsp:include page="release-debt-left-nav.jsp"></jsp:include>
 
     </div>
 
@@ -33,29 +34,30 @@
         </div>
         <hr >
         <div class="first">
+          <% Map data=(Map)request.getAttribute("data");%>
           <p >
-            姓名：${username }<br/>
-            所在地区：${companyAddress }<br/>
-            产品类型：股权投资<br/>
+            姓名：<%=data.get("investorName")%><br/>
+            所在地区：<%=data.get("investArea")%><br/>
+            产品类型：<%=data.get("investType")%><br/>
           </p>
         </div>
         <div class="first">
           <p >
-            投资地区：${investorAddress }<br/>
-            资金主体：${legalRepresentative }<br/>
-            投资行业：${investFiled }<br/>
+            投资地区：<%=data.get("investArea")%><br/>
+            资金主体：<%=data.get("fundBody")%><br/>
+            投资行业：<%=data.get("investField")%><br/>
           </p>
         </div>
         <div class="input_text">
-          <form class="input_form" action="/springmvc/investor/releaseTender" method="post" name="form">
+          <form class="input_form" action="/intention/intentionPublish" method="post" name="form">
             <label>投资金额：</label>
-            <input class="input" type="text" name="investmentMin" />
-            <label>-</label>
-            <input class="input" type="text" name="investmentMax" />
+            <input class="input" type="text" name="investMoney" />
+            <%--<label>-</label>
+            <input class="input" type="text" name="investmentMax" />--%>
             <label>万</label>
             <br/>
             <label>投资年限：</label>
-            <input class="input" type="text" name="investmentTimeOut" />
+            <input class="input" type="text" name="investTime" />
             <label> &nbsp;年 </label>
             <br/>
             <div class="main_first">
@@ -66,29 +68,29 @@
               <div class="input_text">
                 <div class="input_form">
                   <label>参股比例:</label>
-                  <input class="input" type="text" name="investmentProportionMin" />
-                  <label>-</label>
-                  <input class="input" type="text" name="investmentProportionMax" />
+                  <input class="input" type="text" name="stockRate" />
+                 <%-- <label>-</label>
+                  <input class="input" type="text" name="investmentProportionMax" />--%>
                   <label>&nbsp;%</label>
                 </div>
                 <div>
                   <label>投资阶段:</label>
-                  <select name="investmentStage">
-                    <option value="看书">看书</option>
-                    <option value="旅游" >种子</option>
-                    <option value="运动">运动</option>
-                    <option value="购物">购物</option>
+                  <select name="investStage">
+                    <option value=0>看书</option>
+                    <option value=1 >种子</option>
+                    <option value=2>运动</option>
+                    <option value=3>购物</option>
                   </select>
                 </div>
                 <div class="input_form">
                   <label>要求提供文件:</label>
-                  <select name="fileProvideRequest">
+                  <select name="demandFile">
                     <option value="是">是</option>
                     <option value="否">否</option>
                   </select>
                   <br/>
                   <div class="input_textarea"> 投资要求概述: </div>
-                  <textarea rows="7" cols="60" name="investmentRequest"></textarea>
+                  <textarea rows="7" cols="60" name="demandSummarize"></textarea>
                 </div>
               </div>
             </div>
@@ -118,12 +120,12 @@
 
     imd.Event('#btn').on('click', function(e) {
       imd.ajax({
-        url:'/springmvc/investor/releaseTender',
+        url:'/intention/intentionPublish/1',
         receiveType: 'json',
         type:'POST',
         async: true,
         success: function(res) {
-          alert(res.res);
+          alert(res.result);
         },
         data: data,
         error: function(res) {

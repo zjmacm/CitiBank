@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="java.util.*"%>
 <!DOCTYPE html >
 <html>
 
@@ -10,9 +11,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="renderer" content="webkit" />
   <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-  <link rel="stylesheet" type="text/css" href="/stylesheets/business-header.css" />
-  <link rel="stylesheet" type="text/css" href="/stylesheets/customer-footer.css" />
-  <link rel="stylesheet" type="text/css" href="/stylesheets/release_debt_purchase.css" />
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css" />
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css" />
+  <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_debt_purchase.css" />
   <title>债权购买</title>
 </head>
 
@@ -24,7 +25,7 @@
       <div id="list-title">
         <span>意向发布</span>
       </div>
-      <%--<jsp:include page="release-debt-left-nav.jsp"></jsp:include>--%>
+      <jsp:include page="release-debt-left-nav.jsp"></jsp:include>
     </div>
     <div class="main_body">
       <div id="main_first">
@@ -33,31 +34,30 @@
         </div>
         <hr>
         <div class="first">
-          <p>
-            姓名：${username }
-            <br/> 所在地区：${companyAddress }
-            <br/> 产品类型：股权投资
-            <br/>
+          <% Map data=(Map)request.getAttribute("data");%>
+          <p >
+            姓名：<%=data.get("investorName")%><br/>
+            所在地区：<%=data.get("investArea")%><br/>
+            产品类型：<%=data.get("investType")%><br/>
           </p>
         </div>
         <div class="first">
-          <p>
-            投资地区：${investAddress }
-            <br/> 资金主体：${legalRepresentative }
-            <br/> 投资行业：${investFiled }
-            <br/>
+          <p >
+            投资地区：<%=data.get("investArea")%><br/>
+            资金主体：<%=data.get("fundBody")%><br/>
+            投资行业：<%=data.get("investField")%><br/>
           </p>
         </div>
         <div class="input_text">
           <form class="input_form" name="form">
             <label>投资金额：</label>
-            <input class="input" type="text" name="investmentMin" />
-            <label>-</label>
-            <input class="input" type="text" name="investmentMax" />
+            <input class="input" type="text" name="investMoney" />
+          <%--  <label>-</label>
+            <input class="input" type="text" name="investmentMax" />--%>
             <label>万</label>
             <br/>
             <label>投资年限：</label>
-            <input class="input" type="text" name="investmentTimeOut" />
+            <input class="input" type="text" name="investPeriod" />
             <label> 年 </label>
             <div class="main_first">
               <div class="body_title">
@@ -67,29 +67,29 @@
               <div class="input_text">
                 <div class="input_form">
                   <label>最低回报要求:（年利率）</label>
-                  <input class="input" type="text" name="returnRateMin" />
-                  <label>-</label>
-                  <input class="input" type="text" name="returnRateMax" />
+                  <input class="input" type="text" name="leastReturnDemand" />
+                  <%--<label>-</label>
+                  <input class="input" type="text" name="returnRateMax" />--%>
                   <label>%</label>
                 </div>
                 <div>
                   <label>风险控制要求:</label>
-                  <select name="riskControllRequest">
-                    <option value="看书">看书</option>
-                    <option value="抵押" selected="selectd">抵押</option>
-                    <option value="运动">运动</option>
-                    <option value="购物">购物</option>
+                  <select name="riskControlDemand">
+                    <option value=0>看书</option>
+                    <option value=1 selected="selectd">抵押</option>
+                    <option value=2>运动</option>
+                    <option value=3>购物</option>
                   </select>
                 </div>
                 <div class="input_form">
                   <label>要求提供文件:</label>
-                  <select name="fileProviderRequest">
+                  <select name="demandFile">
                     <option value="是">是</option>
                     <option value="否">否</option>
                   </select>
                   <br/>
                   <div class="input_textarea"> 投资要求概述: </div>
-                  <textarea rows="7" cols="60" name="investmentRequest"></textarea>
+                  <textarea rows="7" cols="60" name="demandSummarize"></textarea>
                 </div>
               </div>
               <div id="button">
@@ -104,7 +104,7 @@
 </div>
 <div id="footer">
 </div>
-<script type="text/javascript" src="/javascripts/imd.js"></script>
+<script type="text/javascript" src="../public/javascripts/imd.js"></script>
 <script type="text/javascript">
   imd.initDocReady(function() {
     var form = document.forms.form,
@@ -113,11 +113,11 @@
       imd.ajax({
         type: 'POST',
         async: true,
-        url: '/springmvc/investor/debtPurchase',
+        url: '/intention/intentionPublish/2',
         receiveType: 'json',
         data: data,
         success: function(res) {
-          alert(res.res);
+          alert(res.result);
         },
         error: function(e) {
           alert('网络错误，稍后再试');

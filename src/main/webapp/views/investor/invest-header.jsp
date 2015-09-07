@@ -11,6 +11,12 @@
 <body>--%>
     <div id="header">
         <div id="header-nav">
+            <div id="nav-logo">
+           	  <span>
+                <img src="../public/images/logo-last.png" alt="" id="logo">
+            </span>
+            </div>
+
             <div id="nav-list">
                 <ul>
                     <li>

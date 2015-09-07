@@ -5,10 +5,7 @@ import com.citibank.service.impl.InvestorServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -26,6 +23,7 @@ public class IntentionController {
     private IntentionServiceImpl intentionService;
     @Autowired
     private InvestorServiceImp investorServiceImp;
+    //投资者
     //意向发布的页面默认返回股权的页面
     @RequestMapping(value = "/getIntentionPage")
     public ModelAndView getIntentionPage(HttpSession session)
@@ -60,10 +58,12 @@ public class IntentionController {
     }
 */
     //意向发布的按钮
-    @RequestMapping("/intentionPublish")
-    public ModelAndView intentionPublish(@RequestParam Map<String, Object> reqs) {
-        Map<String, Object> map = new HashMap<String, Object>();
-
+    @RequestMapping(value = "/intentionPublish/{productType}",method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String,String> intentionPublish(@RequestBody Map<String, Object> reqs,
+                                               @PathVariable int productType) {
+        Map<String, String> map = new HashMap<String, String>();
+        System.out.println(reqs);
         if (intentionService.publishIntention(reqs)) {
             map.put("result", "suceess");
         } else {
@@ -71,7 +71,7 @@ public class IntentionController {
         }
 
         System.out.println(map);
-        return new ModelAndView("investor/release_debt_purchase","data",map);
+        return map;
     }
 
 }
