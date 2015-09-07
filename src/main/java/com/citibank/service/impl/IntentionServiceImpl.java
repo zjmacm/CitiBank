@@ -19,12 +19,13 @@ public class IntentionServiceImpl implements IntentionService{
     {
         try {
             mySQLSimpleDao.create("stockcreditor", map);
-            return true;
+           return true;
             }
         catch (Exception e)
         {
             return false;
         }
+
     }
 
     public Map<String, Object> getInvestorinfoById(String id) {

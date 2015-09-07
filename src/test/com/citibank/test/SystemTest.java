@@ -24,6 +24,7 @@ import java.util.*;
 @ContextConfiguration("/datasource-config.xml")
 public class SystemTest {
 
+
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
@@ -115,6 +116,16 @@ public class SystemTest {
     @Test
     public void getUUID() {
         System.out.println(IdUtil.uuid());
+    }
+
+    @Test
+    public void testIntention()
+    {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("id","adfa");
+        map.put("productName","aaaf");
+        map.put("userId","aaaf");
+        System.out.print(intentionService.publishIntention(map));
     }
 
 }
