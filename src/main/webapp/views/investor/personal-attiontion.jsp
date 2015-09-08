@@ -38,9 +38,10 @@
                 $("body").click(function (i) {
                     !$(i.target).parents(".select").first().is(s) ? _hide() : "";
                 });
-                $("#search-btn").click(function(i){
+                $("#search-btn").click(function (i) {
                     var search = $('#search').val();
-                    window.location.href = '/investor/isFollow/'+search;
+                    if ('' != search)
+                        window.location.href = '/investor/isFollow/' + search;
                 })
             })
         })
@@ -110,7 +111,7 @@
                 <%= attention.get(i).get("productName")%>
             </th>
             <th>
-                <%= Integer.valueOf(attention.get(i).get("productType").toString())==0?"股券":"债券"%>
+                <%= Integer.valueOf(attention.get(i).get("productType").toString()) == 0 ? "股券" : "债券"%>
             </th>
             <th>
                 更多操作

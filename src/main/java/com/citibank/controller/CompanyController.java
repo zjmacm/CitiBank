@@ -6,10 +6,7 @@ import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,15 +57,30 @@ public class CompanyController {
         return "company/logined-business-index";
     }
 
-    //我的关注
-    @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
-                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+    //根据排序搜索我的关注
+    @RequestMapping(value = "/ifollow/{column}", method = RequestMethod.GET)
+    public String getIfollowPage(@PathVariable("column") String column,
+                                 //@RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                  HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
-        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column, queryContent);
+        if (column.equals("time")) {
+            column = "otherId";
+        } else if (column.equals("credit")) {
+            column = "attStockCreditorId";
+        } else {
+            column = "id";
+        }
+        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, column, "");
         map.put("attention", results.getList());
-        System.out.println(results.getList().toString());
+        return "company/personal-attiontion";
+    }
+
+    //搜索我的关注
+    @RequestMapping("/isFollow/{content}")
+    public String getFollowByContent(@PathVariable("content") String content, HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByCompanyId(userId, 1, "id", content);
+        map.put("attention", results.getList());
         return "company/personal-attiontion";
     }
 

@@ -24,10 +24,14 @@ public class AttentionServiceImpl implements AttentionService {
                                                                String column,String queryContent) {
         String sql = "select a.attentionState, a.productType, o.companyName, s.productName from attention a join investor o on a.otherId = o.investorId" +
                 " join stockcreditor s on a.attStockCreditorId = s.id where a.userId = :user_id";
-        column=" s."+column;
+        column=" a."+column;
         Order order = new Order().asc(column);
         Map<String,Object> reqs=new HashMap<String, Object>();
         reqs.put("user_id", userId);
+        if(!"".equals(queryContent)){
+            sql+=" and o.companyName like :query_content";
+            reqs.put("query_content", ConditionUtil.like(queryContent));
+        }
         Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql, reqs, pageIndex, 10, order);
         if (page.getSize() > 0) {
             return page;
