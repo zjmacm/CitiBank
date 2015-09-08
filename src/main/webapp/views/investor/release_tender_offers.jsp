@@ -49,7 +49,7 @@
           </p>
         </div>
         <div class="input_text">
-          <form class="input_form" action="/intention/intentionPublish" method="post" name="form">
+          <form class="input_form" action="/intention/intentionPublish<%--/1--%>" method="post" name="form" >
             <label>投资金额：</label>
             <input class="input" type="text" name="investMoney" />
             <%--<label>-</label>
@@ -108,19 +108,17 @@
 
 <div id="footer">
 </div>
-<script type="text/javascript" src="/javascripts/imd.js"></script>
+<script type="text/javascript" src="../public/javascripts/imd.js"></script>
 <script type="text/javascript">
   window.onload = function() {
-    var flag = ${flag};
-    var navItemList = document.getElementsByClassName('nav-item');
-    navItemList[flag].className = navItemList[flag].className + ' active';
-
-    var form = document.forms.form;
-    var data = new FormData(form);
 
     imd.Event('#btn').on('click', function(e) {
+      var form = document.forms.form;
+      var data = new FormData(form);
+      data.append("productType", 1);
+
       imd.ajax({
-        url:'/intention/intentionPublish/1',
+        url:'/intention/intentionPublish',
         receiveType: 'json',
         type:'POST',
         async: true,
