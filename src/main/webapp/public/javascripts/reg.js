@@ -230,7 +230,6 @@ var reg = (function (citi) {
                         var now = new Date();
                         url = '/authCheck/' + now.getTime();
                         success = function (text) {
-                            alert(text.check)
                             if (text.check == 'success') {
 
                                 $('#check-auth').addClass('icon-success').html('');

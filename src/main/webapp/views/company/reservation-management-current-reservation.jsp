@@ -58,7 +58,7 @@
                     <% for (int i = 0; i < manage_message_current.size(); i++) { %>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td><%= manage_message_current.get(i).get("appointmentName")%>>&nbsp;</td>
+                        <td><%= manage_message_current.get(i).get("appointmentName")%>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("contractWay") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("appointmentTime") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("submitTime") %>&nbsp;&nbsp;</td>
