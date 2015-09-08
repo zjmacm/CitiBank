@@ -40,7 +40,7 @@
                 });
                 $("#search-btn").click(function(i){
                     var search = $('#search').val();
-                    window.location.href = '/investor/ifollow.htm?queryContent='+ search;
+                    window.location.href = '/investor/isFollow/'+search;
                 })
             })
         })
@@ -65,10 +65,10 @@
                 <dt>请选择</dt>
                 <dd>
                     <ul>
-                        <li><a href="#">按时间排序</a></li>
-                        <li><a href="#">按信用排序</a></li>
-                        <li><a href="#">按地点排序</a></li>
-                        <li><a href="#">按规模排序</a></li>
+                        <li><a href="/investor/ifollow/time">按时间排序</a></li>
+                        <li><a href="/investor/ifollow/credit">按信用排序</a></li>
+                        <li><a href="/investor/ifollow/place">按地点排序</a></li>
+                        <li><a href="/investor/ifollow/model">按规模排序</a></li>
                     </ul>
                 </dd>
             </dl>

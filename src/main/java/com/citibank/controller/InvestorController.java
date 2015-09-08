@@ -9,10 +9,7 @@ import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -56,22 +53,38 @@ public class InvestorController {
         return "investor/logined-invest-index";
     }
 
-    //我的关注
-    @RequestMapping(value = "/ifollow.htm", method = RequestMethod.GET)
-    public String getIfollowPage(@RequestParam(value = "column", required = false, defaultValue = "id") String column,
-                                 @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+    //根据排序搜索我的关注
+    @RequestMapping(value = "/ifollow/{column}", method = RequestMethod.GET)
+    public String getIfollowPage(@PathVariable("column") String column,
+                                 //@RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                  HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
-        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column, queryContent);
+        if (column.equals("time")) {
+            column = "otherId";
+        } else if (column.equals("credit")) {
+            column = "attStockCreditorId";
+        } else {
+            column = "id";
+        }
+        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column, "");
+        map.put("attention", results.getList());
+        return "investor/personal-attiontion";
+    }
+
+    //搜索我的关注
+    @RequestMapping("/isFollow/{content}")
+    public String getFollowByContent(@PathVariable("content") String content, HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, "id", content);
         map.put("attention", results.getList());
         return "investor/personal-attiontion";
     }
 
     //系统消息
     @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1")int pageIndex,
-                               @RequestParam(value = "queryContent", required = false, defaultValue = "")String queryContent,
-                               Map<String,Object> map) {
+    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                               Map<String, Object> map) {
         //返回系统消息,首先得获取公司id.
         Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
         List<Map<String, Object>> results = page.getList();

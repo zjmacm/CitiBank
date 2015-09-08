@@ -57,7 +57,13 @@ public class AssetServiceImpl implements AssetService {
             sb.append(" and productType = :product_type");
             parms.put("product_type", type);
         }
-        return mySQLSimpleDao.pageQuery(sb.toString(), parms, pageIndex, 10, new Order().asc("s.createTime"));
+        Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sb.toString(), parms, pageIndex, 10, new Order().asc("s.createTime"));
+        List<Map<String, Object>> datas = pages.getList();
+        Random random=new Random();
+        for(Map<String,Object> data:datas){
+            data.put("stockRate",random.nextInt(10));
+        }
+        return pages;
     }
 
     private Date getAimDate(String duration) {
