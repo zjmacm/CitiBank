@@ -82,7 +82,7 @@
                     <span id="text">我的账号<img src="/public/images/back-bottom.png"></span>
                     <ul>
                         <li>
-                            <a href="/company/ifollow.htm" title="">
+                            <a href="/company/ifollow/id" title="">
                                 <span>我关注的</span>
                             </a>
                         </li>

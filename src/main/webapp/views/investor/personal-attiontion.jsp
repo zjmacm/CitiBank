@@ -38,9 +38,10 @@
                 $("body").click(function (i) {
                     !$(i.target).parents(".select").first().is(s) ? _hide() : "";
                 });
-                $("#search-btn").click(function(i){
+                $("#search-btn").click(function (i) {
                     var search = $('#search').val();
-                    window.location.href = '/investor/ifollow.htm?queryContent='+ search;
+                    if ('' != search)
+                        window.location.href = '/investor/isFollow/' + search;
                 })
             })
         })
@@ -65,10 +66,10 @@
                 <dt>请选择</dt>
                 <dd>
                     <ul>
-                        <li><a href="#">按时间排序</a></li>
-                        <li><a href="#">按信用排序</a></li>
-                        <li><a href="#">按地点排序</a></li>
-                        <li><a href="#">按规模排序</a></li>
+                        <li><a href="/investor/ifollow/time">按时间排序</a></li>
+                        <li><a href="/investor/ifollow/credit">按信用排序</a></li>
+                        <li><a href="/investor/ifollow/place">按地点排序</a></li>
+                        <li><a href="/investor/ifollow/model">按规模排序</a></li>
                     </ul>
                 </dd>
             </dl>
@@ -110,7 +111,7 @@
                 <%= attention.get(i).get("productName")%>
             </th>
             <th>
-                <%= Integer.valueOf(attention.get(i).get("productType").toString())==0?"股券":"债券"%>
+                <%= Integer.valueOf(attention.get(i).get("productType").toString()) == 0 ? "股券" : "债券"%>
             </th>
             <th>
                 更多操作

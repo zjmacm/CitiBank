@@ -13,7 +13,7 @@
         <div id="header-nav">
             <div id="nav-logo">
            	  <span>
-                <img src="../public/images/logo-last.png" alt="" id="logo">
+                <img src="/public/images/logo-last.png" alt="" id="logo">
             </span>
             </div>
 
@@ -78,7 +78,7 @@
                         <span id="text">我的账号<img src="/public/images/back-bottom.png"></span>
                         <ul>
                             <li>
-                                <a href="/investor/ifollow.htm" title="">
+                                <a href="/investor/ifollow/id" title="">
                                     <span>我关注的</span>
                                 </a>
                             </li>
