@@ -360,7 +360,7 @@ public class CompanyController {
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         reqs.put("logo", uploadFileService.uploadFile(multipartFile, path));
         companyService.saveCompanyInfo(reqs, id);
-        return "/investor/finsh-reg";
+        return "/visitor/finsh-reg";
     }
 
 }
