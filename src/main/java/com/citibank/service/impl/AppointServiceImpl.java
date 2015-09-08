@@ -19,31 +19,29 @@ public class AppointServiceImpl implements AppointService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
-    public Page<Map<String, Object>> getAppoint(Map<String,Object> reqs) {
+    public Page<Map<String, Object>> getAppoint(Map<String, Object> reqs) {
         String sql = "select * from appointment where userId = :user_id and flag =:flag";
         int pageSize = 10;
         int pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
-        Order order=new Order().asc("id");
-        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql,reqs,pageIndex,pageSize,order);
-        if(page.getSize() > 0)
-        {
+        Order order = new Order().asc("id");
+        Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql, reqs, pageIndex, pageSize, order);
+        if (page.getSize() > 0) {
             //System.out.println("找到page!");
             return page;
-        }
-        else {
+        } else {
             //System.out.println("没找到page!");
             return null;
         }
     }
 
     public boolean completeReservation(String reserId) {
-        Map<String,Object> columns=new HashMap<String, Object>();
+        Map<String, Object> columns = new HashMap<String, Object>();
         columns.put("flag", 1);
-        Map<String,Object> cons=new HashMap<String, Object>();
+        Map<String, Object> cons = new HashMap<String, Object>();
         cons.put("id", reserId);
         try {
             mySQLSimpleDao.update("appointment", columns, cons);
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
         return true;

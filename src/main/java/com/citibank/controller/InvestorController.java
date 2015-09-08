@@ -12,8 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,7 +107,12 @@ public class InvestorController {
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage() {
+    public String getLogoutPage(HttpSession session,HttpServletResponse response) {
+        Cookie cookie=new Cookie("username", null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/customer");
+        response.addCookie(cookie);
+        session.removeAttribute("userId");
         return "visitor/login";
     }
 
@@ -176,8 +184,13 @@ public class InvestorController {
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
-
-        reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+        try {
+            System.out.println(path);
+            System.out.println(Constant.uploadPath);
+            reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         investorService.saveInvestorInfo(reqs, id);
         return "/investor/finsh-reg";
     }

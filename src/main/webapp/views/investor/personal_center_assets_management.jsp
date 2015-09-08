@@ -63,17 +63,30 @@
                         <p>股东背景：某基金创始人之一</p><br/>
                         <p>投资行业：<%= userInfo.get("investIndustry")==null?userInfo.get("investIndustry"):"暂无"%></p><br/>
                         <p>投资类型：<%= userInfo.get("investType")==null?userInfo.get("investType"):"暂无"%></p><br/>
-                        <p>达成案例：点击查看</p><br/>
-
+                        <p>达成案例：</p>
+                        <table id="instance">
+                            <tr>
+                                <th>日期</th><th>产品类型</th><th>交易方</th><th>金额</th>
+                            </tr>
+                            <tr>
+                                <td>2015.7.31</td><td>私募股权</td><td>福建省鑫兴华教育科技有限公司</td><td>1000万</td>
+                            </tr>
+                            <tr>
+                                <td>2015.6.23</td><td>私募债</td><td>厦门市东林电子有限公司</td><td>530万</td>
+                            </tr>
+                            <tr>
+                                <td>2014.3.2</td><td>私募债</td><td>深圳市保千里电子有限公司</td><td>961万</td>
+                            </tr>
+                        </table>
+                        <div id="second_middle">投资历史：<br/>
+                            <%= userInfo.get("investHistory")==null?userInfo.get("investHistory"):"暂无"%>
+                        </div>
                     </div>
                     <div id="top_right">
                         <p>管理基金：方圆基金</p><br/>
                         <p>投资意向金额：<%= userInfo.get("investMoney")==null? userInfo.get("investMoney"):"暂无"%></p><br/>
                         <p>所需资料：<%= userInfo.get("material")==null?userInfo.get("material"):"暂无"%></p><br/>
                     </div>
-                </div>
-                <div id="second_middle">投资历史：<br/>
-                    <%= userInfo.get("investHistory")==null?userInfo.get("investHistory"):"暂无"%>
                 </div>
                 <%--<div id="second_bottom">--%>
                     <%--<p>瑞贝卡（600439.sh）、兴森科技（002436.sz)</p><br/>--%>

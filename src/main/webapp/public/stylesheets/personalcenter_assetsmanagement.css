@@ -106,3 +106,17 @@
     top: 60px;
     right: 300px;
 }
+
+table {
+    font-family: verdana,arial,sans-serif;
+    font-size:16px;
+    color:#333333;
+    border-collapse: collapse;
+    width: 600px;
+}
+
+th, td {
+    height: 15px;
+    border: 1px solid #A4B3E4;
+    text-align: center;
+}

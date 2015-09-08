@@ -49,7 +49,12 @@ public class SystemController {
 
         System.out.println(multipartFile.getOriginalFilename());
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
-        String filePath = uploadFile.uploadFile(multipartFile, path);
+        String filePath = null;
+        try {
+            filePath = uploadFile.uploadFile(multipartFile, path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("id", IdUtil.uuid());

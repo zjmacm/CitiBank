@@ -18,20 +18,13 @@ import java.util.UUID;
 public class UploadFileService {
     private final static String IMG_DESC_PATH =File.separator+"uploads"+File.separator;
 
-    public String uploadFile(CommonsMultipartFile multipartFile, String path){
-
-       // String result = "success";
-
+    public String uploadFile(CommonsMultipartFile multipartFile, String path) throws IOException {
         String fileName = createUri(multipartFile, path);
-
         File file = new File(path+fileName);
-
+        file.createNewFile();
         try{
-
             multipartFile.transferTo(file);
-
         }catch(Exception e){
-
             e.printStackTrace();
         }
         return fileName;
@@ -43,7 +36,6 @@ public class UploadFileService {
      */
 
     public static String createUri(MultipartFile file,String path){
-
 //        String imgPath = request.getSession().getServletContext().getRealPath("")+IMG_DESC_PATH;
         String fileName = file.getOriginalFilename();
         String extName = fileName.substring(fileName.lastIndexOf("."));
@@ -51,7 +43,4 @@ public class UploadFileService {
         return newName;
 
     }
-
-
-
 }

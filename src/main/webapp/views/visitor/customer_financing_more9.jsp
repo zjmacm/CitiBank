@@ -32,15 +32,13 @@
         <div class="container">
             <div class="top">
                 <img class="head" src="/public/images/logo_0009.jpg">
-                <p style="font-size: 2em">日航饭店</p><br/>
+                <a href="http://www.fujianxinghua.com/"><p style="font-size: 2em">日航饭店</p></a><br/>
                 <div class="about">
                     <p>拥有中、西、日式餐厅、酒吧和茶室，可满足不同口味客人的需要</p>
                 </div>
                 <div class="top-right">
                     <div class="return">
-                        <a id="return0" href="">访问官网</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
+                        <a id="return" href="javascript:void(0)" onClick="javascript:history.back(-1);">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
                     </div>
                     <div class="button" id="send">
                         <a href="">发送意见</a>
