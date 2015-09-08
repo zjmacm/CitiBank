@@ -1,5 +1,6 @@
 package com.citibank.controller;
 
+import com.citibank.common.IdUtil;
 import com.citibank.service.impl.IntentionServiceImpl;
 import com.citibank.service.impl.InvestorServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,10 +31,7 @@ public class IntentionController {
     public ModelAndView getIntentionPage(HttpSession session)
     {
         String userId=session.getAttribute("userId").toString();
-        System.out.println(userId);
 
-        System.out.println(investorServiceImp.getInvestorInfo("292ABC3521394FDEB6F553E5BD0D3C49"));
-        System.out.println(userId);
         return new ModelAndView("investor/release_tender_offers","data",
                 investorServiceImp.getInvestorInfo(userId));
     }
@@ -58,12 +57,19 @@ public class IntentionController {
     }
 */
     //意向发布的按钮
-    @RequestMapping(value = "/intentionPublish/{productType}",method = RequestMethod.POST)
+    @RequestMapping(value = "/intentionPublish", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,String> intentionPublish(@RequestBody Map<String, Object> reqs,
-                                               @PathVariable int productType) {
+    public Map<String,String> intentionPublish(@RequestParam Map<String, Object> reqs,
+                                              /*@PathVariable int post,*/
+                                               HttpSession session,
+                                               HttpServletRequest req) {
         Map<String, String> map = new HashMap<String, String>();
-        System.out.println(reqs);
+        String userId=session.getAttribute("userId").toString();
+        reqs.put("userId", userId);
+        String id= IdUtil.uuid();
+        reqs.put("id",id);
+        reqs.put("productName","hell");
+        System.out.println(req.getParameter("stockRate"));
         if (intentionService.publishIntention(reqs)) {
             map.put("result", "suceess");
         } else {

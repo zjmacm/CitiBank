@@ -62,7 +62,8 @@ public class InvestorController {
                                  @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                  HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
-        Page results = attentionService.getMyAttentionByInvestorId(userId, 1, column, queryContent);
+        Page results = attentionService.
+                getMyAttentionByInvestorId(userId, 1, column, queryContent);
         map.put("attention", results.getList());
         return "investor/personal-attiontion";
     }

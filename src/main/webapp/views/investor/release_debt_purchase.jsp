@@ -107,9 +107,11 @@
 <script type="text/javascript" src="../public/javascripts/imd.js"></script>
 <script type="text/javascript">
   imd.initDocReady(function() {
-    var form = document.forms.form,
-            data = new FormData(form);
+
     imd.Event('#btn').on('click', function(e) {
+      var form = document.forms.form,
+              data = new FormData(form);
+      data.append("productType",2);
       imd.ajax({
         type: 'POST',
         async: true,

@@ -112,7 +112,13 @@ public class SystemTest {
 //        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
 //        System.out.println(page.getList().toString());
     }
+   /* @Test
+    public void testAttentionin()
+    {
+        System.out.println(attentionService.getMyAttentionByInvestorId());
 
+    }
+*/
     @Test
     public void getUUID() {
         System.out.println(IdUtil.uuid());
