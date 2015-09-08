@@ -128,9 +128,19 @@ public class SystemTest {
     public void testIntention()
     {
         Map<String,Object> map=new HashMap<String, Object>();
-        map.put("id","adfa");
+        map.put("id","a");
         map.put("productName","aaaf");
         map.put("userId","aaaf");
+        map.put("exitMinTime",1);
+        map.put("flag",1);
+        map.put("backWay",1);
+        map.put("bondsman",1);
+        map.put("moneyFrom",1);
+        map.put("productType",1);
+
+
+
+
         System.out.print(intentionService.publishIntention(map));
     }
 
