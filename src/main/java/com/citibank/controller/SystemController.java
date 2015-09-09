@@ -116,5 +116,10 @@ public class SystemController {
         }
         return null;
     }
+    @RequestMapping(value = "/protopl")
+    public String getNet()
+    {
+        return "/investor/network-service-protocol";
+    }
 }
 

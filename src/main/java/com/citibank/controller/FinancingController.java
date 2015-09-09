@@ -58,7 +58,7 @@ public class    FinancingController {
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //公司的撮合配对根据条件
+    //公司的撮合配对根据选择条件
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
@@ -88,5 +88,14 @@ public class    FinancingController {
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }
+    //公司撮合配对根据搜索条件
+   /* @RequestMapping(value = "/company/byKey")
+    public String companyByKey(@RequestParam Map<String,Object> reqs,
+                               Map<String,Object> map)
 
+    {
+        if (reqs.get(""))
+        map.put("data",financingService.)
+    }
+*/
 }

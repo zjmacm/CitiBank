@@ -17,13 +17,13 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
-            <form action="" method="post">
+            <form action="/financing/company/byKey" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
                         <a href=""><img src="/public/images/cancel.png"></a>
                     </div>
-                    <input id="searchText" type="text" placeholder="请输入关键字搜索">
+                    <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
                 <a href="/financing/investor/matching" style="display:inline;">
                     <div id="searchButton">确定</div>
@@ -31,10 +31,10 @@
             </div>
             <div id="selectForm">
                 <p>类型：</p>
-                <select>
-                    <option>全部</option>
-                    <option>股权投资</option>
-                    <option>债权投资</option>
+                <select name="productType">
+                    <option value=0>全部</option>
+                    <option value=1>股权投资</option>
+                    <option value=2>债权投资</option>
                 </select>
             </div>
 

@@ -94,6 +94,20 @@ public class FinancingServiceImpl implements FinancingService {
         return mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order());
 
     }
+    //通过搜索名称和产品类型
+    public Page<Map<String,Object>> getProductByNameAndType(Map<String,Object> req)
+    {
+        String sql="select * from stockcreditor where productName:=productName and " +
+                "productType:=productType";
+        return mySQLSimpleDao.pageQuery(sql,req,1,10,new Order());
+    }
+    //通过搜索名称
+    public Page<Map<String, Object>> getProductByName(Map<String, Objects> reqs)
+    {
+        String sql="select * from stockcreditor where productName:=productName";
+        return mySQLSimpleDao.pageQuery(sql,reqs,1,10,new Order());
+
+    }
 
     public Page<Map<String, Object>> getMatchingCompany(Map<String, Object> map, int pageIndex) {
         String sql = "select * from stockcreditor where investArea=:investArea " +
