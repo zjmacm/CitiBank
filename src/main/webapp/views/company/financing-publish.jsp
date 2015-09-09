@@ -120,7 +120,7 @@
     imd.initDocReady(function() {
         var sideItem = document.getElementsByClassName('side-item');
         sideItem[0].className = sideItem[1].className + ' on';
-        
+
         imd.Event('#btn').on('click', function(e) {
             var form = document.forms.form,
                     data = new FormData(form);
