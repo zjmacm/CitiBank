@@ -24,6 +24,7 @@ import java.util.*;
 @ContextConfiguration("/datasource-config.xml")
 public class SystemTest {
 
+
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
@@ -35,8 +36,10 @@ public class SystemTest {
 
     @Autowired
     private CompanyService comService;
+
     @Autowired
     private FinancingService financingService;
+	
     @Autowired
     private IntentionServiceImpl intentionService;
 
@@ -46,28 +49,18 @@ public class SystemTest {
     @Autowired
     private AttentionService attentionService;
 
+    @Autowired
+    private SelfBoundsService selfBoundsService;
 
     @Test
     public void testfid() {
         System.out.println(financingService.getDefault().getList());
-
     }
-
 
     @Test
     public void testSql() {
         //assetService.getTotalMoney("123","1_month");
         investorService.getInvestorInfo("123");
-    }
-
-    @Test
-    public void testH() {
-        System.out.println("HHHHHHHHHH");
-    }
-
-    @Test
-    public void test() {
-        System.out.println("Hello");
     }
 
     @Test
@@ -115,16 +108,30 @@ public class SystemTest {
         System.out.println(appointService.getAppoint(map).getList());
     }
 
-    @Test
     public void testAttention(){
-        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
-        System.out.println(page.getList().toString());
+//        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
+//        System.out.println(page.getList().toString());
     }
+   /* @Test
+    public void testAttentionin()
+    {
+        System.out.println(attentionService.getMyAttentionByInvestorId());
 
-
+    }
+*/
     @Test
     public void getUUID() {
         System.out.println(IdUtil.uuid());
+    }
+
+    @Test
+    public void testIntention()
+    {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("id","adfa");
+        map.put("productName","aaaf");
+        map.put("userId","aaaf");
+        System.out.print(intentionService.publishIntention(map));
     }
 
 }

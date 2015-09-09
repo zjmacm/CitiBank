@@ -32,15 +32,13 @@
         <div class="container">
             <div class="top">
                 <img class="head" src="/public/images/logo_0008.jpg">
-                <p style="font-size: 2em">盛逸酒店</p><br/>
+                <a href="http://www.seedtec.cn/seedweb/"><p style="font-size: 2em">盛逸酒店</p></a><br/>
                 <div class="about">
                     <p>我们秉承“成熟的技术、先进的仪器、优秀人才、科学的管理打造出一流的产品和一流的服务"为公司的经营理念和社会价值所在</p>
                 </div>
                 <div class="top-right">
                     <div class="return">
-                        <a id="return0" href="">访问官网</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
+                        <a id="return" href="javascript:void(0)" onClick="javascript:history.back(-1);">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
                     </div>
                     <div class="button" id="send">
                         <a href="">发送意见</a>

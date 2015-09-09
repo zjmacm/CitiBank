@@ -2,6 +2,7 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page isELIgnored="false" %>
+<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -57,7 +58,7 @@
                     <% for (int i = 0; i < manage_message_current.size(); i++) { %>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td><%= manage_message_current.get(i).get("appointmentName")%>>&nbsp;</td>
+                        <td><%= manage_message_current.get(i).get("appointmentName")%>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("contractWay") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("appointmentTime") %>&nbsp;</td>
                         <td>&nbsp;<%= manage_message_current.get(i).get("submitTime") %>&nbsp;&nbsp;</td>

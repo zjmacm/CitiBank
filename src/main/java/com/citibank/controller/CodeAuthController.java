@@ -46,19 +46,19 @@ public class CodeAuthController {
     }
 
     @RequestMapping(value = "authCheck/*", method = RequestMethod.POST)
-    public @ResponseBody Map<String, Object> authCheck(@RequestParam("data") String code,
-                                                       HttpSession session){
-        Map<String,Object> map=new HashMap<String, Object>();
-        String auth= (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        System.out.println(session.getAttribute(Constants.KAPTCHA_SESSION_KEY)+"---"+code);
-        if(code.equals(auth)){
-            map.put("check","success");
-        }else{
-            map.put("check","failed");
+    public
+    @ResponseBody
+    Map<String, Object> authCheck(@RequestParam("data") String code,
+                                  HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        String auth = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println(session.getAttribute(Constants.KAPTCHA_SESSION_KEY) + "---" + code);
+        if (code.equals(auth)) {
+            map.put("check", "success");
+        } else {
+            map.put("check", "failed");
         }
         return map;
     }
-
-
 
 }

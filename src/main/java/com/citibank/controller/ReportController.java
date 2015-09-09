@@ -27,6 +27,7 @@ public class ReportController {
     @Autowired
     private FinanceService financeService;
 
+    //获取信息披露信息
     @RequestMapping(value = "/getReport/{type}", method = RequestMethod.GET)
     public String getReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                             @PathVariable(value = "type") Integer type,
@@ -39,6 +40,7 @@ public class ReportController {
         return "investor/information-center-notice";
     }
 
+    //根据查询内容获取信息披露信息
     @RequestMapping(value = "/getReport/{type}/{queryContent}", method = RequestMethod.GET)
     public String searchReport(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                                @PathVariable(value = "queryContent") String queryContent,
@@ -75,6 +77,7 @@ public class ReportController {
         return map;
     }
 
+    //查看信息披露详情
     @RequestMapping(value = "/detail/{reportId}", method = RequestMethod.GET)
     public String getReportDetail(@PathVariable("reportId") String reportId) {
         String fileUrl = reportService.getReportFile(reportId);

@@ -18,9 +18,7 @@
         $(document).ready(function () {
             $('#addclass li').eq(${flag1}).addClass('on');
             $('#search-btn').click(function (e) {
-
                 var search = $('#search').val();
-
                 window.location.href = '/report/getReport/' + flag1 + '/' + search;
             });
         });

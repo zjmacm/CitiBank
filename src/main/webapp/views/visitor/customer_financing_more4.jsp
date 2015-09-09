@@ -32,16 +32,14 @@
         <div class="container">
             <div class="top">
                 <img class="head" src="/public/images/logo_0004.jpg">
-                <p style="font-size: 2em">莱客饭店</p><br/>
+                <a href="http://www.dggq.com"><p style="font-size: 2em">莱客饭店</p><br/></a>
                 <div class="about">
                     <p>是集餐饮、住宿、会务为一体的综合性旅游饭店。饭店环境幽雅。
                     </p>
                 </div>
                 <div class="top-right">
                     <div class="return">
-                        <a id="return0" href="">访问官网</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="return" href="">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
+                        <a id="return" href="javascript:void(0)" onClick="javascript:history.back(-1);">返回上一层<img style="vertical-align: middle" src="/public/images/back.png"></a>
                     </div>
                     <div class="button" id="send">
                         <a href="">发送意见</a>

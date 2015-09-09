@@ -1,5 +1,7 @@
 package com.citibank.service;
 
+import com.citibank.dao.Page;
+
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -22,5 +24,7 @@ public interface MessageService {
     //定向披露
     public String DirectionalDisclosure(Map<String,Object> reqs);
 
+    //获取系统消息
+    public Page<Map<String, Object>> getSystemMessage(int pageIndex, String queryContent);
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,17 +37,25 @@ public class SystemController {
 
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
+    @RequestMapping("/index")
+    public String index(){
+        return "investor/network-service-protocol";
+    }
+
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
     public
     @ResponseBody
-
-
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,
                       @RequestParam("type") int type, HttpServletRequest request) {
 
         System.out.println(multipartFile.getOriginalFilename());
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
-        String filePath = uploadFile.uploadFile(multipartFile, path);
+        String filePath = null;
+        try {
+            filePath = uploadFile.uploadFile(multipartFile, path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("id", IdUtil.uuid());
@@ -61,10 +70,51 @@ public class SystemController {
         return "success";
     }
 
-
-
     @RequestMapping("/")
     public String homePage(HttpServletRequest request, HttpSession session) {
         return "redirect:/customer/index";
     }
+
+    //去首页看看的跳转（分为投资者和企业）
+    @RequestMapping("/goIndex.htm")
+    public String goIndex(HttpServletRequest request, HttpSession session)
+    {
+        String flag = (String)session.getAttribute("userType");
+        System.out.println("!!!!!!!!!!!!type:"+flag);
+        if("投资者".equals(flag))
+        {
+            return "investor/logined-invest-index";
+        }
+        else if("企业".equals(flag))
+        {
+            return "company/logined-business-index";
+        }
+        else
+        {
+            System.out.println("error");
+        }
+        return null;
+    }
+
+    //去完善信息的跳转（分为投资者和企业）
+    @RequestMapping("/completeInformation.htm")
+    public String completeInformation(HttpServletRequest request, HttpSession session)
+    {
+        String flag = (String)session.getAttribute("userType");
+        System.out.println("!!!!!!!!!!!!type:"+flag);
+        if("投资者".equals(flag))
+        {
+            return "redirect:/investor/isource";
+        }
+        else if("企业".equals(flag))
+        {
+            return "redirect:/company/data_management-edit";
+        }
+        else
+        {
+            System.out.println("error");
+        }
+        return null;
+    }
 }
+

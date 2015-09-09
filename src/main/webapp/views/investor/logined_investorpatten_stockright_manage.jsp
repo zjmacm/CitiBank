@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
@@ -11,6 +13,7 @@
     <link href="/public/stylesheets/logined_investorpatten_stockright_manage.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<% List<Map<String,Object>> data= (List<Map<String, Object>>) request.getAttribute("data");%>
 <jsp:include page="invest-header.jsp"/>
 <div id="main">
     <div id="nav-boder">
@@ -28,7 +31,7 @@
             <span id="search">
                 <label for="search-content">搜索:</label>
                 <input type="text" id="search-content">
-                <input type="button" id="search-button">
+                <input type="button" id="search-button" value="确定">
             </span>
         </div>
         <div id="selected3">
@@ -57,25 +60,18 @@
         <div id="subtitle">
             股权状况分布
         </div>
+        <% for (int i=0;i<data.size();++i){%>
         <div class="list-text">
             <div>
                 公司名称
             </div>
             <div>
-                <span>所在地：北京</span>
-                <span>份额：1</span>
-                <span>投入资金额：100万</span>
+                <span>所在地：<%= data.get(i).get("investArea")%></span>
+                <span>份额：<%= data.get(i).get("stockRate")%></span>
+                <span>投入资金额：<%= data.get(i).get("investMoney")%>万</span>
             </div>
         </div>
-        <div class="list-text">
-
-        </div>
-        <div class="list-text">
-
-        </div>
-        <div class="list-text">
-
-        </div>
+        <%}%>
     </div>
 </div>
 <div id="footer">

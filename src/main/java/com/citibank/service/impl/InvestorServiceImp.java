@@ -89,7 +89,7 @@ public class InvestorServiceImp implements InvestorService {
     }
 
     public Map<String, Object> getInvestorInfo(String userId) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor");
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where investorId=?",userId);
         if(result.size()==0){
             Map<String ,Object> map=new HashMap<String, Object>();
             map.put("error","true");
@@ -97,6 +97,7 @@ public class InvestorServiceImp implements InvestorService {
         }
         return result.get(0);
     }
+
 
     public int saveInvestorInfo(Map<String, Object> map, String userId) {
         Map<String,Object> cons=new HashMap<String, Object>();

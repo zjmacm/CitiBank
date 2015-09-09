@@ -31,6 +31,8 @@ public class    FinancingController {
         return "investor/company-corporate-mode-finance-patch";
     }
 
+
+
     //投资者的撮合配对
     @RequestMapping(value = "/investor/matching")
     public String getMatchingCompanyPage(@RequestParam Map<String, Object> reqs,
@@ -38,7 +40,17 @@ public class    FinancingController {
                                          HttpSession session, Map<String, Object> map) {
         map.put("data", financingService.getMatchingCompany(reqs, pageIndex).getList());
         System.out.println(map);
-        return "/company/company-corporate-mode-finance-patch";
+        //return "/company/company-corporate-mode-finance-patch";
+        return "investor/company-corporate-mode-finance-patch";
+    }
+
+    //跳到公司撮合配对界面
+    @RequestMapping(value = "/company/Matching.htm",method = RequestMethod.GET)
+    public String getcMatchingPage(Map<String,Object> map)
+    {
+        map.put("data",financingService.getDefault().getList());
+        System.out.println(map);
+        return "company/user-corporate-mode-finance-patch";
     }
 
     //企业的撮合配对

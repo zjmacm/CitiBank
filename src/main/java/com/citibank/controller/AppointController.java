@@ -24,12 +24,12 @@ public class AppointController {
     private AppointService appointService;
 
     @RequestMapping("/reservation/{type}")
-    public String getAppoint(@RequestParam(value="isComplete", required = false, defaultValue = "false")boolean isComplete,
-                             @RequestParam(value = "pageIndex", required = false, defaultValue = "1")int pageIndex,
-                             @RequestParam(value = "columnName",required = false, defaultValue = "id")String columnName,
-                             @RequestParam(value = "queryContent", required = false)String queryContent,
+    public String getAppoint(@RequestParam(value = "isComplete", required = false, defaultValue = "false") boolean isComplete,
+                             @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                             @RequestParam(value = "columnName", required = false, defaultValue = "id") String columnName,
+                             @RequestParam(value = "queryContent", required = false) String queryContent,
                              @PathVariable(value = "type") int type,
-                             HttpSession session, Map<String ,Object> map){
+                             HttpSession session, Map<String, Object> map) {
         map.put("user_id", session.getAttribute("userId")); //公司id
         map.put("pageIndex", 1);//数据起始位置
         map.put("flag", type);//是否已读

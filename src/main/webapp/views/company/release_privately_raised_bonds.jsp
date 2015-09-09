@@ -66,28 +66,28 @@
                     </p>
                 </div>
                 <div class="input_text">
-                    <form class="input_form">
+                    <form class="input_form" name="form">
                         <label >发行金额：</label>
-                        <input class="input" type="text" id="lowMoney"/>
-                        <label> — </label>
-                        <input class="input" type="text" id="highMoney"/>
+                        <input class="input" type="text" id="investMoney"/>
+                       <%-- <label> — </label>
+                        <input class="input" type="text" id="highMoney"/>--%>
                         <label>万</label>
-                    </form>
-                    <form >
+                    <%--</form>
+                    <form >--%>
                         <label >发行年限：</label>
-                        <input class="input" type="text" id="year"/>
+                        <input class="input" type="text" id="investTime"/>
                         <label> 年 </label>
 
-                    </form>
-                    <br/>
-                    <form class="input_form">
-                        <div class="input_textarea"> 还本付息方式: </div>
+                   <%-- </form>--%>
+                   <%-- <br/>--%>
+                    <%--<form class="input_form">--%>
+                       <%-- <div class="input_textarea"> 还本付息方式: </div>
                         <textarea rows="2" cols="59"></textarea>
-                        <div id="bloak">
+                        <div id="bloak">--%>
 
-                        </div>
-                        <div class="input_textarea"> 发行完成: &nbsp;&nbsp;&nbsp;&nbsp;</div>
-                        <textarea rows="2" cols="60"></textarea>
+                        <%--</div>--%>
+                      <%--  <div class="input_textarea"> 发行完成: &nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <textarea rows="2" cols="60"></textarea>--%>
                     </form>
                 </div>
 
@@ -115,10 +115,10 @@
                     <form >
                         <label >可提供风控:</label>&nbsp;&nbsp;
                         <select>
-                            <option value="看书">看书</option>
-                            <option value="抵押" selected="selectd">抵押</option>
-                            <option value="运动">运动</option>
-                            <option value="购物">购物</option>
+                            <option value=0>看书</option>
+                            <option value=1 selected="selectd">抵押</option>
+                            <option value=2>运动</option>
+                            <option value=3>购物</option>
                         </select>
                     </form>
                     <from>

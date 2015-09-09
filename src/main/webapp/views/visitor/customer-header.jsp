@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <div id="header">
         <div id="header-nav">
+            <div id="nav-logo">
+           	  <span>
+                <img src="../public/images/logo-last.png" alt="" id="logo">
+            </span>
+            </div>
+
             <div id="nav-list">
                 <ul>
                     <li>

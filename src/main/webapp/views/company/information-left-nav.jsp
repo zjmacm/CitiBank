@@ -5,7 +5,7 @@
             <a href="/report/getCReport/0">中心公告</a>
         </li>
         <li>
-            <a href="#">私募债券列表</a>
+            <a href="/selfBounds/getSelfBounds.htm">私募债券列表</a>
         </li>
         <li>
             <a href="/report/getCReport/2">信用监管报告</a>

@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
@@ -24,7 +25,7 @@
 </head>
 <body>
 <% List<Map<String, Object>> bounds = (List<Map<String, Object>>) request.getAttribute("data");%>
-<jsp:include page="business-header.jsp"/>
+<jsp:include page="invest-header.jsp"/>
 <div class="swap">
     <div class="nav fl">
         <div class="tit ">
@@ -42,6 +43,7 @@
     <div class="main fl">
         <div class="main_head">
             <p>私募债券列表</p>
+
             <div class="search">
                 <input type="text" class="input" placeholder="请输入关键字搜索" id="search">
                 <button class="search_button" id="search-btn">&nbsp;&nbsp;&nbsp;搜&nbsp;索</button>
@@ -53,16 +55,17 @@
             <table id="subjectListContent">
                 <tbody>
                 <tr>
-                    <th>债券代码</th>
-                    <th>债券名称</th>
-                    <th>所属行业</th>
-                    <th>转让日期</th>
-                    <th>承销商</th>
+                    <th class="rightListHead">债券代码</th>
+                    <th class="rightListHead">债券名称</th>
+                    <th class="rightListHead">所属行业</th>
+                    <th class="rightListHead">转让日期</th>
+                    <th class="rightListHead">承销商</th>
                     <th class="rightListHead">受托人</th>
                 </tr>
                 <% for (int i = 0; i < bounds.size(); ++i) {%>
                 <tr>
-                    <td class="listItem"><%= bounds.get(i).get("code")%></td>
+                    <td class="listItem"><%= bounds.get(i).get("code")%>
+                    </td>
                     <td class="listItem"><%= bounds.get(i).get("productName")%>
                     </td>
                     <td class="listItem"><%= bounds.get(i).get("industry")%>
@@ -79,7 +82,6 @@
         <div id="page">
         </div>
     </div>
-</div>
 </div>
 <div id="footer">
 </div>

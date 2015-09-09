@@ -1,6 +1,5 @@
 package com.citibank.controller;
 
-import com.citibank.common.IdUtil;
 import com.citibank.service.ReportService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.CompanyServiceImpl;
@@ -75,16 +74,17 @@ public class VisitorController {
         reqs.remove("auth");
         reqs.remove("iagree");
         reqs.remove("re-password");
+        session.setAttribute("userType",flag);
 
-        if (flag.equals( "投资者")) {
+        if (flag.equals("投资者")) {
 
             investorService.registerInvestor(reqs);
-            String id= (String) reqs.get("investorId");
+            String id = (String) reqs.get("investorId");
             session.setAttribute("investorId", id);
             return "investor/complete-reg";
-        } else{
+        } else {
             companyService.userRegister(reqs);
-            String id=(String)reqs.get("companyId");
+            String id = (String) reqs.get("companyId");
             session.setAttribute("companyId", id);
             return "company/complete-company-reg";
         }
@@ -150,14 +150,15 @@ public class VisitorController {
 
     //导航栏跳转请求响应，首页
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String getIndexPageAgain(@CookieValue(value = "username", required = false) String username,
-                                    @CookieValue(value = "password", required = false) String password,
-                                    HttpSession session, HttpServletRequest request,
-                                    Map<String, Object> map) {
+    public String getIndexPageAgain(
+            @CookieValue(value = "username", required = false) String username,
+            @CookieValue(value = "password", required = false) String password,
+            HttpSession session, HttpServletRequest request,
+            Map<String, Object> map) {
         List<Map<String, Object>> policy = reportService.getInformation(7);
         List<Map<String, Object>> market = reportService.getInformation(8);
         map.put("policy", policy);
-        map.put("market",market);
+        map.put("market", market);
         if (username == null || password == null) {
             return "visitor/customer-index";
         }
@@ -209,7 +210,7 @@ public class VisitorController {
 
     //首页-更多政策咨询
     @RequestMapping(value = "/report_more/{type}", method = RequestMethod.GET)
-    public String getPolicy_morePage(@PathVariable("type")int type, Map<String, Object> map) {
+    public String getPolicy_morePage(@PathVariable("type") int type, Map<String, Object> map) {
         map.put("flag", type);
         List<Map<String, Object>> result = reportService.getInformation(type);
         map.put("information", result);

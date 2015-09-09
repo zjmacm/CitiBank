@@ -1,5 +1,6 @@
 package com.citibank.service.impl;
 
+import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
@@ -20,18 +21,21 @@ public class SelfBoundsServiceImpl implements SelfBoundsService {
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
     public Page<Map<String, Object>> getSelfBounds(String userId, int pageIndex, String queryContent, int userType) {
-        Order order=new Order().asc("id");
         StringBuffer sb=new StringBuffer();
         if(userType==0) {
-            sb.append("select a.finishedTime, u.investIndustry as industry, s.productName from appointment a left join investor u on a.userId = u.investorId " +
-                    "left join stockcreditor s on a.stockId = s.id where a.flag = 1 and a.userId = :user_id");
+            sb.append("select a.id, a.signTime, s.investIndustry as industry, s.productName from contract a left join investor u on a.secondId = u.investorId " +
+                    "left join stockcreditor s on a.stockCreditorId = s.id where a.firstId =  :user_id");
         }else{
-            sb.append("select a.finishedTime, u.workingFiled as industry, s.productName from appointment a left join company u on a.userId = u.companyId " +
-                    "left join stockcreditor s on a.stockId = s.id where a.flag = 1 and a.userId = :user_id");
+            sb.append("select a.id, a.signTime, s.investIndustry as industry, s.productName from contract a left join company u on a.secondId = u.companyId " +
+                    "left join stockcreditor s on a.stockCreditorId = s.id where a.firstId = :user_id");
         }
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("user_id", userId);
-        return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
+        if(!"".equals(queryContent)){
+            sb.append(" and s.productName  like :query_content");
+            map.put("query_content", ConditionUtil.like(queryContent));
+        }
+        return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, new Order());
     }
 
 

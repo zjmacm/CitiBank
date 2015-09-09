@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%--<!DOCTYPE html>--%>
+<%--<html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,9 +8,15 @@
     <title>header</title>
 </head>
 
-<body>
+<body>--%>
     <div id="header">
         <div id="header-nav">
+            <div id="nav-logo">
+           	  <span>
+                <img src="/public/images/logo-last.png" alt="" id="logo">
+            </span>
+            </div>
+
             <div id="nav-list">
                 <ul>
                     <li>
@@ -72,7 +78,7 @@
                         <span id="text">我的账号<img src="/public/images/back-bottom.png"></span>
                         <ul>
                             <li>
-                                <a href="/investor/ifollow.htm" title="">
+                                <a href="/investor/ifollow/id" title="">
                                     <span>我关注的</span>
                                 </a>
                             </li>
@@ -97,6 +103,6 @@
             </div>
         </div>
     </div>
-</body>
+<%--</body>
 
-</html>
+</html>--%>

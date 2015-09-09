@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,69 +11,7 @@
 </head>
 
 <body>
-    <div id="header">
-        <div id="header-nav">
-            <div id="nav-list">
-                <ul>
-                    <li>
-                        <a href="/index" title="">
-                            <span class="nav-item">
-								首页
-							</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/finance" title="">
-                            <span class="nav-item">融资企业</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/invest" title="">
-                            <span class="nav-item">投资中心</span>
-                        </a>
-                    </li>
-                    <li id="service">
-                        <a href="/service" title="">
-                            <span class="nav-item">企业服务</span>
-                        </a>
-                        <div id="service-subnav">
-                            <ul>
-                                <li>
-                                    <a href="/management" title="">
-                                        <span>资产管理</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/esignature" title="">
-                                        <span>电子签约</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/invetfinane" title="">
-                                        <span>投/融资</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="nav-login">
-                <ul>
-                    <li>
-                        <a href="/login" title="">
-                            <span>登陆</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/reg" title="">
-                            <span>注册</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="customer-header.jsp"/>
     <div id="main">
         <div id="content">
             <div id="sitenav">
@@ -99,10 +37,10 @@
                 <div id="go">
                     <ul>
                         <li>
-                            <span class="go-item" id="item1">前去完善信息</span>
+                            <span class="go-item" id="item1"><a href="/completeInformation.htm">前去完善信息</a></span>
                         </li>
                         <li>
-                            <span class="go-item" id="item2">以后再完善,<a href="/index" title="">去首页看看</a></span>
+                            <span class="go-item" id="item2">以后再完善,<a href="/goIndex.htm" title="">去首页看看</a></span>
                         </li>
                     </ul>
                 </div>

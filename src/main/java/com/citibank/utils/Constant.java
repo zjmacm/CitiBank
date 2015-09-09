@@ -7,6 +7,6 @@ import java.io.File;
  */
 public class Constant {
 
-    public static String uploadPath = "uploads" + File.separator;
+    public static String uploadPath = File.separator + "uploads" + File.separator;
 
 }

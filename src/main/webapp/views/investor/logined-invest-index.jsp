@@ -119,7 +119,7 @@
                         </ul>
                     </div>
                     <div class="invest-more">
-                        <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                        <span><a href="/investor/invest-more" title="">查看更多行业>></a></span>
                     </div>
                 </div>
                 <div id="right-banner">
@@ -134,7 +134,7 @@
                         </ul>
                     </div>
                     <div class="invest-more">
-                        <span><a href="/invest-more" title="">查看更多行业>></a></span>
+                        <span><a href="/investor/invest-more" title="">查看更多行业>></a></span>
                     </div>
                 </div>
             </div>
