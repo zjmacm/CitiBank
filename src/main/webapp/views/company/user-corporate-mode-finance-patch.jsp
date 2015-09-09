@@ -7,7 +7,30 @@
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //获取类型，0是全部，1是股权投资，2是债券投资
+            var value1 = $("#select1").val();
+            //搜索
+            var content = $('#searchText').text();
+            $('#searchButton').click(function(){
+                $.ajax({
+                    url : "management-search",
+                    data :{'content':content},
+                    dataType : 'json',
+                    type : 'post',
+                    success :function(data){
+                        //这里将搜索内容显示到页面上
+
+                    }
+                });
+            });
+
+
+
+        });
+    </script>
 </head>
 <body>
 <jsp:include page="business-header.jsp"/>
@@ -27,10 +50,10 @@
             </div>
             <div id="selectForm">
                 <p>类型：</p>
-                <select>
-                    <option>全部</option>
-                    <option>股权投资</option>
-                    <option>债权投资</option>
+                <select id="select1">
+                    <option value="0">全部</option>
+                    <option value="1">股权投资</option>
+                    <option value="2">债权投资</option>
                 </select>
             </div>
             <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;"
