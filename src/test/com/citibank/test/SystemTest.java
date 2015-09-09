@@ -2,6 +2,7 @@ package com.citibank.test;
 
 import com.citibank.common.IdUtil;
 
+import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.*;
@@ -51,11 +52,11 @@ public class SystemTest {
 
     @Autowired
     private SelfBoundsService selfBoundsService;
-
+/*
     @Test
     public void testfid() {
         System.out.println(financingService.getDefault().getList());
-    }
+    }*/
 
     @Test
     public void testSql() {
@@ -137,11 +138,17 @@ public class SystemTest {
         map.put("bondsman",1);
         map.put("moneyFrom",1);
         map.put("productType",1);
-
-
-
-
         System.out.print(intentionService.publishIntention(map));
+    }
+    @Test
+    public void testSim()
+    {
+        String sql="select s.*, c.* from " +
+                "stockcreditor as s,company as c where " +
+                "s.userId=c.companyId";
+      /*  String sql="select stockcreditor.productName company.username " +
+                "from stockcreditor, company where stockcreditor.userId=company.companyId";*/
+        System.out.println(mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,new Order()).getList());
     }
 
 }

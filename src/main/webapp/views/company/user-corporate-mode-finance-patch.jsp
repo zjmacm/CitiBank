@@ -189,15 +189,19 @@
                     <tr>
                         <td><%=matching.get(i).get("productName")%>
                         </td>
+                        <%--<%if matching.get(i).get("productType")==1;%>--%>
                         <td><%=matching.get(i).get("productType")%>
                         </td>
-                        <td><%=matching.get(i).get("investArea")%>
-                        </td>
-                        <td><%=matching.get(i).get("investArea")%>
+                        <td><%=matching.get(i).get("address")%>
                         </td>
                         <td><%=matching.get(i).get("fundBody")%>
                         </td>
-                        <td><%=matching.get(i).get("investorName")%>
+                       <%-- <td><%=matching.get(i).get("investArea")%>
+                        </td>--%>
+                        <td><%=matching.get(i).get("investMoney")%>
+                        </td>
+
+                        <td><%=matching.get(i).get("username")%>
                         </td>
 
                     </tr>

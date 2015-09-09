@@ -71,7 +71,9 @@ public class IntentionController {
         System.out.println(reqs);
         reqs.put("productName", id);
 
+
         if (intentionService.publishIntention(reqs)) {
+
             map.put("result", "suceess");
         } else {
             map.put("result", "fail");

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.rmi.dgc.Lease;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by zjm on 2015/7/21.
@@ -79,9 +80,19 @@ public class FinancingServiceImpl implements FinancingService {
 
     }
 
-    public Page<Map<String, Object>> getDefault() {
-        String sql = "select * from stockcreditor";
+    public Page<Map<String, Object>> getDefaultCompany() {
+        String sql="select s.*, c.* from " +
+                "stockcreditor as s,company as c where " +
+                "s.userId=c.companyId";
         return mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order());
+    }
+    public Page<Map<String,Object>> getDefaultInvestor()
+    {
+        String sql="select s.*, i.username from " +
+                "stockcreditor as s,investor as i where " +
+                "s.userId=i.investorId";
+        return mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order());
+
     }
 
     public Page<Map<String, Object>> getMatchingCompany(Map<String, Object> map, int pageIndex) {

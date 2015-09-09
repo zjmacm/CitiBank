@@ -34,10 +34,10 @@
             </div>
             <div id="selectForm">
                 <p>类型：</p>
-                <select>
-                    <option>全部</option>
-                    <option>股权投资</option>
-                    <option>债权投资</option>
+                <select name="">
+                    <option value=0>全部</option>
+                    <option value=1>股权投资</option>
+                    <option value=2>债权投资</option>
                 </select>
             </div>
             <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;"
@@ -88,51 +88,51 @@
                     <div>行业筛选：
                         <div class="selectItemGroup">
                             <span class="selectItem"><input type="checkbox" name="investIndustry" value="金融投资">金融投资</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">房地产</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">能源</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">化学化工</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" v>节能环保</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">建筑建材</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">矿产冶金</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">基础设施</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">农林牧渔</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">国防军工</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">航空航天</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">电气设备</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">机械机电</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">交通运输</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">仓储物流</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">汽车汽配</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">纺织服装饰品</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">旅游酒店</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">餐饮休闲娱乐</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">教育培训体育</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">文化传媒广告</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">批发零售</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">家电数码</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">家居日用</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">食品饮料烟草</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">医疗保健</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">生物医药</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">IT互联网</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">电子通信</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">海洋开发</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">商务贸易</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">家政服务</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">园林园艺</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">收藏品</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">行政事业机构</span>
-                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="黑龙江">其他行业</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="房地产">房地产</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="能源">能源</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="化学化工">化学化工</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="节能环保">节能环保</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="建筑建材">建筑建材</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="矿产冶金">矿产冶金</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="基础设施">基础设施</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="农林牧渔">农林牧渔</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="国防军工">国防军工</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="航空航天">航空航天</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="电气设备">电气设备</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="机械机电">机械机电</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="交通运输">交通运输</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="仓储物流">仓储物流</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="汽车汽配">汽车汽配</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="纺织服装饰品">纺织服装饰品</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="旅游酒店">旅游酒店</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="餐饮休闲娱乐">餐饮休闲娱乐</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="教育培训体育">教育培训体育</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="文化传媒广告">文化传媒广告</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="批发零售">批发零售</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="家电数码">家电数码</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="家居日用">家居日用</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="食品饮料烟草">食品饮料烟草</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="医疗保健">医疗保健</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="生物医药">生物医药</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="IT互联网">IT互联网</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="电子通信">电子通信</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="海洋开发">海洋开发</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="商务贸易">商务贸易</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="家政服务">家政服务</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="园林园艺">园林园艺</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="收藏品">收藏品</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="行政事业机构">行政事业机构</span>
+                            <span class="selectItem"><input type="checkbox" name="investIndustry" value="其他行业">其他行业</span>
                         </div>
                     </div>
                     <br/>
 
                     <div>资金类型：
                         <div class="selectItemGroup">
-                            <span class="select-item"><input type="checkbox" value="黑龙江">全部</span>
-                            <span class="select-item"><input type="checkbox" value="黑龙江">无担保</span>
-                            <span class="select-item"><input type="checkbox" value="黑龙江">公司/机构担保</span>
-                            <span class="select-item"><input type="checkbox" value="黑龙江">个人担保</span>
+                            <span class="select-item"><input type="checkbox" value="全部">全部</span>
+                            <span class="select-item"><input type="checkbox" value="无担保">无担保</span>
+                            <span class="select-item"><input type="checkbox" value="公司/机构担保">公司/机构担保</span>
+                            <span class="select-item"><input type="checkbox" value="个人担保">个人担保</span>
                         </div>
                     </div>
                     <br/>
@@ -188,17 +188,17 @@
                         <tr>
                             <td><%=matching.get(i).get("productName")%>
                             </td>
-                            <td><%=matching.get(i).get("investType")%>
+                            <td><%=matching.get(i).get("productType")%>
                             </td>
-                            <td><%=matching.get(i).get("investArea")%>
+                            <td><%=matching.get(i).get("registerAddress")%>
                             </td>
-                            <td><%=matching.get(i).get("investArea")%>
+                            <td><%=matching.get(i).get("workingFiled")%>
                             </td>
-                            <td><%=matching.get(i).get("fundBody")%>
+                            <td><%=matching.get(i).get("investMoney")%>
                             </td>
-                            <td><%=matching.get(i).get("investorName")%>
+                            <td><%=1 + (int)(Math.random()*100)%>
                             </td>
-                            <td><%=matching.get(i).get("creditRank")%>
+                            <td><%=1 + (int)(Math.random()*10)%>
                             </td>
                         </tr>
                         <%}%>
