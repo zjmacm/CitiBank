@@ -17,6 +17,7 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
+            <form action="" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
@@ -36,9 +37,11 @@
                     <option>债权投资</option>
                 </select>
             </div>
+
             <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;"
                onclick="$('#patchPanel').slideToggle('slow');">显示/隐藏筛选信息</a>
-
+            </form>
+                <form action="" method="post">
             <div id="patchPanel">
                 <div>地区筛选：
                     <div class="selectItemGroup" id="investArea">
@@ -161,10 +164,12 @@
                         %
                     </div>
                     <a href="">
-                        <div id="patchConfirmButton">确定</div>
+                        <input type="submit" value="确定" id="patchConfirmButton">
+
                     </a>
                 </div>
             </div>
+            </form>
             <!--******* *************************************** table**********************************************-->
             <div id="TableList">
                 <table>

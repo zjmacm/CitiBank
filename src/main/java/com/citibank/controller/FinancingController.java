@@ -49,11 +49,11 @@ public class    FinancingController {
     public String getcMatchingPage(Map<String,Object> map)
     {
         map.put("data",financingService.getDefault().getList());
-        System.out.println(map);
+        /*System.out.println(map);*/
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //企业的撮合配对
+    //企业的撮合配对根据条件
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
