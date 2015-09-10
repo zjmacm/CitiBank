@@ -24,7 +24,7 @@
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
-                        <a href=""><img src="../public/images/cancel.png"></a>
+                        <a href="javascript:void(0);"><img src="../public/images/cancel.png"></a>
                     </div>
                     <input id="searchText" type="text" placeholder="请输入关键字搜索"
                            name="productName">
@@ -187,7 +187,7 @@
 
                         <% for (int i = 0; i < matching.size(); i++) {%>
                         <tr>
-                            <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                            <td><a style="color:#000000" href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
                                 <%=matching.get(i).get("productName")%>
                             </a>
                             </td>

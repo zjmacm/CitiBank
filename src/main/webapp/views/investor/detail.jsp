@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <title>产品详情</title>
-    <link href="../public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
-    <link href="../public/stylesheets/我的关注-产品详情.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/business-header.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
+    <link href="/public/stylesheets/my-attention-product-detail.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page="invest-header.jsp"></jsp:include>
