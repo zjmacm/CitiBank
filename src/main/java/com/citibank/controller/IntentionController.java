@@ -61,16 +61,19 @@ public class IntentionController {
     @ResponseBody
     public Map<String,String> intentionPublish(@RequestParam Map<String, Object> reqs,
                                               /*@PathVariable int post,*/
-                                               HttpSession session,
-                                               HttpServletRequest req) {
+                                               HttpSession session
+                                              ) {
         Map<String, String> map = new HashMap<String, String>();
         String userId=session.getAttribute("userId").toString();
         reqs.put("userId", userId);
         String id= IdUtil.uuid();
         reqs.put("id",id);
-        reqs.put("productName","hell");
-        System.out.println(req.getParameter("stockRate"));
+        System.out.println(reqs);
+        reqs.put("productName", id);
+
+
         if (intentionService.publishIntention(reqs)) {
+
             map.put("result", "suceess");
         } else {
             map.put("result", "fail");

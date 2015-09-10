@@ -363,7 +363,7 @@ public class CompanyController {
             e.printStackTrace();
         }
         companyService.saveCompanyInfo(reqs, id);
-        return "/investor/finsh-reg";
+        return "/visitor/finsh-reg";
     }
 
 }

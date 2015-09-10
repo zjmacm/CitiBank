@@ -384,12 +384,12 @@ DROP TABLE IF EXISTS `stockcreditor`;
 CREATE TABLE `stockcreditor` (
   `id` varchar(32) NOT NULL,
   `productName` varchar(255) NOT NULL COMMENT '股债权名字',
-  `investArea` varchar(50) NOT NULL COMMENT '投资区域',
-  `investIndustry` varchar(50) NOT NULL COMMENT '投资行业',
-  `createTime` date NOT NULL COMMENT '股债权创建时间',
-  `investMoney` int(11) NOT NULL COMMENT '投资金额',
-  `investTime` int(11) NOT NULL COMMENT '投资年限',
-  `productType` int(1) NOT NULL COMMENT '产品类型，1为股权，2为债权',
+  `investArea` varchar(50)  COMMENT '投资区域',
+  `investIndustry` varchar(50)  COMMENT '投资行业',
+  `createTime` date  COMMENT '股债权创建时间',
+  `investMoney` int(11)  COMMENT '投资金额',
+  `investTime` int(11)  COMMENT '投资年限',
+  `productType` int(1)  COMMENT '产品类型，1为股权，2为债权',
   `stockRate` varchar(50) DEFAULT NULL COMMENT '参股比例',
   `investStage` varchar(50) DEFAULT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
   `leastReturnDemand` varchar(50) DEFAULT NULL COMMENT '最低要求回报',
@@ -397,16 +397,23 @@ CREATE TABLE `stockcreditor` (
   `demandFile` varchar(50) DEFAULT NULL COMMENT '要求文件',
   `demandSummarize` varchar(50) DEFAULT NULL COMMENT '投资要求概述',
   `creditRank` int(1) DEFAULT NULL COMMENT '信用等级，0为AAA，1为AA，2为A，3为BBB，4为BB，5为B，6为CCC，7为CC，8为C',
-  `fundBody` int(10) NOT NULL COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
-  `flag` int(1) NOT NULL COMMENT '标记，0为企业模式，1为投资者模式',
+  `fundBody` int(10)  COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
+  `flag` int(1)  COMMENT '标记，0为企业模式，1为投资者模式',
   `userId` varchar(32) NOT NULL COMMENT '关联用户外键',
+  `exitWay` VARCHAR(200) COMMENT '投资退出方式 ',
+  `exitMinTime` INT COMMENT '最短退出年限',
+  `bondsman` VARCHAR(200) COMMENT '担保方',
+  `investmentMinRequest` INT COMMENT '投资门槛',
+  `minAddto` INT COMMENT '最低追加资金',
+  `backWay` INT COMMENT '还本付息方式',
+  `moneyFrom` INT COMMENT '还款来源',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of stockcreditor
 -- ----------------------------
-INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
+/*INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('o', '产品2', '大连', '工业', '2015-01-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('p', '产品3', '沈阳', '医药业', '2015-01-04', '300', '3', '0', null, null, null, null, null, null, null, '2', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('q', '产品4', '承德', '采矿业', '2015-01-05', '400', '4', '0', null, null, null, null, null, null, null, '3', '0', 'n');
@@ -419,3 +426,4 @@ INSERT INTO `stockcreditor` VALUES ('w', '产品10', '青岛', '造纸业', '201
 INSERT INTO `stockcreditor` VALUES ('x', '产品11', '唐山', '出版业', '2015-01-12', '1100', '11', '1', null, null, null, null, null, null, null, '10', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('y', '产品12', '衡水', '演艺业', '2015-01-13', '1200', '12', '1', null, null, null, null, null, null, null, '11', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('z', '产品13', '保定', '美容业', '2015-01-14', '1300', '13', '1', null, null, null, null, null, null, null, '12', '0', 'n');
+*/

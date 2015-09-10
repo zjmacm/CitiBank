@@ -24,9 +24,9 @@ public interface FinancingService {
 
     public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 
-    public Page<Map<String,Object>> getDefault();
+    public Page<Map<String,Object>> getDefaultCompany();
 
-
+    public Page<Map<String,Object>> getDefaultInvestor();
 
     //意向发布
 

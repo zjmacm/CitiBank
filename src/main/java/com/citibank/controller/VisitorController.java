@@ -74,6 +74,7 @@ public class VisitorController {
         reqs.remove("auth");
         reqs.remove("iagree");
         reqs.remove("re-password");
+        session.setAttribute("userType",flag);
 
         if (flag.equals("投资者")) {
 

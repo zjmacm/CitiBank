@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,8 +26,12 @@ public class    FinancingController {
 
     //撮合配对的页面,也是投资板块的首页
     @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage(Map<String, Object> map) {
-        map.put("data", financingService.getDefault().getList());
+    public String getMatchingPage(Map<String, Object> map,
+                                  HttpSession session) {
+     /*   Map<String,Object> map1=new HashMap<String, Object>();
+        String userId=(String)session.getAttribute("userId");
+        map1=*/
+        map.put("data", financingService.getDefaultCompany().getList());
         System.out.println(map);
         return "investor/company-corporate-mode-finance-patch";
     }
@@ -48,12 +53,12 @@ public class    FinancingController {
     @RequestMapping(value = "/company/Matching.htm",method = RequestMethod.GET)
     public String getcMatchingPage(Map<String,Object> map)
     {
-        map.put("data",financingService.getDefault().getList());
+        map.put("data", financingService.getDefaultInvestor().getList());
         System.out.println(map);
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //企业的撮合配对
+    //公司的撮合配对根据选择条件
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
@@ -83,5 +88,14 @@ public class    FinancingController {
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }
+    //公司撮合配对根据搜索条件
+   /* @RequestMapping(value = "/company/byKey")
+    public String companyByKey(@RequestParam Map<String,Object> reqs,
+                               Map<String,Object> map)
 
+    {
+        if (reqs.get(""))
+        map.put("data",financingService.)
+    }
+*/
 }
