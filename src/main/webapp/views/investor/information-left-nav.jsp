@@ -15,10 +15,10 @@
             <a href="/report/getReport/3">转让交易公告</a>
         </li>
         <li>
-            <a href="/report/getRegular">定期报告</a>
+            <a href="/report/getReport/4">定期报告</a>
         </li>
         <li>
-            <a href="/report/getTemporary">临时报告</a>
+            <a href="/report/getReport/5">临时报告</a>
         </li>
         <li>
             <a href="/report/getReport/6">信用报告</a>
