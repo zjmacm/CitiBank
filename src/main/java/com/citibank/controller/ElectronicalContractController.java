@@ -42,14 +42,20 @@ public class ElectronicalContractController {
         return electronicalContractService.getStateZeroOppositor(id);
     }
 
-    //点击协议查询返回默认按时间排序
+  /*  //点击协议查询返回默认按时间排序
     @RequestMapping("/checkContract")
     public ModelAndView checkContract()
     {
         Map<String,Object> map=new HashMap<String, Object>();
         map.put("result",electronicalContractService.orderByTime());
         return new ModelAndView("checkContract","result",map);
-    }
+    }*/
+  @RequestMapping("/checkContract")
+  public String checkContract() {
+
+      return "/investor/eletronic-contrating-inquiry-protocol";
+  }
+
     //按对方排序
     @RequestMapping(value = "/orderByOppositor")
     public ModelAndView orderByOpp()

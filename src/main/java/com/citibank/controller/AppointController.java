@@ -23,16 +23,31 @@ public class AppointController {
     @Autowired
     private AppointService appointService;
 
-    @RequestMapping("/reservation/{type}")
-    public String getAppoint(@RequestParam(value = "isComplete", required = false, defaultValue = "false") boolean isComplete,
-                             @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
-                             @RequestParam(value = "columnName", required = false, defaultValue = "id") String columnName,
-                             @RequestParam(value = "queryContent", required = false) String queryContent,
+    //预约排序
+    @RequestMapping("/reservation/{type}/{column}")
+    public String getAppoint(@PathVariable(value = "column") String columnName,
                              @PathVariable(value = "type") int type,
                              HttpSession session, Map<String, Object> map) {
         map.put("user_id", session.getAttribute("userId")); //公司id
         map.put("pageIndex", 1);//数据起始位置
         map.put("flag", type);//是否已读
+        map.put("column",columnName);
+        Page page = appointService.getAppoint(map);
+        List<Map<String, Object>> results = page.getList();
+        map.put("manage_message_current", results);
+        return "company/reservation-management-current-reservation";
+    }
+
+    @RequestMapping("/reservation/{type}/{column}/{queryContent}")
+    public String getAppointByQuery(@PathVariable(value = "queryContent") String queryContent,
+                             @PathVariable(value = "column") String columnName,
+                             @PathVariable(value = "type") int type,
+                             HttpSession session, Map<String, Object> map) {
+        map.put("user_id", session.getAttribute("userId")); //公司id
+        map.put("pageIndex", 1);//数据起始位置
+        map.put("flag", type);//是否已读
+        map.put("column",columnName);
+        map.put("queryContent", queryContent);
         Page page = appointService.getAppoint(map);
         List<Map<String, Object>> results = page.getList();
         map.put("manage_message_current", results);
@@ -52,5 +67,6 @@ public class AppointController {
         map.put("manage_message_current", results);
         return "company/reservation-management-current-reservation";
     }
+
 
 }

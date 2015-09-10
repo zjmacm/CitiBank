@@ -3,7 +3,6 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
-    <link href="/public/stylesheets/reset.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/task4-nav.css" type="text/css" rel="stylesheet"/>
     <link href="/public/stylesheets/information_issue.css" type="text/css" rel="stylesheet"/>
     <meta charset="UTF-8">
@@ -15,89 +14,87 @@
     <script type="text/javascript" src="/public/javascripts/publish.js"></script>
 </head>
 <body>
-<% Map<String,Object> companyInfo= (Map<String, Object>) request.getAttribute("companyInfo");%>
+<% Map<String, Object> companyInfo = (Map<String, Object>) request.getAttribute("companyInfo");%>
 <jsp:include page="business-header.jsp"/>
-<div class="swap">
-    <div class="nav fl">
-        <div class="tit ">
-            <p>信息披露</p>
-        </div>
-        <!--tit-->
-
-        <div class="tri">
-        </div>
-        <div class="tri1">
-        </div>
-        <jsp:include page="information-left-nav.jsp"/>
-        <!--list-->
-    </div>
-    <div class="main fl">
-        <p class="title">对公数据披露</p>
-
-        <div id="subjectListContainer">
-            <table id="subjectListContent">
-                <tbody>
-                <tr>
-                    <td>公司名称：<%= companyInfo.get("companyName")%></td>
-                    <td>成立时间：<%= companyInfo.get("formedTime")%></td>
-                </tr>
-                <tr>
-                    <td class="listItem">所在地区：<%= companyInfo.get("baseAddress")%></td>
-                    <td class="listItem">注册资本：<%= companyInfo.get("registerCapital")%>万&nbsp;人民币</td>
-                </tr>
-                <tr>
-                    <td class="listItem">所属行业：<%= companyInfo.get("workingFiled")%></td>
-                    <td class="listItem">咨询电话：<%= companyInfo.get("consultPhone")%></td>
-                </tr>
-                <tr>
-                    <td class="listItem">所属专利：专利一、专利二</td>
-                    <td class="listItem">驻外办事处机构：无</td>
-                </tr>
-                <tr>
-                    <td class="listItem">分厂：分厂一、分厂二</td>
-                    <td class="listItem">员工人数：<%= companyInfo.get("scale")%>人</td>
-                </tr>
-                <tr>
-                    <td class="listItem">子公司：子公司一</td>
-                    <td class="listItem">占地面积：<%= companyInfo.get("occupiedArea")%>亩</td>
-                </tr>
-                <tr>
-                    <td class="listItem">技术优势：<%= companyInfo.get("technologicalAdvantage")%></td>
-                    <td class="listItem">人才优势：优势优势</td>
-                </tr>
-                <tr>
-                    <td class="listItem">产品优势：<%= companyInfo.get("productAdvantage")%></td>
-                    <td class="listItem">品牌优势：优势优势</td>
-                </tr>
-                <tr>
-                    <td class="listItem">市场优势：<%= companyInfo.get("marketAdvantage")%></td>
-                    <td class="listItem">管理优势：优势优势</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="title">产品服务：</p>
-
-        <p>
-            <%= companyInfo.get("productService")%>
-        </p>
-
-        <p class="title">公司简介</p>
-
-        <p><%= companyInfo.get("companyInTroduct")%></p>
-
-        <p class="title">公司相册</p>
-
-        <div id="albumContainer"></div>
-        <a href="javascript:void(0);" onclick="publishWidget.startWidget('albumContainer')">
-            <div id="publishButton">发布更多消息
+<div id="mainContainer">
+    <div id="main">
+        <div id="sidebarContainer">
+            <div id="listTitle">
+                <ul id="sidebarTitle">
+                    <li class="sidebarItem">信息发布</li>
+                </ul>
             </div>
-        </a>
+            <jsp:include page="information-left-nav.jsp"/>
+        </div>
+        <div id="mainContent">
+            <p class="title">对公数据披露</p>
 
-        <div id="page">
+            <div id="subjectListContainer">
+                <div id="headPhotoBox"></div>
+                <table id="subjectListContent">
+                    <tbody>
+                    <tr>
+                        <td>公司名称：某某股份有限公司</td>
+                        <td>成立时间：2006/10/09</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">所在地区：广东省 深圳市 宝安区</td>
+                        <td class="listItem">注册资本：5000万&nbsp;人民币</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">所属行业：机械制造业</td>
+                        <td class="listItem">咨询电话：0755-86802655</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">所属专利：专利一、专利二</td>
+                        <td class="listItem">驻外办事处机构：无</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">分厂：分厂一、分厂二</td>
+                        <td class="listItem">员工人数：100人</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">子公司：子公司一</td>
+                        <td class="listItem">占地面积：100亩</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">技术优势：优势优势</td>
+                        <td class="listItem">人才优势：优势优势</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">产品优势：优势优势</td>
+                        <td class="listItem">品牌优势：优势优势</td>
+                    </tr>
+                    <tr>
+                        <td class="listItem">市场优势：优势优势</td>
+                        <td class="listItem">管理优势：优势优势</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="title">产品服务：</p>
+
+            <p>
+                公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品
+                公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品
+                公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品公司产品
+            </p>
+
+            <p class="title">公司简介</p>
+
+            <p>公司简介公司简介</p>
+
+            <p class="title">公司相册</p>
+
+            <div id="albumContainer"></div>
+            <a href="javascript:void(0);" onclick="publishWidget.startWidget('albumContainer')">
+                <div id="publishButton">发布更多消息</div>
+            </a>
+
+            <div id="page">
+            </div>
         </div>
     </div>
-</div>
 </div>
 <div id="footer">
 </div>

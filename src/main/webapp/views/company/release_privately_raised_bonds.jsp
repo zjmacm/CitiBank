@@ -1,162 +1,141 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true"
-        import="java.util.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page import="java.util.Map" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_privately_raised_bonds.css">
-    <script type="text/javascript" src="/public/javascripts/jquery-1.7.2.min.js"></script>
-    <title>私募债</title>
-    <script type="text/javascript">
-
-
-    </script>
-
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/finacing-publish.css">
+    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <title>意向发布</title>
 </head>
+
 <body>
-<jsp:include page="business-header.jsp"/>
-<% Map<String,Object> userInfo = (Map<String,Object>) request.getAttribute("userInfo");%>
-<div id="main_body_m">
-    <div id="swap">
-        <div class="nav">
-            <div class="title">
-                <p>意向发布</p>
-            </div><!--tit-->
-            <div class="tri">
-            </div>
-            <div class="tri1">
-            </div>
-            <div class="list">
-                <ul>
-                    <li >
-                        <a href="/company/esignature.htm">私募股权</a>
-                    </li>
-                    <li class="on">
-                        <a href="#">私募债</a>
-                    </li>
+<jsp:include page="business-header.jsp"></jsp:include>
+<div class="wrap">
+    <jsp:include page="finance-publish-sidenav.jsp"></jsp:include>
+    <div class="main">
+        <form action="" method="post" name="form">
+            <div class="basic_info">
+                <p class="tit">基本信息</p>
+                <% Map<String,Object> userInfo = (Map<String,Object>) request.getAttribute("userInfo");%>
 
-                </ul>
-            </div><!--list-->
-        </div><!--nav-->
-
-        <div class="main_body">
-            <div id="main_first">
-                <div class="body_title">
-                    基本信息
-                </div>
-                <hr >
                 <div class="first">
                     <p >
                     <p>公司名称：<%=userInfo.get("companyName")%></p>
                     <p>公司注册时间：<%=userInfo.get("formedTime")%></p>
                     <p>产品类型：<%=userInfo.get("productType")%></p>
-                    </p>
+
                 </div>
                 <div class="first">
                     <p >
                     <p>公司注册地区：<%=userInfo.get("baseAddress")%></p>
                     <p>公司注册资本：<%=userInfo.get("registerCapital")%></p>
                     <p>所属行业：<%=userInfo.get("workingFiled")%></p>
+                </div>
+                <div class="buttom">
+                    <p>
+                        发行金额：
+                        <input type="text" name="investMoney"> <%--—
+                        <input type="text" name="publishMoneyMax">--%> 万
                     </p>
+                    <p>
+                        <label>发行年限：</label>
+                        <input type="text" id="year" name="investTime"> 年
+                    </p>
+                    <p>
+                        <label <%--for="text"--%>>还本付息方式:</label>
+                            <textarea id="textarea" cols=50 rows=6 name="backWay">
+                            </textarea>
+                    </p>
+                    <%--<p>
+                        <label for="text">发行完成:</label>
+                            <textarea id="textarea" cols=50 rows=6 name="publishFinsh">
+                            </textarea>
+                    </p>--%>
                 </div>
-                <div class="input_text">
-                    <form class="input_form" name="form">
-                        <label >发行金额：</label>
-                        <input class="input" type="text" id="investMoney"/>
-                       <%-- <label> — </label>
-                        <input class="input" type="text" id="highMoney"/>--%>
-                        <label>万</label>
-                    <%--</form>
-                    <form >--%>
-                        <label >发行年限：</label>
-                        <input class="input" type="text" id="investTime"/>
-                        <label> 年 </label>
-
-                   <%-- </form>--%>
-                   <%-- <br/>--%>
-                    <%--<form class="input_form">--%>
-                       <%-- <div class="input_textarea"> 还本付息方式: </div>
-                        <textarea rows="2" cols="59"></textarea>
-                        <div id="bloak">--%>
-
-                        <%--</div>--%>
-                      <%--  <div class="input_textarea"> 发行完成: &nbsp;&nbsp;&nbsp;&nbsp;</div>
-                        <textarea rows="2" cols="60"></textarea>--%>
-                    </form>
-                </div>
-
             </div>
-            <div class="main_first">
-                <div class="body_title">
-                    更多信息
-                </div>
-                <hr>
-                <div class="input_text_more">
+            <div class="more_info">
+                <p class="tit">更多信息</p>
+                <div class="left fl">
 
-                </div>
-                <div class="input_text_1">
-                    <form class="input_form">
-                        <label >可承担最高利息:</label>
-                        <input class="input" type="text" />
-                        <label> — </label>
-                        <input class="input" type="text"/>
-                        <label>%</label>
-                    </form>
-                    <from>
-                        <label>年资金占用时长:</label>
-                        <input type="text"/>
-                    </from>
-                    <form >
-                        <label >可提供风控:</label>&nbsp;&nbsp;
+                    <p>
+                        年资金占用时长：
+                        <input class="exit" type="text" name="exitMinTime" />
+                    </p>
+                    <p>
+                        可提供风控:
                         <select>
-                            <option value=0>看书</option>
-                            <option value=1 selected="selectd">抵押</option>
+                            <option value=0>抵押</option>
+                            <option value=1>看书</option>
                             <option value=2>运动</option>
                             <option value=3>购物</option>
                         </select>
-                    </form>
-                    <from>
-                        <label>担保方:</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text"/>
-                    </from>
+                    </p>
+                    <p>
+                        担保方:
+                        <input class="ensure" type="text" name="bondsman" />
+                    </p>
                 </div>
-                <div class="input_text_2">
-                    <form class="input_form">
-                        <label >企业当前净资产:</label>
-                        <input class="input" type="text"/>
-                        <label> — </label>
-                        <input class="input" type="text"/>
-                        <label>%</label>
-                    </form>
-                    <from>
-                        <label>去年营业额:</label>&nbsp;&nbsp;
-                        <input type="text"/>
-                    </from>
-                    <form >
-                        <label >公司净利润:</label>&nbsp;&nbsp;
-                        <input type="text"/>
-                    </form>
-                    <from>
-                        <label>还款来源:</label>&nbsp;&nbsp;&nbsp;
-                        d<input type="text"/>
-                    </from>
+                <div class="right right1 fl">
+                  <%--  <p>
+                        企业当前净资产:
+                        <input class="pro" type="text" name="netAsset" /> 万
+                    </p>
+                    <p>
+                        去年营业额：
+                        <input class="trunover" type="text" name="turnover"> 万
+                    </p>
+                    <p>
+                        公司净利润：
+                        <input class="profits" type="text" name="netProfit"> 万
+                    </p>--%>
+                    <p>
+                        还款来源：
+                        <input type="text" class="threshold" name="moneyFrom"> 万
+                    </p>
                 </div>
-                <div id="button">
-                    <a>发布</a>
-                </div>
-
             </div>
-        </div>
+            <input class="submit" type="button" value="发布" id="btn" />
+        </form>
     </div>
 </div>
-
 <div id="footer">
+    <div id="foot-list">
+    </div>
 </div>
+<script type="text/javascript" src="../public/javascripts/imd.js"></script>
+<script type="text/javascript">
+    imd.initDocReady(function() {
+        var sideItem = document.getElementsByClassName('side-item');
+        sideItem[1].className = sideItem[1].className + ' on';
+
+
+        imd.Event('#btn').on('click', function(e) {
+            var form = document.forms.form,
+                    data = new FormData(form);
+            data.append("productType",2);
+            data.append("flag",1);
+
+            imd.ajax({
+                type: 'POST',
+                async: true,
+                url: '/intention/intentionPublish',
+                receiveType: 'json',
+                data: data,
+                success: function(res) {
+                    alert(res.result);
+                },
+                error: function(e) {
+                    alert('网络错误，稍后再试');
+                }
+            });
+        });
+
+    });
+</script>
 </body>
+
 </html>

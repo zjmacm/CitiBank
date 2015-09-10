@@ -4,12 +4,10 @@ import com.citibank.dao.Page;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,12 +23,15 @@ public class    FinancingController {
 
     //撮合配对的页面,也是投资板块的首页
     @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage(Map<String, Object> map) {
-        map.put("data", financingService.getDefault().getList());
+    public String getMatchingPage(Map<String, Object> map,
+                                  HttpSession session) {
+     /*   Map<String,Object> map1=new HashMap<String, Object>();
+        String userId=(String)session.getAttribute("userId");
+        map1=*/
+        map.put("data", financingService.getDefaultCompany().getList());
         System.out.println(map);
         return "investor/company-corporate-mode-finance-patch";
     }
-
 
 
     //投资者的撮合配对
@@ -45,15 +46,14 @@ public class    FinancingController {
     }
 
     //跳到公司撮合配对界面
-    @RequestMapping(value = "/company/Matching.htm",method = RequestMethod.GET)
-    public String getcMatchingPage(Map<String,Object> map)
-    {
-        map.put("data",financingService.getDefault().getList());
+    @RequestMapping(value = "/company/Matching.htm", method = RequestMethod.GET)
+    public String getcMatchingPage(Map<String, Object> map) {
+        map.put("data", financingService.getDefaultInvestor().getList());
         System.out.println(map);
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //企业的撮合配对
+    //公司的撮合配对根据选择条件
     @RequestMapping(value = "/company/matching", method = RequestMethod.POST)
     public String getMatching(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                               @RequestParam(value = "investArea", required = false, defaultValue = "") String investArea,
@@ -62,7 +62,7 @@ public class    FinancingController {
                               @RequestParam(value = "lowMoney", required = false, defaultValue = "-1") int lowMoney,
                               @RequestParam(value = "highMoney", required = false, defaultValue = "-1") int highMoney,
                               @RequestParam(value = "leastDemand", required = false, defaultValue = "-1") double leastDemand,
-                              @RequestParam(value = "highestDemand", required = false,defaultValue = "-1") double highestDemand,
+                              @RequestParam(value = "highestDemand", required = false, defaultValue = "-1") double highestDemand,
 
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
@@ -83,5 +83,34 @@ public class    FinancingController {
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }
+    //公司撮合配对根据搜索条件
+    @RequestMapping(value = "/byKey",method = RequestMethod.POST)
+    public String companyByKey(@RequestParam Map<String,Object> reqs,
+                               Map<String,Object> map)
 
+    {
+        System.out.print(reqs);
+        if (Integer.parseInt(reqs.get("productType").toString())==0)
+        {
+            reqs.remove("productType");
+            map.put("data", financingService.getProductByName(reqs).getList());
+        }
+        else
+        {
+            map.put("data",financingService.getProductByNameAndType(reqs).getList());
+        }
+        return "investor/company-corporate-mode-finance-patch";
+
+
+    }
+    //撮合配对的点击详细界面
+    @RequestMapping(value = "/getDetail/{id}")
+    public String getDetail(@PathVariable String id, Map<String, Object> map) {
+        Map<String, Object> map1 = new HashMap<String, Object>();
+        map1.put("id", id);
+        map.put("data", financingService.getProductById(map1).getList());
+        System.out.print(map1);
+        System.out.println(map);
+        return "/investor/detail";
+    }
 }

@@ -12,8 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,7 +107,13 @@ public class InvestorController {
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage() {
+    public String getLogoutPage(HttpSession session, HttpServletResponse response) {
+        System.out.println("logout");
+        session.removeAttribute("userId");
+        Cookie cookie = new Cookie("username", null);
+        cookie.setPath("/customer");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "visitor/login";
     }
 
@@ -171,20 +180,25 @@ public class InvestorController {
     //第二个页面的下一步
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String getNextStepPage(@RequestParam("logoPath") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
-                                  HttpServletRequest request) {
+                                  HttpServletRequest request) throws IOException {
         String id = (String) session.getAttribute("investorId");
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
 
+<<<<<<< HEAD
        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
        // reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+=======
+        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+        reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+>>>>>>> 30956f7efe1bbdaf90a39768bd73152b723a35c9
         investorService.saveInvestorInfo(reqs, id);
         return "/visitor/finsh-reg";
     }
+
     //查看更多行业
-    @RequestMapping(value = "/invest-more",method = RequestMethod.GET)
-    public String getmore()
-    {
+    @RequestMapping(value = "/invest-more", method = RequestMethod.GET)
+    public String getmore() {
         return "redirect:/financing/Matching.htm";
     }
 }

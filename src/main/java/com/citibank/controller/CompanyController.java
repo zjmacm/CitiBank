@@ -1,5 +1,4 @@
 package com.citibank.controller;
-
 import com.citibank.dao.Page;
 import com.citibank.service.*;
 import com.citibank.service.impl.UploadFileService;
@@ -11,6 +10,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -92,18 +92,6 @@ public class CompanyController {
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //我的消息
-    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
-                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
-                               Map<String, Object> map) {
-        //返回系统消息,首先得获取公司id.
-        Page page = messageService.getSystemMessage(pageIndex, queryContent);//0代表企业
-        List<Map<String, Object>> results = page.getList();
-        map.put("system_message", results);
-        return "company/private-center-my-news";
-    }
-
     //系统信息
 //    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
 //    public String getS_messagePage(Map<String, Object> map) {
@@ -177,15 +165,13 @@ public class CompanyController {
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage(HttpServletRequest request)
+    public String getLogoutPage(HttpServletResponse response,HttpSession session)
     {
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals("userId")){
-                cookie.setMaxAge(-1);
-                break;
-            }
-        }
+        session.removeAttribute("userId");
+        Cookie cookie=new Cookie("username","");
+        cookie.setPath("/customer");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "visitor/login";
     }
 

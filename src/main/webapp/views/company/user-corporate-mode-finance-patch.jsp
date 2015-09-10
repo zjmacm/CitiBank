@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
-<%@page import="java.util.Map" %>
-<%@page import="java.util.List" %>
-<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -17,12 +14,13 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
+            <form action="/financing/byKey" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
-                        <a href=""><img src="/public/images/cancel.png"></a>
+                        <a href=""><img src="../public/images/cancel.png"></a>
                     </div>
-                    <input id="searchText" type="text" placeholder="请输入关键字搜索">
+                    <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
                 <a href="/financing/investor/matching" style="display:inline;">
                     <div id="searchButton">确定</div>
@@ -30,15 +28,17 @@
             </div>
             <div id="selectForm">
                 <p>类型：</p>
-                <select>
-                    <option>全部</option>
-                    <option>股权投资</option>
-                    <option>债权投资</option>
+                <select name="productType">
+                    <option value=0>全部</option>
+                    <option value=1>股权投资</option>
+                    <option value=2>债权投资</option>
                 </select>
             </div>
+
             <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;"
                onclick="$('#patchPanel').slideToggle('slow');">显示/隐藏筛选信息</a>
-
+            </form>
+                <form action="" method="post">
             <div id="patchPanel">
                 <div>地区筛选：
                     <div class="selectItemGroup" id="investArea">
@@ -161,10 +161,12 @@
                         %
                     </div>
                     <a href="">
-                        <div id="patchConfirmButton">确定</div>
+                        <input type="submit" value="确定" id="patchConfirmButton">
+
                     </a>
                 </div>
             </div>
+            </form>
             <!--******* *************************************** table**********************************************-->
             <div id="TableList">
                 <table>
@@ -182,17 +184,23 @@
 
                     <% for (int i = 0; i < matching.size(); i++) {%>
                     <tr>
-                        <td><%=matching.get(i).get("productName")%>
+                        <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                                <%=matching.get(i).get("productName")%>
+                            </a>
                         </td>
+                        <%--<%if matching.get(i).get("productType")==1;%>--%>
                         <td><%=matching.get(i).get("productType")%>
                         </td>
-                        <td><%=matching.get(i).get("investArea")%>
-                        </td>
-                        <td><%=matching.get(i).get("investArea")%>
+                        <td><%=matching.get(i).get("address")%>
                         </td>
                         <td><%=matching.get(i).get("fundBody")%>
                         </td>
-                        <td><%=matching.get(i).get("investorName")%>
+                       <%-- <td><%=matching.get(i).get("investArea")%>
+                        </td>--%>
+                        <td><%=matching.get(i).get("investMoney")%>
+                        </td>
+
+                        <td><%=matching.get(i).get("username")%>
                         </td>
 
                     </tr>
