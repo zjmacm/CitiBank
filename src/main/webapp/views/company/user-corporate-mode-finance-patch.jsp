@@ -171,38 +171,12 @@
             <div id="TableList">
                 <table>
 
-                    <%--<tr>
-                        <th>产品名称</th>
-                        <th>类型</th>
-                        <th>地区</th>
-                        <th>资金类型</th>
-                        <th>金额</th>
-                        <th class="rightItem">投资者</th>
-                    </tr>
 
-                    <!--*****************全是一样的**************************************************************************************-->
-                    <tr>
-<<<<<<< HEAD
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-=======
                         <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
                                 <%=matching.get(i).get("productName")%>
                             </a>
                         </td>
-                        <%--<%if matching.get(i).get("productType")==1;%>--%>
+                        <<%if matching.get(i).get("productType")==1;%>
                         <td><%=matching.get(i).get("productType")%>
                         </td>
                         <td><%=matching.get(i).get("address")%>
@@ -217,7 +191,7 @@
                         <td><%=matching.get(i).get("username")%>
                         </td>
 
->>>>>>> b4848e183210d54a0cba5a1277a9bad7433295d1
+
                     </tr>
                     <tr>
                         <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
