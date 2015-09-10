@@ -339,7 +339,7 @@ CREATE TABLE `message` (
   `content` varchar(255) NOT NULL COMMENT '内容',
   `userId` varchar(32) DEFAULT NULL,
   `otherId` varchar(32) DEFAULT NULL,
-  `flag` int(1) NOT NULL,
+  `flag` int(1) NOT NULL COMMENT '0代表系统消息，1代表私信',
   `status` int(1) DEFAULT NULL COMMENT '0是未读，1是已读',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -384,12 +384,12 @@ DROP TABLE IF EXISTS `stockcreditor`;
 CREATE TABLE `stockcreditor` (
   `id` varchar(32) NOT NULL,
   `productName` varchar(255) NOT NULL COMMENT '股债权名字',
-  `investArea` varchar(50) NOT NULL COMMENT '投资区域',
-  `investIndustry` varchar(50) NOT NULL COMMENT '投资行业',
-  `createTime` date NOT NULL COMMENT '股债权创建时间',
-  `investMoney` int(11) NOT NULL COMMENT '投资金额',
-  `investTime` int(11) NOT NULL COMMENT '投资年限',
-  `productType` int(1) NOT NULL COMMENT '产品类型，1为股权，2为债权',
+  `investArea` varchar(50)  COMMENT '投资区域',
+  `investIndustry` varchar(50)  COMMENT '投资行业',
+  `createTime` date  COMMENT '股债权创建时间',
+  `investMoney` int(11)  COMMENT '投资金额',
+  `investTime` int(11)  COMMENT '投资年限',
+  `productType` int(1)  COMMENT '产品类型，1为股权，2为债权',
   `stockRate` varchar(50) DEFAULT NULL COMMENT '参股比例',
   `investStage` varchar(50) DEFAULT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
   `leastReturnDemand` varchar(50) DEFAULT NULL COMMENT '最低要求回报',
@@ -397,9 +397,16 @@ CREATE TABLE `stockcreditor` (
   `demandFile` varchar(50) DEFAULT NULL COMMENT '要求文件',
   `demandSummarize` varchar(50) DEFAULT NULL COMMENT '投资要求概述',
   `creditRank` int(1) DEFAULT NULL COMMENT '信用等级，0为AAA，1为AA，2为A，3为BBB，4为BB，5为B，6为CCC，7为CC，8为C',
-  `fundBody` int(10) NOT NULL COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
-  `flag` int(1) NOT NULL COMMENT '标记，0为企业模式，1为投资者模式',
+  `fundBody` int(10)  COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
+  `flag` int(1)  COMMENT '标记，0为企业模式，1为投资者模式',
   `userId` varchar(32) NOT NULL COMMENT '关联用户外键',
+  `exitWay` VARCHAR(200) COMMENT '投资退出方式 ',
+  `exitMinTime` INT COMMENT '最短退出年限',
+  `bondsman` VARCHAR(200) COMMENT '担保方',
+  `investmentMinRequest` INT COMMENT '投资门槛',
+  `minAddto` INT COMMENT '最低追加资金',
+  `backWay` INT COMMENT '还本付息方式',
+  `moneyFrom` INT COMMENT '还款来源',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -450,4 +457,7 @@ INSERT INTO `asset` VALUES ('6', '1', '3年', '5000万', '2', '李旺购买了10
 INSERT INTO `asset` VALUES ('7', '2', '3年', '2000万', '2', '马骏辉购买了100万', '北方债券');
 INSERT INTO `asset` VALUES ('8', '3', '2年', '1600万', '2', '刘宇购买了200万', '北方债券');
 INSERT INTO `asset` VALUES ('9', '7', '2年', '1800万', '2', '赵京木购买了1000万', '北方债券');
+
+
+
 

@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
-<div class="list">
+<div class="list nav">
     <ul>
         <li class="on">
             <a href="/report/getCReport/0">中心公告</a>

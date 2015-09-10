@@ -50,6 +50,7 @@ public class MessageController {
         return list;
     }
 
+    //查看私信
     @RequestMapping(value = "/checkMessage", method = RequestMethod.POST)
     public
     @ResponseBody

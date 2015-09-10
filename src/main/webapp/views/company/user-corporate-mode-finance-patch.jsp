@@ -14,13 +14,13 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
-            <form action="" method="post">
+            <form action="/financing/company/byKey" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
                         <a href=""><img src="../public/images/cancel.png"></a>
                     </div>
-                    <input id="searchText" type="text" placeholder="请输入关键字搜索">
+                    <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
                 <a href="" style="display:inline;">
                     <div id="searchButton">确定</div>
@@ -28,10 +28,10 @@
             </div>
             <div id="selectForm">
                 <p>类型：</p>
-                <select>
-                    <option>全部</option>
-                    <option>股权投资</option>
-                    <option>债权投资</option>
+                <select name="productType">
+                    <option value=0>全部</option>
+                    <option value=1>股权投资</option>
+                    <option value=2>债权投资</option>
                 </select>
             </div>
 
@@ -182,6 +182,7 @@
 
                     <!--*****************全是一样的**************************************************************************************-->
                     <tr>
+<<<<<<< HEAD
                         <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
                         <td>股权投资</td>
                         <td>深圳市</td>
@@ -196,6 +197,27 @@
                         <td>企业资金</td>
                         <td>4000万</td>
                         <td>王女士</td>
+=======
+                        <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                                <%=matching.get(i).get("productName")%>
+                            </a>
+                        </td>
+                        <%--<%if matching.get(i).get("productType")==1;%>--%>
+                        <td><%=matching.get(i).get("productType")%>
+                        </td>
+                        <td><%=matching.get(i).get("address")%>
+                        </td>
+                        <td><%=matching.get(i).get("fundBody")%>
+                        </td>
+                       <%-- <td><%=matching.get(i).get("investArea")%>
+                        </td>--%>
+                        <td><%=matching.get(i).get("investMoney")%>
+                        </td>
+
+                        <td><%=matching.get(i).get("username")%>
+                        </td>
+
+>>>>>>> b4848e183210d54a0cba5a1277a9bad7433295d1
                     </tr>
                     <tr>
                         <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>

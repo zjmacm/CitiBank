@@ -24,10 +24,12 @@ public interface FinancingService {
 
     public Page<Map<String,Object>> getMatchingCompany(Map<String,Object> map,int pageIndex);
 
-    public Page<Map<String,Object>> getDefault();
+    public Page<Map<String,Object>> getDefaultCompany();
 
+    public Page<Map<String,Object>> getDefaultInvestor();
 
-
+    public Page<Map<String,Object>> getProductById(Map<String,Object> req);
+    public Page<Map<String, Object>> getProductByName(Map<String, Object> reqs);
     //意向发布
 
 

@@ -91,18 +91,6 @@ public class CompanyController {
         return "company/user-corporate-mode-finance-patch";
     }
 
-    //我的消息
-    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
-    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
-                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
-                               Map<String, Object> map) {
-        //返回系统消息,首先得获取公司id.
-        Page page = messageService.getSystemMessage(pageIndex, queryContent);//0代表企业
-        List<Map<String, Object>> results = page.getList();
-        map.put("system_message", results);
-        return "company/private-center-my-news";
-    }
-
     //系统信息
 //    @RequestMapping(value = "/s_message", method = RequestMethod.GET)
 //    public String getS_messagePage(Map<String, Object> map) {

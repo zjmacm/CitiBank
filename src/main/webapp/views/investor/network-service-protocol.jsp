@@ -15,7 +15,7 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
-            <a href="">
+            <a href="javascript:void(0);" onclick="javascript:history.back(-1);">
                 <div id="comebackButton">返回上一层<img src="/public/images/back.png"></div>
             </a>
             <!--******* *************************************** table**********************************************-->

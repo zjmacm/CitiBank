@@ -4,14 +4,12 @@ import com.citibank.common.IdUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
 import com.citibank.service.AssetService;
 import com.citibank.service.VisitorService;
+import com.citibank.service.impl.FinancingServiceImpl;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,7 +35,8 @@ public class SystemController {
     @Autowired
     private UploadFileService uploadFile;
     @Autowired
-    private AssetService assetService;
+    private FinancingServiceImpl financingService;
+
 
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
@@ -120,5 +119,13 @@ public class SystemController {
         }
         return null;
     }
+    @RequestMapping(value = "/protopl")
+    public String getNet()
+    {
+        return "/investor/network-service-protocol";
+    }
+
+
+
 }
 

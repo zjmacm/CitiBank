@@ -84,7 +84,7 @@ var publishWidget = (function(){
 		$('#boxTitle').css({
 			color: 'white',
 			position: 'absolute',
-			top: '-5px',
+			//top: '-5px',
 			left: '10px'
 		});
 
@@ -195,8 +195,9 @@ var publishWidget = (function(){
 		var listItem;
 
 		for (var i = 0; i < imagesList.length; i++) {
-			listItem =
-				'<li>' +
+			if (imagesList[i]) {
+				listItem =
+					'<li>' +
 					'<div id="albumImageItem' + i + '" ' +
 					'style="' +
 					'width:150px;' +
@@ -207,10 +208,11 @@ var publishWidget = (function(){
 					'background-size:150px 150px;' +
 					'border: 1px solid #A4B3E4;' +
 					'"></div>' +
-				'</li>';
+					'</li>';
 
-			albumContainer.children('ul').append(listItem);
-			loadImage(imagesList[i], 'albumImageItem' + i);
+				albumContainer.children('ul').append(listItem);
+				loadImage(imagesList[i], 'albumImageItem' + i);
+			}
 		}
 
 		albumContainer.children('ul').children('li').css({
