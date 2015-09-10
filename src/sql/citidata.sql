@@ -413,7 +413,7 @@ CREATE TABLE `stockcreditor` (
 -- ----------------------------
 -- Records of stockcreditor
 -- ----------------------------
-/*INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
+INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('o', '产品2', '大连', '工业', '2015-01-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('p', '产品3', '沈阳', '医药业', '2015-01-04', '300', '3', '0', null, null, null, null, null, null, null, '2', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('q', '产品4', '承德', '采矿业', '2015-01-05', '400', '4', '0', null, null, null, null, null, null, null, '3', '0', 'n');
@@ -426,4 +426,38 @@ INSERT INTO `stockcreditor` VALUES ('w', '产品10', '青岛', '造纸业', '201
 INSERT INTO `stockcreditor` VALUES ('x', '产品11', '唐山', '出版业', '2015-01-12', '1100', '11', '1', null, null, null, null, null, null, null, '10', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('y', '产品12', '衡水', '演艺业', '2015-01-13', '1200', '12', '1', null, null, null, null, null, null, null, '11', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('z', '产品13', '保定', '美容业', '2015-01-14', '1300', '13', '1', null, null, null, null, null, null, null, '12', '0', 'n');
-*/
+
+
+-- ----------------------------
+-- Table structure for `asset`
+-- ----------------------------
+DROP TABLE IF EXISTS `asset`;
+CREATE TABLE `asset` (
+  `id` varchar(32) NOT NULL,
+  `publishedTime` int(10) DEFAULT NULL COMMENT '发布时长',
+  `limit` varchar(32) DEFAULT '' COMMENT '期限',
+  `condition` varchar(20) DEFAULT NULL COMMENT '目前状况',
+  `type` int(1) DEFAULT NULL COMMENT '1是股权，2是债权',
+  `radio` varchar(100) DEFAULT NULL COMMENT '融资占比',
+  `name` varchar(200) DEFAULT NULL COMMENT '产品名称',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of asset
+-- ----------------------------
+INSERT INTO `asset` VALUES ('0', '1', '1年', '1000万', '1', '刘浩购买了300万', '北方债券');
+INSERT INTO `asset` VALUES ('1', '15', '2年', '2500万', '1', '王肖购买了500万，马骏辉购买了1000万', '北方债券');
+INSERT INTO `asset` VALUES ('10', '18', '2年', '1900万', '2', '杨磊购买了1000万', '北方债券');
+INSERT INTO `asset` VALUES ('2', '2', '2年', '1200万', '1', '赵京木购买了200万', '北方债券');
+INSERT INTO `asset` VALUES ('3', '3', '2年', '1300万', '1', '李旺购买了450万', '北方债券');
+INSERT INTO `asset` VALUES ('4', '7', '1年', '1000万', '1', '王森淼购买了200万', '北方债券');
+INSERT INTO `asset` VALUES ('5', '2', '1年', '1500万', '2', '杨磊购买了200万', '北方债券');
+INSERT INTO `asset` VALUES ('6', '1', '3年', '5000万', '2', '李旺购买了1000万', '北方债券');
+INSERT INTO `asset` VALUES ('7', '2', '3年', '2000万', '2', '马骏辉购买了100万', '北方债券');
+INSERT INTO `asset` VALUES ('8', '3', '2年', '1600万', '2', '刘宇购买了200万', '北方债券');
+INSERT INTO `asset` VALUES ('9', '7', '2年', '1800万', '2', '赵京木购买了1000万', '北方债券');
+
+
+
+

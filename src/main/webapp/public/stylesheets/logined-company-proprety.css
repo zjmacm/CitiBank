@@ -26,6 +26,7 @@
 	top: 12px;
 }
 #search{
+
 	position: absolute;
 	height: 21px;
 	top: 9px;
@@ -34,9 +35,10 @@
 	color: #42485C;
 	line-height: 21px;
 }
-#nav input{
+#search-text {
 	margin-left: 300px;
 }
+
 #nav-head{
 	height: 60px;
 	position: relative;

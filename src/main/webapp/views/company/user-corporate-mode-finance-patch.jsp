@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
-<%@page import="java.util.Map" %>
-<%@page import="java.util.List" %>
-<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -21,11 +18,11 @@
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
-                        <a href=""><img src="/public/images/cancel.png"></a>
+                        <a href=""><img src="../public/images/cancel.png"></a>
                     </div>
                     <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
-                <a href="javascript:void(0);" onclick="$('form')[0].submit();" style="display:inline;">
+                <a href="/financing/investor/matching" style="display:inline;">
                     <div id="searchButton">确定</div>
                 </a>
             </div>
