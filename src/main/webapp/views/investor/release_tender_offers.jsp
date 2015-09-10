@@ -116,7 +116,7 @@
       var form = document.forms.form;
       var data = new FormData(form);
       data.append("productType", 1);
-
+      data.append("flag",1);
       imd.ajax({
         url:'/intention/intentionPublish',
         receiveType: 'json',

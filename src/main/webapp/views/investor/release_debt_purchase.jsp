@@ -49,7 +49,7 @@
           </p>
         </div>
         <div class="input_text">
-          <form class="input_form" name="form">
+          <form class="input_form" action="/intention/intentionPublish<%--/1--%>" method="post" name="form" >
             <label>投资金额：</label>
             <input class="input" type="text" name="investMoney" />
           <%--  <label>-</label>
@@ -57,7 +57,7 @@
             <label>万</label>
             <br/>
             <label>投资年限：</label>
-            <input class="input" type="text" name="investPeriod" />
+            <input class="input" type="text" name="investTime" />
             <label> 年 </label>
             <div class="main_first">
               <div class="body_title">
@@ -112,10 +112,11 @@
       var form = document.forms.form,
               data = new FormData(form);
       data.append("productType",2);
+      data.append("flag",1);
       imd.ajax({
         type: 'POST',
         async: true,
-        url: '/intention/intentionPublish/2',
+        url: '/intention/intentionPublish',
         receiveType: 'json',
         data: data,
         success: function(res) {
