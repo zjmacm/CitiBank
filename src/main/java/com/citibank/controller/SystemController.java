@@ -79,7 +79,6 @@ public class SystemController {
     @RequestMapping("/goIndex.htm")
     public String goIndex(HttpServletRequest request, HttpSession session) {
         String flag = (String) session.getAttribute("userType");
-        System.out.println("!!!!!!!!!!!!type:" + flag);
         if ("投资者".equals(flag)) {
             return "investor/logined-invest-index";
         } else if ("企业".equals(flag)) {
@@ -94,7 +93,6 @@ public class SystemController {
     @RequestMapping("/completeInformation.htm")
     public String completeInformation(HttpServletRequest request, HttpSession session) {
         String flag = (String) session.getAttribute("userType");
-        System.out.println("!!!!!!!!!!!!type:" + flag);
         if ("投资者".equals(flag)) {
             return "redirect:/investor/isource";
         } else if ("企业".equals(flag)) {

@@ -11,6 +11,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -164,15 +165,13 @@ public class CompanyController {
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage(HttpServletRequest request)
+    public String getLogoutPage(HttpServletResponse response,HttpSession session)
     {
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals("userId")){
-                cookie.setMaxAge(-1);
-                break;
-            }
-        }
+        session.removeAttribute("userId");
+        Cookie cookie=new Cookie("username","");
+        cookie.setPath("/customer");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "visitor/login";
     }
 
