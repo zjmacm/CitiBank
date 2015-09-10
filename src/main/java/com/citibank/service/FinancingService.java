@@ -28,6 +28,8 @@ public interface FinancingService {
 
     public Page<Map<String,Object>> getDefaultInvestor();
 
+    public Page<Map<String,Object>> getProductById(Map<String,Object> req);
+    public Page<Map<String, Object>> getProductByName(Map<String, Object> reqs);
     //意向发布
 
 

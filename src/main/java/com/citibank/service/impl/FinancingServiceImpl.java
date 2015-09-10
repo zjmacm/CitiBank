@@ -97,18 +97,23 @@ public class FinancingServiceImpl implements FinancingService {
     //通过搜索名称和产品类型
     public Page<Map<String,Object>> getProductByNameAndType(Map<String,Object> req)
     {
-        String sql="select * from stockcreditor where productName:=productName and " +
-                "productType:=productType";
+        String sql="select * from stockcreditor where productName=:productName and " +
+                "productType=:productType";
         return mySQLSimpleDao.pageQuery(sql,req,1,10,new Order());
     }
     //通过搜索名称
-    public Page<Map<String, Object>> getProductByName(Map<String, Objects> reqs)
+    public Page<Map<String, Object>> getProductByName(Map<String, Object> reqs)
     {
-        String sql="select * from stockcreditor where productName:=productName";
+        String sql="select * from stockcreditor where productName=:productName";
         return mySQLSimpleDao.pageQuery(sql,reqs,1,10,new Order());
 
     }
-
+    //通过id来来搜索产品
+    public Page<Map<String,Object>> getProductById(Map<String,Object> req)
+    {
+        String sql="select * from stockcreditor where id=:id";
+        return mySQLSimpleDao.pageQuery(sql,req,1,10,new Order());
+    }
     public Page<Map<String, Object>> getMatchingCompany(Map<String, Object> map, int pageIndex) {
         String sql = "select * from stockcreditor where investArea=:investArea " +
                 "and investIndustry=:investIndustry and investMoney between :lowMoney and :highMoney " +

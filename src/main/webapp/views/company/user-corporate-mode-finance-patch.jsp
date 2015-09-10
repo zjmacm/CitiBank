@@ -187,7 +187,9 @@
 
                     <% for (int i = 0; i < matching.size(); i++) {%>
                     <tr>
-                        <td><%=matching.get(i).get("productName")%>
+                        <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                                <%=matching.get(i).get("productName")%>
+                            </a>
                         </td>
                         <%--<%if matching.get(i).get("productType")==1;%>--%>
                         <td><%=matching.get(i).get("productType")%>

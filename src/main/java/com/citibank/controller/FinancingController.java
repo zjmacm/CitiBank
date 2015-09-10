@@ -4,10 +4,7 @@ import com.citibank.dao.Page;
 import com.citibank.service.FinancingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -37,7 +34,6 @@ public class    FinancingController {
     }
 
 
-
     //投资者的撮合配对
     @RequestMapping(value = "/investor/matching")
     public String getMatchingCompanyPage(@RequestParam Map<String, Object> reqs,
@@ -50,9 +46,8 @@ public class    FinancingController {
     }
 
     //跳到公司撮合配对界面
-    @RequestMapping(value = "/company/Matching.htm",method = RequestMethod.GET)
-    public String getcMatchingPage(Map<String,Object> map)
-    {
+    @RequestMapping(value = "/company/Matching.htm", method = RequestMethod.GET)
+    public String getcMatchingPage(Map<String, Object> map) {
         map.put("data", financingService.getDefaultInvestor().getList());
         System.out.println(map);
         return "company/user-corporate-mode-finance-patch";
@@ -67,7 +62,7 @@ public class    FinancingController {
                               @RequestParam(value = "lowMoney", required = false, defaultValue = "-1") int lowMoney,
                               @RequestParam(value = "highMoney", required = false, defaultValue = "-1") int highMoney,
                               @RequestParam(value = "leastDemand", required = false, defaultValue = "-1") double leastDemand,
-                              @RequestParam(value = "highestDemand", required = false,defaultValue = "-1") double highestDemand,
+                              @RequestParam(value = "highestDemand", required = false, defaultValue = "-1") double highestDemand,
 
                               HttpSession session, Map<String, Object> map) {
         String userId = session.getAttribute("userId").toString();
@@ -98,4 +93,14 @@ public class    FinancingController {
         map.put("data",financingService.)
     }
 */
+    //撮合配对的点击详细界面
+    @RequestMapping(value = "/getDetail/{id}")
+    public String getDetail(@PathVariable String id, Map<String, Object> map) {
+        Map<String, Object> map1 = new HashMap<String, Object>();
+        map1.put("id", id);
+        map.put("data", financingService.getProductById(map1).getList());
+        System.out.print(map1);
+        System.out.println(map);
+        return "/investor/detail";
+    }
 }
