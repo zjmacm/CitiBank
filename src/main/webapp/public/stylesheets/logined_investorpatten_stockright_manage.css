@@ -21,14 +21,14 @@
     width: 100%;
     height: 48px;
     top: 13px;
-    background-image: url("../../public/images/nav.png");
+    background-image: url("../images/nav.png");
 }
 #selected1{
     position: absolute;
     left: 15px;
     height: 74px;
     width: 140px;
-    background-image: url("../../public/images/selected.png");
+    background-image: url("../images/checked.png");
     color: white;
     line-height: 74px;
     text-align: center;
@@ -38,7 +38,7 @@
     left: 155px;
     height: 74px;
     width: 140px;
-    background-image: url("../../public/images/selected.png");
+    background-image: url("../images/checked.png");
     color: white;
     line-height: 74px;
     text-align: center;
@@ -48,7 +48,7 @@
     left: 295px;
     height: 74px;
     width: 140px;
-    background-image: url("../../public/images/selected.png");
+    background-image: url("../images/checked.png");
     color: white;
     line-height: 74px;
     text-align: center;

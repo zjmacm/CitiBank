@@ -4,10 +4,10 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>已登录-企业模式-融资板块（撮合配对）</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/user-corporate-mode-finance-patch.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/user-corporate-mode-finance-patch.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
 </head>
 <body>
 <jsp:include page="business-header.jsp"/>
@@ -171,7 +171,7 @@
             <div id="TableList">
                 <table>
 
-                    <tr>
+                    <%--<tr>
                         <th>产品名称</th>
                         <th>类型</th>
                         <th>地区</th>
@@ -228,7 +228,7 @@
                         <td>企业资金</td>
                         <td>4000万</td>
                         <td>王女士</td>
-                    </tr>
+                    </tr>--%>
                 </table>
             </div>
             <div id="page">

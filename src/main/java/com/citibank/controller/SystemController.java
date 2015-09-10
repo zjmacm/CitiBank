@@ -2,6 +2,7 @@ package com.citibank.controller;
 
 import com.citibank.common.IdUtil;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
+import com.citibank.service.AssetService;
 import com.citibank.service.VisitorService;
 import com.citibank.service.impl.UploadFileService;
 import com.citibank.utils.Constant;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,6 +36,8 @@ public class SystemController {
 
     @Autowired
     private UploadFileService uploadFile;
+    @Autowired
+    private AssetService assetService;
 
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 

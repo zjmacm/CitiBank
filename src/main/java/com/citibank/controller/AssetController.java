@@ -4,11 +4,13 @@ import com.citibank.dao.Page;
 import com.citibank.service.AssetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,13 +22,53 @@ public class AssetController {
 
     @Autowired
     private AssetService assetService;
+    //公司模块的资产详情
+    @RequestMapping(value="/assetDetail.htm")
+    public String getAssetDetailPage(){
+        return "/company/资产管理-详情显示";
+    }
+    //投资者模式的资产详情
+
+
+    @RequestMapping(value="/getChooseStockList")
+    public  String getCompanyChooseList1(@RequestParam Map<String, Object> reqs,HttpServletRequest req){
+
+        int value = Integer.parseInt(req.getParameter("time"));
+        List<Map<String,Object>> list = assetService.getCompanyStockManage(value);
+        req.setAttribute("data", list);
+        return "/company/logined-company-proprety";
+    }
+    @RequestMapping(value="getChooseDebtList")
+    public String getComanyChooseList2(@RequestParam Map<String,Object> reqs,HttpServletRequest req){
+        int value = Integer.parseInt(req.getParameter("time"));
+        List<Map<String,Object>> list = assetService.getCompanyDebtManage(value);
+        req.setAttribute("data",list);
+        return "/company/logined-company-proprety-debat";
+    }
+
+
+    @RequestMapping(value="/search/{type}")
+    public String search(@PathVariable (value= "type")Integer type,
+                         HttpServletRequest request){
+        String content = request.getParameter("content");
+        List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+        list = assetService.getSearchContent(type,content);
+        request.setAttribute("data",list);
+        if(type == 0){
+            return "/company/logined-company-proprety";
+        }
+        else {
+            return "/company/logined-company-proprety-debat";
+        }
+    }
 
     @RequestMapping(value = "/company/{type}")
     public String getCompanyStock(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                                   @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                   @RequestParam(value = "duration", required = false, defaultValue = "1_month") String duration,
                                   @PathVariable(value = "type") Integer type,
-                                  HttpSession session, Map<String, Object> map) {
+                                  HttpSession session, Map<String, Object> map,
+                                  HttpServletRequest request) {
 //        String userId= (String) session.getAttribute("userId");
 //        Page<Map<String, Object>> stockPage = assetService.getCompanyStock(userId, pageIndex, queryContent,duration, type);
 //        List<Map<String, Object>> stocks=stockPage.getList();
@@ -44,13 +86,21 @@ public class AssetController {
 //        map.put("pageIndex",pageIndex);
 //        map.put("data", stocks);
         if (type == 0) {
+
+
+            List<Map<String,Object>> list = assetService.getCompanyStockManage(-1);
+            request.setAttribute("data",list);
             return "company/logined-company-proprety";
+
+
         } else {
+            List<Map<String,Object>> list = assetService.getCompanyDebtManage(-1);
+            request.setAttribute("data",list);
             return "company/logined-company-proprety-debat";
         }
     }
 
-    @RequestMapping("/investor/{type}")
+    @RequestMapping(value="/investor/{type}")
     public String getInvestorStock(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                                    @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
                                    @RequestParam(value = "duration", required = false, defaultValue = "1_month") String duration,
@@ -62,6 +112,7 @@ public class AssetController {
         map.put("pageIndex",pageIndex);
         map.put("data", stockPage.getList());
         if(type==0) {
+
             return "investor/logined_investorpatten_survey_of_investment";
         }else if(type==1){
             return "investor/logined_investorpatten_stock_equity_management";
