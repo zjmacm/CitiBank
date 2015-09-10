@@ -84,15 +84,25 @@ public class    FinancingController {
         return "/company/itemcuohepeidui";
     }
     //公司撮合配对根据搜索条件
-   /* @RequestMapping(value = "/company/byKey")
+    @RequestMapping(value = "/byKey",method = RequestMethod.POST)
     public String companyByKey(@RequestParam Map<String,Object> reqs,
                                Map<String,Object> map)
 
     {
-        if (reqs.get(""))
-        map.put("data",financingService.)
+        System.out.print(reqs);
+        if (Integer.parseInt(reqs.get("productType").toString())==0)
+        {
+            reqs.remove("productType");
+            map.put("data", financingService.getProductByName(reqs).getList());
+        }
+        else
+        {
+            map.put("data",financingService.getProductByNameAndType(reqs).getList());
+        }
+        return "investor/company-corporate-mode-finance-patch";
+
+
     }
-*/
     //撮合配对的点击详细界面
     @RequestMapping(value = "/getDetail/{id}")
     public String getDetail(@PathVariable String id, Map<String, Object> map) {

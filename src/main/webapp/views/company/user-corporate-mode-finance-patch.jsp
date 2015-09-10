@@ -17,7 +17,7 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
-            <form action="/financing/company/byKey" method="post">
+            <form action="/financing/byKey" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
@@ -25,7 +25,7 @@
                     </div>
                     <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
-                <a href="/financing/investor/matching" style="display:inline;">
+                <a href="javascript:void(0);" onclick="$('form')[0].submit();" style="display:inline;">
                     <div id="searchButton">确定</div>
                 </a>
             </div>
