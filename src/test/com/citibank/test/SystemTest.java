@@ -63,6 +63,28 @@ public class SystemTest {
         //assetService.getTotalMoney("123","1_month");
         investorService.getInvestorInfo("123");
     }
+    @Test
+    public void testGetProductByid()
+    {
+            Map<String,Object> map=new HashMap<String, Object>();
+            map.put("id","a");
+        System.out.println(financingService.getProductById(map));
+    }
+    @Test
+    public void testGetProductByName()
+    {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("productName","aaaf");
+        System.out.println(financingService.getProductByName(map));
+    }
+    @Test
+    public void testGetProductByNameAndId()
+    {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("id","a");
+        map.put("productName","aaaf");
+        System.out.println(financingService.getProductByName(map));
+    }
 
     @Test
     public void testComReg() {

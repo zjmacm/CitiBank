@@ -121,14 +121,7 @@ public class SystemController {
     {
         return "/investor/network-service-protocol";
     }
-    @RequestMapping(value = "/getDetail/{id}")
-    public String getDetail(@PathVariable String id,Map<String,Object> map)
-    {
-        Map<String,Object> map1=new HashMap<String, Object>();
-        map1.put("id",id);
-        financingService.getProductById(map1);
-        return "/investor/detail";
-    }
+
 
 
 }
