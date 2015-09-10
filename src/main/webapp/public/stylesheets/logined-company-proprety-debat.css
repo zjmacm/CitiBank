@@ -34,9 +34,12 @@
 	color: #42485C;
 	line-height: 21px;
 }
-#nav input{
+
+#search-text{
 	margin-left: 400px;
 }
+
+
 #nav-head{
 	height: 60px;
 	position: relative;

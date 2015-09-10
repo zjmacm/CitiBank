@@ -19,10 +19,11 @@ public class AssetServiceImpl implements AssetService {
     @Autowired
     private MySQLSimpleDaoImpl mySQLSimpleDao;
 
+
     public Page<Map<String, Object>> getCompanyStock(String userId, int pageIndex, String queryContent,
                                                      String duration, int type) {
         StringBuffer sb = new StringBuffer("select s.createTime, s.investTime, s.investMoney, sum(totalMoney) sum" +
-                " from stockcreditor where userId = :user_id and createTime < :create_time and productType = product_type");
+                " from stockcreditor where userId = :user_id and createTime < :create_time and productType = :product_type");
         Map<String, Object> parms = new HashMap<String, Object>();
         parms.put("user_id", userId);
         parms.put("create_time", getAimDate(duration));
@@ -31,6 +32,7 @@ public class AssetServiceImpl implements AssetService {
             sb.append(" and productName like %:product_name%");
             parms.put("product_name", queryContent);
         }
+
         return mySQLSimpleDao.pageQuery(sb.toString(), parms, pageIndex, 10, new Order().asc("id"));
     }
 
@@ -80,6 +82,82 @@ public class AssetServiceImpl implements AssetService {
             calendar.add(Calendar.YEAR, -2);
         }
         return calendar.getTime();
+    }
+
+    public List<Map<String,Object>> getCompanyStockManage(int value){
+        String type = "1";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("type", type);
+        if(value ==-1) {
+            String sql = "select *from asset where type = :type";
+
+            return mySQLSimpleDao.queryForList(sql, map);
+
+        }
+
+        else {
+
+            if(value==1){
+                map.put("value",1);
+            }
+            else if(value==2){
+                map.put("value",3);
+            }
+            else if(value==3){
+                map.put("value",6);
+            }
+            else if(value==4){
+                map.put("value",12);
+            }
+            else if(value ==5){
+                map.put("value",24);
+            }
+
+            String sql = "select *from asset where type=:type and publishedTime<=:value";
+            return mySQLSimpleDao.queryForList(sql,map);
+        }
+
+    }
+
+
+    public List<Map<String,Object>> getCompanyDebtManage(int value){
+        String type = "2";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("type", type);
+        if(value==-1) {
+            String sql = "select *from asset where type = :type";
+            return mySQLSimpleDao.queryForList(sql, map);
+        }
+        else{
+            if(value==1){
+                map.put("value",1);
+            }
+            else if(value==2){
+                map.put("value",3);
+            }
+            else if(value==3){
+                map.put("value",6);
+            }
+            else if(value==4){
+                map.put("value",12);
+            }
+            else if(value ==5){
+                map.put("value",24);
+            }
+
+            String sql = "select *from asset where type=:type and publishedTime<=:value";
+            return mySQLSimpleDao.queryForList(sql,map);
+        }
+    }
+
+
+    public List<Map<String, Object>> getSearchContent(int type,String content) {
+        type = type+1;
+        String sql = "select *from asset where  type=:type and name =:content";
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("type",type);
+        map.put("content",content);
+        return mySQLSimpleDao.queryForList(sql,map);
     }
 
 

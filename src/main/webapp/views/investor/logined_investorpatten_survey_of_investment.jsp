@@ -28,11 +28,14 @@
             <span id="tab3">
                 <a href="/asset/investor/2">债权管理</a>
             </span>
-            <span id="search">
-                <label for="search-content">搜索:</label>
-                <input type="text" id="search-content">
-                <input type="button" id="search-button" value="确定">
-            </span>
+            <form>
+                <span id="search">
+                    <label for="search-content">搜索:</label>
+                    <input type="text" id="search-content">
+                    <input type="button" id="search-button" value="确定">
+                </span>
+            </form>
+
         </div>
         <div id="selected1">
             投资概况

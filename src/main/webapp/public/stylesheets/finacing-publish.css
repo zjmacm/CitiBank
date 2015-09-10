@@ -59,7 +59,9 @@ body{
 }
 
 #text{
-	margin-left: 7px;
+	height:50px;
+	width:300px;
+	 margin-left: 7px;
 	 border-radius:5px;
 	 border: solid 1px #C7CCDB;
 }
