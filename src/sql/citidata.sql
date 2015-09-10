@@ -339,7 +339,7 @@ CREATE TABLE `message` (
   `content` varchar(255) NOT NULL COMMENT '内容',
   `userId` varchar(32) DEFAULT NULL,
   `otherId` varchar(32) DEFAULT NULL,
-  `flag` int(1) NOT NULL,
+  `flag` int(1) NOT NULL COMMENT '0代表系统消息，1代表私信',
   `status` int(1) DEFAULT NULL COMMENT '0是未读，1是已读',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
