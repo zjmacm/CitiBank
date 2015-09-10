@@ -1,5 +1,6 @@
 package com.citibank.service.impl;
 
+import com.citibank.dao.ConditionUtil;
 import com.citibank.dao.Order;
 import com.citibank.dao.Page;
 import com.citibank.dao.impl.MySQLSimpleDaoImpl;
@@ -23,7 +24,11 @@ public class AppointServiceImpl implements AppointService {
         String sql = "select * from appointment where userId = :user_id and flag =:flag";
         int pageSize = 10;
         int pageIndex = Integer.parseInt(reqs.get("pageIndex").toString());
-        Order order = new Order().asc("id");
+        Order order = new Order().asc(reqs.get("column").toString());
+        if(reqs.containsKey("queryContent")){
+            sql+=" and appointmentName like ";
+            sql+= ConditionUtil.like(reqs.get("queryContent").toString());
+        }
         Page<Map<String, Object>> page = mySQLSimpleDao.pageQuery(sql, reqs, pageIndex, pageSize, order);
         if (page.getSize() > 0) {
             //System.out.println("找到page!");

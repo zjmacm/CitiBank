@@ -65,8 +65,6 @@ public class MessageServiceImpl implements MessageService {
     }
 
     public Map<String, Object> checkMessage(Map<String, Object> reqs, HttpSession session) {
-
-
         Map<String, Object> map1 = new HashMap<String, Object>();
         Map<String, Object> map2 = new HashMap<String, Object>();
         map1.put("status", 1);
