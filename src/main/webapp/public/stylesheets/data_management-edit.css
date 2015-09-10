@@ -117,7 +117,7 @@ textarea{
     resize: none;
 }
 #submit{
-    background-image: url("../../public/images/ok.png");
+    background-color:#EBEBEB;
     height: 26px;
     width: 74px;
     line-height: 26px;
@@ -126,6 +126,8 @@ textarea{
     bottom: 100px;
     right: 240px;
 }
-#submit a{
-    color: #EBEBEB;
+
+#btn {
+   border: none;
+    background-color: #EBEBEB;
 }

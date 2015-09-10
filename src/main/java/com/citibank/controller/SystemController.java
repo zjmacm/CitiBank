@@ -108,7 +108,7 @@ public class SystemController {
         }
         else if("企业".equals(flag))
         {
-            return "redirect:/company/data_management-edit";
+            return "redirect:/company/isource";
         }
         else
         {

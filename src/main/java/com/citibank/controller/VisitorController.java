@@ -80,12 +80,12 @@ public class VisitorController {
 
             investorService.registerInvestor(reqs);
             String id = (String) reqs.get("investorId");
-            session.setAttribute("investorId", id);
+            session.setAttribute("userId", id);
             return "investor/complete-reg";
         } else {
             companyService.userRegister(reqs);
             String id = (String) reqs.get("companyId");
-            session.setAttribute("companyId", id);
+            session.setAttribute("userId", id);
             return "company/complete-company-reg";
         }
 

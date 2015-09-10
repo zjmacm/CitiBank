@@ -99,7 +99,7 @@ public class InvestorController {
         Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
         userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
         map.put("userInfo", userInfo);
-        return "investor/personal_center_assets_management";
+        return "investor/inews-managment";
     }
 
     //退出按钮
@@ -177,7 +177,7 @@ public class InvestorController {
         reqs.put("consultPhone", phoneNum);
 
        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
-        reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+       // reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
         investorService.saveInvestorInfo(reqs, id);
         return "/visitor/finsh-reg";
     }
