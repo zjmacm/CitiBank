@@ -1,4 +1,4 @@
-<%@ page import="java.util.Map" %>
+﻿<%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -8,10 +8,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../public/stylesheets/font.css">
-    <link rel="stylesheet" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/information-manage-edit.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" href="/public/stylesheets/font.css">
+    <link rel="stylesheet" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/information-manage-edit.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <title>资料管理-编辑</title>
 </head>
 
@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <c:forEach var="investor" items="${investor }">
-            <form method="post" enctype="multipart/form-data" name="form">
+            <form method="post" action="/investor/saveUserInfo" enctype="multipart/form-data" name="form">
                 <div id="baseInformation">
                     <div id="left-reg">
                         <table>
@@ -40,7 +40,7 @@
                                     
                                         <li>
                                             <span class="labelLeft">投资者姓名：</span>
-                                            <span class="reg-input"><%= userInfo.get("investorName") %></span>
+                                            <span class="reg-input"><%= userInfo.get("investorName") %> ></span>
                                         </li>
                                         <li>
                                             <span class="labelLeft">联系方式：</span>
@@ -48,7 +48,7 @@
                                         </li>
                                         <li>
                                             <span class="labelLeft">职位：</span>
-                                            <input type="text" name="position" class="reg-input" value="<%= userInfo.get("position") %>" >
+                                            <input type="text" name="c_position" class="reg-input" value="<%= userInfo.get("c_position") %>" >
                                         </li>
                                         <li>
                                             <span class="labelLeft">资金额：</span>
@@ -56,29 +56,29 @@
                                         </li>
                                         <li>
                                             <span class="labelLeft">所在地区：</span>
-                                            <input type="text" name="companyArea" class="reg-input" value="<%= userInfo.get("companyArea") %>">
+                                            <input type="text" name="companyArea" class="reg-input" value="<%= userInfo.get("companyArea") %>"/>
                                         </li>
                                         <li>
                                             <span class="labelLeft">投资地区：</span>
-                                            <input type="text" name="investArea" class="reg-input" value="<%= userInfo.get("investArea") %>">
+                                            <input type="text" name="investArea" class="reg-input" value="<%= userInfo.get("investArea") %>"/>
                                         </li>
                                         <li>
-                                            <span class="labelLeft" id="invest-filed"  filed_index="<%= userInfo.get("investField") %>">投资领域：</span>
-                                            <select class="reg-input" name="investField" filed_index="<%= userInfo.get("investStage") %>">
-                                                <option value="0">金融投资</option>
-                                                <option value="1">房地产</option>
-                                                <option value="2">能源</option>
-                                                <option value="3">化学</option>
+                                            <span class="labelLeft">投资领域：</span>
+                                            <select class="reg-input" data-index="<%= userInfo.get("investField") %>" id="invest-field" name="investField">
+                                                <option value="1">金融投资</option>
+                                                <option value="2">房地产</option>
+                                                <option value="3">能源</option>
+                                                <option value="4">化学</option>
                                             </select>
                                         </li>
                                         <li>
-                                            <span class="labelLeft" id="invest-stage" data-index="<%= userInfo.get("investStage") %>">投资阶段：</span>
-                                            <select class="reg-input" name="investStage">
-                                                <option value="0">种子</option>
-                                                <option value="1">初创</option>
-                                                <option value="2">拓展前</option>
-                                                <option value="3">拓展后</option>
-                                                <option value="4">Pre-IPO</option>
+                                            <span class="labelLeft">投资阶段：</span>
+                                            <select class="reg-input" data-index="<%= userInfo.get("investStage")%>" name="investStage" id="invest-stage">
+                                                <option value="1">种子</option>
+                                                <option value="2">初创</option>
+                                                <option value="3">拓展前</option>
+                                                <option value="4">拓展后</option>
+                                                <option value="5">Pre-IPO</option>
                                             </select>
                                         </li>
                                         <li>
@@ -111,19 +111,15 @@
                                         </li>
                                         <li>
                                             <span class="labelRight">公司规模：</span>
-                                            <input type="text" name="companyScale" class="reg-input" value="<%= userInfo.get("companyScale") %>>
+                                            <input type="text" name="companyScale" class="reg-input" value="<%= userInfo.get("companyScale") %>">
                                         </li>
                                     </ul>
                                 </td>
                             </tr>
                         </table>
                     </div>
-
-                    <div id="right-reg" >
+                    <div id="right-reg">
                         <div id="logo-show">
-                            <div id="img">
-                                <img src="<%= userInfo.get("logo")%>" style="width: 133px;height:183px">
-                            </div>
                         </div>
                         <div id="file">
                             <span id="text-image">上传图片</span>
@@ -147,25 +143,25 @@
                     <tr>
                         <td>投资行业：</td>
                         <td>
-                            <select class="reg-input" name="investIndustry" data-index="<%= userInfo.get("investIndustry") %>" id="invest-industry">
-                                                <option>金融投资</option>
-                                                <option>房地产</option>
-                                                <option>能源</option>
-                                                <option>化学</option>
+                            <select class="reg-input" data-index="<%= userInfo.get("investIndustry")%>" name="investIndustry" id="invest-industry" >
+                                <option value="0">金融投资</option>
+                                <option value="1">房地产</option>
+                                <option value="2">能源</option>
+                                <option value="3">化学</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>投资意向金额：</td>
-                        <td><input type="text" name="investMoney" class="reg-input" value="<%= userInfo.get("investMoney") %>"id="intention">&nbsp;万</td>
+                        <td><input type="text" name="investMoney" class="reg-input" value="<%= userInfo.get("investMoney") %>">&nbsp;万</td>
                     </tr>
                     <tr>
                         <td>投资类型：</td>
                         <td>
-                            <select class="reg-input" name="investType" data-index="<%= userInfo.get("investType") %>" id="type" >
-                                    <option value="0">股/债权投资</option>
-                                    <option value="1">股权投资</option>
-                                    <option value="2">债权投资</option>
+                            <select class="reg-input" data-index="<%= userInfo.get("investType")%>" name="investType" id="invest-type">
+                                <option value="1">股/债权投资</option>
+                                <option value="2">股权投资</option>
+                                <option value="3">债权投资</option>
                             </select>
                         </td>
                     </tr>
@@ -175,15 +171,15 @@
                         <td><textarea rows="10" cols="60" class="reg-input-big"  name="investHistory"><%= userInfo.get("investHistory") %></textarea></td>
                     </tr>
                     <tr>
-                        <td>投资类型：</td>
+                        <td>投资偏好：</td>
                         <td>
-                            <select class="reg-input" name="investType" data-index="<%= userInfo.get("investType") %>" id="type1">
-                                <option value="0">传统型</option>
-                                <option value="1">新兴型</option>
-                                <option value="2">热点型</option>
-                                <option value="3">前瞻型</option>
-                                <option value="4">稳健型</option>
-                                <option value="5">其他</option>
+                            <select class="reg-input" data-index="<%= userInfo.get("investPreference")%>" name="investPreference" id="invest-preference">
+                                    <option value="1">传统型</option>
+                                    <option value="2">新兴型</option>
+                                    <option value="3">热点型</option>
+                                    <option value="4">前瞻型</option>
+                                    <option value="5">稳健型</option>
+                                    <option value="6">其他</option>
                             </select>
                         </td>
                     </tr>
@@ -193,13 +189,14 @@
                 </table>
             </div>
              <input type="button" id="btn" value="提交" />
+             
         </form>
         </c:forEach>
         </div>
     </div>
     <div id="footer"></div>
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
-    <script type="text/javascript" src="../public/javascripts/imd.js"></script>
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript" src="/public/javascripts/imd.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         imd.Event('#fileInput').on('change', function(e) {
@@ -211,19 +208,19 @@
             }
             fileReader.readAsDataURL(file);
         });
-        
 
-	   imd.Event('#btn').on('click', function(e) {
-           var form = document.forms.form,
-                   data = new FormData(form);
+
+	    imd.Event('#btn').on('click', function(e) {
+            var form = document.forms.form,
+                    data = new FormData(form);
 		   imd.ajax({
 			   type: 'POST',
 			   async: true,
 			   url: '/investor/saveUserInfo',
 			   receiveType: 'json',
 			   data: data,
-			   success: function(result) {
-				   alert(result.result);
+			   success: function(res) {
+				   alert(res.result);
 			   },
 			   error: function(e) {
 				   alert('网络错误，稍后再试');
@@ -232,26 +229,26 @@
 	   });
     });
 
-    var filed_index = $("#invest-filed").data("index");
-    var filed_select = "#invest-filed option:nth-child(" + filed_index +")";
-    $(filed_select).attr("selected", "selected");
+    var index = $("#invest-field").data("index");
+    var select = "#invest-field option:nth-child(" + index +")";
+    $(select).attr("selected", "selected");
 
     var stage_index = $("#invest-stage").data("index");
-    var stage_select = "#invest-stage option:nth-child(" + stage_index + ")";
+    var stage_select = "#invest-stage option:nth-child("  + stage_index + ")";
     $(stage_select).attr("selected", "selected");
 
     var industry_index = $("#invest-industry").data("index");
-    var industry_select = "#invest-industry option:nth-child(" + industry_index + ")";
+    var industry_select = '#invest-industry option:nth-child(' + stage_index + ')';
     $(industry_select).attr("selected", "selected");
 
-    var type_index = $("#type").data("index");
-    var type_select = "#type option:nth-child(" + type_index + ")";
+    var type_index = $("#invest-type").data("index");
+    var type_select = '#invest-type option:nth-child(' + stage_index + ')';
     $(type_select).attr("selected", "selected");
 
+    var preference_index = $("#invest-preference").data("index");
+    var preference_select = '#invest-preference option:nth-child(' + stage_index + ')';
+    $(preference_select).attr("selected", "selected");
 
-    var type1_index = $("#type1").data("index");
-    var type1_select = "#type option:nth-child(" + type1_index + ")";
-    $(type1_select).attr("selected", "selected");
 
     </script>
 </body>

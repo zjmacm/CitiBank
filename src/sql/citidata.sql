@@ -326,7 +326,7 @@ CREATE TABLE `investor` (
   `managedFund` varchar(50) DEFAULT NULL COMMENT '管理基金',
   `logoPath` varchar(255) DEFAULT NULL COMMENT 'logo路径',
   `baseAddress` varchar(50) DEFAULT NULL COMMENT '总部地址',
-  `positoin` varchar(20) DEFAULT NULL COMMENT '职位',
+  `c_position` varchar(20) DEFAULT NULL COMMENT '职位',
   PRIMARY KEY (`investorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
