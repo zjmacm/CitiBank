@@ -155,8 +155,9 @@ public class CompanyController {
     //资料管理
     @RequestMapping(value = "/isource", method = RequestMethod.GET)
     public String getIsourcePage(HttpSession session, Map<String, Object> map) {
-        String userId = (String) session.getAttribute("userId");
-        Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+        String companyId = (String) session.getAttribute("userId");
+        System.out.println("companyId is:" + companyId);
+        Map<String, Object> userInfo = companyService.getCompanyInfo(companyId);
         userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
         map.put("userInfo", userInfo);
         return "company/data_management-edit";
@@ -327,8 +328,9 @@ public class CompanyController {
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session) {
-        String userId = (String) session.getAttribute("companyId");
+    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session,HttpServletRequest request) {
+        String userId = (String) session.getAttribute("userId");
+        System.out.println("save-userid:" + userId+"____parms:"+ parms.get("guarantor") + "____req:"+request.getAttribute("guarantor"));
         int result = companyService.saveCompanyInfo(parms, userId);
         Map<String, String> status = new HashMap<String, String>();
         if (result == 0) {
@@ -351,7 +353,7 @@ public class CompanyController {
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String saveInfo(@RequestParam("logo") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                            HttpServletRequest request) {
-        String id = (String) session.getAttribute("companyId");
+        String id = (String) session.getAttribute("userId");
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;

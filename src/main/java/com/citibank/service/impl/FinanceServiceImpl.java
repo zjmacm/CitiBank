@@ -32,11 +32,11 @@ public class FinanceServiceImpl implements FinanceService {
         return map;
     }
 
-    public Map<String, Object> getFinance(String userId) {
-        String sql="select * from financedata where id = "+userId;
-        List<Map<String, Object>> list = mySQLSimpleDao.queryForList(sql, new HashMap<String, Objects>());
+    public HashMap<String, Object> getFinance(String userId) {
+        String sql="select * from financedata where id = ?";
+        List<Map<String, Object>> list = mySQLSimpleDao.queryForList(sql,"b");
         Map<String,Object> map=list.get(0);
-        Map<String,Object> result=new HashMap<String, Object>();
+        HashMap<String,Object> result=new HashMap<String, Object>();
         //销售收入
         int saleIncome=Integer.valueOf(map.get("sellIncome").toString());
         //营业成本
@@ -67,13 +67,18 @@ public class FinanceServiceImpl implements FinanceService {
         int averTotalAsset=Integer.valueOf(map.get("averTotalAsset").toString());
 
         result.put("saleProfit", (saleIncome-bussinessCost)/saleIncome*100+"%");
-        result.put("assetDebt",totalDebt/totalAsset);
-        result.put("flowRate", flowAsset/flowDebt);
-        result.put("accountTurn", (currentSaleIncome-currentRevenue)/((finalReceivables+preReceivables)/2));
-        result.put("accountDay", 360/Integer.valueOf(result.get("accountTurn").toString()));
-        result.put("rewardRate", profit/ownerEquity);
-        result.put("assetTurn",majorBussinessIncome/averTotalAsset);
+        result.put("assetDebt",totalDebt*100/totalAsset+"%");
+        result.put("flowRate", flowAsset*100/flowDebt+"%");
+        result.put("accountTurn", (currentSaleIncome - currentRevenue) / ((finalReceivables + preReceivables) / 2));
+        if(Integer.valueOf(result.get("accountTurn").toString())!=0) {
+            result.put("accountDay", 360 /Integer.valueOf(result.get("accountTurn").toString()));
+        }else{
+            result.put("accountDay","非法");
+        }
+        result.put("rewardRate", profit*100/ownerEquity+"%");
+        result.put("assetTurn",majorBussinessIncome*100/averTotalAsset+"%");
         result.put("profit",profit);
+        System.out.println(result.toString());
         return result;
     }
     

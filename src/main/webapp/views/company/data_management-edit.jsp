@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="java.util.Map" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page isELIgnored="false" %>
@@ -27,13 +28,14 @@
         </div>
     </div>
     <hr/>
+    <form method="post" action="/company/saveUserInfo" name="form">
     <div class="content">
         <div class="box1">
             <p>
                 公司名称：<%= userInfo.get("companyName")%><br/>
                 公司类型：<%= userInfo.get("companyType")%><br/>
                 所属行业：<%= userInfo.get("workingFiled")%><br/>
-                咨询电话：<input id="tel" value="<%= userInfo.get("consultPhone")%>"><br/>
+                咨询电话：<input id="tel" name="consultPhone" value="<%= userInfo.get("consultPhone")%>"><br/>
                 <%--咨询电话：<%= userInfo.get("consultPhone")%><br>--%>
                 主营业务：<%= userInfo.get("majorAffair")%><br/>
                 盈利模式：
@@ -55,9 +57,9 @@
             <p>
                 注册资本：<%= userInfo.get("registerCapital")%>万<br/>
                 营业执照注册号：<%= userInfo.get("businessLisence")%><br/>
-                法人代表：<input id="legal_person" value="<%= userInfo.get("legalPresentative")%>"><br/>
+                法人代表：<input id="legal_person" name="legalPresentative" value="<%= userInfo.get("legalPresentative")%>"><br/>
                 注册时间：<%= userInfo.get("formedTime")%><br/>
-                总部地址：<input id="address" value="<%= userInfo.get("baseAddress")%>"><br/>
+                总部地址：<input id="address" name="baseAddress" value="<%= userInfo.get("baseAddress")%>"><br/>
                 当前信用等级：AAA<br/>
             </p>
         </div>
@@ -79,58 +81,86 @@
             <div class="box1">
                 <p>
                     公司细分行业：<%= userInfo.get("subdividedIndustry")%><br/>
-                    担保方：<input id="danbaofang" value="<%= userInfo.get("guarantor")%>"><br/>
-                    员工人数：<input id="renshu"><br/>
-                    相关机构：<input id="xiangguanjigou"><br/>
+                    担保方：<input id="danbaofang" name="guarantor" value="<%= userInfo.get("guarantor")%>"><br/>
+                    员工人数：<input id="renshu" name="staffNumber" value="<%= userInfo.get("staffNumber")%>"><br/>
+                    相关机构：<input id="xiangguanjigou" name="relatedMechanism" value="<%= userInfo.get("relatedMechanism")%>"><br/>
                 </p>
             </div>
             <div class="box2">
                 <p>
-                    占地面积：<input id="area" value="<%= userInfo.get("occupiedArea")%>"><br/>
-                    分厂：<input id="fenchang"><br/>
-                    子公司：<input id="zigongsi"><br/>
-                    驻外办事机构：<input id="banshijigou"><br/>
+                    占地面积：<input id="area" name="occupiedArea" value="<%= userInfo.get("occupiedArea")%>"><br/>
+                    分厂：<input id="fenchang" name="branch" value="<%= userInfo.get("branch")%>"><br/>
+                    子公司：<input id="zigongsi" name="childCompany" value="<%= userInfo.get("childCompany")%>"><br/>
+                    驻外办事机构：<input id="banshijigou" name="ServiceAgency" value="<%= userInfo.get("ServiceAgency")%>"><br/>
                 </p>
             </div>
             <div class="box3" style="height: 152px"></div>
         </div>
-        <div class="textarea">
-            经营理念：<textarea rows="2" cols="80%" id="linian" style="vertical-align: top"></textarea><br/>
+        <div class="textarea">bussinessConcept
+            经营理念：<textarea rows="2" cols="80%" id="linian" name="bussinessConcept" style="vertical-align: top" ><%= userInfo.get("bussinessConcept")%></textarea><br/>
         </div>
         <div class="textarea">
-            产品服务：<textarea rows="2" cols="80%" id="fuwu"
+            产品服务：<textarea rows="2" cols="80%" id="fuwu" name="productService"
                            style="vertical-align: top"><%= userInfo.get("productService")%></textarea><br/>
         </div>
         <div class="textarea">
-            行业概况：<textarea rows="2" cols="80%" id="gaikuang"
+            行业概况：<textarea rows="2" cols="80%" id="gaikuang" name="industryOverview"
                            style="vertical-align: top"><%= userInfo.get("industryOverview")%></textarea><br/>
         </div>
         <div class="textarea">
-            发展战略：<textarea rows="2" cols="80%" id="zhanlue"
+            发展战略：<textarea rows="2" cols="80%" id="zhanlue" name="developmentStrategy"
                            style="vertical-align: top"><%= userInfo.get("developmentStrategy")%></textarea><br/>
         </div>
         <div class="textarea">
-            团队描述：<textarea rows="2" cols="80%" id="miaoshu"
-                           style="vertical-align: top"><%= userInfo.get("companyInTroduct")%></textarea><br/>
+            团队描述：<textarea rows="2" cols="80%" id="miaoshu" name="teamDescription"
+                           style="vertical-align: top"><%= userInfo.get("teamDescription")%></textarea><br/>
         </div>
         <div class="box1">
             <p>优势与专长：</p>
 
             <div class="subbox">
-                技术优势：<input id="jishuyoushi" value="<%= userInfo.get("technologicalAdvantage")%>"><br/>
-                产品优势：<input id="chanpinyoushi" value="<%= userInfo.get("productAdvantage")%>"><br/>
-                市场优势：<input id="shichangyoushi" value="<%= userInfo.get("marketAdvantage")%>"><br/>
+                技术优势：<input id="jishuyoushi" name="technologicalAdvantage" value="<%= userInfo.get("technologicalAdvantage")%>"><br/>
+                产品优势：<input id="chanpinyoushi" name="productAdvantage" value="<%= userInfo.get("productAdvantage")%>"><br/>
+                市场优势：<input id="shichangyoushi" name="marketAdvantage" value="<%= userInfo.get("marketAdvantage")%>"><br/>
             </div>
             <p>发展情况：<a href="">点击添加</a></p>
         </div>
         <div id="submit">
-            <p><a href="">保存</a></p>
+
+            <input type="button" id="btn" value="保存"/>
         </div>
     </div>
+    </form>
 </div>
+
 <div id="footer">
     <div id="foot-list">
     </div>
 </div>
+
+<script type="text/javascript" src="../public/javascripts/imd.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+
+        imd.Event('#btn').on('click', function(e) {
+            var form = document.forms.form;
+            var data = new FormData(form);
+
+            imd.ajax({
+                url:'/company/saveUserInfo',
+                receiveType: 'json',
+                type:'POST',
+                async: true,
+                success: function(res) {
+                    alert(res.result);
+                },
+                data: data,
+                error: function(res) {
+                    alert('网络错误，稍后再试');
+                }
+            });
+        });
+    };
+</script>
 </body>
 </html>
