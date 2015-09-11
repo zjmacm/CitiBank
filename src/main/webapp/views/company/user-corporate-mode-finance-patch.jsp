@@ -14,7 +14,7 @@
 <div id="mainContainer">
     <div id="main">
         <div id="mainContent">
-            <form action="/financing/company/byKey" method="post">
+            <form action="/financing/byKey" method="post">
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
@@ -22,7 +22,7 @@
                     </div>
                     <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
-                <a href="" style="display:inline;">
+                <a href="/financing/investor/matching" style="display:inline;">
                     <div id="searchButton">确定</div>
                 </a>
             </div>
@@ -41,7 +41,7 @@
                 <form action="" method="post">
             <div id="patchPanel">
                 <div>地区筛选：
-                    <div class="selectItemGroup">
+                    <div class="selectItemGroup" id="investArea">
                         <span class="selectItem"><input type="checkbox">黑龙江</span>
                         <span class="selectItem"><input type="checkbox">吉林</span>
                         <span class="selectItem"><input type="checkbox">辽宁</span>
@@ -81,7 +81,7 @@
                 <br/>
 
                 <div>行业筛选：
-                    <div class="selectItemGroup">
+                    <div class="selectItemGroup" id="investIndustry">
                         <span class="selectItem"><input type="checkbox">金融投资</span>
                         <span class="selectItem"><input type="checkbox">房地产</span>
                         <span class="selectItem"><input type="checkbox">能源</span>
@@ -124,7 +124,7 @@
                 <br/>
 
                 <div>资金类型：
-                    <div class="selectItemGroup">
+                    <div class="selectItemGroup" id="">
                         <span class="selectItem"><input type="checkbox">全部</span>
                         <span class="selectItem"><input type="checkbox">个人资金</span>
                         <span class="selectItem"><input type="checkbox">企业资金</span>
@@ -171,12 +171,24 @@
             <div id="TableList">
                 <table>
 
+                    <tr>
+                        <th>产品名称</th>
+                        <th>类型</th>
+                        <th>地区</th>
+                        <th>资金类型</th>
+                        <th>金额</th>
+                        <th class="rightItem">投资者</th>
+                    </tr>
+                    <% List<Map<String, Object>> matching = (List<Map<String, Object>>) request.getAttribute("data");
+                    %>
 
+                    <% for (int i = 0; i < matching.size(); i++) {%>
+                    <tr>
                         <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
                                 <%=matching.get(i).get("productName")%>
                             </a>
                         </td>
-                        <<%if matching.get(i).get("productType")==1;%>
+                        <%--<%if matching.get(i).get("productType")==1;%>--%>
                         <td><%=matching.get(i).get("productType")%>
                         </td>
                         <td><%=matching.get(i).get("address")%>
@@ -191,40 +203,8 @@
                         <td><%=matching.get(i).get("username")%>
                         </td>
 
-
                     </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>
-                    <tr>
-                        <td>深圳某资金500万-2亿寻经营性实体招商引资项目</td>
-                        <td>股权投资</td>
-                        <td>深圳市</td>
-                        <td>企业资金</td>
-                        <td>4000万</td>
-                        <td>王女士</td>
-                    </tr>--%>
+                    <%}%>
                 </table>
             </div>
             <div id="page">
@@ -235,3 +215,4 @@
 <div id="footer">
 </div>
 </body>
+</html>
