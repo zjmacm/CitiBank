@@ -29,6 +29,7 @@
     background: #2A3F4B;
     border: 1px solid #E3E3E3;
 }
+
 #list-item{
     height: 120px;
     letter-spacing: 1px;
@@ -36,6 +37,11 @@
     margin: auto auto;
 
 }
+
+#list-item a{
+    color: #000000;
+}
+
 #list-item> span{
     display: block;
     width: 100%;
@@ -50,7 +56,14 @@
     letter-spacing: 1px;
     color: white;
     border-radius: 8px;
+}
+
+#offers {
     background:#88ABDA;
+}
+
+#offers a{
+    color: #ffffff;
 }
 
 #swap>.main_body{
@@ -83,7 +96,6 @@
 .input_textarea{
     height:30px;
     line-height: 30px;
-    margin-right: 18px;
     float: left;
 }
 

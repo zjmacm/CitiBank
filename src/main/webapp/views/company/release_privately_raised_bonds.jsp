@@ -26,7 +26,9 @@
                     <p >
                     <p>公司名称：<%=userInfo.get("companyName")%></p>
                     <p>公司注册时间：<%=userInfo.get("formedTime")%></p>
+<%--
                     <p>产品类型：<%=userInfo.get("productType")%></p>
+--%>
 
                 </div>
                 <div class="first">
@@ -41,10 +43,27 @@
                         <input type="text" name="investMoney"> <%--—
                         <input type="text" name="publishMoneyMax">--%> 万
                     </p>
+                    <br/>
+                    <p>
+
+                        产品类型：
+                       <%-- <input type="text" name="productType">--%> <%--—
+                        <input type="text" name="publishMoneyMax">--%>
+                        <select name="productType">
+                            <option value="股权">股权</option>
+                            <option value="债权">债权</option>
+
+                        </select>
+                    </p>
+                    <br/>
                     <p>
                         <label>发行年限：</label>
                         <input type="text" id="year" name="investTime"> 年
                     </p>
+                    <br/>
+                    <label>投资地区：</label>
+                    <input class="input" type="text" name="investArea" />
+                    <br/>
                     <p>
                         <label <%--for="text"--%>>还本付息方式:</label>
                             <textarea id="textarea" cols=50 rows=6 name="backWay">
@@ -67,7 +86,7 @@
                     </p>
                     <p>
                         可提供风控:
-                        <select>
+                        <select name="riskControlDemand">
                             <option value=0>抵押</option>
                             <option value=1>看书</option>
                             <option value=2>运动</option>
