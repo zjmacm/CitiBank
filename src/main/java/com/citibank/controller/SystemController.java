@@ -98,19 +98,12 @@ public class SystemController {
         String flag = (String) session.getAttribute("userType");
         if ("投资者".equals(flag)) {
             return "redirect:/investor/isource";
-<<<<<<< HEAD
         }
         else if("企业".equals(flag))
         {
             return "redirect:/company/isource";
         }
-        else
-        {
-=======
-        } else if ("企业".equals(flag)) {
-            return "redirect:/company/data_management-edit";
-        } else {
->>>>>>> 30956f7efe1bbdaf90a39768bd73152b723a35c9
+        else {
             System.out.println("error");
         }
         return null;

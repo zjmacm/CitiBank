@@ -63,8 +63,8 @@
                                             <input type="text" name="investArea" class="reg-input" value="<%= userInfo.get("investArea") %>">
                                         </li>
                                         <li>
-                                            <span class="labelLeft" id="invest-filed"  data-index="<%= userInfo.get("investField") %>">投资领域：</span>
-                                            <select class="reg-input" name="investField">
+                                            <span class="labelLeft" id="invest-filed"  filed_index="<%= userInfo.get("investField") %>">投资领域：</span>
+                                            <select class="reg-input" name="investField" filed_index="<%= userInfo.get("investStage") %>">
                                                 <option value="0">金融投资</option>
                                                 <option value="1">房地产</option>
                                                 <option value="2">能源</option>
