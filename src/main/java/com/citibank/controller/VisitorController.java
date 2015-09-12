@@ -182,6 +182,7 @@ public class VisitorController {
                           @RequestParam("auth") String auth,
                           HttpSession session, HttpServletResponse response, Map<String, Object> map) {
         String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println(username + password);
         if (!code.equals(auth)) {
             map.put("auth", "failed");
             return "visitor/login";

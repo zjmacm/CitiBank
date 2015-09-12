@@ -10,7 +10,7 @@
     <title>撮合配对</title>
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
     <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/company-corporate-mode-finance-patch.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/company-corporate-mode-finance-patch.css">
     <script type="text/javascript" src="../public/javascripts/jq.js"></script>
 </head>
 

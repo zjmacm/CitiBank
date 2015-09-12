@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@page import="java.util.*" %>
+<%@ page import="java.util.*" %>
 <head>
     <meta name="renderer" content="webkit" />
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
@@ -15,7 +15,7 @@
 </head>
 <%List<Map<String, Object>> system_message = (List<Map<String, Object>>) request.getAttribute("system_message");%>
 <body>
-<jsp:include page="invest-header.jsp"></jsp:include>
+<jsp:include page="business-header.jsp"></jsp:include>
 <div id="mainContainer">
     <div id="main">
         <div id="sidebarContainer">
@@ -44,11 +44,6 @@
                         <th>&nbsp;日期&nbsp;&nbsp;&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容&nbsp;&nbsp;&nbsp;</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多操作</th>
                     </tr>
 
-                    <!--*****************全是一样的**************************************************************************************-->
-                    <tr onMouseOver="this.style.backgroundColor='#ffff66';"
-                        onMouseOut="this.style.backgroundColor='#d4e3e5';">
-                        <td>&nbsp;&nbsp;&nbsp;2015-07-08&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;深圳成乐达电力建设公司关注了您&nbsp;&nbsp;&nbsp;</td><td><a class="com_detail" href="link address">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除&nbsp;&nbsp;&nbsp;企业详情</a></td>
-                    </tr>
                     <% for (int i = 0; i < system_message.size(); i++) { %>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">
@@ -58,7 +53,6 @@
                         </td>
                     </tr>
                     <% }%>
-
                 </table>
                 <hr class="hr1"/>
             </div>

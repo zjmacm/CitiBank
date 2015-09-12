@@ -113,6 +113,13 @@ public class AssetController {
             return "investor/logined_investorpatten_stockright_manage";
         }
     }
+    //资产管理点击进入详情
+    @RequestMapping(value = "/getDetailPage")
+    public String getDetailPage()
+    {
+        return "";
+    }
+
 
 
 }

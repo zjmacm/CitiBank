@@ -153,7 +153,7 @@ public class CompanyController {
     }
 
     //资料管理
-    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
     public String getIsourcePage(HttpSession session, Map<String, Object> map) {
         String companyId = (String) session.getAttribute("userId");
         System.out.println("companyId is:" + companyId);
@@ -197,6 +197,8 @@ public class CompanyController {
 //    }
 
     //信息发布-我要发布
+
+
     @RequestMapping(value = "/message-publish.htm", method = RequestMethod.GET)
     public String getMessagePublishPage(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
@@ -330,7 +332,7 @@ public class CompanyController {
     @ResponseBody
     Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session,HttpServletRequest request) {
         String userId = (String) session.getAttribute("userId");
-        System.out.println("save-userid:" + userId+"____parms:"+ parms.get("guarantor") + "____req:"+request.getAttribute("guarantor"));
+        System.out.println("save-userid:" + userId + "____parms:" + parms.get("guarantor") + "____req:" + request.getAttribute("guarantor"));
         int result = companyService.saveCompanyInfo(parms, userId);
         Map<String, String> status = new HashMap<String, String>();
         if (result == 0) {
@@ -364,6 +366,53 @@ public class CompanyController {
         }
         companyService.saveCompanyInfo(reqs, id);
         return "/visitor/finsh-reg";
+    }
+    //我的消息
+    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
+    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                               Map<String, Object> map) {
+        //返回系统消息,首先得获取公司id.
+        Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
+        List<Map<String, Object>> results = page.getList();
+        map.put("system_message", results);
+        return "company/private_center_my_news_directional";
+    }
+    //公司的定向披露
+    @RequestMapping(value = "/release")
+    public String Relase()
+    {
+        return "company/inews-message-direction-down";
+    }
+
+    //私信
+
+    @RequestMapping(value = "/privateNews")
+    public String privateNews()
+    {
+        return "company/private-news";
+    }
+
+    @RequestMapping(value="/directionDown")
+    public String getDirectionDown() {
+        return "company/inews-message-direction-down";
+    }
+
+    @RequestMapping(value = "/productDebt")
+    public String getProductDebt()
+    {
+        return "company/product-debt";
+    }
+
+    @RequestMapping(value = "isource")
+    public String getIsource(HttpServletRequest req, Map<String, Object> map) {
+        HttpSession session = req.getSession();
+        String companyId = (String) session.getAttribute("userId");
+        System.out.println("companyId is:" + companyId);
+        Map<String, Object> userInfo = companyService.getCompanyInfo(companyId);
+        userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
+        map.put("userInfo", userInfo);
+        return "company/personal-center-information-management";
     }
 
 }

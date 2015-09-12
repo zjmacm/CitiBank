@@ -32,7 +32,7 @@
     <div class="content">
         <div class="box1">
             <p>
-                公司名称：<%= userInfo.get("companyName")%><br/>
+                公司名称：<br/>
                 公司类型：<%= userInfo.get("companyType")%><br/>
                 所属行业：<%= userInfo.get("workingFiled")%><br/>
                 咨询电话：<input id="tel" name="consultPhone" value="<%= userInfo.get("consultPhone")%>"><br/>

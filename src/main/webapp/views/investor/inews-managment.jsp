@@ -48,7 +48,7 @@
                                         </li>
                                         <li>
                                             <span class="labelLeft">职位：</span>
-                                            <input type="text" name="c_position" class="reg-input" value="<%= userInfo.get("c_position") %>" >
+                                            <input type="text" name="position" class="reg-input" value="<%= userInfo.get("position") %>" >
                                         </li>
                                         <li>
                                             <span class="labelLeft">资金额：</span>
@@ -144,10 +144,10 @@
                         <td>投资行业：</td>
                         <td>
                             <select class="reg-input" data-index="<%= userInfo.get("investIndustry")%>" name="investIndustry" id="invest-industry" >
-                                <option value="0">金融投资</option>
-                                <option value="1">房地产</option>
-                                <option value="2">能源</option>
-                                <option value="3">化学</option>
+                                <option value="1">金融投资</option>
+                                <option value="2">房地产</option>
+                                <option value="3">能源</option>
+                                <option value="4">化学</option>
                             </select>
                         </td>
                     </tr>
