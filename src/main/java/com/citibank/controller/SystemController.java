@@ -54,8 +54,8 @@ public class SystemController {
 
         String fileName = multipartFile.getOriginalFilename();
         String extName = fileName.substring(fileName.lastIndexOf("."));
-        String newName = IdUtil.uuid()+extName;
-        File file = new File("D:\\files\\"+newName);
+        String newName = IdUtil.uuid() + extName;
+        File file = new File("D:\\files\\" + newName);
         try {
             multipartFile.transferTo(file);
         } catch (Exception e) {
@@ -98,19 +98,9 @@ public class SystemController {
         String flag = (String) session.getAttribute("userType");
         if ("投资者".equals(flag)) {
             return "redirect:/investor/isource";
-<<<<<<< HEAD
-        }
-        else if("企业".equals(flag))
-        {
-            return "redirect:/company/isource";
-        }
-        else
-        {
-=======
         } else if ("企业".equals(flag)) {
-            return "redirect:/company/data_management-edit";
+            return "redirect:/company/isource";
         } else {
->>>>>>> 30956f7efe1bbdaf90a39768bd73152b723a35c9
             System.out.println("error");
         }
         return null;
@@ -120,7 +110,6 @@ public class SystemController {
     public String getNet() {
         return "/investor/network-service-protocol";
     }
-
 
 
 }
