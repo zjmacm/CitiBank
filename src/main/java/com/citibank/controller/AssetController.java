@@ -52,7 +52,7 @@ public class AssetController {
                          HttpServletRequest request){
         String content = request.getParameter("content");
         List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-        list = assetService.getSearchContent(type,content);
+        list = assetService.getSearchContent(type,content).getList();
         request.setAttribute("data",list);
         if(type == 0){
             return "/company/logined-company-proprety";
@@ -106,11 +106,13 @@ public class AssetController {
                                    @RequestParam(value = "duration", required = false, defaultValue = "1_month") String duration,
                                    @PathVariable(value = "type") Integer type,
                                    HttpSession session, Map<String, Object> map) {
+        System.out.println(pageIndex+".."+queryContent+".."+duration+".."+type+"..");
         String userId= (String) session.getAttribute("userId");
         Page<Map<String, Object>> stockPage = assetService.getInvestorStock(userId, pageIndex, queryContent, duration, type);
         map.put("totalPage", stockPage.getpageCount());
         map.put("pageIndex",pageIndex);
         map.put("data", stockPage.getList());
+
         if(type==0) {
 
             return "investor/logined_investorpatten_survey_of_investment";
@@ -120,6 +122,30 @@ public class AssetController {
             return "investor/logined_investorpatten_stockright_manage";
         }
     }
-
-
+    @RequestMapping(value="/getChooseInventorList/{type}")
+    public String Search1(@PathVariable (value="type") Integer type,
+            HttpSession session, HttpServletRequest request){
+        String userId = session.getAttribute("userId").toString();
+        int value = Integer.valueOf(request.getParameter("radio-group").toString());
+            List<Map<String,Object>> list = assetService.getInventorCondition(type,value,userId).getList();
+            request.setAttribute("data",list);
+        if(type==0){
+            return "investor/logined_investorpatten_survey_of_investment";
+        }
+        else if(type==1){
+            return "investor/logined_investorpatten_stock_equity_management";
+        }
+        else{
+            return "investor/logined_investorpatten_stockright_manage";
+        }
+    }
+    @RequestMapping(value="/inventor/search/{type}")
+    public String getInventorSearchContent(@PathVariable(value="type") int type,
+            HttpServletRequest request,HttpSession session) {
+        String userId = session.getAttribute("userId").toString();
+        String content = request.getParameter("content").toString();
+        List<Map<String,Object>> list = assetService.getInventorSearchContent(type,content,userId).getList();
+        request.setAttribute("data",list);
+        return "investor/logined_investorpatten_survey_of_investment";
+    }
 }

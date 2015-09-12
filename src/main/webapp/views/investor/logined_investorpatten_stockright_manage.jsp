@@ -28,11 +28,13 @@
             <span id="tab3">
                 <a href="/asset/investor/2">债权管理</a>
             </span>
-            <span id="search">
-                <label for="search-content">搜索:</label>
-                <input type="text" id="search-content">
-                <input type="button" id="search-button" value="确定">
-            </span>
+            <form action="/asset/inventor/search/2" method="get">
+                <span id="search">
+                    <label for="search-content">搜索:</label>
+                    <input type="text" id="search-content" name="content">
+                    <input type="submit" id="search-button" value="确定">
+                </span>
+            </form>
         </div>
         <div id="selected3">
             债券管理
@@ -41,18 +43,19 @@
     <div id="filter">
         <div>筛选条件</div>
         <div>
-            <form>
+            <form action="/asset/getChooseInventorList/2" method="get">
                 <span>发布时间：</span>
-                <input id='one-month' type="radio" name="radio-group" checked="checked"/>
+                <input id='one-month' value="1" type="radio" name="radio-group"/>
                 <label for="one-month">近一个月</label>
-                <input id='three-month' type="radio" name="radio-group"/>
+                <input id='three-month' value="2" type="radio" name="radio-group"/>
                 <label for="three-month">近三个月</label>
-                <input id='six-month' type="radio" name="radio-group"/>
+                <input id='six-month' value="3" type="radio" name="radio-group"/>
                 <label for="six-month">近六个月</label>
-                <input id='one-year' type="radio" name="radio-group"/>
+                <input id='one-year' value="4" type="radio" name="radio-group"/>
                 <label for="one-year">近一年</label>
-                <input id='two-year' type="radio" name="radio-group"/>
+                <input id='two-year' value="5" type="radio" name="radio-group"/>
                 <label for="two-year">近两年</label>
+                <input type="submit" value="筛选" id="choose-btn">
             </form>
         </div>
     </div>
