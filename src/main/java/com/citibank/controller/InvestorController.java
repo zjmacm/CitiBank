@@ -196,8 +196,6 @@ public class InvestorController {
         String id = (String) session.getAttribute("investorId");
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
-
-
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
 

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,19 +17,20 @@ import java.util.Map;
 //撮合配对的页面
 @Controller
 @RequestMapping(value = "/financing")
-public class    FinancingController {
+public class FinancingController {
 
     @Autowired
     private FinancingService financingService;
 
     //撮合配对的页面,也是投资板块的首页
-    @RequestMapping(value = "/Matching.htm", method = RequestMethod.GET)
-    public String getMatchingPage(Map<String, Object> map,
-                                  HttpSession session) {
-     /*   Map<String,Object> map1=new HashMap<String, Object>();
-        String userId=(String)session.getAttribute("userId");
-        map1=*/
-        map.put("data", financingService.getDefaultCompany().getList());
+    @RequestMapping(value = "/Matching.htm")
+    public String getMatchingPage(@RequestParam("investArea") String[] areas, @RequestParam("investIndustry") String[] industrys,
+                                  Map<String, Object> map, HttpSession session) {
+        String area = areas[0];
+        String industry = industrys[0];
+        String userId = (String) session.getAttribute("userId");
+        Integer userType= (Integer) session.getAttribute("userType");
+        map.put("data", financingService.getMatching(userId, 0, 1,area, industry, -1, -1, -1, -1, -1).getList());
         System.out.println(map);
         return "investor/company-corporate-mode-finance-patch";
     }
@@ -41,7 +43,6 @@ public class    FinancingController {
                                          HttpSession session, Map<String, Object> map) {
         map.put("data", financingService.getMatchingCompany(reqs, pageIndex).getList());
         System.out.println(map);
-        //return "/company/company-corporate-mode-finance-patch";
         return "investor/company-corporate-mode-finance-patch";
     }
 
@@ -83,10 +84,11 @@ public class    FinancingController {
         System.out.println(page.getList());
         return "/company/itemcuohepeidui";
     }
+
     //公司撮合配对根据搜索条件
-    @RequestMapping(value = "/byKey",method = RequestMethod.POST)
-    public String companyByKey(@RequestParam Map<String,Object> reqs,
-                               Map<String,Object> map)
+    @RequestMapping(value = "/byKey", method = RequestMethod.POST)
+    public String companyByKey(@RequestParam Map<String, Object> reqs,
+                               Map<String, Object> map)
 
     {
         System.out.print(reqs);
@@ -94,15 +96,14 @@ public class    FinancingController {
         {
             reqs.remove("productType");
             map.put("data", financingService.getProductByName(reqs).getList());
-        }
-        else
-        {
-            map.put("data",financingService.getProductByNameAndType(reqs).getList());
+        } else {
+            map.put("data", financingService.getProductByNameAndType(reqs).getList());
         }
         return "investor/company-corporate-mode-finance-patch";
 
 
     }
+
     //撮合配对的点击详细界面
     @RequestMapping(value = "/getDetail/{id}")
     public String getDetail(@PathVariable String id, Map<String, Object> map) {
