@@ -59,6 +59,7 @@
         </div>
         <% List<Map<String,Object>> asset1 = (List<Map<String,Object>>)request.getAttribute("data"); %>
         <% for (int i = 0; i < asset1.size(); i++) {%>
+        <a href="/company/productDebt" title="">
         <div class="product">
             <span>产品名称：<%=asset1.get(i).get("name")%></span>
             <div class="prod1">
@@ -76,44 +77,10 @@
                 </ul>
             </div>
         </div>
+        </a>
         <%}%>
 
-        <%--<div class="product">
-            <span>产品名称1</span>
 
-            <div class="prod1">
-                <ul>
-                    <li>发布时长：1个月30天</li>
-                    <li>目前股权状况：153万</li>
-                    <li>融资方式：股权融资</li>
-                </ul>
-            </div>
-            <div class="prod2">
-                <ul>
-                    <li>期限：6个月</li>
-                    <li>融资占比：李婉莹购买了12万，张三丰购买了40万</li>
-                    <li>意向投资方：互相关注的</li>
-                </ul>
-            </div>
-        </div>
-        <div class="product">
-            <span>产品名称2</span>
-
-            <div class="prod1">
-                <ul>
-                    <li>发布时长：24天</li>
-                    <li>目前股权状况：100万</li>
-                    <li>融资方式：股权融资</li>
-                </ul>
-            </div>
-            <div class="prod2">
-                <ul>
-                    <li>期限：8个月</li>
-                    <li>融资占比：张孝祥购买了50万，屈煜购买了20万</li>
-                    <li>意向投资方：互相关注的</li>
-                </ul>
-            </div>
-        </div>--%>
         <div id="nav-footer">
 
         </div>

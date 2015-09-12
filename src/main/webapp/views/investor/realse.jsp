@@ -1,5 +1,4 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
-<%@ page import="java.util.Map"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,74 +10,35 @@
     <link href="../public/stylesheets/product_details.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<%@include file="business-header.jsp"%>
-        <div id="iciti">
-            <ul id="i-column">
-                <li id="user-photo">
-                        <span>
-		            		<a href="_target" title="">
-                                <img src="../public/images/user.png" alt="" />
-                            </a>
-		                </span>
-                </li>
-                <li id="go">
-                    <span id="text">我的账号<img src="../public/images/back-bottom.png"></span>
-                    <ul>
-                        <li>
-                            <a href="/ifollow" title="">
-                                <span>我关注的</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/inews" title="">
-                                <span>我的消息</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/isource" title="">
-                                <span>资料管理</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/logout" title="">
-                                <span>退出</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+<jsp:include page="invest-header.jsp"></jsp:include>
 <div id="container">
     <div id="head">
         <div id="button">
-            <p><a href="/asset/company/0">返回上一层
+            <p><a href="">返回上一层
                 <img src="../public/images/back.png" style="vertical-align: middle"></a></p>
         </div>
         <div id="title">
             <p>当前投资公司：深圳诚勒达电力建设工程公司</p>
         </div>
     </div>
-    <%Map<String,Object> map = (Map<String,Object>)request.getAttribute("data");%>
     <div id="main">
         <div id="left">
             <div id="column1">
                 <div class="subtitle"><p>发展数据</p></div>
                 <div class="text" style="width: 40%;display: inline-block">
                     <p>
-                        利润额：<%=map.get("")%><br/>
-                        销售毛利率：<%=map.get("")%><br/>
-                        资产负债率：<%=map.get("")%><br/>
-                        流动比率：<%=map.get("")%><br/>
+                        利润额：1000万元<br/>
+                        销售毛利率：80%<br/>
+                        资产负债率：20%<br/>
+                        流动比率：50%<br/>
                     </p>
                 </div>
                 <div class="text" style="width: 40%;display: inline-block">
                     <p>
-                        应收账款周转天数：<%=map.get("")%><br/>
-                        应收账款周转率：<%=map.get("")%><br/>
-                        净值报酬率：<%=map.get("")%><br/>
-                        总资产周转率：<%=map.get("")%><br/>
+                        应收账款周转天数：28天<br/>
+                        应收账款周转率：30%<br/>
+                        净值报酬率：50%<br/>
+                        总资产周转率：16%<br/>
                     </p>
                 </div>
             </div>

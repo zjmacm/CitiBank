@@ -90,7 +90,6 @@ public class AssetServiceImpl implements AssetService {
         map.put("type", type);
         if (value == -1) {
             String sql = "select *from asset where type = :type";
-
             return mySQLSimpleDao.queryForList(sql, map);
 
         } else {
@@ -105,8 +104,8 @@ public class AssetServiceImpl implements AssetService {
                 map.put("value", 12);
             } else if (value == 5) {
                 map.put("value", 24);
-            }
 
+            }
             String sql = "select *from asset where type=:type and publishedTime<=:value";
             return mySQLSimpleDao.queryForList(sql, map);
         }

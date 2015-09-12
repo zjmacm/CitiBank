@@ -121,25 +121,30 @@ CREATE TABLE `company` (
   `developmentStrategy` varchar(100) DEFAULT NULL COMMENT '发展战略',
   `financingDemand` varchar(10) DEFAULT NULL COMMENT '融资需求',
   `companyInTroduct` varchar(255) DEFAULT NULL COMMENT '公司简介',
+   `branch` varchar(100) DEFAULT NULL COMMENT '分厂',
+  `staffNumber` int(11) DEFAULT NULL COMMENT '员工人数',
+  `childCompany` varchar(100) DEFAULT NULL COMMENT '子公司',
+  `relatedMechanism` varchar(100) DEFAULT NULL COMMENT '相关机构',
+  `ServiceAgency` varchar(100) DEFAULT NULL COMMENT '驻外办事机构',
   PRIMARY KEY (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of company
 -- ----------------------------
-INSERT INTO `company` VALUES ('a', '569603080@qq.com', 'a', 'aaaa', '中雅机电视野有限公司', '0', '100', '001', '程志文', '2013-01-02', 'http://www.fesco.com.cn', '北京', '大连', '7256001', '农业', '农业', '0', '精诚团结', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('b', '694940443@qq.com', 'b', 'bbbb', '亚洲风影视传媒有限公司', '0', '200', '002', '陈慧冰', '2013-01-03', 'http://www.coach.com/default', '天津', '沈阳', '7256002', '工业', '工业', '1', '万众一心', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('c', '260024036@qq.com', 'c', 'cccc', '星尘财富投资有限公司', '0', '300', '003', '朱浩天', '2013-01-04', 'http://china.coach.com/', '葫芦岛', '承德', '7256003', '保险业', '保险', '1', '具有荣誉感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('d', '707611428@qq.com', 'd', 'dddd', '华荣包装材料有限公司', '1', '400', '004', '曹正国', '2013-01-05', 'http://mall.jd.com/index-1000002971.html', '唐山', '鞍山', '7256004', '采矿业', '采矿', '2', '具有责任感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('e', '540561063@qq.com', 'e', 'eeee', '移商网信息技术有限公司', '1', '500', '005', '常文君', '2013-01-06', 'http://www.prada.com/', '沧州', '沧州', '7256005', '能源业', '能源', '3', '具有使命感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('f', '793516568@qq.com', 'f', 'ffff', '爱茉莉时装有限公司', '1', '600', '006', '岑雨桐', '2013-01-07', 'http://www.prada.com/hans', '廊坊', '盘锦', '7256006', '广告业', '广告', '4', '具有积极性', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('g', '280105138@qq.com', 'g', 'gggg', '万胜宇家具有限公司', '2', '700', '007', '常志强', '2013-01-08', 'http://store.prada.com/hans/CN', '衡水', '朝阳', '7256007', '教育业', '教育', '4', '具有主动性', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('h', '853339297@qq.com', 'h', 'hhhh', '左右家私有限公司', '2', '800', '008', '成金荣', '2013-01-09', 'http://www.louisvuitton.com/', '青岛', '锦州', '7256008', '金融业', '金融', '5', '具有创造行', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('i', '791088021@qq.com', 'i', 'iiii', '四德电子科技有限公司', '3', '900', '009', '穆红蕾', '2013-01-10', 'http://www.louisvuitton.cn/', '临汾', '长春', '7256009', '医疗业', '医疗', '6', '默契配合', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('j', '461913547@qq.com', 'j', 'jjjj', '绿洲食品有限公司', '3', '1000', '010', '崔福军', '2013-01-11', 'http://www.louisvuitton.fr/', '贵阳', '黑龙江', '7256010', '造纸业', '造纸', '7', '不计名利', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('k', '739195069@qq.com', 'k', 'kkkk', '仁和路达有限公司', '3', '1100', '011', '车东岳', '2013-01-12', 'http://www.coach.com/', '大连', '上海', '7256011', '出版业', '出版', '7', '同心协力', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('l', '595061094@qq.com', 'l', 'llll', '同盛纸业有限公司公司', '4', '1200', '012', '迟浩明', '2013-01-13', 'http://china.coach.com/', '石家庄', '广州', '7256012', '演艺业', '演艺', '7', '充满活力', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-INSERT INTO `company` VALUES ('m', '835928755@qq.com', 'm', 'mmmm', '威虎照明科技公司', '4', '1300', '013', '苍亦茹', '2013-01-14', 'http://www.coach.com/default', '张家口', '隆化', '7256013', '美容业', '美容', '8', '积极向上', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('a', '569603080@qq.com', 'a', 'aaaa', '中雅机电视野有限公司', '0', '100', '001', '程志文', '2013-01-02', 'http://www.fesco.com.cn', '北京', '大连', '7256001', '农业', '农业', '0', '精诚团结', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('b', '694940443@qq.com', 'b', 'bbbb', '亚洲风影视传媒有限公司', '0', '200', '002', '陈慧冰', '2013-01-03', 'http://www.coach.com/default', '天津', '沈阳', '7256002', '工业', '工业', '1', '万众一心', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('c', '260024036@qq.com', 'c', 'cccc', '星尘财富投资有限公司', '0', '300', '003', '朱浩天', '2013-01-04', 'http://china.coach.com/', '葫芦岛', '承德', '7256003', '保险业', '保险', '1', '具有荣誉感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('d', '707611428@qq.com', 'd', 'dddd', '华荣包装材料有限公司', '1', '400', '004', '曹正国', '2013-01-05', 'http://mall.jd.com/index-1000002971.html', '唐山', '鞍山', '7256004', '采矿业', '采矿', '2', '具有责任感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('e', '540561063@qq.com', 'e', 'eeee', '移商网信息技术有限公司', '1', '500', '005', '常文君', '2013-01-06', 'http://www.prada.com/', '沧州', '沧州', '7256005', '能源业', '能源', '3', '具有使命感', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('f', '793516568@qq.com', 'f', 'ffff', '爱茉莉时装有限公司', '1', '600', '006', '岑雨桐', '2013-01-07', 'http://www.prada.com/hans', '廊坊', '盘锦', '7256006', '广告业', '广告', '4', '具有积极性', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('g', '280105138@qq.com', 'g', 'gggg', '万胜宇家具有限公司', '2', '700', '007', '常志强', '2013-01-08', 'http://store.prada.com/hans/CN', '衡水', '朝阳', '7256007', '教育业', '教育', '4', '具有主动性', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('h', '853339297@qq.com', 'h', 'hhhh', '左右家私有限公司', '2', '800', '008', '成金荣', '2013-01-09', 'http://www.louisvuitton.com/', '青岛', '锦州', '7256008', '金融业', '金融', '5', '具有创造行', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('i', '791088021@qq.com', 'i', 'iiii', '四德电子科技有限公司', '3', '900', '009', '穆红蕾', '2013-01-10', 'http://www.louisvuitton.cn/', '临汾', '长春', '7256009', '医疗业', '医疗', '6', '默契配合', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('j', '461913547@qq.com', 'j', 'jjjj', '绿洲食品有限公司', '3', '1000', '010', '崔福军', '2013-01-11', 'http://www.louisvuitton.fr/', '贵阳', '黑龙江', '7256010', '造纸业', '造纸', '7', '不计名利', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('k', '739195069@qq.com', 'k', 'kkkk', '仁和路达有限公司', '3', '1100', '011', '车东岳', '2013-01-12', 'http://www.coach.com/', '大连', '上海', '7256011', '出版业', '出版', '7', '同心协力', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('l', '595061094@qq.com', 'l', 'llll', '同盛纸业有限公司公司', '4', '1200', '012', '迟浩明', '2013-01-13', 'http://china.coach.com/', '石家庄', '广州', '7256012', '演艺业', '演艺', '7', '充满活力', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+INSERT INTO `company` VALUES ('m', '835928755@qq.com', 'm', 'mmmm', '威虎照明科技公司', '4', '1300', '013', '苍亦茹', '2013-01-14', 'http://www.coach.com/default', '张家口', '隆化', '7256013', '美容业', '美容', '8', '积极向上', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for contract
@@ -321,13 +326,14 @@ CREATE TABLE `investor` (
   `managedFund` varchar(50) DEFAULT NULL COMMENT '管理基金',
   `logoPath` varchar(255) DEFAULT NULL COMMENT 'logo路径',
   `baseAddress` varchar(50) DEFAULT NULL COMMENT '总部地址',
+  `c_position` varchar(20) DEFAULT NULL COMMENT '职位',
   PRIMARY KEY (`investorId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of investor
 -- ----------------------------
-INSERT INTO `investor` VALUES ('292ABC3521394FDEB6F553E5BD0D3C49', 'liwangadd@gmail.com', 'liwang', '李旺', null, '大连理工大学', '1234567890', null, '10000', '张三', '李四', null, null, '010123456789', null, '大连', '电子', '初期', '2', null, null, null, null, null, null, null, null, null, '38A9A6C44DBB409298922DB1169666D9.jpg', '北京');
+INSERT INTO `investor` VALUES ('292ABC3521394FDEB6F553E5BD0D3C49', 'liwangadd@gmail.com', 'liwang', '李旺', null, '大连理工大学', '1234567890', null, '10000', '张三', '李四', null, null, '010123456789', null, '大连', '电子', '初期', '2', null, null, null, null, null, null, null, null, null, '38A9A6C44DBB409298922DB1169666D9.jpg', '北京', NULL );
 
 -- ----------------------------
 -- Table structure for message
@@ -389,15 +395,15 @@ CREATE TABLE `stockcreditor` (
   `createTime` date  COMMENT '股债权创建时间',
   `investMoney` int(11)  COMMENT '投资金额',
   `investTime` int(11)  COMMENT '投资年限',
-  `productType` int(1)  COMMENT '产品类型，1为股权，2为债权',
+  `productType` VARCHAR(50)  COMMENT '产品类型，1为股权，2为债权',
   `stockRate` varchar(50) DEFAULT NULL COMMENT '参股比例',
   `investStage` varchar(50) DEFAULT NULL COMMENT '投资阶段,0为种子阶段，1为初创阶段，2为拓展前阶段，3为拓展后阶段，4为Pre-IPO',
   `leastReturnDemand` varchar(50) DEFAULT NULL COMMENT '最低要求回报',
-  `riskControlDemand` int(1) DEFAULT NULL COMMENT '风险控制要求，0为抵押，1为担保，2为协议，3为质押，4为留置',
+  `riskControlDemand` VARCHAR(50) DEFAULT NULL COMMENT '风险控制要求，0为抵押，1为担保，2为协议，3为质押，4为留置',
   `demandFile` varchar(50) DEFAULT NULL COMMENT '要求文件',
   `demandSummarize` varchar(50) DEFAULT NULL COMMENT '投资要求概述',
   `creditRank` int(1) DEFAULT NULL COMMENT '信用等级，0为AAA，1为AA，2为A，3为BBB，4为BB，5为B，6为CCC，7为CC，8为C',
-  `fundBody` int(10)  COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
+  `fundBody` VARCHAR(50)  COMMENT '资金主体，0为个人资金，1为企业资金，2为天使投资，3为VC投资，4为PE投资，5为小额贷款，\r\n  6为典当公司，7为担保公司，8为金融租赁，9为投资公司，10为商业银行，11为基金公司，12为证券公司，13为信托公司，14为资产管理，15为其它资金',
   `flag` int(1)  COMMENT '标记，0为企业模式，1为投资者模式',
   `userId` varchar(32) NOT NULL COMMENT '关联用户外键',
   `exitWay` VARCHAR(200) COMMENT '投资退出方式 ',
@@ -413,7 +419,7 @@ CREATE TABLE `stockcreditor` (
 -- ----------------------------
 -- Records of stockcreditor
 -- ----------------------------
-INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
+/*INSERT INTO `stockcreditor` VALUES ('n', '产品1', '上海', '农业', '2015-01-02', '100', '1', '0', null, null, null, null, null, null, null, '0', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('o', '产品2', '大连', '工业', '2015-01-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('p', '产品3', '沈阳', '医药业', '2015-01-04', '300', '3', '0', null, null, null, null, null, null, null, '2', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('q', '产品4', '承德', '采矿业', '2015-01-05', '400', '4', '0', null, null, null, null, null, null, null, '3', '0', 'n');
@@ -426,7 +432,7 @@ INSERT INTO `stockcreditor` VALUES ('w', '产品10', '青岛', '造纸业', '201
 INSERT INTO `stockcreditor` VALUES ('x', '产品11', '唐山', '出版业', '2015-01-12', '1100', '11', '1', null, null, null, null, null, null, null, '10', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('y', '产品12', '衡水', '演艺业', '2015-01-13', '1200', '12', '1', null, null, null, null, null, null, null, '11', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('z', '产品13', '保定', '美容业', '2015-01-14', '1300', '13', '1', null, null, null, null, null, null, null, '12', '0', 'n');
-
+*/
 
 -- ----------------------------
 -- Table structure for `asset`

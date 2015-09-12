@@ -80,12 +80,12 @@ public class VisitorController {
 
             investorService.registerInvestor(reqs);
             String id = (String) reqs.get("investorId");
-            session.setAttribute("investorId", id);
+            session.setAttribute("userId", id);
             return "investor/complete-reg";
         } else {
             companyService.userRegister(reqs);
             String id = (String) reqs.get("companyId");
-            session.setAttribute("companyId", id);
+            session.setAttribute("userId", id);
             return "company/complete-company-reg";
         }
 
@@ -182,6 +182,7 @@ public class VisitorController {
                           @RequestParam("auth") String auth,
                           HttpSession session, HttpServletResponse response, Map<String, Object> map) {
         String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        System.out.println(username + password);
         if (!code.equals(auth)) {
             map.put("auth", "failed");
             return "visitor/login";

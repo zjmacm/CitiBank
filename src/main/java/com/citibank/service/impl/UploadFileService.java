@@ -21,7 +21,6 @@ public class UploadFileService {
     public String uploadFile(CommonsMultipartFile multipartFile, String path) throws IOException {
         String fileName = createUri(multipartFile, path);
         File file = new File(path+fileName);
-        file.createNewFile();
         try{
             multipartFile.transferTo(file);
         }catch(Exception e){

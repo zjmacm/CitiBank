@@ -116,6 +116,11 @@ CREATE TABLE `company` (
   `developmentStrategy` varchar(100) DEFAULT NULL COMMENT '发展战略',
   `financingDemand` varchar(10) DEFAULT NULL COMMENT '融资需求',
   `companyInTroduct` varchar(255) DEFAULT NULL COMMENT '公司简介',
+  `branch` varchar(100) DEFAULT NULL COMMENT '分厂',
+  `staffNumber` int(11) DEFAULT NULL COMMENT '员工人数',
+  `childCompany` varchar(100) DEFAULT NULL COMMENT '子公司',
+  `relatedMechanism` varchar(100) DEFAULT NULL COMMENT '相关机构',
+  `ServiceAgency` varchar(100) DEFAULT NULL COMMENT '驻外办事机构',
   PRIMARY KEY (`companyId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

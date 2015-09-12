@@ -11,9 +11,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="renderer" content="webkit" />
   <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1" />
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css" />
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css" />
-  <link rel="stylesheet" type="text/css" href="../public/stylesheets/release_debt_purchase.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css" />
+  <link rel="stylesheet" type="text/css" href="/public/stylesheets/release_debt_purchase.css" />
   <title>债权购买</title>
 </head>
 
@@ -29,48 +29,47 @@
     </div>
     <div class="main_body">
       <div id="main_first">
-        <div class="body_title">
-          基本信息
-        </div>
+        <div class="body_title">基本信息</div>
         <hr>
         <div class="first">
           <% Map data=(Map)request.getAttribute("data");%>
           <p >
             姓名：<%=data.get("investorName")%><br/>
             所在地区：<%=data.get("investArea")%><br/>
-            产品类型：<%=data.get("investType")%><br/>
           </p>
         </div>
         <div class="first">
           <p >
             投资地区：<%=data.get("investArea")%><br/>
-            资金主体：<%=data.get("fundBody")%><br/>
+            <%--资金主体：<%=data.get("fundBody")%><br/>--%>
             投资行业：<%=data.get("investField")%><br/>
           </p>
         </div>
-        <div class="input_text">
-          <form class="input_form" action="/intention/intentionPublish<%--/1--%>" method="post" name="form" >
-            <label>投资金额：</label>
-            <input class="input" type="text" name="investMoney" />
-          <%--  <label>-</label>
-            <input class="input" type="text" name="investmentMax" />--%>
-            <label>万</label>
-            <br/>
-            <label>投资年限：</label>
-            <input class="input" type="text" name="investTime" />
-            <label> 年 </label>
-            <div class="main_first">
-              <div class="body_title">
-                更多信息
-              </div>
+        <form class="input_form" action="/intention/intentionPublish<%--/1--%>" method="post" name="form" >
+          <div class="input_text">
+              <label>投资金额：</label>
+              <input class="input" type="text" name="investMoney" />&nbsp;万
+              <br/>
+              <label>产品类型：</label>
+              <select name="productType">
+                <option value="股权">股权</option>
+                <option value="债权">债权</option>
+              </select>
+              <br/>
+              <label>资金主体：</label>
+              <input class="input" type="text" name="fundBody" />
+              <br/>
+              <label>投资年限：</label>
+              <input class="input" type="text" name="investTime" />&nbsp;年
+              <br/>
+            </div>
+          <div>
+              <div class="body_title">更多信息</div>
               <hr>
               <div class="input_text">
                 <div class="input_form">
                   <label>最低回报要求:（年利率）</label>
-                  <input class="input" type="text" name="leastReturnDemand" />
-                  <%--<label>-</label>
-                  <input class="input" type="text" name="returnRateMax" />--%>
-                  <label>%</label>
+                  <input class="input" type="text" name="leastReturnDemand" />&nbsp;%
                 </div>
                 <div>
                   <label>风险控制要求:</label>
@@ -95,9 +94,8 @@
               <div id="button">
                 <input type="button" value="发布" id="btn"/>
               </div>
-            </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>

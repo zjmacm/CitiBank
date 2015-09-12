@@ -10,6 +10,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -152,10 +153,11 @@ public class CompanyController {
     }
 
     //资料管理
-    @RequestMapping(value = "/isource", method = RequestMethod.GET)
+    @RequestMapping(value = "/isource.htm", method = RequestMethod.GET)
     public String getIsourcePage(HttpSession session, Map<String, Object> map) {
-        String userId = (String) session.getAttribute("userId");
-        Map<String, Object> userInfo = companyService.getCompanyInfo(userId);
+        String companyId = (String) session.getAttribute("userId");
+        System.out.println("companyId is:" + companyId);
+        Map<String, Object> userInfo = companyService.getCompanyInfo(companyId);
         userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
         map.put("userInfo", userInfo);
         return "company/data_management-edit";
@@ -163,15 +165,13 @@ public class CompanyController {
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage(HttpServletRequest request)
+    public String getLogoutPage(HttpServletResponse response,HttpSession session)
     {
-        Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals("userId")){
-                cookie.setMaxAge(-1);
-                break;
-            }
-        }
+        session.removeAttribute("userId");
+        Cookie cookie=new Cookie("username","");
+        cookie.setPath("/customer");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "visitor/login";
     }
 
@@ -197,6 +197,8 @@ public class CompanyController {
 //    }
 
     //信息发布-我要发布
+
+
     @RequestMapping(value = "/message-publish.htm", method = RequestMethod.GET)
     public String getMessagePublishPage(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
@@ -328,8 +330,9 @@ public class CompanyController {
     @RequestMapping(value = "/saveUserInfo", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session) {
-        String userId = (String) session.getAttribute("companyId");
+    Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session,HttpServletRequest request) {
+        String userId = (String) session.getAttribute("userId");
+        System.out.println("save-userid:" + userId + "____parms:" + parms.get("guarantor") + "____req:" + request.getAttribute("guarantor"));
         int result = companyService.saveCompanyInfo(parms, userId);
         Map<String, String> status = new HashMap<String, String>();
         if (result == 0) {
@@ -352,7 +355,7 @@ public class CompanyController {
     @RequestMapping(value = "/nextstep", method = RequestMethod.POST)
     public String saveInfo(@RequestParam("logo") CommonsMultipartFile multipartFile, @RequestParam Map<String, Object> reqs, HttpSession session,
                            HttpServletRequest request) {
-        String id = (String) session.getAttribute("companyId");
+        String id = (String) session.getAttribute("userId");
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
         String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
@@ -363,6 +366,53 @@ public class CompanyController {
         }
         companyService.saveCompanyInfo(reqs, id);
         return "/visitor/finsh-reg";
+    }
+    //我的消息
+    @RequestMapping(value = "/inews.htm", method = RequestMethod.GET)
+    public String getInewsPage(@RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
+                               @RequestParam(value = "queryContent", required = false, defaultValue = "") String queryContent,
+                               Map<String, Object> map) {
+        //返回系统消息,首先得获取公司id.
+        Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
+        List<Map<String, Object>> results = page.getList();
+        map.put("system_message", results);
+        return "company/private_center_my_news_directional";
+    }
+    //公司的定向披露
+    @RequestMapping(value = "/release")
+    public String Relase()
+    {
+        return "company/inews-message-direction-down";
+    }
+
+    //私信
+
+    @RequestMapping(value = "/privateNews")
+    public String privateNews()
+    {
+        return "company/private-news";
+    }
+
+    @RequestMapping(value="/directionDown")
+    public String getDirectionDown() {
+        return "company/inews-message-direction-down";
+    }
+
+    @RequestMapping(value = "/productDebt")
+    public String getProductDebt()
+    {
+        return "company/product-debt";
+    }
+
+    @RequestMapping(value = "isource")
+    public String getIsource(HttpServletRequest req, Map<String, Object> map) {
+        HttpSession session = req.getSession();
+        String companyId = (String) session.getAttribute("userId");
+        System.out.println("companyId is:" + companyId);
+        Map<String, Object> userInfo = companyService.getCompanyInfo(companyId);
+        userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
+        map.put("userInfo", userInfo);
+        return "company/personal-center-information-management";
     }
 
 }

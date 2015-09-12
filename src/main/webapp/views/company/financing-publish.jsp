@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/task1.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/finacing-publish.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/task1.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/finacing-publish.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
     <title>意向发布</title>
 </head>
 <body>
@@ -43,6 +43,11 @@
                         <label>发行年限：</label>
                         <input type="text" id="year" name="investTime">
                         年
+                    </p>
+                    <p>
+                        <label>发布地区：</label>
+                        <input type="text" id="investArea" name="investArea">
+
                     </p>
                  <%--   <p>
                         <label for="text">发行完成:</label>

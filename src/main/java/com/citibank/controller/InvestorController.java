@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -90,7 +92,7 @@ public class InvestorController {
         Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
         List<Map<String, Object>> results = page.getList();
         map.put("system_message", results);
-        return "investor/private-center-my-news";
+        return "investor/private_center_my_news_directional";
     }
 
     //资料管理
@@ -100,12 +102,30 @@ public class InvestorController {
         Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
         userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
         map.put("userInfo", userInfo);
+        return "investor/inews-managment";
+    }
+
+    @RequestMapping(value = "/isource.htm")
+    public String getIsource(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
+        map.put("userInfo", userInfo);
         return "investor/personal_center_assets_management";
     }
 
+
+
+
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
-    public String getLogoutPage() {
+    public String getLogoutPage(HttpSession session, HttpServletResponse response) {
+        System.out.println("logout");
+        session.removeAttribute("userId");
+        Cookie cookie = new Cookie("username", null);
+        cookie.setPath("/customer");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "visitor/login";
     }
 
@@ -176,16 +196,31 @@ public class InvestorController {
         String id = (String) session.getAttribute("investorId");
         String phoneNum = reqs.remove("firstNum").toString() + reqs.remove("secondNum").toString();
         reqs.put("consultPhone", phoneNum);
-
-       String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
+        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
         reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+
+
+       // reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
         investorService.saveInvestorInfo(reqs, id);
-        return "/visitor/finsh-reg";
+        return "visitor/finsh-reg";
     }
+
     //查看更多行业
-    @RequestMapping(value = "/invest-more",method = RequestMethod.GET)
-    public String getmore()
-    {
+    @RequestMapping(value = "/invest-more", method = RequestMethod.GET)
+    public String getmore() {
         return "redirect:/financing/Matching.htm";
+    }
+
+    //私信
+    @RequestMapping(value = "/privateNews")
+    public String getPrivate()
+    {
+        return "investor/private-news";
+    }
+
+    @RequestMapping(value = "/release")
+    public String getRelease()
+    {
+        return "investor/direction-release";
     }
 }

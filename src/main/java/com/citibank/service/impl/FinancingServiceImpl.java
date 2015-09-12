@@ -73,9 +73,8 @@ public class FinancingServiceImpl implements FinancingService {
             if (highestDemand != -1 && leastDemand != -1) {
                 sb.append(" and leastReturnDemand between :leastDemand and :highestDemand");
             }
-            sb.append(";");
-
         }
+        System.out.printf(sb.toString());
         return mySQLSimpleDao.pageQuery(sb.toString(), map, pageIndex, 10, order);
 
     }

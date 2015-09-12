@@ -40,7 +40,7 @@ public class SystemTest {
 
     @Autowired
     private FinancingService financingService;
-	
+
     @Autowired
     private IntentionServiceImpl intentionService;
 
@@ -63,26 +63,26 @@ public class SystemTest {
         //assetService.getTotalMoney("123","1_month");
         investorService.getInvestorInfo("123");
     }
+
     @Test
-    public void testGetProductByid()
-    {
-            Map<String,Object> map=new HashMap<String, Object>();
-            map.put("id","a");
+    public void testGetProductByid() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("id", "a");
         System.out.println(financingService.getProductById(map));
     }
+
     @Test
-    public void testGetProductByName()
-    {
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("productName","aaaf");
+    public void testGetProductByName() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("productName", "aaaf");
         System.out.println(financingService.getProductByName(map));
     }
+
     @Test
-    public void testGetProductByNameAndId()
-    {
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("id","a");
-        map.put("productName","aaaf");
+    public void testGetProductByNameAndId() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("id", "a");
+        map.put("productName", "aaaf");
         System.out.println(financingService.getProductByName(map));
     }
 
@@ -131,46 +131,51 @@ public class SystemTest {
         System.out.println(appointService.getAppoint(map).getList());
     }
 
-    public void testAttention(){
+    public void testAttention() {
 //        Page<Map<String, Object>> page = attentionService.getMyAttentionByCompanyId("BB1C2C1FDDD74D65B16407FBCDF5AB76", 1, "id");
 //        System.out.println(page.getList().toString());
     }
-   /* @Test
-    public void testAttentionin()
-    {
-        System.out.println(attentionService.getMyAttentionByInvestorId());
 
-    }
-*/
+    /* @Test
+     public void testAttentionin()
+     {
+         System.out.println(attentionService.getMyAttentionByInvestorId());
+
+     }
+ */
     @Test
     public void getUUID() {
         System.out.println(IdUtil.uuid());
     }
 
     @Test
-    public void testIntention()
-    {
-        Map<String,Object> map=new HashMap<String, Object>();
-        map.put("id","a");
-        map.put("productName","aaaf");
-        map.put("userId","aaaf");
-        map.put("exitMinTime",1);
-        map.put("flag",1);
-        map.put("backWay",1);
-        map.put("bondsman",1);
-        map.put("moneyFrom",1);
-        map.put("productType",1);
+    public void testIntention() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("id", "a");
+        map.put("productName", "aaaf");
+        map.put("userId", "aaaf");
+        map.put("exitMinTime", 1);
+        map.put("flag", 1);
+        map.put("backWay", 1);
+        map.put("bondsman", 1);
+        map.put("moneyFrom", 1);
+        map.put("productType", 1);
         System.out.print(intentionService.publishIntention(map));
     }
+
     @Test
-    public void testSim()
-    {
-        String sql="select s.*, c.* from " +
+    public void testSim() {
+        String sql = "select s.*, c.* from " +
                 "stockcreditor as s,company as c where " +
                 "s.userId=c.companyId";
       /*  String sql="select stockcreditor.productName company.username " +
                 "from stockcreditor, company where stockcreditor.userId=company.companyId";*/
-        System.out.println(mySQLSimpleDao.pageQuery(sql,new HashMap<String, Object>(),1,10,new Order()).getList());
+        System.out.println(mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order()).getList());
+    }
+    @Test
+    public void saveF()
+    {
+
     }
 
 }

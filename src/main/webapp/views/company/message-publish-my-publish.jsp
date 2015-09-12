@@ -88,8 +88,7 @@
 
             <div id="albumContainer"></div>
             <a href="javascript:void(0);" onclick="publishWidget.startWidget('albumContainer')">
-                <div id="publishButton">发布更多消息
-                </div>
+                <div id="publishButton">发布更多消息</div>
             </a>
 
             <div id="page">

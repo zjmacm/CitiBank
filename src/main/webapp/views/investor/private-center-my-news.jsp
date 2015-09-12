@@ -35,11 +35,7 @@
                 </ul>
             </div>
             <div id="listContent">
-                <ul id="sidebar">
-                    <li class="sidebarItem"><a href="" class="sidebarItem">系统信息</a></li>
-                    <li class="sidebarItem"><a href="" class="sidebarItem">私信</a></li>
-                    <li class="sidebarItem"><a href="" class="sidebarItem">定向披露</a></li>
-                </ul>
+                <jsp:include page="realse_left_nav.jsp"></jsp:include>
             </div>
         </div>
         <div id="mainContent">
@@ -49,12 +45,9 @@
                 <div id="searchInput">
                     <input id="search" type="text" placeholder="请输入关键字搜索">
                 </div>
-                <%--<a href="" style="display:inline;">--%>
                     <input id="searchButton" type="button" value="确定"/>
-                <%--</a>--%>
 
             </div>
-            <!--******* *************************************** table**********************************************-->
             <div id="TableList">
                 <table class="hovertable">
 
@@ -64,7 +57,7 @@
                         <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更多操作</th>
                     </tr>
 
-                    <!--*****************全是一样的**************************************************************************************-->
+
                     <% for (int i = 0; i < system_message.size(); i++) { %>
                     <tr onMouseOver="this.style.backgroundColor='#ffff66';"
                         onMouseOut="this.style.backgroundColor='#d4e3e5';">

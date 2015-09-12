@@ -41,8 +41,9 @@ public class SystemController {
     private final static String IMG_DESC_PATH = Constant.uploadPath;
 
     @RequestMapping("/index")
-    public String index(){
-        return "investor/network-service-protocol";
+    public String index() {
+//        return "investor/network-service-protocol";
+        return "main/index";
     }
 
     @RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
@@ -51,12 +52,13 @@ public class SystemController {
     String uploadFile(@RequestParam("fileUpload") CommonsMultipartFile multipartFile,
                       @RequestParam("type") int type, HttpServletRequest request) {
 
-        System.out.println(multipartFile.getOriginalFilename());
-        String path = request.getSession().getServletContext().getRealPath("") + IMG_DESC_PATH;
-        String filePath = null;
+        String fileName = multipartFile.getOriginalFilename();
+        String extName = fileName.substring(fileName.lastIndexOf("."));
+        String newName = IdUtil.uuid() + extName;
+        File file = new File("D:\\files\\" + newName);
         try {
-            filePath = uploadFile.uploadFile(multipartFile, path);
-        } catch (IOException e) {
+            multipartFile.transferTo(file);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -64,11 +66,9 @@ public class SystemController {
         map.put("id", IdUtil.uuid());
         map.put("flag", type);
         map.put("fileName", multipartFile.getOriginalFilename());
-        map.put("path", filePath);
+        map.put("path", newName);
 
-        System.out.println(map.toString());
-
-        mySQLSimpleDao.create("information",map);
+        mySQLSimpleDao.create("information", map);
 
         return "success";
     }
@@ -80,20 +80,13 @@ public class SystemController {
 
     //去首页看看的跳转（分为投资者和企业）
     @RequestMapping("/goIndex.htm")
-    public String goIndex(HttpServletRequest request, HttpSession session)
-    {
-        String flag = (String)session.getAttribute("userType");
-        System.out.println("!!!!!!!!!!!!type:"+flag);
-        if("投资者".equals(flag))
-        {
+    public String goIndex(HttpServletRequest request, HttpSession session) {
+        String flag = (String) session.getAttribute("userType");
+        if ("投资者".equals(flag)) {
             return "investor/logined-invest-index";
-        }
-        else if("企业".equals(flag))
-        {
+        } else if ("企业".equals(flag)) {
             return "company/logined-business-index";
-        }
-        else
-        {
+        } else {
             System.out.println("error");
         }
         return null;
@@ -101,30 +94,22 @@ public class SystemController {
 
     //去完善信息的跳转（分为投资者和企业）
     @RequestMapping("/completeInformation.htm")
-    public String completeInformation(HttpServletRequest request, HttpSession session)
-    {
-        String flag = (String)session.getAttribute("userType");
-        System.out.println("!!!!!!!!!!!!type:"+flag);
-        if("投资者".equals(flag))
-        {
+    public String completeInformation(HttpServletRequest request, HttpSession session) {
+        String flag = (String) session.getAttribute("userType");
+        if ("投资者".equals(flag)) {
             return "redirect:/investor/isource";
-        }
-        else if("企业".equals(flag))
-        {
-            return "redirect:/company/data_management-edit";
-        }
-        else
-        {
+        } else if ("企业".equals(flag)) {
+            return "redirect:/company/isource";
+        } else {
             System.out.println("error");
         }
         return null;
     }
+
     @RequestMapping(value = "/protopl")
-    public String getNet()
-    {
+    public String getNet() {
         return "/investor/network-service-protocol";
     }
-
 
 
 }
