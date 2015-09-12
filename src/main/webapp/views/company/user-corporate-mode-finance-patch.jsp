@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
+<%@ page import="java.util.*" %>
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -23,15 +24,17 @@
                     <input id="searchText" type="text" name="productName" placeholder="请输入关键字搜索">
                 </div>
                 <a href="/financing/investor/matching" style="display:inline;">
+                <a href="" style="display:inline;">
+                <a href="javascript:void(0);" onclick="$('form')[0].submit();" style="display:inline;">
                     <div id="searchButton">确定</div>
                 </a>
             </div>
             <div id="selectForm">
                 <p>类型：</p>
                 <select name="productType">
-                    <option value=0>全部</option>
-                    <option value=1>股权投资</option>
-                    <option value=2>债权投资</option>
+                    <option value="全部">全部</option>
+                    <option value="股权">股权投资</option>
+                    <option value="债权">债权投资</option>
                 </select>
             </div>
 
@@ -184,7 +187,7 @@
 
                     <% for (int i = 0; i < matching.size(); i++) {%>
                     <tr>
-                        <td><a href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                        <td><a style="color:#333333;" href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
                                 <%=matching.get(i).get("productName")%>
                             </a>
                         </td>

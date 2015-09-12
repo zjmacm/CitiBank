@@ -92,7 +92,8 @@ public class FinancingController {
 
     {
         System.out.print(reqs);
-        if (Integer.parseInt(reqs.get("productType").toString()) == 0) {
+        if (reqs.get("productType").toString().equals("全部"))
+        {
             reqs.remove("productType");
             map.put("data", financingService.getProductByName(reqs).getList());
         } else {

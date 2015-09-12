@@ -36,9 +36,9 @@
             <div id="selectForm">
                 <p>类型：</p>
                 <select name="productType">
-                    <option value=0>全部</option>
-                    <option value=1>股权投资</option>
-                    <option value=2>债权投资</option>
+                    <option value="全部">全部</option>
+                    <option value="股权">股权投资</option>
+                    <option value="债权">债权投资</option>
                 </select>
             </div>
             <a href="javascript:void(0);" style="display:inline;color:#2A324B;padding-left:20px;"

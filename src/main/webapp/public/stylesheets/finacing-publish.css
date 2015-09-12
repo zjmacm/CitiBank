@@ -62,8 +62,8 @@ body{
 	height:50px;
 	width:300px;
 	 margin-left: 7px;
-	 border-radius:5px;
-	 border: solid 1px #C7CCDB;
+	 /*border-radius:5px;*/
+	 /*border: solid 1px #C7CCDB;*/
 }
 .more_info input{
 	width: 60px;

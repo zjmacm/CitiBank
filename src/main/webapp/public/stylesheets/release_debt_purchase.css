@@ -49,12 +49,19 @@
     font-size: 15px;
     letter-spacing: 1px;
     color: #B4B4B4;
-
-}
-#list-item #selected{
     border-radius: 8px;
-    background:#88ABDA;
-    color: white;
+}
+
+#list-item a{
+    color: #000000;
+}
+
+#purchase {
+    background: #88ABDA;
+}
+
+#purchase a{
+    color: #ffffff;
 }
 
 #swap>.main_body{
