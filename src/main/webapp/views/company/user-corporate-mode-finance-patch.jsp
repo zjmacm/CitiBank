@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
-<%@ page import="java.util.*" %>
+
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
