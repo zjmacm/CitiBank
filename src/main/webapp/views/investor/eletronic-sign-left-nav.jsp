@@ -3,7 +3,7 @@
 <div id="listContent">
 	<ul id="sidebar">
 		<li class="sidebarItem">
-			<a href="#" class="sidebarItem">协议签约</a>
+			<a href="/electronical/protolResign" class="sidebarItem">协议签约</a>
 		</li>
 		<li class="sidebarItem"><a href="/electronical/checkContract" class="sidebarItem">协议查询</a></li>
 		<li class="sidebarItem"><a href="/electronical/getElectronicalPage" class="sidebarItem">返回</a></li>

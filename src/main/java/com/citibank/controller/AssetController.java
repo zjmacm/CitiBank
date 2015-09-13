@@ -111,7 +111,7 @@ public class AssetController {
         map.put("data", stockPage.getList());
 
         if (type == 0) {
-            return "investor/logined_investorpatten_survey_of_investment";
+            return "investor/socket-manage";
         } else if (type == 1) {
             return "investor/logined_investorpatten_stock_equity_management";
         } else {
