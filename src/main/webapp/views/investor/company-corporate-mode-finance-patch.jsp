@@ -8,10 +8,10 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>撮合配对</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/company-corporate-mode-finance-patch.css">
-    <script type="text/javascript" src="../public/javascripts/jq.js"></script>
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/company-corporate-mode-finance-patch.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
 </head>
 
 <body>
@@ -24,7 +24,7 @@
             <div id="searchForm">
                 <div id="searchInput">
                     <div id="textClear">
-                        <a href="javascript:void(0);"><img src="../public/images/cancel.png"></a>
+                        <a href="javascript:void(0);"><img src="/public/images/cancel.png"></a>
                     </div>
                     <input id="searchText" type="text" placeholder="请输入关键字搜索"
                            name="productName">
@@ -45,7 +45,7 @@
                onclick="$('#patchPanel').slideToggle('slow');">显示/隐藏筛选信息</a>
             </form>
             <form action="" method="post">
-            <div id="patchPanel">`
+                <div id="patchPanel">`
                 <div>地区筛选：
                     <div class="selectItemGroup">
                         <span class="selectItem"><input type="checkbox" name="investArea" value="黑龙江">黑龙江</span>
