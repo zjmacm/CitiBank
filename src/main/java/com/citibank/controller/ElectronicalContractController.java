@@ -80,6 +80,11 @@ public class ElectronicalContractController {
         map.put("result",electronicalContractService.selectByKeyValue(key));
         return new ModelAndView("checkContract","result",map);
     }
+    @RequestMapping(value = "/protolResign")
+    public String getProtolRe()
+    {
+        return "investor/search-protocol";
+    }
 
 
 

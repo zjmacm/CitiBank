@@ -92,7 +92,7 @@ public class InvestorController {
         Page page = messageService.getSystemMessage(1, queryContent);//1代表投资者
         List<Map<String, Object>> results = page.getList();
         map.put("system_message", results);
-        return "investor/private-center-my-news";
+        return "investor/private_center_my_news_directional";
     }
 
     //资料管理
@@ -104,6 +104,18 @@ public class InvestorController {
         map.put("userInfo", userInfo);
         return "investor/inews-managment";
     }
+
+    @RequestMapping(value = "/isource.htm")
+    public String getIsource(HttpSession session, Map<String, Object> map) {
+        String userId = (String) session.getAttribute("userId");
+        Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
+        map.put("userInfo", userInfo);
+        return "investor/personal_center_assets_management";
+    }
+
+
+
 
     //退出按钮
     @RequestMapping(value = "/logout.htm", method = RequestMethod.GET)
@@ -188,14 +200,27 @@ public class InvestorController {
         reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
 
 
-        reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
+       // reqs.put("logoPath", uploadFileService.uploadFile(multipartFile, path));
         investorService.saveInvestorInfo(reqs, id);
-        return "/visitor/finsh-reg";
+        return "visitor/finsh-reg";
     }
 
     //查看更多行业
     @RequestMapping(value = "/invest-more", method = RequestMethod.GET)
     public String getmore() {
         return "redirect:/financing/Matching.htm";
+    }
+
+    //私信
+    @RequestMapping(value = "/privateNews")
+    public String getPrivate()
+    {
+        return "investor/private-news";
+    }
+
+    @RequestMapping(value = "/release")
+    public String getRelease()
+    {
+        return "investor/direction-release";
     }
 }

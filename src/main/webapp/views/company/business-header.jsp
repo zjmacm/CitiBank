@@ -97,7 +97,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/company/isource.htm" title="">
+                            <a href="/company/isource" title="">
                                 <span>资料管理</span>
                             </a>
                         </li>

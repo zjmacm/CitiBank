@@ -8,27 +8,46 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1"/>
     <title>个人中心-我的消息</title>
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/business-header.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/customer-footer.css">
-    <link rel="stylesheet" type="text/css" href="../public/stylesheets/private-center-my-news.css">
-
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/business-header.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/customer-footer.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/private-center-my-news.css">
+    <script type="text/javascript" src="/public/javascripts/jq.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#searchButton').click(function (e) {
+                var search = $('#search').val();
+                if (search != "") {
+                    window.location.href = '/investor/inews.htm?queryContent=' + search;
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 <%List<Map<String, Object>> system_message = (List<Map<String, Object>>) request.getAttribute("system_message");%>
 <jsp:include page="business-header.jsp"/>
 <div id="mainContainer">
     <div id="main">
-        <jsp:include page="list_direct.jsp"/>
+        <div id="sidebarContainer">
+            <div id="listTitle">
+                <ul id="sidebarTitle">
+                    <li class="sidebarItem">我的消息</li>
+                </ul>
+            </div>
+            <div id="listContent">
+                <jsp:include page="realse_left_nav.jsp"></jsp:include>
+            </div>
+        </div>
         <div id="mainContent">
             <div id="searchForm">
                 <p>查询：</p>
 
                 <div id="searchInput">
-                    <input id="searchText" type="text" placeholder="请输入关键字搜索">
+                    <input id="search" type="text" placeholder="请输入关键字搜索">
                 </div>
-                <a href="" style="display:inline;">
-                    <div id="searchButton">确定</div>
-                </a>
+                <%--<a href="" style="display:inline;">--%>
+                    <input id="searchButton" type="button" value="确定"/>
+                <%--</a>--%>
 
             </div>
             <!--******* *************************************** table**********************************************-->
@@ -51,6 +70,7 @@
                         </td>
                     </tr>
                     <% }%>
+
                 </table>
                 <hr class="hr1"/>
             </div>

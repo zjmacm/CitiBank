@@ -172,5 +172,10 @@ public class SystemTest {
                 "from stockcreditor, company where stockcreditor.userId=company.companyId";*/
         System.out.println(mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order()).getList());
     }
+    @Test
+    public void saveF()
+    {
+
+    }
 
 }
