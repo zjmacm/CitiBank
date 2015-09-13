@@ -433,7 +433,10 @@ INSERT INTO `stockcreditor` VALUES ('x', '产品11', '唐山', '出版业', '201
 INSERT INTO `stockcreditor` VALUES ('y', '产品12', '衡水', '演艺业', '2015-01-13', '1200', '12', '1', null, null, null, null, null, null, null, '11', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('z', '产品13', '保定', '美容业', '2015-01-14', '1300', '13', '1', null, null, null, null, null, null, null, '12', '0', 'n');
 */
-
+INSERT INTO `stockcreditor` VALUES ('b', '产品2', '大连', '工业', '2015-01-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
+INSERT INTO `stockcreditor` VALUES ('o', '产品2', '武汉', '工业', '2015-09-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
+INSERT INTO `stockcreditor` VALUES ('c', '产品2', '武汉', '工业', '2015-09-03', '200', '2', '1', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
+INSERT INTO `stockcreditor` VALUES ('v', '产品2', '大连', '工业', '2015-01-03', '200', '2', '1', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
 -- ----------------------------
 -- Table structure for `asset`
 -- ----------------------------
