@@ -189,7 +189,7 @@
 
                     <% if (matching != null) for (int i = 0; i < matching.size(); i++) {%>
                     <tr>
-                        <td><a style="color:#000000" href="/financing/getDetail/<%=matching.get(i).get("productName")%>" title="">
+                        <td><a style="color:#000000" href="/financing/getDetail/<%=matching.get(i).get("id")%>" title="">
                             <%=matching.get(i).get("productName")%>
                         </a>
                         </td>

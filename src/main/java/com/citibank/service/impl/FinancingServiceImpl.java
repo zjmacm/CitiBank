@@ -42,7 +42,7 @@ public class FinancingServiceImpl implements FinancingService {
     ) {
         Order order = new Order().asc("id");
         StringBuffer sb = new StringBuffer();
-        sb.append("select s.productName,s.investArea as registerAddress, s.investIndustry as workingFiled,s.fundBody as investMoney,s.productType from stockcreditor s where 1=1");
+        sb.append("select s.id, s.productName,s.investArea as registerAddress, s.investIndustry as workingFiled,s.fundBody as investMoney,s.productType from stockcreditor s where 1=1");
 
         if (params.containsKey("investArea")) {
             sb.append(" and investArea=:investArea");
@@ -56,7 +56,7 @@ public class FinancingServiceImpl implements FinancingService {
     }
 
     public Page<Map<String, Object>> getDefault(String userId) {
-        String sql = "select s.productName,s.investArea as registerAddress, s.investIndustry as workingFiled,s.fundBody as investMoney,s.productType from stockcreditor s";
+        String sql = "select s.id, s.productName,s.investArea as registerAddress, s.investIndustry as workingFiled,s.fundBody as investMoney,s.productType from stockcreditor s";
         return mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order());
     }
 
