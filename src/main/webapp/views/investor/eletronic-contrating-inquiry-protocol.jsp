@@ -28,7 +28,7 @@
                      <div id="searchForm">
 					<div id="searchInput">
                         <div id="textClear">
-                            <a href=""><img src="/images/cancel.png"></a>
+                            <a href=""><img src="/public/images/cancel.png"></a>
                         </div>
 						<input id="searchText" type="text" placeholder="请输入关键字搜索">
 					</div>
@@ -55,58 +55,9 @@
                         </tr>
                         
                         <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
-                        </tr>
-                        <tr>
-                            <td>2015-01-01</td><td>安心股权有限公司</td><td>股权转让协议</td> <td>审核中</td>
+                            <td><a href="/electronical/protolDetail" title="">2015-01-01</a></td><td><a href="/electronical/protolDetail" title="">安心股权有限公司</a></td><td>股权转让协议</td> <td>审核中</td>
                         </tr>
 
-                      
     
                     </table>
                     <hr class="hr1"/>

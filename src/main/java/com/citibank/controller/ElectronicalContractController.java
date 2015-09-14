@@ -86,7 +86,11 @@ public class ElectronicalContractController {
         return "investor/search-protocol";
     }
 
-
+    @RequestMapping(value = "/protolDetail")
+    public String getProtolDetail()
+    {
+        return "company/inquiry-protocol-protocol-detail";
+    }
 
 
 
