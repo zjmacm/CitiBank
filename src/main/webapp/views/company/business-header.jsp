@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/appoint/reservation/0" title="">
+                            <a href="/appoint/reservation/0/id" title="">
                                 <span>预约管理</span>
                             </a>
                         </li>

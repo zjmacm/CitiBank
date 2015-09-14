@@ -23,7 +23,7 @@
                 <form action="/asset/search/0" method="get">
                     <a href="/asset/company/1"><span id="debat-manag">债权管理</span></a>
                     <span id="search">搜索：</span>
-                     <input name="content" type="text" id="search-text" >
+                    <input name="content" type="text" id="search-text">
                     <input type="submit" value="搜索" id="search-btn">
                     <%--<span><a href=""><img src="/public/images/_search.png"></a></span>--%>
                 </form>
@@ -37,7 +37,7 @@
             <span>发布时间：</span>
 
             <div id="announce-time">
-                <form  action="/asset/getChooseStockList" method="get">
+                <form action="/asset/getChooseStockList" method="get">
                     <input type="radio" id="1" value="1" name="time" check="checked"/>
                     <label for="1">近一个月</label>
                     <input type="radio" id="2" value="2" name="time"/>
@@ -57,26 +57,30 @@
         <div id="announce-message">
             <span>发布信息</span>
         </div>
-        <% List<Map<String,Object>> asset1 = (List<Map<String,Object>>)request.getAttribute("data"); %>
+        <% List<Map<String, Object>> asset1 = (List<Map<String, Object>>) request.getAttribute("data"); %>
         <% for (int i = 0; i < asset1.size(); i++) {%>
         <a href="/company/productDebt" title="">
-        <div class="product">
-            <span>产品名称：<%=asset1.get(i).get("name")%></span>
-            <div class="prod1">
-                <ul>
-                    <li>发布时长：<%=asset1.get(i).get("publishedTime")%>个月</li>
-                    <li>目前股权状况：<%=asset1.get(i).get("condition")%></li>
-                    <li>融资方式：股权投资</li>
-                </ul>
+            <div class="product">
+                <span>产品名称：<%=asset1.get(i).get("name")%></span>
+
+                <div class="prod1">
+                    <ul>
+                        <li>发布时长：<%=asset1.get(i).get("publishedTime")%>个月</li>
+                        <li>目前股权状况：<%=asset1.get(i).get("condition")%>
+                        </li>
+                        <li>融资方式：股权投资</li>
+                    </ul>
+                </div>
+                <div class="prod2">
+                    <ul>
+                        <li>期限：<%=asset1.get(i).get("limit")%>
+                        </li>
+                        <li>融资占比：<%=asset1.get(i).get("radio")%>
+                        </li>
+                        <li>意向投资方：相互关注的</li>
+                    </ul>
+                </div>
             </div>
-            <div class="prod2">
-                <ul>
-                    <li>期限：<%=asset1.get(i).get("limit")%></li>
-                    <li>融资占比：<%=asset1.get(i).get("radio")%></li>
-                    <li>意向投资方：相互关注的</li>
-                </ul>
-            </div>
-        </div>
         </a>
         <%}%>
 
