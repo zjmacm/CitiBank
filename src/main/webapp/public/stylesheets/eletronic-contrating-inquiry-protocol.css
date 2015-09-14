@@ -233,3 +233,7 @@ table td {
 	bottom: 100%;
 }
 p{margin-top:0px;margin-bottom:0;}
+
+.hovertable a {
+	color:#333333;
+}

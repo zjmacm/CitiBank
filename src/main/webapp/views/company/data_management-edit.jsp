@@ -11,9 +11,9 @@
     <link href="/public/stylesheets/customer-footer.css" rel="stylesheet" type="text/css">
     <link href="/public/stylesheets/data_management-edit.css" rel="stylesheet" type="text/css">
     <title>资料管理-编辑状态</title>
-    <script>
+   <%-- <script>
         document.getElementById("sit").value = "<%= userInfo.get("companyType")%>";
-    </script>
+    </script>--%>
 </head>
 <body>
 <jsp:include page="business-header.jsp"/>
@@ -123,24 +123,115 @@
                 产品优势：<input id="chanpinyoushi" name="productAdvantage" value="<%= userInfo.get("productAdvantage")%>"><br/>
                 市场优势：<input id="shichangyoushi" name="marketAdvantage" value="<%= userInfo.get("marketAdvantage")%>"><br/>
             </div>
-            <p>发展情况：<a href="">点击添加</a></p>
+            <div id="other">
+                <p>发展情况：<a href="javascript:void(0);" id="add">点击添加</a></p>
+                <div id="layer">
+                    <div id="nav-title">
+                        <span>x</span>
+                    </div>
+                    <div id="form-list">
+                        <div id="list-tips">
+                            <span>请填写公司上一季度的财务数据(单位：万元)</span>
+                        </div>
+                        <div class="layer-form">
+                            <label for="">资产总额：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">负债总额：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">平均资产总额：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">所有者权益总额：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">流动资产：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">流动负债：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">销售收入:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">当期销售净收入:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">营业成本：</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">当期现售收入:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">主营业务收入净额:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">初期应收帐款余额:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">期末应收帐款余额:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form">
+                            <label for="">利润额:</label>
+                            <input type="text" name="" />
+                        </div>
+                        <div class="layer-form" id="file-upload">
+                            <label for="">上传财务报告:</label>
+                            <input type="file" name="" />
+                            <span id="btn-file">上传</span>
+                        </div>
+                        <div id="sure" class="layer-form">
+                            <span><a href="javascript:void(0);">确定</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="submit">
-
-            <input type="button" id="btn" value="保存"/>
+            <p><a href="" id="btn">保存</a></p>
         </div>
     </div>
-    </form>
 </div>
-
 <div id="footer">
     <div id="foot-list">
     </div>
 </div>
 
+
 <script type="text/javascript" src="../public/javascripts/imd.js"></script>
 <script type="text/javascript">
+
     window.onload = function() {
+
+        var nav_title = document.getElementById('nav-title');
+        var sure = document.getElementById('sure');
+        var layer = document.getElementById('layer');
+        var add = document.getElementById('add');
+        nav_title.onclick = function(e) {
+            layer.style.display = 'none';
+        }
+
+        sure.onclick = function(e) {
+            layer.style.display = 'none';
+        }
+
+        add.onclick = function(e) {
+            layer.style.display = 'block';
+        }
 
         imd.Event('#btn').on('click', function(e) {
             var form = document.forms.form;

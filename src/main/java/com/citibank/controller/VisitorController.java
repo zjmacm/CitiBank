@@ -74,7 +74,7 @@ public class VisitorController {
         reqs.remove("auth");
         reqs.remove("iagree");
         reqs.remove("re-password");
-        session.setAttribute("userType",flag);
+        session.setAttribute("userType", flag);
 
         if (flag.equals("投资者")) {
 
@@ -292,4 +292,19 @@ public class VisitorController {
         return "visitor/reg";
     }
 
+    @RequestMapping(value = "/assess")
+    public String getAssess()
+    {
+        return "visitor/level-assess";
+    }
+    @RequestMapping(value = "assess_1")
+    public String getAsseeOne()
+    {
+        return "visitor/assess1";
+    }
+    @RequestMapping(value = "assess_2")
+    public String getAssessTwo()
+    {
+        return "visitor/assess2";
+    }
 }

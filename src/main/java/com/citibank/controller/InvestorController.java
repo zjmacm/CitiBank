@@ -109,6 +109,7 @@ public class InvestorController {
     public String getIsource(HttpSession session, Map<String, Object> map) {
         String userId = (String) session.getAttribute("userId");
         Map<String, Object> userInfo = investorService.getInvestorInfo(userId);
+        System.out.print("investorinfo"+userInfo+"userid:"+userId);
         userInfo.put("logoPath", "/uploads/" + userInfo.get("logoPath"));
         map.put("userInfo", userInfo);
         return "investor/personal_center_assets_management";

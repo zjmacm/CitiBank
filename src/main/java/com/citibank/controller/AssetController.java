@@ -150,7 +150,7 @@ public class AssetController {
     @RequestMapping(value = "/getDetailPage")
     public String getDetailPage()
     {
-        return "";
+        return "investor/assetdetail";
     }
 
 

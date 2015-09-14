@@ -173,9 +173,13 @@ public class SystemTest {
         System.out.println(mySQLSimpleDao.pageQuery(sql, new HashMap<String, Object>(), 1, 10, new Order()).getList());
     }
     @Test
-    public void saveF()
+    public void saveCom()
     {
-
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("username","jjd");
+        Map<String,Object> conn=new HashMap<String, Object>();
+        conn.put("companyId","a");
+        System.out.println(comService.saveCompanyInfo(map,"a"));
     }
 
 }

@@ -62,16 +62,18 @@
             </div>
             <div id="list-item">
                 <div id="content">
-                    <div class="list-text">
-                        <div>
-                            公司名称
+                    <a href="/asset/getDetailPage">
+                        <div class="list-text">
+                            <div>
+                                公司名称
+                            </div>
+                            <div>
+                                <span>所在r地：北京</span>
+                                <span>份额：1</span>
+                                <span>投入资金额：100万</span>
+                            </div>
                         </div>
-                        <div>
-                            <span>所在r地：北京</span>
-                            <span>份额：1</span>
-                            <span>投入资金额：100万</span>
-                        </div>
-                    </div>
+                    </a>
                     <div class="list-text">
                     </div>
                     <div class="list-text">

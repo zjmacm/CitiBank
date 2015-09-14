@@ -278,6 +278,7 @@ public class CompanyController {
     }
 
 
+
     @RequestMapping(value = "/getCompanyInfo", method = RequestMethod.POST)
     public
     @ResponseBody
@@ -332,8 +333,10 @@ public class CompanyController {
     @ResponseBody
     Map<String, String> saveUserInfo(@RequestParam Map<String, Object> parms, HttpSession session,HttpServletRequest request) {
         String userId = (String) session.getAttribute("userId");
-        System.out.println("save-userid:" + userId + "____parms:" + parms.get("guarantor") + "____req:" + request.getAttribute("guarantor"));
+       // System.out.println("save-userid:" + userId + "____parms:" + parms.get("guarantor") + "____req:" + request.getAttribute("guarantor"));
         int result = companyService.saveCompanyInfo(parms, userId);
+        System.out.println(parms);
+        System.out.println("hell"+userId);
         Map<String, String> status = new HashMap<String, String>();
         if (result == 0) {
             status.put("result", "failed");
@@ -410,6 +413,7 @@ public class CompanyController {
         String companyId = (String) session.getAttribute("userId");
         System.out.println("companyId is:" + companyId);
         Map<String, Object> userInfo = companyService.getCompanyInfo(companyId);
+        System.out.print("companyinfo"+userInfo);
         userInfo.put("logo", "/uploads/" + userInfo.get("logo"));
         map.put("userInfo", userInfo);
         return "company/personal-center-information-management";
