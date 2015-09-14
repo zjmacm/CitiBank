@@ -61,9 +61,11 @@
         </div>
     </div>
     <div id="content">
+
         <div id="subtitle">
             股权状况分布
         </div>
+        <a href="/asset/getDetailPage">
         <% for (int i=0;i<data.size();++i){%>
         <div class="list-text">
             <div>
