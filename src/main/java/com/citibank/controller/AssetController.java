@@ -103,7 +103,6 @@ public class AssetController {
                                    HttpSession session, Map<String, Object> map) {
 
         String userId = (String) session.getAttribute("userId");
-
         Page<Map<String, Object>> stockPage = assetService.getInvestorStock(userId, pageIndex, queryContent, duration, type);
         map.put("totalPage", stockPage.getpageCount());
         map.put("pageIndex", pageIndex);
@@ -141,7 +140,15 @@ public class AssetController {
         String content = request.getParameter("content").toString();
         List<Map<String, Object>> list = assetService.getInventorSearchContent(type, content, userId).getList();
         request.setAttribute("data", list);
-        return "investor/logined_investorpatten_survey_of_investment";
+        if(type==0) {
+            return "investor/logined_investorpatten_survey_of_investment";
+        }
+        else if(type==1){
+            return "investor/logined_investorpatten_stock_equity_management";
+        }
+        else{
+            return "investor/logined_investorpatten_stockright_manage";
+        }
     }
 
     //资产管理点击进入详情

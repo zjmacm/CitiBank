@@ -67,7 +67,7 @@
                             公司名称
                         </div>
                         <div>
-                            <span>所在r地：北京</span>
+                            <span>所在地：北京</span>
                             <span>份额：1</span>
                             <span>投入资金额：100万</span>
                         </div>
