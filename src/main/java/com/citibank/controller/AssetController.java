@@ -154,7 +154,7 @@ public class AssetController {
     //资产管理点击进入详情
     @RequestMapping(value = "/getDetailPage")
     public String getDetailPage() {
-        return "";
+        return "/investor/assetdetail";
     }
 
 

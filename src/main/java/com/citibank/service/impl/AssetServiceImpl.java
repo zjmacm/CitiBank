@@ -60,11 +60,6 @@ public class AssetServiceImpl implements AssetService {
             parms.put("product_type", type - 1);
         }
         Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sb.toString(), parms, pageIndex, 10, new Order().asc("s.createTime"));
-        List<Map<String, Object>> datas = pages.getList();
-        Random random = new Random();
-        for (Map<String, Object> data : datas) {
-            data.put("stockRate", random.nextInt(10));
-        }
         return pages;
     }
 
@@ -145,7 +140,6 @@ public class AssetServiceImpl implements AssetService {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("type", type);
         map.put("content", content);
-        //return mySQLSimpleDao.queryForList(sql,map);
         return mySQLSimpleDao.pageQuery(sql, map, 1, 10, new Order().asc("id"));
     }
 
@@ -157,33 +151,23 @@ public class AssetServiceImpl implements AssetService {
         if(type==0){
             String sql = "select  investMoney, investArea, stockRate from stockcreditor  where userId=:userId and createTime>=:create_time";
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
-            Random random = new Random();
-            for (Map<String, Object> data : datas) {
-                data.put("stockRate", random.nextInt(10));
-            }
             return pages;
         }
         else if(type==1){
             String sql = "select *from stockcreditor where userId = :userId and productType= :productType and createTime>=:create_time";
             params.put("productType",0);
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
+            /*List<Map<String, Object>> datas = pages.getList();
             Random random = new Random();
             for (Map<String, Object> data : datas) {
                 data.put("stockRate", random.nextInt(10));
-            }
+            }*/
             return pages;
         }
         else{
             String sql = "select *from stockcreditor where userId = :userId and productType= :productType and createTime>=:create_time";
             params.put("productType",1);
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
-            Random random = new Random();
-            for (Map<String, Object> data : datas) {
-                data.put("stockRate", random.nextInt(10));
-            }
             return pages;
         }
     }
@@ -196,33 +180,18 @@ public class AssetServiceImpl implements AssetService {
         if(type==0){
             String sql = "select *from stockcreditor where userId=:userId and investArea=:content";
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
-            Random random = new Random();
-            for (Map<String, Object> data : datas) {
-                data.put("stockRate", random.nextInt(10));
-            }
             return pages;
         }
         else if(type==1){
             String sql = "select *from stockcreditor where userId=:userId and investArea=:content and productType=:product_type";
             params.put("product_type",0);
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
-            Random random = new Random();
-            for (Map<String, Object> data : datas) {
-                data.put("stockRate", random.nextInt(10));
-            }
             return pages;
         }
         else{
             String sql = "select *from stockcreditor where userId=:userId and investArea=:content and productType=:product_type";
             params.put("product_type",1);
             Page<Map<String, Object>> pages = mySQLSimpleDao.pageQuery(sql, params, 1, 10, new Order().asc("createTime"));
-            List<Map<String, Object>> datas = pages.getList();
-            Random random = new Random();
-            for (Map<String, Object> data : datas) {
-                data.put("stockRate", random.nextInt(10));
-            }
             return pages;
         }
 

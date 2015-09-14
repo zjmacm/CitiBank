@@ -433,10 +433,9 @@ INSERT INTO `stockcreditor` VALUES ('x', '产品11', '唐山', '出版业', '201
 INSERT INTO `stockcreditor` VALUES ('y', '产品12', '衡水', '演艺业', '2015-01-13', '1200', '12', '1', null, null, null, null, null, null, null, '11', '0', 'n');
 INSERT INTO `stockcreditor` VALUES ('z', '产品13', '保定', '美容业', '2015-01-14', '1300', '13', '1', null, null, null, null, null, null, null, '12', '0', 'n');
 */
-INSERT INTO `stockcreditor` VALUES ('b', '产品2', '大连', '工业', '2015-01-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
-INSERT INTO `stockcreditor` VALUES ('o', '产品2', '武汉', '工业', '2015-09-03', '200', '2', '0', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
-INSERT INTO `stockcreditor` VALUES ('c', '产品2', '武汉', '工业', '2015-09-03', '200', '2', '1', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
-INSERT INTO `stockcreditor` VALUES ('v', '产品2', '大连', '工业', '2015-01-03', '200', '2', '1', null, null, null, null, null, null, null, '1', '0', '292ABC3521394FDEB6F553E5BD0D3C49',null,null,null,null,null,null,null);
+INSERT INTO `stockcreditor` VALUES ('product1', '星尘财富投资有限公司第1期私募债', '大连', '工业', '2015-01-03', '20000', '2', '0', '30%', '0', '12%年', '0', '商业计划书', '要求项目真实可靠，能达到预期的利润，企业有稳定的财务收入。', '0', '1', '0', 'investor1', '股权转让', '1', '中国工商银行', '1000', '500', '1', '1');
+INSERT INTO `stockcreditor` VALUES ('product2', '亚洲风影视传媒有限公司第2期私募股权', '沈阳', '医药业', '2015-01-04', '30000', '3', '1', '40%', '1', '10%年', '1', '项目计划书', '业务仅限于上海市范围以内，抵押物为住宅、别墅、商铺、办公楼宇。', '1', '2', '0', 'investor1', '股份回购', '2', '中国建设银行', '2000', '1000', '1', '1');
+INSERT INTO `stockcreditor` VALUES ('product3', '中雅机电视野有限公司第3期私募债', '承德', '采矿业', '2015-01-05', '40000', '4', '0', '50%', '2', '15%年', '2', '相关财务资料', '上海某企业资金1000万-7000万提供短期债权融资服务，要求公司经营良好。', '2', '3', '1', 'investor1', '股权转让', '3', '中国农业银行', '1500', '1000', '1', '1');
 -- ----------------------------
 -- Table structure for `asset`
 -- ----------------------------

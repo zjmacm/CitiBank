@@ -60,6 +60,7 @@
         </div>
     </div>
     <div id="content">
+        <a href="/asset/getDetailPage">
         <div id="subtitle">
             股权状况分布
         </div>
