@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.*;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.util.Assert;
 
+import javax.xml.transform.SourceLocator;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;

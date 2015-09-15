@@ -182,6 +182,7 @@ public class InvestorController {
         String userId = (String) session.getAttribute("userId");
         int result = investorService.saveInvestorInfo(parms, userId);
         Map<String, String> status = new HashMap<String, String>();
+        System.out.println("result: "+result);
         if (result == 0) {
             status.put("result", "failed");
         } else {

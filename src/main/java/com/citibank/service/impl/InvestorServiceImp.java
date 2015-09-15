@@ -31,14 +31,14 @@ public class InvestorServiceImp implements InvestorService {
         String result;
         String username = (String) reqs.get("username");
         String sql = "select username from investor where username=:username";
-        Map<String, Object> map=new HashMap<String, Object>();
+        Map<String, Object> map = new HashMap<String, Object>();
         map.put("username", username);
         if (mySQLSimpleDao.queryForList(sql, map).size() > 0) {
             result = "repeat";
         } else {
             try {
-                String investorId= IdUtil.uuid();
-                reqs.put("investorId",investorId);
+                String investorId = IdUtil.uuid();
+                reqs.put("investorId", investorId);
                 mySQLSimpleDao.create("investor", reqs);
                 result = "success";
             } catch (Exception e) {
@@ -47,7 +47,7 @@ public class InvestorServiceImp implements InvestorService {
             }
         }
         map.clear();
-        map.put("result",result);
+        map.put("result", result);
         return map;
     }
 
@@ -82,17 +82,17 @@ public class InvestorServiceImp implements InvestorService {
 
     public boolean hasEmail(String email) {
         List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where username = ?", email);
-        if(result.size()>0){
+        if (result.size() > 0) {
             return false;
         }
         return true;
     }
 
     public Map<String, Object> getInvestorInfo(String userId) {
-        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where investorId=?",userId);
-        if(result.size()==0){
-            Map<String ,Object> map=new HashMap<String, Object>();
-            map.put("error","true");
+        List<Map<String, Object>> result = mySQLSimpleDao.queryForList("select * from investor where investorId=?", userId);
+        if (result.size() == 0) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("error", "true");
             return map;
         }
         return result.get(0);
@@ -100,8 +100,10 @@ public class InvestorServiceImp implements InvestorService {
 
 
     public int saveInvestorInfo(Map<String, Object> map, String userId) {
-        Map<String,Object> cons=new HashMap<String, Object>();
+        Map<String, Object> cons = new HashMap<String, Object>();
         cons.put("investorId", userId);
+        map.clear();
+        map.put("companyName","国家示范性软件学院");
         return mySQLSimpleDao.update("investor", map, cons);
     }
 

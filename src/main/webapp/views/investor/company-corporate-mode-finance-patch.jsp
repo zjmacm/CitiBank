@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Random" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -201,7 +202,7 @@
                             </td>
                             <td><%=1 + (int)(Math.random()*100)%>
                             </td>
-                            <td><%=1 + (int)(Math.random()*10)%>
+                            <td><% int count=new Random().nextInt(3)+1; for(int j=0;j<count;++j) out.print("A");%>
                             </td>
                         </tr>
                         <%}%>
