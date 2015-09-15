@@ -130,6 +130,7 @@
                                 </p>
                 </article>
             </div>
+            <a href="javascript:void(0);" onclick="alert('企业申请签约成功！');"><div id="okButton">确认签约</div></a>
         </div>
     </div>
     <div id="footer">

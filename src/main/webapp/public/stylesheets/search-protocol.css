@@ -224,3 +224,14 @@ p {
     margin-top: 0px;
     margin-bottom: 0;
 }
+
+#okButton {
+    margin-top: 20px;
+    background-color: #2A324B;
+    text-align: center;
+    width: 80px;
+    height: 1.2em;
+    line-height: 1.2em;
+    border-radius: 5px;
+    margin-left: 458px;
+}

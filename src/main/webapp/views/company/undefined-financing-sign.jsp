@@ -24,7 +24,7 @@
         <div class="list">
             <ul>
                 <li class="on">
-                    <a href="#">协议签约</a>
+                    <a href="/electronical/protolResign">协议签约</a>
                 </li>
                 <li>
                     <a href="/company/xieyichaxun.htm">协议查询</a>

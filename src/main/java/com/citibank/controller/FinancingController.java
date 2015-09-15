@@ -54,7 +54,8 @@ public class FinancingController {
                                          @RequestParam(value = "pageIndex", required = false, defaultValue = "1") int pageIndex,
                                          HttpSession session, Map<String, Object> map) {
         map.put("data", financingService.getMatchingCompany(reqs, pageIndex).getList());
-        System.out.println(map);
+        //System.out.println(map);
+
         return "investor/company-corporate-mode-finance-patch";
     }
 
