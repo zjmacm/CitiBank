@@ -197,11 +197,26 @@
                             </td>
                             <td><%=matching.get(i).get("workingFiled")%>
                             </td>
-                            <td><%=matching.get(i).get("investMoney")%>
+                            <%
+                                String[] string = {"个人资金","企业资金","天使投资"};
+                                int random = (int)(Math.random()*3+1);
+                                String investorMoney = string[random];%>
+                            <td><%=investorMoney%>
                             </td>
                             <td><%=1 + (int)(Math.random()*100)%>
                             </td>
-                            <td><%=1 + (int)(Math.random()*10)%>
+                            <% int a = (int)(Math.random()*3+1);
+                                char c;
+                                if(a==1){c  = 'A';}
+                                else if(a==2){c='B';}
+                                else {c='C';}
+                                int b = (int)(Math.random()*3+1);
+                                String s="";
+                                for(int ii=0;ii<b;ii++){
+                                    s+=c;
+                                }
+                            %>
+                            <td><%=s%>
                             </td>
                         </tr>
                         <%}%>

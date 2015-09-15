@@ -94,7 +94,9 @@ public class FinancingServiceImpl implements FinancingService {
                 "and investIndustry=:investIndustry and investMoney between :lowMoney and :highMoney " +
                 "and creditRank between :lowCreditRank and :highCreditRank and leastReturnDemand between :lowLeastReturnDemand and :highLeastReturnDemand";
         Order order = new Order().asc("productName");
-        return mySQLSimpleDao.pageQuery(sql, map, (pageIndex - 1) * 10 + 1, 10, order);
+        Page<Map<String,Object>> pages = mySQLSimpleDao.pageQuery(sql, map, (pageIndex - 1) * 10 + 1, 10, order);
+        
+        return pages;
     }
 
 }
