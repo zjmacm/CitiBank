@@ -42,7 +42,7 @@ public class SystemController {
 
     @RequestMapping("/index")
     public String index() {
-//        return "investor/network-service-protocol";
+
         return "main/index";
     }
 
